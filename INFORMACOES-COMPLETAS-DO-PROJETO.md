@@ -2,15 +2,16 @@
 
 ## 1. Resumo
 
-Este projeto é o site comercial da K7 Sites, criado como uma landing page premium para apresentar serviços, gerar confiança e transformar visitantes em pedidos de orçamento.
+Este projeto é o site comercial da K7 Sites, criado para apresentar serviços, gerar confiança e transformar visitantes em pedidos de orçamento.
 
 - Nome do projeto: K7 Sites Vendas
 - Versão: 1.0.0
-- Tipo: landing page institucional e comercial
+- Tipo: site institucional e comercial com páginas de aquisição
 - Idioma: português do Brasil
-- Rota pública: `/`
-- Estrutura de navegação: página única com âncoras
-- Hospedagem recomendada: Vercel
+- Rotas públicas: `/` e `/criacao-de-landing-pages/`
+- Navegação da homepage: página principal com âncoras internas
+- Hospedagem oficial: Vercel
+- Domínio canônico: `https://www.k7sites.com.br`
 - WhatsApp comercial: (11) 94921-4071
 - E-mail: k7sites@gmail.com
 - Perfil de avaliações: https://share.google/pDIhvdTpTxOyWEIOe
@@ -25,7 +26,8 @@ O site foi planejado para:
 - reforçar autoridade por meio de avaliações reais do Google;
 - apresentar preços iniciais e condições de pagamento;
 - reduzir dúvidas antes do contato;
-- encaminhar os visitantes para um pedido de orçamento pelo WhatsApp.
+- encaminhar os visitantes para um pedido de orçamento pelo WhatsApp;
+- captar tráfego orgânico com páginas específicas de serviço.
 
 ## 3. Identidade visual
 
@@ -70,7 +72,7 @@ O site foi planejado para:
 ### Interface e estilos
 
 - CSS responsivo personalizado.
-- Tailwind CSS 4.2.1 carregado pelo PostCSS.
+- Tailwind CSS 4.2.1 carregado pelo PostCSS e disponível na base.
 - `next/image` para otimização e dimensionamento das imagens.
 - `next/font` para carregar Manrope e Sora.
 - HTML semântico e atributos ARIA.
@@ -85,22 +87,28 @@ O site foi planejado para:
 - indicador de progresso de leitura.
 - contadores animados quando entram na tela.
 - formulário interativo dividido em três etapas.
+- galerias e sliders em componentes React.
 
 ### Qualidade e publicação
 
 - ESLint 9 para validação do código.
-- configuração TypeScript estrita.
-- configuração `vercel.json` para detecção como projeto Next.js.
-- build de produção com Turbopack do Next.js.
+- TypeScript em modo estrito.
+- comando `pnpm typecheck` para verificação de tipos.
+- comando `pnpm check` para lint, typecheck e build em sequência.
+- `vercel.json` para detecção como projeto Next.js.
+- hospedagem oficial na Vercel.
+- headers básicos de segurança configurados em `next.config.ts`.
 - imagens sociais Open Graph e Twitter/X.
 
 ## 5. Dependências de compatibilidade presentes no pacote
 
-O projeto foi originalmente iniciado em uma estrutura Vinext/OpenAI Sites. Por isso, o pacote completo ainda conserva arquivos e dependências de referência para Vinext, Vite, Cloudflare Workers, Wrangler, OpenAI Sites e Drizzle ORM.
+O projeto foi originalmente iniciado em uma estrutura Vinext/OpenAI Sites. Por isso, o pacote ainda conserva dependências e arquivos de referência para Vinext, Vite, Cloudflare Workers, Wrangler, OpenAI Sites e Drizzle ORM.
 
-Essas dependências não fazem parte da execução principal na Vercel. Os comandos ativos `dev`, `build` e `start` utilizam o Next.js padrão. Os arquivos antigos foram mantidos para preservar o histórico do projeto e não interferem na rota pública.
+Esses itens não fazem parte da execução principal na Vercel. Os comandos ativos `dev`, `build` e `start` utilizam o Next.js padrão.
 
-## 6. Seções da página
+Uma limpeza completa dessas dependências deve ser feita em uma alteração dedicada, atualizando `package.json` e `pnpm-lock.yaml` juntos e validando o resultado com `pnpm check`.
+
+## 6. Seções da homepage
 
 1. Faixa animada de diferenciais.
 2. Header com navegação e botão de orçamento.
@@ -170,9 +178,19 @@ A mensagem identifica que o visitante chegou pelo site da K7 Sites. O botão flu
 
 ### Google
 
-As três avaliações exibidas apontam para o perfil público de avaliações da K7 Sites:
+As avaliações exibidas apontam para o perfil público de avaliações da K7 Sites:
 
 `https://share.google/pDIhvdTpTxOyWEIOe`
+
+### Google Tag Manager
+
+O GTM é opcional e é carregado quando a variável abaixo está configurada:
+
+```env
+NEXT_PUBLIC_GTM_ID=GTM-XXXXXXXX
+```
+
+Os eventos da interface são enviados para `window.dataLayer` por `lib/analytics.ts`.
 
 ### E-mail
 
@@ -186,7 +204,7 @@ O formulário possui três etapas:
 2. tipo, objetivo e referência do projeto;
 3. prazo e descrição do negócio.
 
-Atualmente, o formulário valida os campos no navegador e, ao concluir, apresenta um botão para continuar o atendimento pelo WhatsApp.
+Atualmente, o formulário valida os campos no navegador e, ao concluir, direciona o atendimento para o WhatsApp.
 
 Importante: o formulário ainda não envia e-mail, não registra os dados em banco e não possui integração com CRM. Para armazenar os contatos, será necessário integrar um serviço de formulários, API, e-mail, CRM ou banco de dados.
 
@@ -206,7 +224,7 @@ Importante: o formulário ainda não envia e-mail, não registra os dados em ban
 - FAQ expansível;
 - transição entre as etapas do formulário.
 
-O projeto também respeita `prefers-reduced-motion`, reduzindo animações para usuários que ativam essa preferência no dispositivo.
+O projeto respeita `prefers-reduced-motion`, reduzindo animações para usuários que ativam essa preferência no dispositivo.
 
 ## 13. Responsividade e acessibilidade
 
@@ -221,82 +239,113 @@ O projeto também respeita `prefers-reduced-motion`, reduzindo animações para 
 
 ## 14. SEO e compartilhamento
 
-- título: “K7 Sites | Landing Pages e Sites Profissionais”;
-- descrição voltada para sites, landing pages, identidade e conversão;
-- idioma configurado como `pt-BR`;
+### Global
+
+- título: “Criação de Sites e Landing Pages Profissionais | K7 Sites”;
+- descrição voltada para sites institucionais, landing pages e geração de contatos;
+- idioma `pt-BR`;
+- canonical em `https://www.k7sites.com.br/`;
 - favicon com a marca K7 Sites;
 - imagem social em `public/og.png`;
-- metadados Open Graph;
-- metadados para Twitter/X;
-- estrutura semântica com títulos, seções, navegação e footer.
+- Open Graph;
+- Twitter/X Card;
+- JSON-LD com `WebSite`, `Organization`, `Service` e `FAQPage`.
 
-Depois de conectar o domínio definitivo na Vercel, pode-se configurar a URL base dos metadados para garantir links absolutos nas prévias sociais.
+### Rota de criação de landing pages
+
+`/criacao-de-landing-pages/` possui metadata, canonical, Open Graph, Twitter/X, `Service` e `FAQPage` próprios.
+
+### Rastreamento
+
+- `app/robots.ts` gera `/robots.txt`;
+- `app/sitemap.ts` gera `/sitemap.xml` e lista as duas rotas públicas atuais.
 
 ## 15. Rotas e navegação
 
-Existe somente uma rota criada pelo projeto:
+Existem duas rotas públicas comerciais:
 
-- `/` — página completa da K7 Sites.
+- `/` — página principal da K7 Sites;
+- `/criacao-de-landing-pages/` — página específica do serviço de landing pages.
 
-Os endereços `/#servicos`, `/#projetos`, `/#processo`, `/#sobre`, `/#depoimentos`, `/#investimento`, `/#faq` e `/#orcamento` são âncoras da mesma página. Eles não são páginas nem rotas separadas.
+Os endereços `/#servicos`, `/#projetos`, `/#processo`, `/#sobre`, `/#depoimentos`, `/#investimento`, `/#faq` e `/#orcamento` são âncoras da homepage e não rotas separadas.
 
-O Next.js também cria internamente a tela padrão de página não encontrada. Nenhuma rota comercial adicional foi inventada.
+O Next.js também cria internamente a tela padrão de página não encontrada.
 
 ## 16. Estrutura dos arquivos principais
 
-- `app/page.tsx`: conteúdo, dados, seções e interações da página.
-- `app/layout.tsx`: fontes, idioma, favicon e metadados SEO.
-- `app/globals.css`: identidade visual, responsividade e animações.
+- `app/page.tsx`: conteúdo, dados, seções e interações da homepage.
+- `app/layout.tsx`: fontes, idioma, favicon, metadados, JSON-LD e GTM.
+- `app/globals.css`: identidade visual, responsividade e animações globais.
+- `app/criacao-de-landing-pages/`: página específica de landing pages.
+- `components/site-preloader.tsx`: preloader.
 - `components/ui/image-stream.tsx`: carrossel animado de nichos.
-- `public/`: logotipo, imagens, mockups, favicon, WhatsApp e imagem social.
+- `components/ui/home-projects-gallery.tsx`: galeria de projetos da homepage.
+- `components/ui/project-gallery.tsx`: componente auxiliar de galeria.
+- `lib/analytics.ts`: integração de eventos com `dataLayer`.
+- `public/`: logotipo, imagens, mockups, ícones e imagem social.
 - `package.json`: versões, dependências e comandos do projeto.
 - `pnpm-lock.yaml`: versões travadas das dependências.
-- `next.config.ts`: configuração do Next.js.
+- `next.config.ts`: imagens e headers básicos de segurança.
 - `vercel.json`: identificação do framework para a Vercel.
 - `tsconfig.json`: configuração do TypeScript.
+- `ARQUITETURA.md`: arquitetura técnica atual.
 - `GUIA-TECNOLOGIAS-E-HOSPEDAGEM.md`: guia rápido de execução e publicação.
-- `INFORMACOES-COMPLETAS-DO-PROJETO.md`: documentação completa deste projeto.
+- `INFORMACOES-COMPLETAS-DO-PROJETO.md`: documentação funcional e comercial.
 
 ## 17. Executar no computador
 
-Pré-requisito: Node.js 22.x e pnpm.
+Pré-requisitos: Node.js 22.x e pnpm.
 
 ```bash
 pnpm install
-pnpm run dev
+pnpm dev
 ```
 
-Depois, abra o endereço informado no terminal, normalmente `http://localhost:3000`.
+Depois, abra `http://localhost:3000`.
 
-## 18. Gerar versão de produção
+## 18. Validar e gerar versão de produção
 
 ```bash
-pnpm run lint
-pnpm run build
-pnpm run start
+pnpm lint
+pnpm typecheck
+pnpm build
 ```
 
-O build foi validado com sucesso antes da geração do pacote final.
+Ou execute:
+
+```bash
+pnpm check
+```
+
+Para iniciar a build localmente após compilar:
+
+```bash
+pnpm start
+```
 
 ## 19. Publicar na Vercel
 
-1. Extraia o arquivo ZIP.
-2. Envie a pasta do projeto para um repositório no GitHub.
-3. Entre na Vercel e selecione “Add New Project”.
-4. Importe o repositório.
-5. Confirme a detecção de Next.js.
-6. Não configure uma pasta de saída manualmente.
-7. Publique o projeto.
+Fluxo recomendado:
 
-Não existem variáveis de ambiente obrigatórias para a versão atual. O projeto não precisa de banco de dados para exibir a página.
+1. trabalhe em uma branch separada;
+2. execute `pnpm check`;
+3. abra Pull Request para `main`;
+4. revise o preview da Vercel;
+5. faça merge somente após aprovação.
 
-## 20. Status da entrega
+A Vercel deve detectar Next.js automaticamente. Não configure pasta de saída manual.
 
-- build de produção: aprovado;
-- lint: aprovado;
-- rota principal `/`: status 200;
-- rota inexistente de teste: status 404;
-- design e conteúdo visual: preservados;
-- pacote de dependências: não incluído no ZIP;
-- caches e arquivos de build: não incluídos no ZIP;
-- projeto pronto para instalação e publicação na Vercel.
+A variável `NEXT_PUBLIC_GTM_ID` é opcional. O projeto não precisa de banco de dados para exibir o site.
+
+## 20. Status técnico
+
+- runtime principal: Next.js na Vercel;
+- domínio canônico: `www.k7sites.com.br`;
+- sitemap: inclui `/` e `/criacao-de-landing-pages/`;
+- formulário: client-side com encaminhamento para WhatsApp;
+- banco/CRM: não integrados;
+- GTM: opcional via variável de ambiente;
+- headers básicos de segurança: configurados em `next.config.ts`;
+- lint, typecheck e build devem ser executados com `pnpm check` antes de produção.
+
+Consulte também `ARQUITETURA.md` e `AGENTS.md` antes de mudanças estruturais.

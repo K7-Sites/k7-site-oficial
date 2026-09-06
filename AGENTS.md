@@ -32,24 +32,32 @@ Este arquivo define as regras permanentes para qualquer agente de código que tr
 - Hospedagem oficial: Vercel.
 - Domínio canônico: `https://www.k7sites.com.br`.
 - O domínio `https://k7sites.com.br` redireciona permanentemente para o domínio com `www`.
-- Rota comercial existente: somente `/`.
-- Os itens `#servicos`, `#projetos`, `#processo`, `#sobre`, `#depoimentos`, `#investimento`, `#faq` e `#orcamento` são âncoras, não rotas.
+- Rotas públicas atuais: `/` e `/criacao-de-landing-pages/`.
+- Na homepage, os itens `#servicos`, `#projetos`, `#processo`, `#sobre`, `#depoimentos`, `#investimento`, `#faq` e `#orcamento` são âncoras, não rotas.
 
 ### Arquivos principais
 
-- `app/page.tsx`: conteúdo, dados, seções e interações da página.
-- `app/layout.tsx`: estrutura global, fontes, favicon e metadados.
+- `app/page.tsx`: conteúdo, dados, seções e interações da homepage.
+- `app/layout.tsx`: estrutura global, fontes, favicon, metadados, JSON-LD e GTM.
 - `app/globals.css`: identidade visual, layout, responsividade e animações.
+- `app/criacao-de-landing-pages/`: rota específica de criação de landing pages.
+- `components/site-preloader.tsx`: preloader do site.
 - `components/ui/image-stream.tsx`: carrossel animado de nichos.
+- `components/ui/home-projects-gallery.tsx`: galeria principal da homepage.
+- `lib/analytics.ts`: eventos enviados para `dataLayer`.
+- `app/robots.ts`: geração de `robots.txt`.
+- `app/sitemap.ts`: geração de `sitemap.xml`.
 - `public/`: logo, imagens, mockups, ícones, favicon e imagem social.
 - `vercel.json`: identificação do projeto como Next.js na Vercel.
+- `ARQUITETURA.md`: visão técnica da arquitetura ativa.
 - `INFORMACOES-COMPLETAS-DO-PROJETO.md`: documentação funcional do site.
 
 ## 4. Estrutura legada
 
-- As pastas `db/`, `drizzle/`, `worker/`, `.openai/` e os arquivos de Vite/Vinext/Cloudflare são herança da estrutura inicial.
-- Eles não fazem parte da execução principal do Next.js na Vercel.
-- Não os conecte ao site, não os migre e não os exclua sem uma solicitação específica de limpeza ou migração.
+- As pastas `db/`, `drizzle/`, `.openai/`, `examples/` e dependências relacionadas a Vite/Vinext/Cloudflare são herança da estrutura inicial.
+- Elas não fazem parte da execução principal do Next.js na Vercel.
+- Não conecte esses itens ao site nem os use em funcionalidades novas sem uma decisão explícita de reaproveitamento ou migração.
+- Uma limpeza dessas dependências deve atualizar `package.json` e `pnpm-lock.yaml` juntos e ser validada com `pnpm check`.
 - Não volte os scripts `dev`, `build` ou `start` para Vinext, Vite, Wrangler ou Cloudflare.
 - A presença de dependências legadas não autoriza seu uso em funcionalidades novas.
 
@@ -205,12 +213,15 @@ Este arquivo define as regras permanentes para qualquer agente de código que tr
 
 ```bash
 pnpm install
-pnpm run dev
-pnpm run lint
-pnpm run build
-pnpm run start
+pnpm dev
+pnpm lint
+pnpm typecheck
+pnpm build
+pnpm start
+pnpm check
 ```
 
+- `pnpm check` executa lint, verificação de tipos e build em sequência.
 - Não configure uma pasta de saída manual na Vercel para este projeto Next.js.
 - Não altere Node.js 22.x sem verificar compatibilidade com Next.js e Vercel.
 
@@ -218,7 +229,7 @@ pnpm run start
 
 Antes de alterar:
 
-1. Leia este arquivo e `INFORMACOES-COMPLETAS-DO-PROJETO.md`.
+1. Leia este arquivo, `ARQUITETURA.md` e `INFORMACOES-COMPLETAS-DO-PROJETO.md`.
 2. Inspecione `git status` e preserve mudanças do usuário.
 3. Localize a fonte real do comportamento antes de editar.
 4. Confirme se a solicitação altera design, dados comerciais, integração, segurança ou hospedagem.
@@ -236,10 +247,9 @@ Depois da alteração:
 
 1. Revise o diff.
 2. Verifique links, textos, valores, responsividade e acessibilidade afetados.
-3. Execute `pnpm run lint` para mudanças de código.
-4. Execute `pnpm run build` antes de publicar ou entregar uma alteração funcional.
-5. Confirme que `/` continua funcionando e que nenhuma rota foi criada por acidente.
-6. Informe ao usuário quais arquivos foram alterados e como validar.
+3. Execute `pnpm check` para mudanças funcionais ou antes de publicar.
+4. Confirme que `/` e `/criacao-de-landing-pages/` continuam funcionando e que nenhuma rota foi criada por acidente.
+5. Informe ao usuário quais arquivos foram alterados e como validar.
 
 ## 16. Git, GitHub e Vercel
 
@@ -279,7 +289,7 @@ Uma tarefa só está concluída quando:
 - os dados comerciais permanecem corretos;
 - a experiência funciona em desktop e mobile;
 - segurança e acessibilidade não regrediram;
-- lint e build relevantes passaram;
+- lint, typecheck e build relevantes passaram;
 - não surgiram novas rotas ou dependências por acidente;
 - o diff foi revisado;
 - o usuário recebeu um resumo claro em português.
