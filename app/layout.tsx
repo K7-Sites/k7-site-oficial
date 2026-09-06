@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Manrope, Sora } from "next/font/google";
 import "./globals.css";
+import "./whatsapp-tooltip.css";
 
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
