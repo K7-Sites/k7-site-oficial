@@ -106,9 +106,9 @@ export default function LandingPages() {
     <section className="lp-hero" id="conteudo"><div className="lp-grid" aria-hidden="true" /><div className="lp-orb" aria-hidden="true" />
       <div className="lp-container lp-hero-layout">
         <div className="lp-hero-copy">
-          <p className="lp-eyebrow">LANDING PAGES DE ALTA PERFORMANCE</p>
-          <h1>Crie sua Landing Page profissional a partir de <em>R$399,00</em></h1>
-          <p className="lp-lead">Criamos páginas rápidas, estratégicas e visualmente profissionais para apresentar sua empresa, gerar confiança e direcionar potenciais clientes para o contato.</p>
+          <p className="lp-eyebrow">CRIAÇÃO DE LANDING PAGES PROFISSIONAIS</p>
+          <h1>Criação de Landing Page profissional a partir de <em>R$399,00</em></h1>
+          <p className="lp-lead">Criamos landing pages personalizadas para empresas, profissionais e prestadores de serviço que precisam apresentar uma oferta com clareza, fortalecer a confiança e transformar visitas em contatos pelo WhatsApp.</p>
           <div className="lp-actions"><WhatsAppButton location="hero">Quero minha Landing Page</WhatsAppButton><a className="lp-button lp-button-ghost" href="#exemplos">Ver exemplos <Arrow /></a></div>
           <ul className="lp-benefit-list">{["Design profissional", "Responsiva", "Estrutura preparada para SEO", "Foco em conversão"].map(item => <li key={item}><Check />{item}</li>)}</ul>
         </div>
@@ -138,6 +138,17 @@ export default function LandingPages() {
     <section className="lp-section lp-explainer"><div className="lp-container lp-two-col">
       <div className="lp-heading lp-reveal"><p className="lp-eyebrow">CLAREZA QUE CONDUZ</p><h2>Uma página com um <em>objetivo específico.</em></h2><p>Uma Landing Page apresenta sua oferta de forma estratégica, responde às dúvidas essenciais e mostra ao visitante exatamente qual é o próximo passo.</p></div>
       <ol className="lp-funnel lp-reveal">{["Visita sua página", "Conhece sua empresa", "Entende a oferta", "Entra em contato"].map((item, index) => <li key={item}><span>0{index + 1}</span><b>{item}</b></li>)}</ol>
+    </div></section>
+
+    <section className="lp-section lp-included" id="landing-page-profissional"><div className="lp-container lp-two-col">
+      <div className="lp-heading lp-reveal"><p className="lp-eyebrow">LANDING PAGE PARA EMPRESAS E PROFISSIONAIS</p><h2>Quando uma <em>Landing Page profissional</em> faz sentido?</h2><p>Ela é indicada quando você precisa concentrar a atenção em um serviço, campanha ou oferta e facilitar uma ação específica. Em vez de espalhar informações em vários canais, a página organiza proposta de valor, diferenciais, prova social, dúvidas frequentes e contato em uma única jornada.</p><p>Para negócios locais, profissionais liberais, prestadores de serviço, cursos e empresas que anunciam na internet, uma landing page pode funcionar como ponto central entre Google, anúncios, redes sociais e o atendimento comercial.</p></div>
+      <ul className="lp-included-list lp-reveal">{["Apresentar um serviço de forma clara", "Receber tráfego de Google e campanhas", "Direcionar contatos para o WhatsApp", "Explicar preço, processo e diferenciais", "Mostrar projetos e avaliações reais", "Criar uma URL própria para uma oferta"].map(i => <li key={i}><Check />{i}</li>)}</ul>
+    </div></section>
+
+    <section className="lp-section lp-perception"><div className="lp-container">
+      <div className="lp-heading lp-centered lp-reveal"><p className="lp-eyebrow">ESTRATÉGIA DE CONTEÚDO E SEO</p><h2>Uma página pensada para <em>pessoas e mecanismos de busca.</em></h2><p>SEO começa com conteúdo útil e estrutura técnica consistente. A K7 organiza títulos, textos, imagens, metadados e navegação para que o tema da página fique claro sem transformar a experiência em uma sequência artificial de palavras-chave.</p></div>
+      <div className="lp-perception-grid"><article className="lp-list-panel lp-reveal"><small>CONTEÚDO</small>{["Oferta explicada com clareza", "Dúvidas reais respondidas", "Hierarquia de títulos", "Texto legível e objetivo", "Links internos úteis"].map(i => <p key={i}>{i}</p>)}</article><article className="lp-list-panel featured lp-reveal"><small>ESTRUTURA TÉCNICA</small>{["URL canônica", "Metadados próprios", "Dados estruturados", "Sitemap e rastreamento", "Experiência responsiva", "Imagens otimizadas"].map(i => <p key={i}><Check />{i}</p>)}</article></div>
+      <div className="lp-actions" style={{ justifyContent: "center", marginTop: 32 }}><Link className="lp-button lp-button-ghost" href="/#servicos">Conhecer todos os serviços da K7 Sites <Arrow /></Link></div>
     </div></section>
 
     <HomeProjectsSection id="exemplos" />
@@ -176,6 +187,6 @@ export default function LandingPages() {
 
     <section className="lp-final"><div className="lp-grid" aria-hidden="true" /><div className="lp-container lp-final-content lp-reveal"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={150} height={154} /><p>SUA PRÓXIMA OPORTUNIDADE PODE COMEÇAR AQUI</p><h2>Sua empresa já está pronta. Agora ela precisa de uma presença digital à altura.</h2><span>Vamos criar uma Landing Page profissional para apresentar seu negócio, gerar confiança e transformar visitantes em novas oportunidades.</span><WhatsAppButton location="cta_final" light>Quero minha Landing Page</WhatsAppButton></div></section>
 
-    <footer className="lp-footer"><div className="lp-container lp-footer-grid"><div><Link href="/" aria-label="K7 Sites — início"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={104} height={108} /></Link><p>Sites e landing pages com estratégia, identidade e acabamento profissional.</p></div><div><small>NAVEGAÇÃO</small><Link href="/">Página inicial</Link><a href="#beneficios">Benefícios</a><a href="#exemplos">Exemplos</a><a href="#processo">Processo</a><a href="#faq">FAQ</a></div><div><small>CONTATO</small><a href="mailto:k7sites@gmail.com">k7sites@gmail.com</a><a href={whatsapp} target="_blank" rel="noreferrer" onClick={() => trackWhatsApp("footer", "WhatsApp: (11) 94921-4071")}>WhatsApp: (11) 94921-4071</a></div></div><div className="lp-container lp-footer-bottom"><span>© {new Date().getFullYear()} K7 Sites. Todos os direitos reservados.</span><a href="#inicio">Voltar ao topo ↑</a></div></footer>
+    <footer className="lp-footer"><div className="lp-container lp-footer-grid"><div><Link href="/" aria-label="K7 Sites — início"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={104} height={108} /></Link><p>Sites e landing pages com estratégia, identidade e acabamento profissional.</p></div><div><small>NAVEGAÇÃO</small><Link href="/">Página inicial</Link><Link href="/#servicos">Todos os serviços</Link><a href="#beneficios">Benefícios</a><a href="#exemplos">Exemplos</a><a href="#processo">Processo</a><a href="#faq">FAQ</a></div><div><small>CONTATO</small><a href="mailto:k7sites@gmail.com">k7sites@gmail.com</a><a href={whatsapp} target="_blank" rel="noreferrer" onClick={() => trackWhatsApp("footer", "WhatsApp: (11) 94921-4071")}>WhatsApp: (11) 94921-4071</a></div></div><div className="lp-container lp-footer-bottom"><span>© {new Date().getFullYear()} K7 Sites. Todos os direitos reservados.</span><a href="#inicio">Voltar ao topo ↑</a></div></footer>
   </main>;
 }
