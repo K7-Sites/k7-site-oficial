@@ -121,6 +121,21 @@ export default function LandingPages() {
       </div>
     </section>
 
+    <section className="lp-performance-art" aria-label="Indicadores de desempenho de uma landing page">
+      <div className="lp-container">
+        <div className="lp-performance-art-scroll">
+          <Image
+            src="/landing-page-profissional-auto-desenpenho.webp"
+            alt="Arte com indicadores de uma landing page: desempenho 98, acessibilidade 96, práticas recomendadas 99, SEO 100 e navegação agêntica 2 de 2."
+            width={2048}
+            height={682}
+            sizes="(max-width: 620px) 900px, (max-width: 1228px) calc(100vw - 48px), 1180px"
+          />
+        </div>
+        <p className="lp-performance-art-hint">Deslize para ver todos os indicadores.</p>
+      </div>
+    </section>
+
     <section className="lp-section lp-devices"><div className="lp-container lp-two-col">
       <div className="lp-heading lp-reveal"><p className="lp-eyebrow">EXPERIÊNCIA RESPONSIVA</p><h2>Sua empresa profissional em <em>qualquer tela.</em></h2><p>O conteúdo se adapta sem perder hierarquia, legibilidade ou acesso rápido ao contato.</p></div>
       <div className="lp-device-demo lp-reveal"><div className="lp-demo-desktop"><Image src="/project-stream/higienizacao.jpg" alt="Landing Page demonstrativa exibida em desktop" fill sizes="460px" /></div><div className="lp-demo-tablet"><Image src="/project-stream/higienizacao.jpg" alt="Landing Page demonstrativa exibida em tablet" fill sizes="190px" /></div><div className="lp-demo-mobile"><Image src="/project-stream/higienizacao.jpg" alt="Landing Page demonstrativa exibida em smartphone" fill sizes="110px" /></div></div>
