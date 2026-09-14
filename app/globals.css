@@ -158,6 +158,16 @@ em { color: var(--blue); font-style: normal; }
 .stat-item strong i { color: var(--cyan); font-style: normal; }
 .stat-item p { margin: 0; color: rgba(255,255,255,.62); font-size: clamp(13px,1.35vw,18px); line-height: 1.4; }
 
+.home-performance-art { padding: 52px 0; background: #080b14; }
+.home-performance-art-scroll { overflow-x: auto; }
+.home-performance-art img { width: 100%; height: auto; display: block; }
+.home-performance-art-hint { display: none; }
+@media (max-width: 620px) {
+  .home-performance-art { padding: 40px 0; }
+  .home-performance-art-scroll img { width: 900px; max-width: none; }
+  .home-performance-art-hint { display: block; margin: 12px 0 0; color: rgba(255,255,255,.62); font-size: 12px; text-align: center; }
+}
+
 .niche-showcase { position:relative;padding:110px 0 115px;overflow:hidden;background:#050608;border-top:1px solid rgba(255,255,255,.08); }
 .niche-showcase::before { content:"";position:absolute;width:720px;height:720px;left:50%;top:30%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(21,101,255,.18),transparent 66%);pointer-events:none; }
 .niche-heading { position:relative;z-index:3;margin-bottom:46px; }

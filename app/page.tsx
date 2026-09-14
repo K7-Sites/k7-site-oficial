@@ -340,6 +340,21 @@ ${field("mensagem")}`;
         <CounterStat value={100} suffix="%" label="Responsivo e rápido" />
       </div></section>
 
+      <section className="home-performance-art" aria-label="Indicadores de desempenho de uma landing page">
+        <div className="container">
+          <div className="home-performance-art-scroll">
+            <Image
+              src="/landing-page-profissional-auto-desenpenho.webp"
+              alt="Arte com indicadores de uma landing page: desempenho 98, acessibilidade 96, práticas recomendadas 99, SEO 100 e navegação agêntica 2 de 2."
+              width={2048}
+              height={682}
+              sizes="(max-width: 620px) 900px, (max-width: 1228px) calc(100vw - 48px), 1180px"
+            />
+          </div>
+          <p className="home-performance-art-hint">Deslize para ver todos os indicadores.</p>
+        </div>
+      </section>
+
       <section className="niche-showcase" aria-labelledby="niche-showcase-title">
         <div className="container">
           <div className="section-heading centered niche-heading reveal">
