@@ -160,7 +160,7 @@ em { color: var(--blue); font-style: normal; }
 
 .home-performance-art { padding: 52px 0; background: #080b14; }
 .home-performance-art-scroll { overflow-x: auto; }
-.home-performance-art img { width: 100%; height: auto; display: block; }
+.home-performance-art img { width: 100%; height: auto; display: block; border-radius: 40px; }
 .home-performance-art-hint { display: none; }
 @media (max-width: 620px) {
   .home-performance-art { padding: 40px 0; }
