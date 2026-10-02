@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { GoogleTagManager } from "@next/third-parties/google";
+import Script from "next/script";
 import { Manrope, Sora } from "next/font/google";
 import "./globals.css";
 import "./whatsapp-tooltip.css";
-
-const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -114,7 +112,16 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
-        {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-2PK8GHK05G"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2PK8GHK05G');`}
+        </Script>
       </body>
     </html>
   );
