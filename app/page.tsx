@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { ImageStream } from "@/components/ui/image-stream";
 import { HomeProjectsSection } from "@/components/ui/home-projects-gallery";
@@ -237,10 +238,11 @@ function CounterStat({ value, suffix, label }: { value: number; suffix: string; 
 }
 
 export default function Home() {
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const [sent, setSent] = useState(false);
-  const [submittedWhatsappLink, setSubmittedWhatsappLink] = useState(whatsappLink);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const trackWhatsAppClick = (
     buttonLocation: "hero" | "header" | "portfolio" | "final_cta" | "floating_button",
@@ -265,25 +267,35 @@ export default function Home() {
     return () => { observer.disconnect(); window.removeEventListener("scroll", updateProgress); };
   }, []);
 
-  const submitForm = (event: FormEvent<HTMLFormElement>) => {
+  const submitForm = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const field = (name: string) => String(formData.get(name) ?? "");
-    const message = `Olá! Vim pelo site da K7 Sites e gostaria de solicitar um orçamento.
+    if (isSubmitting) return;
 
-Nome: ${field("nome")}
-E-mail: ${field("email")}
-Tipo de projeto: ${field("projeto")}
-Objetivo: ${field("objetivo")}
+    setIsSubmitting(true);
+    setSubmitError("");
 
-Sobre a empresa e o projeto:
-${field("mensagem")}`;
-    const formWhatsappLink = `https://wa.me/5511949214071?text=${encodeURIComponent(message)}`;
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
 
-    setSubmittedWhatsappLink(formWhatsappLink);
-    setSent(true);
-    trackWhatsAppClick("final_cta", "Enviar pelo WhatsApp");
-    window.open(formWhatsappLink, "_blank", "noopener,noreferrer");
+    try {
+      const response = await fetch("/api/contato", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) throw new Error("Não foi possível enviar sua mensagem.");
+
+      trackEvent("form_contato_enviado", {
+        page_path: window.location.pathname,
+        project_type: String(formData.get("projeto") ?? ""),
+      });
+      router.push("/mensagem-recebida-com-sucesso");
+    } catch {
+      setSubmitError("Não conseguimos enviar sua mensagem agora. Tente novamente em instantes ou fale com a K7 pelo WhatsApp.");
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -456,10 +468,11 @@ ${field("mensagem")}`;
             <p className="contact-kicker">ORÇAMENTO SIMPLES</p><h3>Seu próximo projeto começa com uma conversa clara.</h3><p>Preencha o briefing rápido. Assim conseguimos entender seu momento antes do primeiro contato.</p>
             <div className="contact-direct"><small>PREFERE FALAR AGORA?</small><a className="whatsapp-direct" href={whatsappLink} target="_blank" rel="noreferrer" onClick={() => trackWhatsAppClick("final_cta", "WhatsApp: (11) 94921-4071")}>WhatsApp: (11) 94921-4071 <Arrow diagonal /></a></div>
           </aside>
-          <div className="form-shell reveal">{!sent ? <form onSubmit={submitForm}>
-            <div className="form-pane active"><h3>Conte sobre o seu projeto.</h3><label>Qual é o seu nome?<input name="nome" required placeholder="Digite seu nome" /></label><label>Qual é o melhor e-mail?<input name="email" type="email" required placeholder="voce@empresa.com.br" /></label><label>Qual tipo de projeto você precisa?<select name="projeto" required defaultValue=""><option value="" disabled>Selecione uma opção</option><option>Landing page</option><option>Site institucional</option><option>Página de vendas</option><option>Site para cursos</option><option>Redesign</option><option>Outro</option></select></label><label>Qual é o principal objetivo?<select name="objetivo" required defaultValue=""><option value="" disabled>Selecione uma opção</option><option>Gerar contatos</option><option>Vender uma oferta</option><option>Apresentar a empresa</option><option>Lançar um produto</option><option>Atualizar o site atual</option></select></label><label>Me conte um pouco sobre sua empresa e o projeto.<textarea name="mensagem" rows={5} required placeholder="O que você vende, para quem e qual resultado espera?" /></label></div>
-            <div className="form-actions"><button className="button button-primary" type="submit">Enviar pelo WhatsApp <Arrow /></button></div>
-          </form> : <div className="form-success"><span><Check /></span><small>FORMULÁRIO VALIDADO</small><h3>As informações estão prontas.</h3><p>O WhatsApp foi aberto em uma nova aba. Se ela foi bloqueada, use o link abaixo para continuar.</p><a className="button button-primary" href={submittedWhatsappLink} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("final_cta", "Continuar no WhatsApp")}>Continuar no WhatsApp <Arrow /></a><button type="button" onClick={() => setSent(false)}>Preencher novamente</button></div>}</div>
+          <div className="form-shell reveal"><form onSubmit={submitForm}>
+            <div className="form-pane active"><h3>Conte sobre o seu projeto.</h3><label>Qual é o seu nome?<input name="nome" required autoComplete="name" placeholder="Digite seu nome" /></label><label>Qual é o melhor e-mail?<input name="email" type="email" required autoComplete="email" placeholder="voce@empresa.com.br" /></label><label>Qual tipo de projeto você precisa?<select name="projeto" required defaultValue=""><option value="" disabled>Selecione uma opção</option><option>Landing page</option><option>Site institucional</option><option>Página de vendas</option><option>Site para cursos</option><option>Redesign</option><option>Outro</option></select></label><label>Qual é o principal objetivo?<select name="objetivo" required defaultValue=""><option value="" disabled>Selecione uma opção</option><option>Gerar contatos</option><option>Vender uma oferta</option><option>Apresentar a empresa</option><option>Lançar um produto</option><option>Atualizar o site atual</option></select></label><label>Me conte um pouco sobre sua empresa e o projeto.<textarea name="mensagem" rows={5} required placeholder="O que você vende, para quem e qual resultado espera?" /></label><input className="form-honeypot" name="empresa_site" tabIndex={-1} autoComplete="off" aria-hidden="true" /></div>
+            {submitError ? <p className="form-error" role="alert">{submitError}</p> : null}
+            <div className="form-actions"><button className="button button-primary" type="submit" disabled={isSubmitting}>{isSubmitting ? "Enviando..." : "Enviar mensagem"} <Arrow /></button></div>
+          </form></div>
         </div>
       </div></section>
 
