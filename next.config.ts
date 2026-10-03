@@ -14,6 +14,15 @@ const nextConfig: NextConfig = {
   images: {
     qualities: [75, 90],
   },
+  async redirects() {
+    return [
+      {
+        source: "/mensagem-recebida-com-sucesso.html",
+        destination: "/mensagem-recebida-com-sucesso",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
