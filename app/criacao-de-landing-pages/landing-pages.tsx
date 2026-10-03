@@ -179,7 +179,7 @@ export default function LandingPages() {
       <nav className={menuOpen ? "lp-nav is-open" : "lp-nav"} aria-label="Navegação da página">
         <a href="#beneficios" onClick={() => setMenuOpen(false)}>Benefícios</a><a href="#exemplos" onClick={() => setMenuOpen(false)}>Exemplos</a><a href="#processo" onClick={() => setMenuOpen(false)}>Processo</a><a href="#investimento" onClick={() => setMenuOpen(false)}>Investimento</a><a href="#faq" onClick={() => setMenuOpen(false)}>FAQ</a>
       </nav>
-      <ContactButton>Solicitar orçamento</ContactButton>
+      <ContactButton>Fale conosco</ContactButton>
       <button className="lp-menu" type="button" aria-label="Abrir menu" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}><span /><span /></button>
     </header>
 
