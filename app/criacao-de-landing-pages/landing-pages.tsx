@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { FormEvent, ReactNode } from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { HomeProjectsSection } from "@/components/ui/home-projects-gallery";
 import { trackEvent } from "@/lib/analytics";
 
@@ -22,13 +22,26 @@ const benefits = [
 ];
 
 const testimonials = [
-  ["Gabriel Rodrigues Da Luz", "Excelente trabalho, atendeu a demanda e me deu sugestões que foram eficazes no meu negócio"],
-  ["Alexandre Do Nascimento Ribeiro Pizatto", "Se pudesse dava nota 1000 pra vocês! superaram minhas expectativas em todos sentidos, custei pra achar mas finalmente achei uma empresa seria!! Sucesso sempre."],
-  ["Kaique Júnior macedo", "Excelente experiência, criaram o site da minha lavanderia . Ótimos profissionais, só tenho a agradecer, Deus abençoe vocês"],
-  ["Kaio Santos", "Excelente experiência com a K7 Sites! Desde o primeiro contato, demonstraram profissionalismo, atenção aos detalhes e muita dedicação para entregar um resultado de qualidade. O atendimento foi muito bom e o trabalho superou minhas expectativas. Dá para perceber o cuidado e o compromisso em cada etapa. Recomendo muito para quem procura um serviço profissional, confiável e de qualidade!"],
-  ["Beatriz Araújo", "Atendimento excelente. Criou minha página voltada para odontologia e hoje prospecto ainda mais clientes através dela 😍🚀👏 Obrigada."],
-  ["Breno Miguel", "Superou as expectativas, muito bom o trabalho e muita dedicação, sucesso. 🙌"],
-  ["Daniele Pedrosa", "Amei o site que criou pra mim! Exatamente da forma que solicitei. Excelente profissional!"],
+  { name: "Gabriel Rodrigues Da Luz", details: "0 avaliação • 0 foto", date: "Há 7 minutos", text: "Excelente trabalho, atendeu a demanda e me deu sugestões que foram eficazes no meu negócio" },
+  { name: "Alexandre Do Nascimento Ribeiro Pizatto", details: "2 avaliações • 0 foto", date: "Há 20 minutos", text: "Se pudesse dava nota 1000 pra vocês! superaram minhas expectativas em todos sentidos, custei pra achar mas finalmente achei uma empresa seria!! Sucesso sempre." },
+  { name: "Kaique Júnior macedo", details: "Local Guide • 2 avaliações • 40 fotos", date: "Há 33 minutos", text: "Excelente experiência, criaram o site da minha lavanderia . Ótimos profissionais, só tenho a agradecer, Deus abençoe vocês" },
+  { name: "Kaio Santos", details: "7 avaliações", date: "Uma hora atrás", text: "Excelente experiência com a K7 Sites! Desde o primeiro contato, demonstraram profissionalismo, atenção aos detalhes e muita dedicação para entregar um resultado de qualidade. O atendimento foi muito bom e o trabalho superou minhas expectativas. Dá para perceber o cuidado e o compromisso em cada etapa. Recomendo muito para quem procura um serviço profissional, confiável e de qualidade!" },
+  { name: "Beatriz Araújo", details: "3 avaliações • 0 foto", date: "Há 6 dias", text: "Atendimento excelente. Criou minha página voltada para odontologia e hoje prospecto ainda mais clientes através dela 😍🚀👏 Obrigada." },
+  { name: "Breno Miguel", details: "3 avaliações • 0 foto", date: "Há 6 dias", text: "Superou as expectativas, muito bom o trabalho e muita dedicação, sucesso. 🙌" },
+  { name: "Daniele Pedrosa", details: "Local Guide • 9 avaliações • 27 fotos", date: "Há 6 dias", text: "Amei o site que criou pra mim! Exatamente da forma que solicitei. Excelente profissional!" },
+];
+
+const technologies = [
+  { name: "Google", icon: "/technologies/google.svg" },
+  { name: "Vercel", icon: "/technologies/vercel.svg" },
+  { name: "Figma", icon: "/technologies/figma.svg" },
+  { name: "JavaScript", icon: "/technologies/javascript.svg" },
+  { name: "TypeScript", icon: "/technologies/typescript.svg" },
+  { name: "CSS", icon: "/technologies/css.svg" },
+  { name: "Node.js", icon: "/technologies/nodejs.svg" },
+  { name: "Visual Studio Code", icon: "/technologies/visual-studio-code.svg" },
+  { name: "Next.js", icon: "/technologies/nextjs.svg" },
+  { name: "PHP", icon: "/technologies/php.svg" },
 ];
 
 const included = ["Landing Page personalizada", "Design profissional", "Layout responsivo", "Integração com WhatsApp", "Formulário de contato", "SEO básico", "Estrutura preparada para Analytics", "Otimização de performance", "Orientação para publicação", "Ajustes finais previstos em proposta"];
@@ -80,10 +93,61 @@ function ContactButton({ children, light = false }: { children: ReactNode; light
   return <a className={`lp-button ${light ? "lp-button-light" : "lp-button-primary"}`} href="#orcamento">{children}<Arrow /></a>;
 }
 
+function TestimonialsSlider() {
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [pageCount, setPageCount] = useState(Math.max(1, testimonials.length - 2));
+
+  const getCards = () => Array.from(viewportRef.current?.querySelectorAll<HTMLElement>(".testimonial-card") ?? []);
+
+  const goTo = (index: number) => {
+    const viewport = viewportRef.current;
+    const cards = getCards();
+    if (!viewport || !cards.length) return;
+    const nextIndex = Math.max(0, Math.min(index, pageCount - 1));
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    viewport.scrollTo({ left: cards[nextIndex].offsetLeft - cards[0].offsetLeft, behavior: reducedMotion ? "auto" : "smooth" });
+    setActiveIndex(nextIndex);
+  };
+
+  useEffect(() => {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+    const updateLayout = () => {
+      const cards = getCards();
+      if (!cards.length) return;
+      const visibleCards = Math.max(1, Math.round(viewport.clientWidth / cards[0].offsetWidth));
+      const nextPageCount = Math.max(1, testimonials.length - visibleCards + 1);
+      setPageCount(nextPageCount);
+      setActiveIndex((current) => Math.min(current, nextPageCount - 1));
+    };
+    const initialFrame = requestAnimationFrame(updateLayout);
+    const observer = new ResizeObserver(updateLayout);
+    observer.observe(viewport);
+    return () => { cancelAnimationFrame(initialFrame); observer.disconnect(); };
+  }, []);
+
+  const handleScroll = () => {
+    const viewport = viewportRef.current;
+    const cards = getCards();
+    if (!viewport || cards.length < 2) return;
+    const step = cards[1].offsetLeft - cards[0].offsetLeft;
+    setActiveIndex(Math.min(pageCount - 1, Math.max(0, Math.round(viewport.scrollLeft / step))));
+  };
+
+  return <div className="testimonial-slider reveal" role="region" aria-roledescription="carrossel" aria-label="Avaliações de clientes da K7 Sites">
+    <div className="testimonial-slider-topbar"><p aria-live="polite">Exibindo grupo {activeIndex + 1} de {pageCount}</p><div className="testimonial-arrows"><button type="button" onClick={() => goTo(activeIndex - 1)} disabled={activeIndex === 0} aria-label="Ver avaliações anteriores">←</button><button type="button" onClick={() => goTo(activeIndex + 1)} disabled={activeIndex === pageCount - 1} aria-label="Ver próximas avaliações">→</button></div></div>
+    <div className="testimonial-viewport" ref={viewportRef} onScroll={handleScroll}><div className="testimonial-track">
+      {testimonials.map((testimonial, index) => <article className="testimonial-card" key={testimonial.name} aria-label={`Avaliação ${index + 1} de ${testimonials.length}`}><div className="testimonial-rating"><span aria-label="5 de 5 estrelas">★★★★★</span><div className="testimonial-google-score"><Image src="/technologies/google.svg" alt="Google" width={24} height={24} /><small>5.0</small></div></div><blockquote><p>{testimonial.text}</p></blockquote><footer><div><a href={reviews} target="_blank" rel="noopener noreferrer">{testimonial.name} ↗</a><span>{testimonial.details}</span></div><small>{testimonial.date}</small></footer></article>)}
+    </div></div>
+    <div className="testimonial-dots">{Array.from({ length: pageCount }).map((_, index) => <button type="button" key={index} className={index === activeIndex ? "is-active" : ""} onClick={() => goTo(index)} aria-label={`Ir para o grupo ${index + 1} de avaliações`} />)}</div>
+    <a className="testimonial-google-link" href={reviews} target="_blank" rel="noopener noreferrer">Ver avaliações no Google ↗</a>
+  </div>;
+}
+
 export default function LandingPages() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const [activeReview, setActiveReview] = useState(0);
 
   const submitForm = (event: FormEvent<HTMLFormElement>) => {
     const formData = new FormData(event.currentTarget);
@@ -201,17 +265,54 @@ export default function LandingPages() {
       <ul className="lp-included-list lp-reveal">{included.map(i => <li key={i}><Check />{i}</li>)}</ul>
     </div></section>
 
+    <section className="lp-section lp-explainer" aria-labelledby="seo-landing-title"><div className="lp-container lp-two-col">
+      <div className="lp-heading lp-reveal"><p className="lp-eyebrow">LANDING PAGE, VENDAS E MARKETING DIGITAL</p><h2 id="seo-landing-title">Criação de Landing Page para <em>captar leads e vender melhor.</em></h2><p>Uma Landing Page de vendas concentra a mensagem em uma única oferta e facilita a decisão de quem chegou por anúncios, Google, redes sociais ou outras ações de marketing digital.</p><p>Na criação de uma Landing Page profissional, trabalhamos o layout da Landing Page, a hierarquia do conteúdo, os argumentos de venda, as provas de confiança e os pontos de contato para transformar tráfego em novas oportunidades.</p></div>
+      <div className="lp-list-panel featured lp-reveal"><small>PARA QUEM ESTÁ PESQUISANDO</small><p><Check /> Landing Page para captar leads</p><p><Check /> Landing Page de vendas</p><p><Check /> Landing Page para marketing digital</p><p><Check /> Layout de Landing Page profissional</p><p><Check /> Landing Page rápida e responsiva</p><p><Check /> Exemplos de Landing Pages para empresas</p></div>
+    </div>
+    <div className="lp-container"><div className="lp-heading lp-centered lp-reveal" style={{ marginTop: 56, marginBottom: 0 }}><p>Se você também está comparando <strong>criação de site profissional</strong> e <strong>criação de sites profissionais</strong>, a principal diferença está no objetivo: a Landing Page trabalha uma campanha, serviço ou oferta específica; o site institucional apresenta a empresa de forma mais ampla. A K7 desenvolve os dois formatos e orienta qual estrutura faz mais sentido para o seu projeto.</p></div></div>
+    </section>
+
     <section className="lp-section lp-process" id="processo"><div className="lp-container">
       <div className="lp-heading lp-centered lp-reveal"><p className="lp-eyebrow">PROCESSO TRANSPARENTE</p><h2>Do briefing à página <em>publicada.</em></h2></div>
       <div className="lp-process-grid">{[["01","Briefing","Entendemos sua empresa, público e objetivo."],["02","Estratégia","Organizamos estrutura, conteúdo e direcionamento."],["03","Desenvolvimento","Criamos a experiência visual e responsiva."],["04","Ajustes","Você avalia e fazemos os ajustes combinados."],["05","Publicação","Validamos e orientamos a entrada da página no ar."]].map(([n,t,d]) => <article className="lp-process-card lp-reveal" key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p></article>)}</div>
     </div></section>
 
-    <section className="lp-section lp-proof"><div className="lp-container">
-      <div className="lp-heading lp-centered lp-reveal"><p className="lp-eyebrow">AVALIAÇÕES REAIS NO GOOGLE</p><h2>Confiança construída em <em>projetos reais.</em></h2><p>Experiências publicadas por clientes da K7 Sites no Google.</p></div>
-      <div className="lp-review-slider lp-reveal"><div className="lp-review-viewport"><div className="lp-review-track" style={{ transform: `translateX(-${activeReview * 100}%)` }}>{testimonials.map(([name,text]) => <blockquote className="lp-review" key={name}><div aria-label="5 de 5 estrelas">★★★★★</div><p>“{text}”</p><footer><b>{name}</b><span>Avaliação publicada no Google</span></footer></blockquote>)}</div></div><div className="lp-review-controls"><button type="button" aria-label="Avaliação anterior" onClick={() => setActiveReview((activeReview - 1 + testimonials.length) % testimonials.length)}>←</button><div>{testimonials.map(([name],index) => <button type="button" className={activeReview === index ? "is-active" : ""} aria-label={`Ver avaliação de ${name}`} aria-current={activeReview === index ? "true" : undefined} onClick={() => setActiveReview(index)} key={name} />)}</div><button type="button" aria-label="Próxima avaliação" onClick={() => setActiveReview((activeReview + 1) % testimonials.length)}>→</button></div><a className="lp-text-link" href={reviews} target="_blank" rel="noreferrer">Ver todas no Google <Arrow /></a></div>
+    <section className="section specialist" aria-labelledby="specialist-title"><div className="container">
+      <div className="section-heading centered reveal"><h2 id="specialist-title">Quem irá cuidar da sua <em>Landing Page.</em></h2></div>
+      <div className="specialist-grid">
+        <article className="specialist-main-card reveal">
+          <div className="specialist-card-art" aria-hidden="true" />
+          <div className="specialist-profile">
+            <div className="specialist-avatar"><Image src="/kassio-kennedy/kassio-kennedy-perfil.jpg" alt="Retrato de Kassio Kennedy" fill sizes="128px" quality={90} /></div>
+            <div><h3>Kassio Kennedy</h3><p>Engenharia de software, estratégia e design unidos para desenvolver Landing Pages profissionais com foco em clareza, performance e conversão.</p></div>
+          </div>
+          <div className="specialist-technologies"><h3>Tecnologias que fazem parte de cada projeto</h3><ul>{technologies.map((technology) => <li key={technology.name} title={technology.name}><Image src={technology.icon} alt="" width={30} height={30} aria-hidden="true" /><span>{technology.name}</span></li>)}</ul></div>
+        </article>
+        <article className="specialist-photo-card reveal">
+          <Image src="/kassio-kennedy/kassio-kennedy-desenvolvimento.jpg" alt="Kassio Kennedy desenvolvendo um projeto web" fill sizes="(max-width: 860px) 100vw, 390px" quality={90} />
+          <div className="specialist-photo-copy"><h3>Desenvolvimento Web</h3><div><span aria-label="5 de 5 estrelas">★★★★★</span><small>+200 projetos</small></div></div>
+        </article>
+      </div>
+      <div className="specialist-intro reveal">
+        <p>Sou Kassio Kennedy, formado em <em>Engenharia de Software</em> e atuo no desenvolvimento de soluções digitais completas. Na K7 Sites, cada projeto de criação de Landing Page é planejado para unir conteúdo, layout, velocidade e uma jornada clara até o contato.</p>
+        <p>O objetivo é entregar uma <em>Landing Page rápida, responsiva e preparada para SEO</em>, com acabamento profissional e estrutura adequada para campanhas, apresentação de serviços e captação de leads.</p>
+      </div>
     </div></section>
 
-    <section className="lp-section lp-offer" id="investimento"><div className="lp-container"><div className="lp-offer-card lp-reveal"><div><p className="lp-eyebrow">LANDING PAGE PROFISSIONAL</p><h2>Uma presença à altura do seu negócio.</h2><p>Projeto personalizado, responsivo e construído para apresentar sua oferta com clareza.</p></div><div className="lp-price"><small>A PARTIR DE</small><strong>R$ 399,00</strong><ul>{["Desenvolvimento profissional", "Layout responsivo", "WhatsApp", "SEO básico", "Orientação para publicação"].map(i => <li key={i}><Check />{i}</li>)}</ul><ContactButton light>Solicitar orçamento</ContactButton></div></div></div></section>
+    <section className="section proof" id="depoimentos"><div className="container">
+      <div className="section-heading centered reveal"><p className="eyebrow dark"><span /> AVALIAÇÕES NO GOOGLE</p><h2>A confiança cresce quando clientes reais <em>contam a experiência.</em></h2><p>Veja o que clientes da K7 Sites publicaram sobre seus projetos no Google.</p></div>
+      <TestimonialsSlider />
+    </div></section>
+
+    <section className="section pricing" id="investimento"><div className="pricing-rockets" aria-hidden="true">{Array.from({ length: 12 }).map((_, index) => <span key={index}>🚀</span>)}</div><div className="container">
+      <div className="section-heading centered reveal"><p className="eyebrow"><span /> FORMATOS DE PROJETO</p><h2>Escolha a solução adequada para <em>o seu objetivo.</em></h2><p>Compare uma Landing Page profissional com outras opções de presença digital antes de solicitar seu orçamento.</p></div>
+      <div className="pricing-grid">{[
+        { name: "Landing page", description: "Para divulgar uma oferta, captar leads e gerar contatos", price: "R$ 399,00", detail: "a partir de", features: ["Página completa e estratégica", "Layout de Landing Page responsivo", "Botões para WhatsApp", "SEO básico", "Copy organizada", "Entrega ágil"] },
+        { name: "Site institucional", description: "Para apresentar sua empresa com autoridade", price: "R$ 699,00", detail: "a partir de", features: ["Home e páginas internas", "Páginas de serviços", "Design profissional", "Google SEO", "WhatsApp e formulário", "Orientação após a entrega"] },
+        { name: "Projeto sob medida", description: "Para necessidades, integrações e estruturas especiais", price: "Sob avaliação", detail: "orçamento após análise", features: ["Escopo personalizado", "Funcionalidades específicas", "Integrações especiais", "Planejamento por etapas", "Prazo definido em proposta", "Acompanhamento próximo"] },
+      ].map((plan, index) => <article className={index === 0 ? "price-card featured reveal" : "price-card reveal"} key={plan.name}>{index === 0 && <span className="recommended">MAIS INDICADO</span>}<small>0{index + 1}</small><h3>{plan.name}</h3><p>{plan.description}</p><div className="price"><span>{plan.detail}</span>{plan.price}</div><ul>{plan.features.map((feature) => <li key={feature}><span className="check"><Check /></span>{feature}</li>)}</ul><a className={index === 0 ? "button button-primary" : "button button-ghost"} href="#orcamento">Pedir orçamento <Arrow /></a></article>)}</div>
+      <p className="payment-note reveal"><span className="check"><Check /></span> Condição padrão sugerida: 50% antes do início e 50% na conclusão do projeto.</p>
+    </div></section>
 
     <section className="section contact" id="orcamento"><div className="contact-glow" aria-hidden="true" /><div className="container">
       <div className="section-heading centered contact-heading reveal"><p className="eyebrow"><span /> SOLICITE UM ORÇAMENTO</p><h2>Vamos criar a solução certa para <em>o seu negócio.</em></h2><p>Conte brevemente o que você precisa. A K7 analisa o projeto e orienta o formato mais adequado para seus objetivos.</p></div>
