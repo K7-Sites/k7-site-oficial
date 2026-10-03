@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import type { ReactNode } from "react";
+import type { FormEvent, ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { HomeProjectsSection } from "@/components/ui/home-projects-gallery";
 import { trackEvent } from "@/lib/analytics";
@@ -62,18 +62,36 @@ const BenefitIcon = ({ type }: { type: string }) => {
   return <svg className="lp-benefit-icon" aria-hidden="true" viewBox="0 0 28 28" fill="none"><path d={paths[type]} stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>;
 };
 
+function formatBrazilPhone(value: string) {
+  const digits = value.replace(/\D/g, "").slice(0, 11);
+
+  if (digits.length <= 2) return digits ? `(${digits}` : "";
+  if (digits.length <= 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+  if (digits.length <= 10) return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+
+  return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+}
+
 function trackWhatsApp(location: string, text: string) {
   trackEvent("click_whatsapp", { button_location: location, page_path: window.location.pathname, link_text: text });
 }
 
-function WhatsAppButton({ location, children, light = false }: { location: string; children: ReactNode; light?: boolean }) {
-  return <a className={`lp-button ${light ? "lp-button-light" : "lp-button-primary"}`} href={whatsapp} target="_blank" rel="noreferrer" onClick={() => trackWhatsApp(location, String(children))}>{children}<Arrow /></a>;
+function ContactButton({ children, light = false }: { children: ReactNode; light?: boolean }) {
+  return <a className={`lp-button ${light ? "lp-button-light" : "lp-button-primary"}`} href="#orcamento">{children}<Arrow /></a>;
 }
 
 export default function LandingPages() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [activeReview, setActiveReview] = useState(0);
+
+  const submitForm = (event: FormEvent<HTMLFormElement>) => {
+    const formData = new FormData(event.currentTarget);
+    trackEvent("form_contato_enviado", {
+      page_path: window.location.pathname,
+      project_type: String(formData.get("Projeto") ?? ""),
+    });
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
@@ -97,7 +115,7 @@ export default function LandingPages() {
       <nav className={menuOpen ? "lp-nav is-open" : "lp-nav"} aria-label="Navegação da página">
         <a href="#beneficios" onClick={() => setMenuOpen(false)}>Benefícios</a><a href="#exemplos" onClick={() => setMenuOpen(false)}>Exemplos</a><a href="#processo" onClick={() => setMenuOpen(false)}>Processo</a><a href="#investimento" onClick={() => setMenuOpen(false)}>Investimento</a><a href="#faq" onClick={() => setMenuOpen(false)}>FAQ</a>
       </nav>
-      <WhatsAppButton location="header">Solicitar orçamento</WhatsAppButton>
+      <ContactButton>Solicitar orçamento</ContactButton>
       <button className="lp-menu" type="button" aria-label="Abrir menu" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}><span /><span /></button>
     </header>
 
@@ -109,7 +127,7 @@ export default function LandingPages() {
           <p className="lp-eyebrow">CRIAÇÃO DE LANDING PAGES PROFISSIONAIS</p>
           <h1>Criação de Landing Page profissional a partir de <em>R$399,00</em></h1>
           <p className="lp-lead">Criamos landing pages personalizadas para empresas, profissionais e prestadores de serviço que precisam apresentar uma oferta com clareza, fortalecer a confiança e transformar visitas em contatos pelo WhatsApp.</p>
-          <div className="lp-actions"><WhatsAppButton location="hero">Quero minha Landing Page</WhatsAppButton><a className="lp-button lp-button-ghost" href="#exemplos">Ver exemplos <Arrow /></a></div>
+          <div className="lp-actions"><ContactButton>Quero minha Landing Page</ContactButton><a className="lp-button lp-button-ghost" href="#exemplos">Ver exemplos <Arrow /></a></div>
           <ul className="lp-benefit-list">{["Design profissional", "Responsiva", "Estrutura preparada para SEO", "Foco em conversão"].map(item => <li key={item}><Check />{item}</li>)}</ul>
         </div>
         <div className="lp-device-stage" aria-label="Exemplo de Landing Page exibida em notebook e smartphone">
@@ -193,14 +211,33 @@ export default function LandingPages() {
       <div className="lp-review-slider lp-reveal"><div className="lp-review-viewport"><div className="lp-review-track" style={{ transform: `translateX(-${activeReview * 100}%)` }}>{testimonials.map(([name,text]) => <blockquote className="lp-review" key={name}><div aria-label="5 de 5 estrelas">★★★★★</div><p>“{text}”</p><footer><b>{name}</b><span>Avaliação publicada no Google</span></footer></blockquote>)}</div></div><div className="lp-review-controls"><button type="button" aria-label="Avaliação anterior" onClick={() => setActiveReview((activeReview - 1 + testimonials.length) % testimonials.length)}>←</button><div>{testimonials.map(([name],index) => <button type="button" className={activeReview === index ? "is-active" : ""} aria-label={`Ver avaliação de ${name}`} aria-current={activeReview === index ? "true" : undefined} onClick={() => setActiveReview(index)} key={name} />)}</div><button type="button" aria-label="Próxima avaliação" onClick={() => setActiveReview((activeReview + 1) % testimonials.length)}>→</button></div><a className="lp-text-link" href={reviews} target="_blank" rel="noreferrer">Ver todas no Google <Arrow /></a></div>
     </div></section>
 
-    <section className="lp-section lp-offer" id="investimento"><div className="lp-container"><div className="lp-offer-card lp-reveal"><div><p className="lp-eyebrow">LANDING PAGE PROFISSIONAL</p><h2>Uma presença à altura do seu negócio.</h2><p>Projeto personalizado, responsivo e construído para apresentar sua oferta com clareza.</p></div><div className="lp-price"><small>A PARTIR DE</small><strong>R$ 399,00</strong><ul>{["Desenvolvimento profissional", "Layout responsivo", "WhatsApp", "SEO básico", "Orientação para publicação"].map(i => <li key={i}><Check />{i}</li>)}</ul><WhatsAppButton location="preco" light>Solicitar orçamento</WhatsAppButton></div></div></div></section>
+    <section className="lp-section lp-offer" id="investimento"><div className="lp-container"><div className="lp-offer-card lp-reveal"><div><p className="lp-eyebrow">LANDING PAGE PROFISSIONAL</p><h2>Uma presença à altura do seu negócio.</h2><p>Projeto personalizado, responsivo e construído para apresentar sua oferta com clareza.</p></div><div className="lp-price"><small>A PARTIR DE</small><strong>R$ 399,00</strong><ul>{["Desenvolvimento profissional", "Layout responsivo", "WhatsApp", "SEO básico", "Orientação para publicação"].map(i => <li key={i}><Check />{i}</li>)}</ul><ContactButton light>Solicitar orçamento</ContactButton></div></div></div></section>
+
+    <section className="section contact" id="orcamento"><div className="contact-glow" aria-hidden="true" /><div className="container">
+      <div className="section-heading centered contact-heading reveal"><p className="eyebrow"><span /> SOLICITE UM ORÇAMENTO</p><h2>Vamos criar a solução certa para <em>o seu negócio.</em></h2><p>Conte brevemente o que você precisa. A K7 analisa o projeto e orienta o formato mais adequado para seus objetivos.</p></div>
+      <div className="contact-layout">
+        <aside className="contact-panel reveal">
+          <div className="contact-brand"><Image src="/k7-logo.png" alt="K7 Sites" width={70} height={70} /><div><b>K7 Sites</b><span>Sites que posicionam e convertem</span></div></div>
+          <p className="contact-kicker">ORÇAMENTO SIMPLES</p><h3>Seu próximo projeto começa com uma conversa clara.</h3><p>Preencha o briefing rápido. Assim conseguimos entender seu momento antes do primeiro contato.</p>
+          <div className="contact-direct"><small>PREFERE FALAR AGORA?</small><a className="whatsapp-direct" href={whatsapp} target="_blank" rel="noreferrer" onClick={() => trackWhatsApp("form_landing", "WhatsApp: (11) 94921-4071")}>WhatsApp: (11) 94921-4071 <Arrow /></a></div>
+        </aside>
+        <div className="form-shell reveal"><form action="https://formsubmit.co/k7sites@gmail.com" method="POST" onSubmit={submitForm}>
+          <input type="hidden" name="_subject" value="Novo contato pela Landing Page da K7 Sites" />
+          <input type="hidden" name="_next" value="https://www.k7sites.com.br/mensagem-recebida-com-sucesso" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <div className="form-pane active"><h3>Conte sobre o seu projeto.</h3><label>Qual é o seu nome?<input name="Nome" required autoComplete="name" placeholder="Digite seu nome" /></label><label>Qual é o seu WhatsApp?<input name="Telefone" type="tel" required autoComplete="tel" inputMode="numeric" maxLength={15} pattern="\\(\\d{2}\\) \\d{4,5}-\\d{4}" title="Digite um telefone com DDD, por exemplo: (11) 99999-9999" placeholder="(11) 99999-9999" onInput={(event) => { event.currentTarget.value = formatBrazilPhone(event.currentTarget.value); }} /></label><label>Qual tipo de projeto você precisa?<select name="Projeto" required defaultValue="Landing page"><option>Landing page</option><option>Site institucional</option><option>Página de vendas</option><option>Site para cursos</option><option>Redesign</option><option>Outro</option></select></label><label>Qual é o principal objetivo?<select name="Objetivo" required defaultValue=""><option value="" disabled>Selecione uma opção</option><option>Gerar contatos</option><option>Vender uma oferta</option><option>Apresentar a empresa</option><option>Lançar um produto</option><option>Atualizar o site atual</option></select></label><label>Me conte um pouco sobre sua empresa e o projeto.<textarea name="Mensagem" rows={5} required placeholder="O que você vende, para quem e qual resultado espera?" /></label><input className="form-honeypot" type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" /></div>
+          <div className="form-actions"><button className="button button-primary" type="submit">Enviar mensagem <Arrow /></button></div>
+        </form></div>
+      </div>
+    </div></section>
 
     <section className="lp-section lp-faq" id="faq"><div className="lp-container">
       <div className="lp-heading lp-centered lp-reveal"><p className="lp-eyebrow">DÚVIDAS FREQUENTES</p><h2>Respostas claras antes de <em>começar.</em></h2></div>
       <div className="lp-accordion">{faqs.map(([q,a], index) => <article className={openFaq === index ? "lp-faq-item is-open" : "lp-faq-item"} key={q}><button type="button" aria-expanded={openFaq === index} onClick={() => setOpenFaq(openFaq === index ? null : index)}><span>{String(index + 1).padStart(2,"0")}</span>{q}<i>{openFaq === index ? "−" : "+"}</i></button><div><p>{a}</p></div></article>)}</div>
     </div></section>
 
-    <section className="lp-final"><div className="lp-grid" aria-hidden="true" /><div className="lp-container lp-final-content lp-reveal"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={150} height={154} /><p>SUA PRÓXIMA OPORTUNIDADE PODE COMEÇAR AQUI</p><h2>Sua empresa já está pronta. Agora ela precisa de uma presença digital à altura.</h2><span>Vamos criar uma Landing Page profissional para apresentar seu negócio, gerar confiança e transformar visitantes em novas oportunidades.</span><WhatsAppButton location="cta_final" light>Quero minha Landing Page</WhatsAppButton></div></section>
+    <section className="lp-final"><div className="lp-grid" aria-hidden="true" /><div className="lp-container lp-final-content lp-reveal"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={150} height={154} /><p>SUA PRÓXIMA OPORTUNIDADE PODE COMEÇAR AQUI</p><h2>Sua empresa já está pronta. Agora ela precisa de uma presença digital à altura.</h2><span>Vamos criar uma Landing Page profissional para apresentar seu negócio, gerar confiança e transformar visitantes em novas oportunidades.</span><ContactButton light>Quero minha Landing Page</ContactButton></div></section>
 
     <footer className="lp-footer"><div className="lp-container lp-footer-grid"><div><Link href="/" aria-label="K7 Sites — início"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={104} height={108} /></Link><p>Sites e landing pages com estratégia, identidade e acabamento profissional.</p></div><div><small>NAVEGAÇÃO</small><Link href="/">Página inicial</Link><Link href="/#servicos">Todos os serviços</Link><a href="#beneficios">Benefícios</a><a href="#exemplos">Exemplos</a><a href="#processo">Processo</a><a href="#faq">FAQ</a></div><div><small>CONTATO</small><a href="mailto:k7sites@gmail.com">k7sites@gmail.com</a><a href={whatsapp} target="_blank" rel="noreferrer" onClick={() => trackWhatsApp("footer", "WhatsApp: (11) 94921-4071")}>WhatsApp: (11) 94921-4071</a></div></div><div className="lp-container lp-footer-bottom"><span>© {new Date().getFullYear()} K7 Sites. Todos os direitos reservados.</span><a href="#inicio">Voltar ao topo ↑</a></div></footer>
   </main>;
