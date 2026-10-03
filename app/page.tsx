@@ -236,6 +236,16 @@ function CounterStat({ value, suffix, label }: { value: number; suffix: string; 
   );
 }
 
+function formatBrazilPhone(value: string) {
+  const digits = value.replace(/\D/g, "").slice(0, 11);
+
+  if (digits.length <= 2) return digits ? `(${digits}` : "";
+  if (digits.length <= 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+  if (digits.length <= 10) return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+
+  return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+}
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -446,7 +456,7 @@ export default function Home() {
             <input type="hidden" name="_next" value="https://www.k7sites.com.br/mensagem-recebida-com-sucesso" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="false" />
-            <div className="form-pane active"><h3>Conte sobre o seu projeto.</h3><label>Qual é o seu nome?<input name="Nome" required autoComplete="name" placeholder="Digite seu nome" /></label><label>Qual é o melhor e-mail?<input name="E-mail" type="email" required autoComplete="email" placeholder="voce@empresa.com.br" /></label><label>Qual tipo de projeto você precisa?<select name="Projeto" required defaultValue=""><option value="" disabled>Selecione uma opção</option><option>Landing page</option><option>Site institucional</option><option>Página de vendas</option><option>Site para cursos</option><option>Redesign</option><option>Outro</option></select></label><label>Qual é o principal objetivo?<select name="Objetivo" required defaultValue=""><option value="" disabled>Selecione uma opção</option><option>Gerar contatos</option><option>Vender uma oferta</option><option>Apresentar a empresa</option><option>Lançar um produto</option><option>Atualizar o site atual</option></select></label><label>Me conte um pouco sobre sua empresa e o projeto.<textarea name="Mensagem" rows={5} required placeholder="O que você vende, para quem e qual resultado espera?" /></label><input className="form-honeypot" type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" /></div>
+            <div className="form-pane active"><h3>Conte sobre o seu projeto.</h3><label>Qual é o seu nome?<input name="Nome" required autoComplete="name" placeholder="Digite seu nome" /></label><label>Qual é o seu WhatsApp?<input name="Telefone" type="tel" required autoComplete="tel" inputMode="numeric" maxLength={15} pattern="\\(\\d{2}\\) \\d{4,5}-\\d{4}" title="Digite um telefone com DDD, por exemplo: (11) 99999-9999" placeholder="(11) 99999-9999" onInput={(event) => { event.currentTarget.value = formatBrazilPhone(event.currentTarget.value); }} /></label><label>Qual tipo de projeto você precisa?<select name="Projeto" required defaultValue=""><option value="" disabled>Selecione uma opção</option><option>Landing page</option><option>Site institucional</option><option>Página de vendas</option><option>Site para cursos</option><option>Redesign</option><option>Outro</option></select></label><label>Qual é o principal objetivo?<select name="Objetivo" required defaultValue=""><option value="" disabled>Selecione uma opção</option><option>Gerar contatos</option><option>Vender uma oferta</option><option>Apresentar a empresa</option><option>Lançar um produto</option><option>Atualizar o site atual</option></select></label><label>Me conte um pouco sobre sua empresa e o projeto.<textarea name="Mensagem" rows={5} required placeholder="O que você vende, para quem e qual resultado espera?" /></label><input className="form-honeypot" type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" /></div>
             <div className="form-actions"><button className="button button-primary" type="submit">Enviar mensagem <Arrow /></button></div>
           </form></div>
         </div>
