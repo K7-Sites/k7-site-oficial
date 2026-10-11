@@ -522,3 +522,53 @@ em { color: var(--blue); font-style: normal; }
 @media (max-width: 860px) {
   .hero-form-placement { max-width: 420px; margin-inline: auto; }
 }
+
+
+/* Hero: apresentação de dispositivos responsivos */
+.hero-device-stage { position:relative; width:100%; max-width:650px; min-width:0; justify-self:end; isolation:isolate; padding:48px 12px 45px 0; }
+.hero-device-aura { position:absolute; inset:4% 0 0 5%; z-index:-1; border-radius:50%; background:radial-gradient(ellipse,rgba(0,168,255,.22),rgba(21,101,255,.09) 45%,transparent 70%); filter:blur(24px); }
+.hero-laptop { position:relative; width:94%; filter:drop-shadow(0 28px 35px rgba(0,0,0,.5)); transform:perspective(1100px) rotateY(-5deg) rotateX(2deg); }
+.hero-laptop-display { border:9px solid #202833; border-bottom-width:12px; border-radius:17px 17px 6px 6px; background:#080d17; aspect-ratio:1.52; overflow:hidden; box-shadow:inset 0 0 0 1px #66788d,0 0 0 1px rgba(255,255,255,.17); }
+.hero-device-browser { display:flex; align-items:center; gap:5px; height:22px; padding:0 12px; background:#1b2431; }
+.hero-device-browser > span { width:5px; height:5px; border-radius:50%; background:#60748c; }
+.hero-device-browser small { margin:auto; padding-right:30px; font-size:8px; color:#9fb3ca; letter-spacing:.03em; }
+.hero-device-site { height:calc(100% - 22px); padding:5% 6% 4%; background:radial-gradient(circle at 85% 48%,#103c83 0%,#09182e 43%,#050a13 80%); color:#f5f7fa; overflow:hidden; }
+.hero-device-site-nav,.hero-device-site-bottom { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+.hero-device-site-nav strong { font-size:clamp(9px,1.2vw,16px); letter-spacing:.05em; white-space:nowrap; }
+.hero-device-site-nav strong i { color:#39b9ff; font-style:normal; }
+.hero-device-site-nav > span { font-size:clamp(5px,.62vw,9px); color:#b8cbe2; }
+.hero-device-site-content { display:grid; grid-template-columns:1.2fr .8fr; align-items:center; gap:3%; height:75%; }
+.hero-device-site-content small,.hero-phone-screen > small { color:#52c4ff; font-size:clamp(5px,.58vw,9px); font-weight:800; letter-spacing:.16em; }
+.hero-device-site-content h3 { margin:10px 0 8px; font-size:clamp(14px,2vw,29px); line-height:1.15; letter-spacing:-.04em; }
+.hero-device-site-content h3 em { color:#49baff; font-style:normal; }
+.hero-device-site-content p { max-width:240px; font-size:clamp(7px,.77vw,11px); line-height:1.5; color:#b7c6da; }
+.hero-device-cta,.hero-phone-button { display:inline-block; padding:8px 12px; margin-top:10px; background:#1565ff; border-radius:5px; color:white; font-size:clamp(6px,.7vw,10px); font-weight:700; }
+.hero-device-visual { display:grid; place-items:center; position:relative; aspect-ratio:1; }
+.hero-device-orbit { position:absolute; inset:10%; border:1px solid rgba(58,173,255,.55); border-radius:50%; box-shadow:0 0 40px #1565ff55,inset 0 0 40px #1565ff33; transform:rotate(-22deg) scaleX(.8); }
+.hero-device-logo { font-size:clamp(40px,7vw,96px); font-weight:950; font-style:italic; letter-spacing:-.13em; background:linear-gradient(135deg,#dff4ff,#38baff 45%,#1651d6 75%,#e3f4ff); background-clip:text; color:transparent; filter:drop-shadow(0 4px 16px #1685ff88); }
+.hero-device-site-bottom { border-top:1px solid #ffffff24; padding-top:8px; font-size:clamp(5px,.55vw,8px); letter-spacing:.08em; color:#9fb5d0; }
+.hero-laptop-base { height:15px; width:108%; margin-left:-4%; border-radius:3px 3px 50% 50% / 3px 3px 100% 100%; background:linear-gradient(#8794a4,#3a4757 45%,#101a27 85%); box-shadow:0 7px 10px #0008; }
+.hero-laptop-notch { margin:auto; width:14%; height:5px; border-radius:0 0 10px 10px; background:#253243; }
+.hero-phone { position:absolute; z-index:2; right:-2%; bottom:40px; width:28%; max-width:168px; aspect-ratio:.49; padding:7px; border:3px solid #637182; border-radius:27px; background:#080e17; box-shadow:0 16px 32px #000a,0 0 0 1px #ffffff33; transform:rotate(7deg); }
+.hero-phone-camera { position:absolute; z-index:2; left:35%; right:35%; top:8px; height:10px; border-radius:0 0 9px 9px; background:#080e17; }
+.hero-phone-screen { height:100%; padding:20px 11px 10px; border-radius:19px; background:linear-gradient(160deg,#0d2850,#060e1b 68%); overflow:hidden; display:flex; flex-direction:column; align-items:flex-start; }
+.hero-phone-top { display:flex; justify-content:space-between; align-items:center; width:100%; font-size:clamp(6px,.8vw,10px); color:white; }
+.hero-phone-art { width:100%; height:35%; margin:13px 0 10px; display:grid; place-items:center; background:radial-gradient(circle,#155fc7 0%,#09214b 45%,transparent 75%); }
+.hero-phone-art span { font-size:clamp(25px,4vw,50px); font-weight:900; font-style:italic; letter-spacing:-.12em; color:#67caff; text-shadow:0 0 20px #008cff; }
+.hero-phone-screen > strong { margin-top:8px; color:white; font-size:clamp(11px,1.35vw,19px); line-height:1.18; letter-spacing:-.04em; }
+.hero-phone-screen > p { font-size:clamp(6px,.7vw,9px); line-height:1.5; color:#b9c9e0; }
+.hero-phone-button { margin-top:auto; }
+.hero-device-caption { position:absolute; bottom:0; left:12%; display:flex; align-items:center; gap:8px; font-size:10px; font-weight:700; letter-spacing:.12em; color:#a6c9e7; }
+.hero-device-caption-dot { width:7px; height:7px; border-radius:50%; background:#00a8ff; box-shadow:0 0 12px #00a8ff; }
+@media (min-width:861px) { .hero-layout { grid-template-columns:minmax(0,1fr) minmax(400px, .95fr); gap:clamp(20px,3vw,56px); } }
+@media (max-width:860px) { .hero-device-stage { justify-self:center; max-width:580px; margin:10px auto 20px; } .hero-device-site-content h3 { font-size:clamp(18px,3.5vw,30px); } .hero-device-site-content p { font-size:10px; } .hero-device-logo { font-size:clamp(55px,11vw,90px); } .hero-phone-screen > strong { font-size:clamp(13px,2.5vw,19px); } .hero-phone-screen > p { font-size:9px; } }
+@media (max-width:480px) { .hero-device-stage { padding:20px 8px 25px 0; } .hero-laptop-display { border-width:6px; border-bottom-width:8px; } .hero-phone { bottom:26px; padding:4px; border-width:2px; border-radius:18px; } .hero-phone-screen { padding:14px 6px 7px; border-radius:12px; } .hero-phone-art { margin:6px 0; } .hero-phone-screen > p { font-size:6px; } .hero-phone-button { padding:5px; font-size:6px; } .hero-device-caption { font-size:7px; } .hero-device-site-content h3 { font-size:clamp(12px,3.4vw,17px); margin:5px 0; } .hero-device-site-content p { font-size:7px; } .hero-device-cta { margin-top:4px; padding:5px; } }
+.nav-contact-link { appearance:none; border:0; padding:0; background:transparent; color:inherit; font:inherit; cursor:pointer; transition:color .2s; }
+.nav-contact-link:hover { color:#00a8ff; }
+.k7-contact-dialog { position:fixed; inset:0; margin:auto; padding:0; width:min(480px,calc(100vw - 28px)); max-height:min(90dvh,760px); overflow-y:auto; border:0; border-radius:24px; background:transparent; color:#101828; box-shadow:0 30px 90px #0008; }
+.k7-contact-dialog::backdrop { background:rgba(2,7,17,.78); backdrop-filter:blur(8px); }
+.k7-contact-dialog-inner { position:relative; }
+.k7-contact-dialog .k7-lead-card { border-radius:24px; padding:clamp(20px,3vw,32px); }
+.k7-contact-dialog-close { position:absolute; top:12px; right:13px; z-index:3; width:34px; height:34px; display:grid; place-items:center; border:1px solid #d9dde3; border-radius:50%; background:#f5f7fa; color:#273246; font-size:24px; cursor:pointer; }
+.k7-contact-dialog-close:hover { background:#e7eef9; }
+@media (max-width:860px) { .nav-contact-link { text-align:left; width:100%; } }
