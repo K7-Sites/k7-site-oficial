@@ -314,13 +314,9 @@ export default function Home() {
   <div className="hero-device-aura" aria-hidden="true" />
   <div className="hero-laptop"><div className="hero-laptop-display">
     <div className="hero-device-browser"><span/><span/><span/><small>k7sites.com.br</small></div>
-    <div className="hero-device-site">
-      <div className="hero-device-site-nav"><strong><i>K7</i> SITES</strong><span>Serviços　 Projetos　 Contato</span></div>
-      <div className="hero-device-site-content"><div><small>DESIGN & TECNOLOGIA</small><h3>Seu negócio merece uma presença <em>extraordinária.</em></h3><p>Sites que impressionam e conectam sua marca aos clientes certos.</p><span className="hero-device-cta">Conheça nossos projetos ↗</span></div><div className="hero-device-visual"><span className="hero-device-orbit"/><span className="hero-device-logo">K7</span></div></div>
-      <div className="hero-device-site-bottom"><span>01 / ESTRATÉGIA</span><span>02 / DESIGN</span><span>03 / RESULTADOS</span></div>
-    </div>
+    <div className="hero-barber-preview"><Image src="/project-stream/barbearia.png" alt="Prévia do projeto de barbearia da galeria" fill sizes="(max-width: 860px) 95vw, 650px" className="hero-barber-preview-image" /></div>
   </div><div className="hero-laptop-base"><div className="hero-laptop-notch"/></div></div>
-  <div className="hero-phone"><div className="hero-phone-camera"/><div className="hero-phone-screen"><div className="hero-phone-top"><b>K7 SITES</b><span>☰</span></div><div className="hero-phone-art"><span>K7</span></div><small>DESIGN RESPONSIVO</small><strong>Seu site.<br/>Seu próximo nível.</strong><p>Experiências digitais que se adaptam a qualquer tela.</p><span className="hero-phone-button">Começar projeto ↗</span></div></div>
+  <div className="hero-phone"><div className="hero-phone-camera"/><div className="hero-phone-screen hero-phone-barber-screen"><Image src="/project-stream/barbearia.png" alt="Prévia mobile do projeto de barbearia" fill sizes="180px" className="hero-barber-preview-image" /></div></div>
   <div className="hero-device-caption"><span className="hero-device-caption-dot"/> DESIGN RESPONSIVO <span>·</span> DESKTOP + MOBILE</div>
 </div>
         </div>

@@ -572,3 +572,10 @@ em { color: var(--blue); font-style: normal; }
 .k7-contact-dialog-close { position:absolute; top:12px; right:13px; z-index:3; width:34px; height:34px; display:grid; place-items:center; border:1px solid #d9dde3; border-radius:50%; background:#f5f7fa; color:#273246; font-size:24px; cursor:pointer; }
 .k7-contact-dialog-close:hover { background:#e7eef9; }
 @media (max-width:860px) { .nav-contact-link { text-align:left; width:100%; } }
+
+
+/* Arte da barbearia compartilhada com a galeria de projetos. */
+.hero-barber-preview { position:relative; height:calc(100% - 22px); width:100%; overflow:hidden; background:#0b0b0b; }
+.hero-barber-preview-image { object-fit:cover; object-position:center top; }
+.hero-phone-barber-screen { position:relative; padding:0; overflow:hidden; background:#0b0b0b; }
+.hero-phone-barber-screen .hero-barber-preview-image { object-fit:cover; object-position:center top; }
