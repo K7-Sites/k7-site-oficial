@@ -463,3 +463,38 @@ em { color: var(--blue); font-style: normal; }
   .site-header { padding-inline: 0; }
 }
 @media (max-width: 480px) { :root { --k7-layout-gutter: 10px; } }
+
+
+/* Formulários claros, compactos e consistentes na Hero e no contato. */
+.k7-lead-card {
+  background: #fff;
+  color: #161c27;
+  border: 1px solid #e2e6ed;
+  box-shadow: 0 18px 54px rgba(0,0,0,.18);
+}
+.k7-lead-kicker { color: #155de4; }
+.k7-lead-card-heading h2 { color: #111827; }
+.k7-lead-card-heading p { color: #596579; }
+.k7-lead-form label { color: #273246; }
+.k7-lead-form input, .k7-lead-form select {
+  background: #f8fafc;
+  border-color: #d6dde7;
+  color: #172033;
+  color-scheme: light;
+}
+.k7-lead-form input::placeholder { color: #718096; }
+.k7-lead-privacy { color: #66758a; }
+.k7-lead-feedback { color: #b42318; }
+.k7-lead-feedback.is-success { color: #087a46; }
+.hero-layout { grid-template-columns: minmax(0, 1fr) minmax(340px, 480px); gap: clamp(28px, 4vw, 76px); }
+.hero-form-placement { width: 100%; max-width: 480px; justify-self: end; }
+.hero-form-placement .k7-lead-card { box-shadow: 0 22px 65px rgba(0,0,0,.22); }
+.form-shell:has(.k7-lead-card) { width: 100%; max-width: 480px; justify-self: end; }
+@media (max-width: 860px) {
+  .hero-layout { grid-template-columns: 1fr; }
+  .hero-form-placement { max-width: 480px; justify-self: center; }
+  .form-shell:has(.k7-lead-card) { max-width: 100%; justify-self: stretch; }
+}
+@media (max-width: 480px) {
+  .hero-form-placement { max-width: 100%; }
+}
