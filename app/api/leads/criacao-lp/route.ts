@@ -1,3 +1,6 @@
-import { POST as submitLead } from "../route";
+import { NextRequest } from "next/server";
+import { submitSiteLead } from "../route";
 
-export const POST = submitLead;
+export async function POST(request: NextRequest) {
+  return submitSiteLead(request, "criacao-LP");
+}
