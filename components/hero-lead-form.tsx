@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 
 function formatPhone(value: string): string {
@@ -12,17 +12,21 @@ function formatPhone(value: string): string {
   return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
 }
 
-const services = [
-  ["landing-page", "Landing Page"],
-  ["site-institucional", "Site institucional"],
-  ["pagina-de-vendas", "Página de vendas"],
-  ["site-para-cursos", "Site para cursos"],
-  ["redesign", "Redesign"],
-  ["outros", "Outros serviços"],
-];
+type ServiceOption = { value: string; label: string; service_id: number | null };
 
 export function HeroLeadForm({ placement = "hero" }: { placement?: "hero" | "contact" }) {
   const [pending, setPending] = useState(false);
+  const [services, setServices] = useState<ServiceOption[]>([]);
+  const [servicesError, setServicesError] = useState(false);
+  useEffect(() => {
+    let active = true;
+    fetch("/api/services").then(async response => {
+      if (!response.ok) throw new Error("Serviços indisponíveis");
+      const data = await response.json();
+      if (active) setServices(data.services);
+    }).catch(() => { if (active) setServicesError(true); });
+    return () => { active = false; };
+  }, []);
   const [feedback, setFeedback] = useState("");
   const [success, setSuccess] = useState(false);
   const sending = useRef(false);
@@ -47,6 +51,7 @@ export function HeroLeadForm({ placement = "hero" }: { placement?: "hero" | "con
           name: values.get("name"),
           phone: values.get("phone"),
           service: values.get("service"),
+          service_id: services.find(item => item.value === values.get("service"))?.service_id ?? null,
           website: values.get("website"),
           submission_id: submissionId.current,
         }),
@@ -82,8 +87,9 @@ export function HeroLeadForm({ placement = "hero" }: { placement?: "hero" | "con
         <label htmlFor={placement + "-lead-service"}>Qual serviço você precisa?
           <select id={placement + "-lead-service"} name="service" required defaultValue="">
             <option value="" disabled>Selecione o serviço</option>
-            {services.map(([value, label]) => <option key={value} value={value}>{label}</option>)}
+            {services.map(({value, label}) => <option key={value} value={value}>{label}</option>)}
           </select>
+          {servicesError && <span role="alert">Serviços indisponíveis no momento. Tente novamente mais tarde.</span>}
         </label>
         <label htmlFor={placement + "-lead-phone"}>Seu WhatsApp
           <input id={placement + "-lead-phone"} name="phone" type="tel" required inputMode="tel" autoComplete="tel" placeholder="(11) 99999-9999" pattern="[(][0-9]{2}[)] [0-9]{4,5}-[0-9]{4}" title="Informe seu WhatsApp com DDD" maxLength={15} onChange={(event) => { event.currentTarget.value = formatPhone(event.currentTarget.value); }} />
