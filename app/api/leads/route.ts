@@ -31,11 +31,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ message: "Confira os campos informados." }, { status: 422 });
   }
 
+  const origin = request.headers.get("x-k7-lead-origin") === "criacao-LP" ? "criacao-LP" : undefined;
   try {
     const response = await fetch(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json", "Accept": "application/json", Authorization: `Bearer ${token}` },
-      body: JSON.stringify({ name: data.name.trim(), phone: data.phone, service: data.service, service_id: data.service_id, submission_id: data.submission_id, website: "" }),
+      body: JSON.stringify({ name: data.name.trim(), phone: data.phone, service: data.service, service_id: data.service_id, submission_id: data.submission_id, website: "", ...(origin ? { origin, project_type: data.project_type, project_goal: data.project_goal, project_message: data.project_message } : {}) }),
       cache: "no-store",
       signal: AbortSignal.timeout(10000),
     });
