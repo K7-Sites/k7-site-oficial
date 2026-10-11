@@ -148,13 +148,55 @@ function TestimonialsSlider() {
 export default function LandingPages() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [leadPending, setLeadPending] = useState(false);
+  const [leadError, setLeadError] = useState("");
+  const leadSending = useRef(false);
+  const leadSubmissionId = useRef<string | null>(null);
 
-  const submitForm = (event: FormEvent<HTMLFormElement>) => {
-    const formData = new FormData(event.currentTarget);
-    trackEvent("form_contato_enviado", {
-      page_path: window.location.pathname,
-      project_type: String(formData.get("Projeto") ?? ""),
-    });
+  const submitForm = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (leadSending.current) return;
+    const form = event.currentTarget;
+    if (!form.reportValidity()) return;
+    leadSending.current = true;
+    setLeadPending(true);
+    setLeadError("");
+    leadSubmissionId.current ??= crypto.randomUUID();
+    const values = new FormData(form);
+    try {
+      const serviceResponse = await fetch("/api/services", { cache: "no-store" });
+      if (!serviceResponse.ok) throw new Error("Serviço indisponível");
+      const serviceData = await serviceResponse.json();
+      const service = (serviceData.services as Array<{ value: string; service_id: number | null }>).find(item => item.value === "landing-page");
+      if (!service?.service_id) throw new Error("Serviço de Landing Page indisponível");
+      const response = await fetch("/api/leads/criacao-lp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: values.get("Nome"),
+          phone: values.get("Telefone"),
+          service: "landing-page",
+          service_id: service.service_id,
+          submission_id: leadSubmissionId.current,
+          project_type: values.get("Projeto"),
+          project_goal: values.get("Objetivo"),
+          project_message: values.get("Mensagem"),
+          website: values.get("_honey"),
+        }),
+      });
+      if (!response.ok) throw new Error("Falha ao registrar contato");
+      trackEvent("form_contato_enviado", {
+        page_path: window.location.pathname,
+        project_type: String(values.get("Projeto") ?? ""),
+      });
+      leadSubmissionId.current = null;
+      window.location.assign("/mensagem-recebida-com-sucesso");
+    } catch {
+      setLeadError("Não foi possível enviar sua mensagem. Tente novamente em instantes.");
+    } finally {
+      leadSending.current = false;
+      setLeadPending(false);
+    }
   };
 
   useEffect(() => {
@@ -322,13 +364,13 @@ export default function LandingPages() {
           <p className="contact-kicker">ORÇAMENTO SIMPLES</p><h3>Seu próximo projeto começa com uma conversa clara.</h3><p>Preencha o briefing rápido. Assim conseguimos entender seu momento antes do primeiro contato.</p>
           <div className="contact-direct"><small>PREFERE FALAR AGORA?</small><a className="whatsapp-direct" href={whatsapp} target="_blank" rel="noreferrer" onClick={() => trackWhatsApp("form_landing", "WhatsApp: (11) 94921-4071")}>WhatsApp: (11) 94921-4071 <Arrow /></a></div>
         </aside>
-        <div className="form-shell reveal"><form action="https://formsubmit.co/k7sites@gmail.com" method="POST" onSubmit={submitForm}>
+        <div className="form-shell reveal"><form onSubmit={submitForm}>
           <input type="hidden" name="_subject" value="Novo contato pela Landing Page da K7 Sites" />
           <input type="hidden" name="_next" value="https://www.k7sites.com.br/mensagem-recebida-com-sucesso" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
           <div className="form-pane active"><h3>Conte sobre o seu projeto.</h3><label>Qual é o seu nome?<input name="Nome" required autoComplete="name" placeholder="Digite seu nome" /></label><label>Qual é o seu WhatsApp?<input name="Telefone" type="tel" required autoComplete="tel" inputMode="numeric" maxLength={15} pattern={"\\(\\d{2}\\) \\d{4,5}-\\d{4}"} title="Digite um telefone com DDD, por exemplo: (11) 99999-9999" placeholder="(11) 99999-9999" onInput={(event) => { event.currentTarget.value = formatBrazilPhone(event.currentTarget.value); }} /></label><label>Qual tipo de projeto você precisa?<select name="Projeto" required defaultValue="Landing page"><option>Landing page</option><option>Site institucional</option><option>Página de vendas</option><option>Site para cursos</option><option>Redesign</option><option>Outro</option></select></label><label>Qual é o principal objetivo?<select name="Objetivo" required defaultValue=""><option value="" disabled>Selecione uma opção</option><option>Gerar contatos</option><option>Vender uma oferta</option><option>Apresentar a empresa</option><option>Lançar um produto</option><option>Atualizar o site atual</option></select></label><label>Me conte um pouco sobre sua empresa e o projeto.<textarea name="Mensagem" rows={5} required placeholder="O que você vende, para quem e qual resultado espera?" /></label><input className="form-honeypot" type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" /></div>
-          <div className="form-actions"><button className="button button-primary" type="submit">Enviar mensagem <Arrow /></button></div>
+          <div className="form-actions"><button className="button button-primary" type="submit" disabled={leadPending}>{leadPending ? "Enviando..." : "Enviar mensagem"} <Arrow /></button></div>{leadError && <p role="alert" style={{ color: "#b42318", marginTop: 12 }}>{leadError}</p>}
         </form></div>
       </div>
     </div></section>
