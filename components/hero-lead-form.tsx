@@ -14,7 +14,7 @@ function formatPhone(value: string): string {
 
 type ServiceOption = { value: string; label: string; service_id: number | null };
 
-export function HeroLeadForm({ placement = "hero" }: { placement?: "hero" | "contact" }) {
+export function HeroLeadForm({ placement = "hero" }: { placement?: "hero" | "contact" | "modal" }) {
   const [pending, setPending] = useState(false);
   const [services, setServices] = useState<ServiceOption[]>([]);
   const [servicesError, setServicesError] = useState(false);
