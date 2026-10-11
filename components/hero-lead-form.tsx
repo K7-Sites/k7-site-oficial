@@ -1,7 +1,16 @@
 "use client";
 
+import Image from "next/image";
 import { FormEvent, useRef, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+
+function formatPhone(value: string): string {
+  const digits = value.replace(/\D/g, "").replace(/^55(?=\d{10,11}$)/, "").slice(0, 11);
+  if (digits.length <= 2) return digits ? `(${digits}` : "";
+  if (digits.length <= 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+  if (digits.length <= 10) return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+  return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+}
 
 const services = [
   ["landing-page", "Landing Page"],
@@ -49,9 +58,8 @@ export function HeroLeadForm({ placement = "hero" }: { placement?: "hero" | "con
         form_placement: placement,
       });
       setSuccess(true);
-      setFeedback("Recebemos seu contato! Em breve falaremos com você pelo WhatsApp.");
       submissionId.current = null;
-      form.reset();
+      window.location.assign("/mensagem-recebida-com-sucesso");
     } catch {
       setFeedback("Não foi possível enviar. Confira seus dados e tente novamente.");
     } finally {
@@ -78,10 +86,10 @@ export function HeroLeadForm({ placement = "hero" }: { placement?: "hero" | "con
           </select>
         </label>
         <label htmlFor={placement + "-lead-phone"}>Seu WhatsApp
-          <input id={placement + "-lead-phone"} name="phone" type="tel" required inputMode="tel" autoComplete="tel" placeholder="(11) 99999-9999" pattern="[0-9()+. -]{10,20}" title="Informe seu WhatsApp com DDD" maxLength={20} />
+          <input id={placement + "-lead-phone"} name="phone" type="tel" required inputMode="tel" autoComplete="tel" placeholder="(11) 99999-9999" pattern="\\([0-9]{2}\\) [0-9]{4,5}-[0-9]{4}" title="Informe seu WhatsApp com DDD" maxLength={15} onChange={(event) => { event.currentTarget.value = formatPhone(event.currentTarget.value); }} />
         </label>
         <div className="k7-lead-honeypot" aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
-        <button type="submit" className="k7-lead-submit" disabled={pending}>{pending ? "Enviando..." : "Quero conversar pelo WhatsApp"} <span aria-hidden="true">↗</span></button>
+        <button type="submit" className="k7-lead-submit" disabled={pending}>{pending ? "Enviando..." : "Quero conversar pelo WhatsApp"} <Image src="/whatsapp.svg" alt="" width={20} height={20} aria-hidden="true" className="k7-lead-whatsapp-icon" /></button>
         <p className="k7-lead-privacy">Sem compromisso. Seus dados serão usados apenas para responder ao seu contato.</p>
         <p className={success ? "k7-lead-feedback is-success" : "k7-lead-feedback"} role="status" aria-live="polite">{feedback}</p>
       </form>
