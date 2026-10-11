@@ -421,7 +421,7 @@ em { color: var(--blue); font-style: normal; }
 
 
 /* Ajustes de largura e composição dos formulários */
-.container { width: calc(100% - 40px); max-width: 1680px; margin-inline: auto; }
+.container { width: calc(100% - 40px); max-width: 1440px; margin-inline: auto; }
 .hero { min-height: 0; padding-top: clamp(116px, 10vh, 145px); padding-bottom: 22px; }
 .hero-layout { grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr); gap: clamp(24px, 3.4vw, 64px); align-items: center; }
 .hero-copy { padding-top: 0; }
@@ -454,7 +454,7 @@ em { color: var(--blue); font-style: normal; }
 
 
 /* Header e conteúdo usam o mesmo limite horizontal em todas as resoluções. */
-:root { --k7-layout-gutter: 20px; --k7-layout-max: 1680px; }
+:root { --k7-layout-gutter: 20px; --k7-layout-max: 1440px; }
 .container { width: calc(100% - (var(--k7-layout-gutter) * 2)); max-width: var(--k7-layout-max); margin-inline: auto; }
 .site-header { width: calc(100% - (var(--k7-layout-gutter) * 2)); max-width: var(--k7-layout-max); padding-inline: 0; }
 @media (max-width: 860px) {
