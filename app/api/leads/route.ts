@@ -31,11 +31,16 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ message: "Confira os campos informados." }, { status: 422 });
   }
 
+  const origin = request.nextUrl.pathname === "/api/leads/criacao-lp" ? "criacao-LP" : undefined;
+  if (origin && (typeof data.project_type !== "string" || data.project_type.length > 120 || typeof data.project_goal !== "string" || data.project_goal.length > 120 || typeof data.project_message !== "string" || data.project_message.length > 3000)) {
+    return NextResponse.json({ message: "Confira os detalhes do projeto." }, { status: 422 });
+  }
+
   try {
     const response = await fetch(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json", "Accept": "application/json", Authorization: `Bearer ${token}` },
-      body: JSON.stringify({ name: data.name.trim(), phone: data.phone, service: data.service, service_id: data.service_id, submission_id: data.submission_id, website: "" }),
+      body: JSON.stringify({ name: data.name.trim(), phone: data.phone, service: data.service, service_id: data.service_id, submission_id: data.submission_id, website: "", ...(origin ? { origin, project_type: data.project_type, project_goal: data.project_goal, project_message: data.project_message } : {}) }),
       cache: "no-store",
       signal: AbortSignal.timeout(10000),
     });
