@@ -239,6 +239,8 @@ function CounterStat({ value, suffix, label }: { value: number; suffix: string; 
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const contactDialogRef = useRef<HTMLDialogElement>(null);
+  const openContactDialog = () => { setMenuOpen(false); contactDialogRef.current?.showModal(); };
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const trackWhatsAppClick = (
@@ -268,6 +270,12 @@ export default function Home() {
   return (
     <>
       <SitePreloader />
+      <dialog ref={contactDialogRef} className="k7-contact-dialog" aria-label="Fale conosco" onClick={(event) => { if (event.target === event.currentTarget) event.currentTarget.close(); }}>
+        <div className="k7-contact-dialog-inner">
+          <button type="button" className="k7-contact-dialog-close" aria-label="Fechar formulário" onClick={() => contactDialogRef.current?.close()}>×</button>
+          <HeroLeadForm placement="modal" />
+        </div>
+      </dialog>
       <main>
       <div className="scroll-progress" aria-hidden="true" />
       <a className="skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -279,7 +287,7 @@ export default function Home() {
       <header className="site-header">
         <a className="brand header-brand" href="#inicio" aria-label="K7 Sites — início"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={84} height={87} priority /></a>
         <nav className={menuOpen ? "nav is-open" : "nav"} aria-label="Navegação principal">
-          <a href="#servicos" onClick={() => setMenuOpen(false)}>Serviços</a><a href="#projetos" onClick={() => setMenuOpen(false)}>Projetos</a><a href="#processo" onClick={() => setMenuOpen(false)}>Processo</a><a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a><a href="#faq" onClick={() => setMenuOpen(false)}>Dúvidas</a><a className="nav-mobile-cta" href="#orcamento" onClick={() => setMenuOpen(false)}>Solicitar um orçamento</a>
+          <a href="#servicos" onClick={() => setMenuOpen(false)}>Serviços</a><a href="#projetos" onClick={() => setMenuOpen(false)}>Projetos</a><a href="#processo" onClick={() => setMenuOpen(false)}>Processo</a><a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a><a href="#faq" onClick={() => setMenuOpen(false)}>Dúvidas</a><button type="button" className="nav-contact-link" onClick={openContactDialog}>Fale conosco</button><a className="nav-mobile-cta" href="#orcamento" onClick={() => setMenuOpen(false)}>Solicitar um orçamento</a>
         </nav>
         <a className="header-cta" href="#orcamento">Solicitar orçamento <Arrow /></a>
         <button className="menu-button" type="button" aria-label={menuOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}><span /><span /></button>
@@ -302,7 +310,19 @@ export default function Home() {
             <div className="hero-actions enter delay-3"><a className="button button-primary" href="#orcamento">Solicitar um orçamento <Arrow /></a><a className="button button-ghost" href="#projetos">Conhecer projetos <Arrow diagonal /></a></div>
             <ul className="hero-benefits enter delay-4"><li><Check /> Projeto personalizado</li><li><Check /> Atendimento próximo</li><li><Check /> Orçamento sem compromisso</li></ul>
           </div>
-          <div className="hero-form-placement enter delay-2"><HeroLeadForm placement="hero" /></div>
+          <div className="hero-device-stage enter delay-2" aria-label="Mockup ilustrativo de site responsivo em notebook e celular">
+  <div className="hero-device-aura" aria-hidden="true" />
+  <div className="hero-laptop"><div className="hero-laptop-display">
+    <div className="hero-device-browser"><span/><span/><span/><small>k7sites.com.br</small></div>
+    <div className="hero-device-site">
+      <div className="hero-device-site-nav"><strong><i>K7</i> SITES</strong><span>Serviços　 Projetos　 Contato</span></div>
+      <div className="hero-device-site-content"><div><small>DESIGN & TECNOLOGIA</small><h3>Seu negócio merece uma presença <em>extraordinária.</em></h3><p>Sites que impressionam e conectam sua marca aos clientes certos.</p><span className="hero-device-cta">Conheça nossos projetos ↗</span></div><div className="hero-device-visual"><span className="hero-device-orbit"/><span className="hero-device-logo">K7</span></div></div>
+      <div className="hero-device-site-bottom"><span>01 / ESTRATÉGIA</span><span>02 / DESIGN</span><span>03 / RESULTADOS</span></div>
+    </div>
+  </div><div className="hero-laptop-base"><div className="hero-laptop-notch"/></div></div>
+  <div className="hero-phone"><div className="hero-phone-camera"/><div className="hero-phone-screen"><div className="hero-phone-top"><b>K7 SITES</b><span>☰</span></div><div className="hero-phone-art"><span>K7</span></div><small>DESIGN RESPONSIVO</small><strong>Seu site.<br/>Seu próximo nível.</strong><p>Experiências digitais que se adaptam a qualquer tela.</p><span className="hero-phone-button">Começar projeto ↗</span></div></div>
+  <div className="hero-device-caption"><span className="hero-device-caption-dot"/> DESIGN RESPONSIVO <span>·</span> DESKTOP + MOBILE</div>
+</div>
         </div>
         <div className="hero-footer container"><span>ROLE PARA DESCOBRIR</span><span className="scroll-line" /><p>Estratégia <i>•</i> Design <i>•</i> Tecnologia</p></div>
       </section>
