@@ -418,3 +418,36 @@ em { color: var(--blue); font-style: normal; }
 .form-shell .k7-lead-card { height: 100%; }
 @media (max-width: 860px) { .hero-form-placement { max-width: 560px; margin-inline: auto; } .hero-form-placement .k7-lead-card { margin: 0; } }
 @media (max-width: 540px) { .k7-lead-card { padding: 23px 19px; border-radius: 18px; } .k7-lead-card-heading h2 { font-size: 23px; } }
+
+
+/* Ajustes de largura e composição dos formulários */
+.container { width: calc(100% - 40px); max-width: 1680px; margin-inline: auto; }
+.hero { min-height: 0; padding-top: clamp(116px, 10vh, 145px); padding-bottom: 22px; }
+.hero-layout { grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr); gap: clamp(24px, 3.4vw, 64px); align-items: center; }
+.hero-copy { padding-top: 0; }
+.hero-form-placement { align-self: center; }
+.hero-form-placement .k7-lead-card { padding: clamp(18px, 1.7vw, 28px); }
+.hero-form-placement .k7-lead-card-heading { margin-bottom: 14px; }
+.hero-form-placement .k7-lead-card-heading h2 { margin: 9px 0 6px; font-size: clamp(21px, 1.7vw, 27px); }
+.hero-form-placement .k7-lead-form { gap: 10px; }
+.hero-form-placement .k7-lead-form input,.hero-form-placement .k7-lead-form select { min-height: 44px; padding: 9px 12px; }
+.hero-form-placement .k7-lead-submit { min-height: 46px; padding: 10px 14px; }
+.k7-lead-whatsapp-icon { width: 20px; height: 20px; object-fit: contain; }
+.contact-layout { align-items: start; }
+.form-shell:has(.k7-lead-card) { min-height: 0; height: auto; padding: 0; align-self: start; }
+.form-shell:has(.k7-lead-card) .k7-lead-card { height: auto; }
+.form-shell .k7-lead-form { min-height: 0; display: grid; }
+@media (max-width: 1100px) {
+  .hero-layout { grid-template-columns: minmax(0,1fr) minmax(330px,.95fr); gap: 24px; }
+}
+@media (max-width: 860px) {
+  .container { width: calc(100% - 28px); max-width: 720px; }
+  .hero { padding-top: 120px; }
+  .hero-layout { grid-template-columns: 1fr; gap: 24px; }
+  .hero-form-placement { max-width: 560px; width: 100%; }
+}
+@media (max-width: 480px) {
+  .container { width: calc(100% - 20px); }
+  .hero { padding-top: 110px; }
+  .hero-form-placement .k7-lead-card { padding: 19px 16px; }
+}
