@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { HeroLeadForm } from "@/components/hero-lead-form";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { ImageStream } from "@/components/ui/image-stream";
 import { HomeProjectsSection } from "@/components/ui/home-projects-gallery";
@@ -315,6 +316,7 @@ export default function Home() {
               })}
             </h1>
             <p className="hero-lead enter delay-2">A K7 Sites cria sites institucionais e landing pages personalizados para empresas e profissionais que desejam transmitir confiança, apresentar seus serviços e facilitar o contato com novos clientes.</p>
+            <HeroLeadForm />
             <div className="hero-actions enter delay-3"><a className="button button-primary" href="#orcamento">Solicitar um orçamento <Arrow /></a><a className="button button-ghost" href="#projetos">Conhecer projetos <Arrow diagonal /></a></div>
             <ul className="hero-benefits enter delay-4"><li><Check /> Projeto personalizado</li><li><Check /> Atendimento próximo</li><li><Check /> Orçamento sem compromisso</li></ul>
           </div>
