@@ -18,6 +18,10 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ message: "Dados inválidos." }, { status: 400 });
   }
   const data = payload as Record<string, unknown>;
+  // Honeypot: quietly accept spam without forwarding it to the CRM.
+  if (typeof data.website === "string" && data.website.trim() !== "") {
+    return NextResponse.json({ message: "Contato recebido." }, { status: 200 });
+  }
   const services = ["landing-page", "site-institucional", "pagina-de-vendas", "site-para-cursos", "redesign", "outros"];
   if (typeof data.name !== "string" || data.name.trim().length < 2 || data.name.length > 255 ||
       typeof data.phone !== "string" || !/^(?:55)?[1-9][0-9]{9,10}$/.test(data.phone.replace(/\D/g, "")) ||
@@ -30,7 +34,7 @@ export async function POST(request: NextRequest) {
     const response = await fetch(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json", "Accept": "application/json", Authorization: `Bearer ${token}` },
-      body: JSON.stringify({ name: data.name.trim(), phone: data.phone, service: data.service, submission_id: data.submission_id }),
+      body: JSON.stringify({ name: data.name.trim(), phone: data.phone, service: data.service, submission_id: data.submission_id, website: "" }),
       cache: "no-store",
       signal: AbortSignal.timeout(10000),
     });
