@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ message: "Confira os campos informados." }, { status: 422 });
   }
 
-  const origin = request.headers.get("x-k7-lead-origin") === "criacao-LP" ? "criacao-LP" : undefined;
+  const origin = request.nextUrl.pathname === "/api/leads/criacao-lp" ? "criacao-LP" : undefined;
   try {
     const response = await fetch(endpoint, {
       method: "POST",
