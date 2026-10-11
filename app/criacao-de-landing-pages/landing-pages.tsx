@@ -321,7 +321,7 @@ export default function LandingPages() {
           <p className="contact-kicker">ORÇAMENTO SIMPLES</p><h3>Seu próximo projeto começa com uma conversa clara.</h3><p>Preencha o briefing rápido. Assim conseguimos entender seu momento antes do primeiro contato.</p>
           <div className="contact-direct"><small>PREFERE FALAR AGORA?</small><a className="whatsapp-direct" href={whatsapp} target="_blank" rel="noreferrer" onClick={() => trackWhatsApp("form_landing", "WhatsApp: (11) 94921-4071")}>WhatsApp: (11) 94921-4071 <Arrow /></a></div>
         </aside>
-        <div className="form-shell reveal"><HeroLeadForm placement="lp-contact" />
+        <div className="form-shell reveal"><HeroLeadForm placement="lp-contact" /></div>
       </div>
     </div></section>
 
