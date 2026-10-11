@@ -501,3 +501,9 @@ em { color: var(--blue); font-style: normal; }
 
 .contact-layout.contact-layout-single { display: flex; justify-content: center; align-items: flex-start; width: 100%; }
 .contact-layout-single .form-shell:has(.k7-lead-card) { width: min(100%, 480px); max-width: 480px; margin-inline: auto; }
+
+
+/* Respiro lateral uniforme no site e no cabeçalho. */
+:root { --k7-layout-gutter: clamp(24px, 3vw, 56px); }
+@media (max-width: 860px) { :root { --k7-layout-gutter: 20px; } }
+@media (max-width: 480px) { :root { --k7-layout-gutter: 16px; } }
