@@ -36,21 +36,6 @@ export default function MessageReceivedPage() {
           Nossa equipe já recebeu seu contato e entrará em contato em breve pelo WhatsApp. Se preferir, você pode falar conosco agora mesmo pelo número (11) 94921-4071.
         </p>
 
-        <div className={styles.nextSteps}>
-          <article>
-            <span>01</span>
-            <div><b>Briefing recebido</b><small>Seu formulário chegou para a K7 Sites.</small></div>
-          </article>
-          <article>
-            <span>02</span>
-            <div><b>Análise do projeto</b><small>Vamos entender o formato mais adequado para sua necessidade.</small></div>
-          </article>
-          <article>
-            <span>03</span>
-            <div><b>Próximo contato</b><small>Nossa equipe entrará em contato em breve pelo WhatsApp.</small></div>
-          </article>
-        </div>
-
         <div className={styles.actions}>
           <Link className={styles.primary} href="/">Voltar para o site <span>→</span></Link>
           <a className={styles.secondary} href={whatsappLink} target="_blank" rel="noreferrer">
