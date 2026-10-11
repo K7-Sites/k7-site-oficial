@@ -424,14 +424,7 @@ export default function Home() {
 
       <section className="section contact" id="orcamento"><div className="contact-glow" aria-hidden="true" /><div className="container">
         <div className="section-heading centered contact-heading reveal"><p className="eyebrow"><span /> SOLICITE UM ORÇAMENTO</p><h2>Vamos criar a solução certa para <em>o seu negócio.</em></h2><p>Conte brevemente o que você precisa. A K7 analisa o projeto e orienta o formato mais adequado para seus objetivos.</p></div>
-        <div className="contact-layout">
-          <aside className="contact-panel reveal">
-            <div className="contact-brand"><Image src="/k7-logo.png" alt="K7 Sites" width={70} height={70} /><div><b>K7 Sites</b><span>Sites que posicionam e convertem</span></div></div>
-            <p className="contact-kicker">ORÇAMENTO SIMPLES</p><h3>Seu próximo projeto começa com uma conversa clara.</h3><p>Preencha o briefing rápido. Assim conseguimos entender seu momento antes do primeiro contato.</p>
-            <div className="contact-direct"><small>PREFERE FALAR AGORA?</small><a className="whatsapp-direct" href={whatsappLink} target="_blank" rel="noreferrer" onClick={() => trackWhatsAppClick("final_cta", "WhatsApp: (11) 94921-4071")}>WhatsApp: (11) 94921-4071 <Arrow diagonal /></a></div>
-          </aside>
-          <div className="form-shell reveal"><HeroLeadForm placement="contact" /></div>
-        </div>
+        <div className="contact-layout contact-layout-single"><div className="form-shell reveal"><HeroLeadForm placement="contact" /></div></div>
       </div></section>
 
       <section className="final-cta"><div className="container"><div className="final-cta-card reveal"><div className="final-orbit" aria-hidden="true" /><div className="final-cta-content"><div className="mini-logo"><Image src="/k7-logo.png" alt="K7 Sites" width={70} height={70} /></div><p>CRIAÇÃO DE SITES PROFISSIONAIS</p><h2>Apresente seu negócio com mais clareza, confiança e facilidade de contato.</h2><a className="button button-light" href="#orcamento">Solicitar um orçamento <Arrow /></a></div></div></div></section>
