@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { HeroLeadForm } from "@/components/hero-lead-form";
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ImageStream } from "@/components/ui/image-stream";
 import { HomeProjectsSection } from "@/components/ui/home-projects-gallery";
 import { SitePreloader } from "@/components/site-preloader";
@@ -237,16 +237,6 @@ function CounterStat({ value, suffix, label }: { value: number; suffix: string; 
   );
 }
 
-function formatBrazilPhone(value: string) {
-  const digits = value.replace(/\D/g, "").slice(0, 11);
-
-  if (digits.length <= 2) return digits ? `(${digits}` : "";
-  if (digits.length <= 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
-  if (digits.length <= 10) return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
-
-  return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
-}
-
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -274,13 +264,6 @@ export default function Home() {
     return () => { observer.disconnect(); window.removeEventListener("scroll", updateProgress); };
   }, []);
 
-  const submitForm = (event: FormEvent<HTMLFormElement>) => {
-    const formData = new FormData(event.currentTarget);
-    trackEvent("form_contato_enviado", {
-      page_path: window.location.pathname,
-      project_type: String(formData.get("Projeto") ?? ""),
-    });
-  };
 
   return (
     <>
@@ -316,16 +299,10 @@ export default function Home() {
               })}
             </h1>
             <p className="hero-lead enter delay-2">A K7 Sites cria sites institucionais e landing pages personalizados para empresas e profissionais que desejam transmitir confiança, apresentar seus serviços e facilitar o contato com novos clientes.</p>
-            <HeroLeadForm />
             <div className="hero-actions enter delay-3"><a className="button button-primary" href="#orcamento">Solicitar um orçamento <Arrow /></a><a className="button button-ghost" href="#projetos">Conhecer projetos <Arrow diagonal /></a></div>
             <ul className="hero-benefits enter delay-4"><li><Check /> Projeto personalizado</li><li><Check /> Atendimento próximo</li><li><Check /> Orçamento sem compromisso</li></ul>
           </div>
-          <div className="hero-art enter delay-2" aria-label="Representação de um site criado pela K7 Sites">
-            <div className="orbit orbit-one"><span /></div><div className="orbit orbit-two"><span /></div>
-            <div className="floating-note note-top"><b>Google SEO</b><small>estrutura preparada</small></div>
-            <div className="browser-card real-browser"><div className="browser-bar"><i /><i /><i /><span>seudominio.com.br</span></div><div className="browser-site"><Image src="/project-stream/barbearia.png" alt="Exemplo de site profissional criado para uma barbearia" fill sizes="(max-width: 860px) 96vw, 520px" priority loading="eager" /></div></div>
-            <div className="floating-note note-bottom"><b>100%</b><small>otimizado</small></div><div className="k7-stamp">K7<span>SITES</span></div>
-          </div>
+          <div className="hero-form-placement enter delay-2"><HeroLeadForm placement="hero" /></div>
         </div>
         <div className="hero-footer container"><span>ROLE PARA DESCOBRIR</span><span className="scroll-line" /><p>Estratégia <i>•</i> Design <i>•</i> Tecnologia</p></div>
       </section>
@@ -453,14 +430,7 @@ export default function Home() {
             <p className="contact-kicker">ORÇAMENTO SIMPLES</p><h3>Seu próximo projeto começa com uma conversa clara.</h3><p>Preencha o briefing rápido. Assim conseguimos entender seu momento antes do primeiro contato.</p>
             <div className="contact-direct"><small>PREFERE FALAR AGORA?</small><a className="whatsapp-direct" href={whatsappLink} target="_blank" rel="noreferrer" onClick={() => trackWhatsAppClick("final_cta", "WhatsApp: (11) 94921-4071")}>WhatsApp: (11) 94921-4071 <Arrow diagonal /></a></div>
           </aside>
-          <div className="form-shell reveal"><form action="https://formsubmit.co/k7sites@gmail.com" method="POST" onSubmit={submitForm}>
-            <input type="hidden" name="_subject" value="Novo contato pelo site da K7 Sites" />
-            <input type="hidden" name="_next" value="https://www.k7sites.com.br/mensagem-recebida-com-sucesso" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
-            <div className="form-pane active"><h3>Conte sobre o seu projeto.</h3><label>Qual é o seu nome?<input name="Nome" required autoComplete="name" placeholder="Digite seu nome" /></label><label>Qual é o seu WhatsApp?<input name="Telefone" type="tel" required autoComplete="tel" inputMode="numeric" maxLength={15} pattern={"\\(\\d{2}\\) \\d{4,5}-\\d{4}"} title="Digite um telefone com DDD, por exemplo: (11) 99999-9999" placeholder="(11) 99999-9999" onInput={(event) => { event.currentTarget.value = formatBrazilPhone(event.currentTarget.value); }} /></label><label>Qual tipo de projeto você precisa?<select name="Projeto" required defaultValue=""><option value="" disabled>Selecione uma opção</option><option>Landing page</option><option>Site institucional</option><option>Página de vendas</option><option>Site para cursos</option><option>Redesign</option><option>Outro</option></select></label><label>Qual é o principal objetivo?<select name="Objetivo" required defaultValue=""><option value="" disabled>Selecione uma opção</option><option>Gerar contatos</option><option>Vender uma oferta</option><option>Apresentar a empresa</option><option>Lançar um produto</option><option>Atualizar o site atual</option></select></label><label>Me conte um pouco sobre sua empresa e o projeto.<textarea name="Mensagem" rows={5} required placeholder="O que você vende, para quem e qual resultado espera?" /></label><input className="form-honeypot" type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" /></div>
-            <div className="form-actions"><button className="button button-primary" type="submit">Enviar mensagem <Arrow /></button></div>
-          </form></div>
+          <div className="form-shell reveal"><HeroLeadForm placement="contact" /></div>
         </div>
       </div></section>
 
