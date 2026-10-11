@@ -14,7 +14,7 @@ function formatPhone(value: string): string {
 
 type ServiceOption = { value: string; label: string; service_id: number | null };
 
-export function HeroLeadForm({ placement = "hero" }: { placement?: "hero" | "contact" | "modal" }) {
+export function HeroLeadForm({ placement = "hero" }: { placement?: "hero" | "contact" | "modal" | "lp-contact" | "lp-modal" }) {
   const [pending, setPending] = useState(false);
   const [services, setServices] = useState<ServiceOption[]>([]);
   const [servicesError, setServicesError] = useState(false);
@@ -44,7 +44,7 @@ export function HeroLeadForm({ placement = "hero" }: { placement?: "hero" | "con
     submissionId.current ??= crypto.randomUUID();
     const values = new FormData(form);
     try {
-      const response = await fetch("/api/leads", {
+      const response = await fetch(placement.startsWith("lp-") ? "/api/leads/criacao-lp" : "/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

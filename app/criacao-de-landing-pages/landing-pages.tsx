@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { FormEvent, ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
+import { HeroLeadForm } from "@/components/hero-lead-form";
 import { HomeProjectsSection } from "@/components/ui/home-projects-gallery";
 import { trackEvent } from "@/lib/analytics";
 
@@ -148,56 +149,8 @@ function TestimonialsSlider() {
 export default function LandingPages() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const [leadPending, setLeadPending] = useState(false);
-  const [leadError, setLeadError] = useState("");
-  const leadSending = useRef(false);
-  const leadSubmissionId = useRef<string | null>(null);
-
-  const submitForm = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (leadSending.current) return;
-    const form = event.currentTarget;
-    if (!form.reportValidity()) return;
-    leadSending.current = true;
-    setLeadPending(true);
-    setLeadError("");
-    leadSubmissionId.current ??= crypto.randomUUID();
-    const values = new FormData(form);
-    try {
-      const serviceResponse = await fetch("/api/services", { cache: "no-store" });
-      if (!serviceResponse.ok) throw new Error("Serviço indisponível");
-      const serviceData = await serviceResponse.json();
-      const service = (serviceData.services as Array<{ value: string; service_id: number | null }>).find(item => item.value === "landing-page");
-      if (!service?.service_id) throw new Error("Serviço de Landing Page indisponível");
-      const response = await fetch("/api/leads/criacao-lp", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: values.get("Nome"),
-          phone: values.get("Telefone"),
-          service: "landing-page",
-          service_id: service.service_id,
-          submission_id: leadSubmissionId.current,
-          project_type: values.get("Projeto"),
-          project_goal: values.get("Objetivo"),
-          project_message: values.get("Mensagem"),
-          website: values.get("_honey"),
-        }),
-      });
-      if (!response.ok) throw new Error("Falha ao registrar contato");
-      trackEvent("form_contato_enviado", {
-        page_path: window.location.pathname,
-        project_type: String(values.get("Projeto") ?? ""),
-      });
-      leadSubmissionId.current = null;
-      window.location.assign("/mensagem-recebida-com-sucesso");
-    } catch {
-      setLeadError("Não foi possível enviar sua mensagem. Tente novamente em instantes.");
-    } finally {
-      leadSending.current = false;
-      setLeadPending(false);
-    }
-  };
+  const contactDialogRef = useRef<HTMLDialogElement>(null);
+  const openContactDialog = () => { setMenuOpen(false); contactDialogRef.current?.showModal(); };
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
@@ -214,14 +167,15 @@ export default function LandingPages() {
   }, []);
 
   return <main className="lp-page" id="inicio">
+    <dialog ref={contactDialogRef} className="k7-contact-dialog" aria-label="Fale conosco" onClick={(event) => { if (event.target === event.currentTarget) event.currentTarget.close(); }}><div className="k7-contact-dialog-inner"><button type="button" className="k7-contact-dialog-close" aria-label="Fechar formulário" onClick={() => contactDialogRef.current?.close()}>×</button><HeroLeadForm placement="lp-modal" /></div></dialog>
     <div className="scroll-progress" aria-hidden="true" />
     <a className="skip-link" href="#conteudo">Ir para o conteúdo</a>
     <header className="lp-header">
       <Link className="lp-brand" href="/" aria-label="K7 Sites — página inicial"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={84} height={87} priority /></Link>
       <nav className={menuOpen ? "lp-nav is-open" : "lp-nav"} aria-label="Navegação da página">
-        <a href="#beneficios" onClick={() => setMenuOpen(false)}>Benefícios</a><a href="#exemplos" onClick={() => setMenuOpen(false)}>Exemplos</a><a href="#processo" onClick={() => setMenuOpen(false)}>Processo</a><a href="#investimento" onClick={() => setMenuOpen(false)}>Investimento</a><a href="#faq" onClick={() => setMenuOpen(false)}>FAQ</a>
+        <a href="#beneficios" onClick={() => setMenuOpen(false)}>Benefícios</a><a href="#exemplos" onClick={() => setMenuOpen(false)}>Exemplos</a><a href="#processo" onClick={() => setMenuOpen(false)}>Processo</a><a href="#investimento" onClick={() => setMenuOpen(false)}>Investimento</a><a href="#faq" onClick={() => setMenuOpen(false)}>FAQ</a><button type="button" className="lp-nav-contact" onClick={openContactDialog}>Fale conosco</button>
       </nav>
-      <ContactButton>Fale conosco</ContactButton>
+      <button type="button" className="lp-button lp-button-primary lp-header-contact" onClick={openContactDialog}>Fale conosco <Arrow /></button>
       <button className="lp-menu" type="button" aria-label="Abrir menu" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}><span /><span /></button>
     </header>
 
@@ -236,12 +190,15 @@ export default function LandingPages() {
           <div className="lp-actions"><ContactButton>Quero minha Landing Page</ContactButton><a className="lp-button lp-button-ghost" href="#exemplos">Ver exemplos <Arrow /></a></div>
           <ul className="lp-benefit-list">{["Design profissional", "Responsiva", "Estrutura preparada para SEO", "Foco em conversão"].map(item => <li key={item}><Check />{item}</li>)}</ul>
         </div>
-        <div className="lp-device-stage" aria-label="Exemplo de Landing Page exibida em notebook e smartphone">
-          <div className="lp-float-note lp-note-one"><b>Contato direto</b><span>WhatsApp estratégico</span></div>
-          <div className="lp-laptop"><div className="lp-browser-bar"><i /><i /><i /><span>almeidaecastro.adv.br</span></div><div className="lp-screen"><div className="lp-dental-mock lp-legal-mock"><div className="lp-dental-nav"><b>ALMEIDA & CASTRO<small>ADVOCACIA</small></b><span>O escritório &nbsp; Atuação &nbsp; Equipe</span><i>Contato reservado</i></div><div className="lp-dental-hero"><Image src="/niche-premium/law.png" alt="Mockup demonstrativo de Landing Page para escritório de advocacia" fill sizes="(max-width: 860px) 88vw, 530px" priority /><div><small>ATUAÇÃO JURÍDICA PERSONALIZADA</small><h2>Defesa jurídica estratégica para proteger seus direitos.</h2><p>Atuação transparente e comprometida com cada caso.</p><b>Falar com um advogado</b></div></div><div className="lp-dental-services"><span><b>15+ anos</b>Experiência estratégica</span><span><b>Atendimento próximo</b>Análise individual</span><span><b>Sigilo</b>Confidencialidade</span></div><div className="lp-dental-more"><small>ÁREAS DE ATUAÇÃO</small><h3>Estratégia para pessoas e empresas.</h3><div><article><b>Direito Civil</b><span>Orientação e defesa de interesses.</span></article><article><b>Empresarial</b><span>Contratos, riscos e consultoria.</span></article><article><b>Trabalhista</b><span>Atuação preventiva e contenciosa.</span></article></div><p>Direito de Família · Contratos · Consultoria Jurídica</p></div><footer><b>ALMEIDA & CASTRO</b><span>Escritório demonstrativo · dados fictícios</span><i>Falar com a equipe</i></footer></div></div></div>
-          <div className="lp-phone"><div className="lp-phone-notch" /><div className="lp-dental-mobile lp-legal-mobile"><Image src="/niche-premium/law.png" alt="Versão mobile do mockup demonstrativo de advocacia" width={132} height={78} priority /><b>ALMEIDA & CASTRO</b><h3>Defesa jurídica estratégica.</h3><span>Falar com um advogado</span><small>Civil · Empresarial · Trabalhista</small><div className="lp-dental-mobile-more"><b>Áreas de atuação</b><p>Direito Civil e de Família</p><p>Contratos e Direito Empresarial</p><p>Consultoria Jurídica</p><strong>Atendimento confidencial</strong></div></div></div>
-          <div className="lp-float-note lp-note-two"><b>100% responsiva</b><span>Em qualquer tela</span></div>
-        </div>
+        <div className="hero-device-stage enter delay-2" aria-label="Mockup ilustrativo de site responsivo em notebook e celular">
+  <div className="hero-device-aura" aria-hidden="true" />
+  <div className="hero-laptop"><div className="hero-laptop-display">
+    <div className="hero-device-browser"><span/><span/><span/><small>k7sites.com.br</small></div>
+    <div className="hero-barber-preview"><Image src="/project-stream/barbearia.png" alt="Prévia do projeto de barbearia da galeria" fill sizes="(max-width: 860px) 95vw, 650px" className="hero-barber-preview-image" /></div>
+  </div><div className="hero-laptop-base"><div className="hero-laptop-notch"/></div></div>
+  <div className="hero-phone"><div className="hero-phone-camera"/><div className="hero-phone-screen hero-phone-barber-screen"><Image src="/project-stream/barbearia.png" alt="Prévia mobile do projeto de barbearia" fill sizes="180px" className="hero-barber-preview-image" /></div></div>
+  <div className="hero-device-caption"><span className="hero-device-caption-dot"/> DESIGN RESPONSIVO <span>·</span> DESKTOP + MOBILE</div>
+</div>
       </div>
     </section>
 
@@ -364,14 +321,7 @@ export default function LandingPages() {
           <p className="contact-kicker">ORÇAMENTO SIMPLES</p><h3>Seu próximo projeto começa com uma conversa clara.</h3><p>Preencha o briefing rápido. Assim conseguimos entender seu momento antes do primeiro contato.</p>
           <div className="contact-direct"><small>PREFERE FALAR AGORA?</small><a className="whatsapp-direct" href={whatsapp} target="_blank" rel="noreferrer" onClick={() => trackWhatsApp("form_landing", "WhatsApp: (11) 94921-4071")}>WhatsApp: (11) 94921-4071 <Arrow /></a></div>
         </aside>
-        <div className="form-shell reveal"><form onSubmit={submitForm}>
-          <input type="hidden" name="_subject" value="Novo contato pela Landing Page da K7 Sites" />
-          <input type="hidden" name="_next" value="https://www.k7sites.com.br/mensagem-recebida-com-sucesso" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <div className="form-pane active"><h3>Conte sobre o seu projeto.</h3><label>Qual é o seu nome?<input name="Nome" required autoComplete="name" placeholder="Digite seu nome" /></label><label>Qual é o seu WhatsApp?<input name="Telefone" type="tel" required autoComplete="tel" inputMode="numeric" maxLength={15} pattern={"\\(\\d{2}\\) \\d{4,5}-\\d{4}"} title="Digite um telefone com DDD, por exemplo: (11) 99999-9999" placeholder="(11) 99999-9999" onInput={(event) => { event.currentTarget.value = formatBrazilPhone(event.currentTarget.value); }} /></label><label>Qual tipo de projeto você precisa?<select name="Projeto" required defaultValue="Landing page"><option>Landing page</option><option>Site institucional</option><option>Página de vendas</option><option>Site para cursos</option><option>Redesign</option><option>Outro</option></select></label><label>Qual é o principal objetivo?<select name="Objetivo" required defaultValue=""><option value="" disabled>Selecione uma opção</option><option>Gerar contatos</option><option>Vender uma oferta</option><option>Apresentar a empresa</option><option>Lançar um produto</option><option>Atualizar o site atual</option></select></label><label>Me conte um pouco sobre sua empresa e o projeto.<textarea name="Mensagem" rows={5} required placeholder="O que você vende, para quem e qual resultado espera?" /></label><input className="form-honeypot" type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" /></div>
-          <div className="form-actions"><button className="button button-primary" type="submit" disabled={leadPending}>{leadPending ? "Enviando..." : "Enviar mensagem"} <Arrow /></button></div>{leadError && <p role="alert" style={{ color: "#b42318", marginTop: 12 }}>{leadError}</p>}
-        </form></div>
+        <div className="form-shell reveal"><HeroLeadForm placement="lp-contact" /></div>
       </div>
     </div></section>
 
