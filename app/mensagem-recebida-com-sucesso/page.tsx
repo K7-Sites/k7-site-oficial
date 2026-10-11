@@ -33,7 +33,7 @@ export default function MessageReceivedPage() {
         <p className={styles.eyebrow}>MENSAGEM ENVIADA</p>
         <h1>Recebemos seu contato <em>com sucesso.</em></h1>
         <p className={styles.lead}>
-          Obrigado por contar um pouco sobre o seu projeto. As informações foram enviadas para a K7 Sites e serão analisadas para o próximo contato.
+          Nossa equipe já recebeu seu contato e entrará em contato em breve pelo WhatsApp. Se preferir, você pode falar conosco agora mesmo pelo número (11) 94921-4071.
         </p>
 
         <div className={styles.nextSteps}>
@@ -47,14 +47,14 @@ export default function MessageReceivedPage() {
           </article>
           <article>
             <span>03</span>
-            <div><b>Próximo contato</b><small>Você receberá o retorno pelos canais informados no formulário.</small></div>
+            <div><b>Próximo contato</b><small>Nossa equipe entrará em contato em breve pelo WhatsApp.</small></div>
           </article>
         </div>
 
         <div className={styles.actions}>
           <Link className={styles.primary} href="/">Voltar para o site <span>→</span></Link>
           <a className={styles.secondary} href={whatsappLink} target="_blank" rel="noreferrer">
-            Falar pelo WhatsApp <span>↗</span>
+            <Image src="/whatsapp.svg" alt="" width={20} height={20} aria-hidden="true" /> Falar agora: (11) 94921-4071 <span>↗</span>
           </a>
         </div>
 
