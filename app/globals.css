@@ -498,3 +498,11 @@ em { color: var(--blue); font-style: normal; }
 @media (max-width: 480px) {
   .hero-form-placement { max-width: 100%; }
 }
+
+
+/* Seção de orçamento com formulário único centralizado. */
+.contact-layout.contact-layout-single { display: flex; justify-content: center; align-items: flex-start; width: 100%; }
+.contact-layout-single .form-shell:has(.k7-lead-card) { width: min(100%, 480px); max-width: 480px; margin-inline: auto; justify-self: auto; }
+@media (max-width: 860px) {
+  .contact-layout-single .form-shell:has(.k7-lead-card) { width: min(100%, 480px); max-width: 480px; }
+}
