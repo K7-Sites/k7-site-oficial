@@ -48,3 +48,6 @@
 @media(max-width:620px) {
   .lp-page .lp-container,.lp-page .lp-header { width:calc(100% - (var(--k7-layout-gutter) * 2)); }
 }
+
+.lp-page .lp-nav-contact { display:none; background:transparent; color:inherit; font:inherit; border:0; cursor:pointer; }
+@media(max-width:1040px) { .lp-page .lp-nav-contact { display:block; width:100%; text-align:left; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.1); font-size:14px; } }
