@@ -86,7 +86,7 @@ export function HeroLeadForm({ placement = "hero" }: { placement?: "hero" | "con
           </select>
         </label>
         <label htmlFor={placement + "-lead-phone"}>Seu WhatsApp
-          <input id={placement + "-lead-phone"} name="phone" type="tel" required inputMode="tel" autoComplete="tel" placeholder="(11) 99999-9999" pattern="\\([0-9]{2}\\) [0-9]{4,5}-[0-9]{4}" title="Informe seu WhatsApp com DDD" maxLength={15} onChange={(event) => { event.currentTarget.value = formatPhone(event.currentTarget.value); }} />
+          <input id={placement + "-lead-phone"} name="phone" type="tel" required inputMode="tel" autoComplete="tel" placeholder="(11) 99999-9999" pattern={"\\([0-9]{2}\\) [0-9]{4,5}-[0-9]{4}"} title="Informe seu WhatsApp com DDD" maxLength={15} onChange={(event) => { event.currentTarget.value = formatPhone(event.currentTarget.value); }} />
         </label>
         <div className="k7-lead-honeypot" aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
         <button type="submit" className="k7-lead-submit" disabled={pending}>{pending ? "Enviando..." : "Quero conversar pelo WhatsApp"} <Image src="/whatsapp.svg" alt="" width={20} height={20} aria-hidden="true" className="k7-lead-whatsapp-icon" /></button>
