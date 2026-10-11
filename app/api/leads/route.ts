@@ -32,6 +32,10 @@ export async function POST(request: NextRequest) {
   }
 
   const origin = request.nextUrl.pathname === "/api/leads/criacao-lp" ? "criacao-LP" : undefined;
+  if (origin && (typeof data.project_type !== "string" || data.project_type.length > 120 || typeof data.project_goal !== "string" || data.project_goal.length > 120 || typeof data.project_message !== "string" || data.project_message.length > 3000)) {
+    return NextResponse.json({ message: "Confira os detalhes do projeto." }, { status: 422 });
+  }
+
   try {
     const response = await fetch(endpoint, {
       method: "POST",
