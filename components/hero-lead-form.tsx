@@ -64,7 +64,7 @@ export function HeroLeadForm() {
         {options.map(([value, label]) => <option key={value} value={value}>{label}</option>)}
       </select>
       <input name="phone" aria-label="WhatsApp com DDD" required type="tel" inputMode="tel" autoComplete="tel" placeholder="WhatsApp com DDD"
-        pattern="[0-9()+.\\s-]{10,20}" title="Informe seu WhatsApp com DDD" maxLength={20}
+        pattern="[0-9()+. -]{10,20}" title="Informe seu WhatsApp com DDD" maxLength={20}
         style={{ width: "100%", padding: "13px 14px", borderRadius: 10, background: "#11151B", border: "1px solid #34363A", color: "#fff" }} />
       <div aria-hidden="true" style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clipPath: "inset(50%)" }}><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
       <button type="submit" disabled={pending} className="button button-primary" style={{ justifyContent: "center", opacity: pending ? 0.7 : 1 }}>
