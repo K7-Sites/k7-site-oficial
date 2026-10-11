@@ -451,3 +451,15 @@ em { color: var(--blue); font-style: normal; }
   .hero { padding-top: 110px; }
   .hero-form-placement .k7-lead-card { padding: 19px 16px; }
 }
+
+
+/* Header e conteúdo usam o mesmo limite horizontal em todas as resoluções. */
+:root { --k7-layout-gutter: 20px; --k7-layout-max: 1680px; }
+.container { width: calc(100% - (var(--k7-layout-gutter) * 2)); max-width: var(--k7-layout-max); margin-inline: auto; }
+.site-header { width: calc(100% - (var(--k7-layout-gutter) * 2)); max-width: var(--k7-layout-max); padding-inline: 0; }
+@media (max-width: 860px) {
+  :root { --k7-layout-gutter: 14px; }
+  .container, .site-header { width: calc(100% - (var(--k7-layout-gutter) * 2)); }
+  .site-header { padding-inline: 0; }
+}
+@media (max-width: 480px) { :root { --k7-layout-gutter: 10px; } }
