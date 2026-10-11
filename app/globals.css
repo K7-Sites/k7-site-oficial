@@ -507,3 +507,18 @@ em { color: var(--blue); font-style: normal; }
 :root { --k7-layout-gutter: clamp(24px, 3vw, 56px); }
 @media (max-width: 860px) { :root { --k7-layout-gutter: 20px; } }
 @media (max-width: 480px) { :root { --k7-layout-gutter: 16px; } }
+
+/* Formulário da hero mais compacto, sem afetar o formulário da seção de contato. */
+@media (min-width: 861px) {
+  .hero-layout { grid-template-columns: minmax(0, 1fr) minmax(320px, 400px); }
+  .hero-form-placement { width: 100%; max-width: 400px; justify-self: end; }
+  .hero-form-placement .k7-lead-card { padding: 18px 20px; }
+  .hero-form-placement .k7-lead-card-heading { margin-bottom: 10px; }
+  .hero-form-placement .k7-lead-form { gap: 9px; }
+  .hero-form-placement .k7-lead-form input,
+  .hero-form-placement .k7-lead-form select { min-height: 42px; padding: 8px 12px; }
+  .hero-form-placement .k7-lead-submit { min-height: 44px; }
+}
+@media (max-width: 860px) {
+  .hero-form-placement { max-width: 420px; margin-inline: auto; }
+}
