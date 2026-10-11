@@ -285,7 +285,7 @@ export default function Home() {
         <button className="menu-button" type="button" aria-label={menuOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}><span /><span /></button>
       </header>
 
-      <a className="whatsapp-float" href={whatsappLink} target="_blank" rel="noreferrer" aria-label="Falar com a K7 Sites pelo WhatsApp" onClick={() => trackWhatsAppClick("floating_button", "Falar pelo WhatsApp")}><Image src="/whatsapp.svg" alt="" width={38} height={38} aria-hidden="true" /></a>
+
 
       <section className="hero" id="inicio">
         <div className="hero-grid" aria-hidden="true" /><div className="hero-glow" aria-hidden="true" />
