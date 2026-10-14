@@ -31,6 +31,11 @@ export async function submitSiteLead(request: NextRequest, origin?: "criacao-LP"
     return NextResponse.json({ message: "Confira os campos informados." }, { status: 422 });
   }
 
+  const utmFields = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"] as const;
+  if (utmFields.some(field => data[field] !== undefined && (typeof data[field] !== "string" || (data[field] as string).length > 255))) {
+    return NextResponse.json({ message: "Parâmetros da campanha inválidos." }, { status: 422 });
+  }
+
   if (origin && (["project_type", "project_goal", "project_message"] as const).some((field) => data[field] !== undefined && (typeof data[field] !== "string" || (data[field] as string).length > (field === "project_message" ? 3000 : 120)))) {
     return NextResponse.json({ message: "Confira os detalhes do projeto." }, { status: 422 });
   }
@@ -39,7 +44,7 @@ export async function submitSiteLead(request: NextRequest, origin?: "criacao-LP"
     const response = await fetch(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json", "Accept": "application/json", Authorization: `Bearer ${token}` },
-      body: JSON.stringify({ name: data.name.trim(), phone: data.phone, service: data.service, service_id: data.service_id, submission_id: data.submission_id, website: "", ...(origin ? { origin, ...(typeof data.project_type === "string" ? { project_type: data.project_type } : {}), ...(typeof data.project_goal === "string" ? { project_goal: data.project_goal } : {}), ...(typeof data.project_message === "string" ? { project_message: data.project_message } : {}) } : {}) }),
+      body: JSON.stringify({ name: data.name.trim(), phone: data.phone, service: data.service, service_id: data.service_id, submission_id: data.submission_id, website: "", ...Object.fromEntries(utmFields.filter(field => typeof data[field] === "string").map(field => [field, data[field]])), ...(origin ? { origin, ...(typeof data.project_type === "string" ? { project_type: data.project_type } : {}), ...(typeof data.project_goal === "string" ? { project_goal: data.project_goal } : {}), ...(typeof data.project_message === "string" ? { project_message: data.project_message } : {}) } : {}) }),
       cache: "no-store",
       signal: AbortSignal.timeout(10000),
     });
