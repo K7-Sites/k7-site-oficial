@@ -16,8 +16,8 @@ const sora = Sora({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.k7sites.com.br"),
-  title: "Criação de Sites e Landing Pages Profissionais | K7 Sites",
-  description: "A K7 Sites cria sites institucionais e landing pages personalizados para empresas e profissionais. Conheça os projetos e solicite um orçamento.",
+  title: "Criação de Sites e Landing Pages | K7 Sites",
+  description: "Criação de sites profissionais e landing pages estratégicas para valorizar sua marca e gerar oportunidades. Projetos a partir de R$ 399.",
   alternates: {
     canonical: "https://www.k7sites.com.br/",
   },
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
     shortcut: "/k7-preloader-logo.png",
   },
   openGraph: {
-    title: "Criação de Sites e Landing Pages Profissionais | K7 Sites",
-    description: "Sites institucionais e landing pages personalizados para apresentar seus serviços, transmitir confiança e facilitar novos contatos.",
+    title: "Criação de Sites e Landing Pages | K7 Sites",
+    description: "Criação de sites profissionais e landing pages estratégicas para valorizar sua marca e gerar oportunidades. Projetos a partir de R$ 399.",
     url: "https://www.k7sites.com.br/",
     siteName: "K7 Sites",
     type: "website",
@@ -40,8 +40,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Criação de Sites e Landing Pages Profissionais | K7 Sites",
-    description: "Sites e landing pages personalizados para empresas e profissionais.",
+    title: "Criação de Sites e Landing Pages | K7 Sites",
+    description: "Sites profissionais e landing pages estratégicas para valorizar sua marca e gerar novas oportunidades.",
     images: ["/og.png"],
   },
 };
@@ -83,9 +83,11 @@ const jsonLd = {
     {
       "@type": "FAQPage",
       mainEntity: [
-        ["Em quanto tempo meu site fica pronto?", "O prazo é definido conforme o escopo e começa após a aprovação, o pagamento inicial e o envio de todos os materiais. O projeto pode ficar pronto antes do prazo previsto."],
-        ["A página funciona bem no celular?", "Sim. O layout é planejado para desktop, tablet e celular, com atenção especial à leitura, aos botões e aos formulários."],
-        ["Eu preciso enviar os textos e as imagens?", "Você pode enviar os materiais disponíveis. A K7 organiza o conteúdo e orienta sobre o que estiver faltando. Produções específicas podem ser incluídas no orçamento."],
+        ["Quanto custa criar um site profissional?", "Na K7 Sites, temos projetos a partir de R$ 399. O valor final depende do tipo de site, das funcionalidades e das necessidades do seu negócio."],
+        ["Meu site vai funcionar no celular?", "Sim. Desenvolvemos sites responsivos, adaptados para diferentes tamanhos de tela."],
+        ["Posso solicitar uma landing page para anúncios?", "Sim. Criamos landing pages pensadas para apresentar ofertas, receber visitantes de campanhas e facilitar a captação de contatos."],
+        ["Já tenho um site. Vocês podem modernizá-lo?", "Sim. Podemos avaliar seu site atual e apresentar uma proposta de redesign de acordo com suas necessidades."],
+        ["Como faço para solicitar um orçamento?", "Basta preencher o formulário com seu nome, WhatsApp e o serviço desejado. Nossa equipe entrará em contato para entender melhor seu projeto."],
         ["Domínio e hospedagem estão incluídos?", "Esses serviços são definidos no orçamento. Se ainda não tiver domínio ou hospedagem, você recebe orientação para escolher e configurar."],
         ["Posso pedir alterações?", "Sim. A quantidade de rodadas de ajustes é registrada na proposta para que o processo seja organizado e previsível para os dois lados."],
         ["O pagamento é feito como?", "A condição padrão é 50% antes do início do projeto e 50% na conclusão, antes da publicação definitiva ou liberação dos acessos finais."],

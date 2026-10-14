@@ -79,15 +79,15 @@ export function HeroLeadForm({ placement = "hero" }: { placement?: "hero" | "con
   return (
     <div className="k7-lead-card">
       <div className="k7-lead-card-heading">
-        <span className="k7-lead-kicker"><span className="k7-lead-dot" /> ATENDIMENTO PELO WHATSAPP</span>
-        <h2>Vamos conversar sobre seu projeto?</h2>
-        <p>Preencha os dados abaixo e nossa equipe entra em contato com você pelo WhatsApp.</p>
+        <span className="k7-lead-kicker"><span className="k7-lead-dot" /> ORÇAMENTO PERSONALIZADO</span>
+        <h2>Vamos colocar seu projeto no ar?</h2>
+        <p>Conte um pouco sobre o que você precisa. Vamos conversar sobre a melhor solução para seu negócio.</p>
       </div>
       <form className="k7-lead-form" onSubmit={submit} aria-label={placement === "hero" ? "Orçamento rápido" : "Solicitar orçamento"}>
         <label htmlFor={placement + "-lead-name"}>Seu nome
-          <input id={placement + "-lead-name"} name="name" type="text" required minLength={2} maxLength={255} autoComplete="name" placeholder="Como podemos te chamar?" />
+          <input id={placement + "-lead-name"} name="name" type="text" required minLength={2} maxLength={255} autoComplete="name" placeholder="Como podemos chamar você?" />
         </label>
-        <label htmlFor={placement + "-lead-service"}>Qual serviço você precisa?
+        <label htmlFor={placement + "-lead-service"}>Serviço desejado
           <select id={placement + "-lead-service"} name="service" required defaultValue="">
             <option value="" disabled>Selecione o serviço</option>
             {services.map(({value, label}) => <option key={value} value={value}>{label}</option>)}
@@ -98,8 +98,8 @@ export function HeroLeadForm({ placement = "hero" }: { placement?: "hero" | "con
           <input id={placement + "-lead-phone"} name="phone" type="tel" required inputMode="tel" autoComplete="tel" placeholder="(11) 99999-9999" pattern="[(][0-9]{2}[)] [0-9]{4,5}-[0-9]{4}" title="Informe seu WhatsApp com DDD" maxLength={15} onChange={(event) => { event.currentTarget.value = formatPhone(event.currentTarget.value); }} />
         </label>
         <div className="k7-lead-honeypot" aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
-        <button type="submit" className="k7-lead-submit" disabled={pending}>{pending ? "Enviando..." : "Quero conversar pelo WhatsApp"} <Image src="/whatsapp.svg" alt="" width={20} height={20} aria-hidden="true" className="k7-lead-whatsapp-icon" /></button>
-        <p className="k7-lead-privacy">Sem compromisso. Seus dados serão usados apenas para responder ao seu contato.</p>
+        <button type="submit" className="k7-lead-submit" disabled={pending}>{pending ? "Enviando..." : "Quero meu orçamento"} <Image src="/whatsapp.svg" alt="" width={20} height={20} aria-hidden="true" className="k7-lead-whatsapp-icon" /></button>
+        <p className="k7-lead-privacy">Seus dados serão utilizados para entrarmos em contato sobre sua solicitação.</p>
         <p className={success ? "k7-lead-feedback is-success" : "k7-lead-feedback"} role="status" aria-live="polite">{feedback}</p>
       </form>
     </div>
