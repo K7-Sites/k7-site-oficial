@@ -11,9 +11,8 @@ import { trackEvent } from "@/lib/analytics";
 const whatsappLink = "https://wa.me/5511949214071?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20K7%20Sites%20e%20gostaria%20de%20pedir%20um%20or%C3%A7amento.";
 const googleReviewsLink = "https://share.google/pDIhvdTpTxOyWEIOe";
 const heroTitleWords = [
-  { text: "Sites" }, { text: "e" }, { text: "Landing" }, { text: "Pages" },
-  { text: "profissionais" }, { text: "a" }, { text: "partir" }, { text: "de" },
-  { text: "R$399", accent: true },
+  { text: "Seu" }, { text: "negócio" }, { text: "merece" }, { text: "mais" }, { text: "do" }, { text: "que" }, { text: "estar" }, { text: "na" }, { text: "internet." },
+  { text: "Merece" }, { text: "ser" }, { text: "escolhido.", accent: true },
 ];
 
 const technologies = [
@@ -30,21 +29,19 @@ const technologies = [
 ];
 
 const services = [
-  { number: "01", title: "Landing pages", text: "Páginas focadas em apresentar uma oferta ou serviço e conduzir o visitante a uma ação específica, como solicitar um orçamento ou entrar em contato.", tag: "Campanhas e ofertas" },
-  { number: "02", title: "Sites institucionais", text: "Sites completos para apresentar a empresa, seus serviços, diferenciais, projetos e canais de contato com mais credibilidade.", tag: "Presença e confiança" },
-  { number: "03", title: "Páginas de vendas", text: "Páginas estruturadas para explicar uma oferta, responder dúvidas e facilitar a decisão do visitante.", tag: "Produtos e serviços" },
-  { number: "04", title: "Sites para cursos", text: "Estrutura para divulgar cursos, organizar conteúdos, integrar checkout e deixar a jornada de compra mais simples.", tag: "Infoprodutos" },
-  { number: "05", title: "Redesign estratégico", text: "Atualização visual e estrutural de páginas antigas para melhorar clareza, percepção de valor e uso no celular.", tag: "Evolução de marca" },
-  { number: "06", title: "Suporte e evolução", text: "Ajustes, novas seções e melhorias contínuas para manter o projeto alinhado às próximas necessidades do negócio.", tag: "Crescimento contínuo" },
+  { number: "01", title: "Uma página. Um objetivo. Mais oportunidades.", text: "Páginas estratégicas para apresentar sua oferta, captar contatos e transformar o tráfego das suas campanhas em oportunidades comerciais.", tag: "Landing pages", benefits: ["Comunicação direta e persuasiva", "Estrutura otimizada para captação de leads", "Ideal para campanhas e divulgação de serviços"], cta: "Quero uma landing page", serviceMatch: "Landing" },
+  { number: "02", title: "Sua empresa com a credibilidade que merece.", text: "Apresente seus serviços, diferenciais e informações em um site moderno que fortalece sua marca e facilita o contato com potenciais clientes.", tag: "Sites institucionais", benefits: ["Apresentação profissional do negócio", "Experiência adaptada para dispositivos móveis", "Navegação organizada e intuitiva"], cta: "Quero um site profissional", serviceMatch: "Site" },
+  { number: "03", title: "Seu negócio evoluiu. Seu site também precisa evoluir.", text: "Modernizamos sites antigos para oferecer uma experiência mais profissional, rápida e adaptada aos dispositivos atuais.", tag: "Redesign de sites", benefits: ["Visual moderno e atualizado", "Melhor organização das informações", "Experiência de navegação aprimorada"], cta: "Quero modernizar meu site", serviceMatch: "Redesign" },
+  { number: "04", title: "Páginas de vendas", text: "Páginas estruturadas para explicar uma oferta, responder dúvidas e facilitar a decisão do visitante.", tag: "Produtos e serviços", benefits: [] as string[], cta: "", serviceMatch: "" },
+  { number: "05", title: "Sites para cursos", text: "Estrutura para divulgar cursos, organizar conteúdos, integrar checkout e deixar a jornada de compra mais simples.", tag: "Infoprodutos", benefits: [] as string[], cta: "", serviceMatch: "" },
+  { number: "06", title: "Suporte e evolução", text: "Ajustes, novas seções e melhorias contínuas para manter o projeto alinhado às próximas necessidades do negócio.", tag: "Crescimento contínuo", benefits: [] as string[], cta: "", serviceMatch: "" },
 ];
 
 const deliveries = [
-  { icon: "⚡︎", title: "Carregamento rápido", text: "Desenvolvimento cuidadoso para oferecer uma navegação ágil e uma boa experiência em diferentes dispositivos." },
-  { icon: "▣", title: "Design personalizado e responsivo", text: "Uma apresentação alinhada ao seu negócio, adaptada para computador, tablet e celular." },
-  { icon: "↗", title: "Caminhos claros para contato", text: "Conteúdo e chamadas para ação organizados para facilitar pedidos de orçamento e novas conversas." },
-  { icon: "⌕", title: "Estrutura preparada para SEO", text: "Boas práticas técnicas e conteúdo indexável para ajudar o Google a compreender sua página." },
-  { icon: "◉", title: "Contato direto pelo WhatsApp", text: "Botões e formulários aproximam o visitante da sua empresa e tornam o atendimento mais simples." },
-  { icon: "⬡", title: "Orientação até a publicação", text: "A K7 acompanha os ajustes e orienta as etapas necessárias para colocar o projeto no ar." },
+  { icon: "◆", title: "Design que transmite confiança", text: "Uma apresentação moderna e profissional, alinhada à identidade da sua empresa." },
+  { icon: "↗", title: "Estrutura pensada para conversão", text: "Conteúdo organizado, chamadas estratégicas e caminhos claros para entrar em contato." },
+  { icon: "▣", title: "Perfeito em qualquer tela", text: "Uma experiência adaptada para celulares, tablets e computadores." },
+  { icon: "◉", title: "Atendimento próximo e personalizado", text: "Entendemos seu negócio para desenvolver uma solução que faça sentido para seus objetivos." },
 ];
 
 const nicheProjects = [
@@ -103,9 +100,11 @@ const testimonials = [
 ];
 
 const faqs = [
-  ["Em quanto tempo meu site fica pronto?", "O prazo é definido conforme o escopo e começa após a aprovação, o pagamento inicial e o envio de todos os materiais. O projeto pode ficar pronto antes do prazo previsto."],
-  ["A página funciona bem no celular?", "Sim. O layout é planejado para desktop, tablet e celular, com atenção especial à leitura, aos botões e aos formulários."],
-  ["Eu preciso enviar os textos e as imagens?", "Você pode enviar os materiais disponíveis. A K7 organiza o conteúdo e orienta sobre o que estiver faltando. Produções específicas podem ser incluídas no orçamento."],
+  ["Quanto custa criar um site profissional?", "Na K7 Sites, temos projetos a partir de R$ 399. O valor final depende do tipo de site, das funcionalidades e das necessidades do seu negócio."],
+  ["Meu site vai funcionar no celular?", "Sim. Desenvolvemos sites responsivos, adaptados para diferentes tamanhos de tela."],
+  ["Posso solicitar uma landing page para anúncios?", "Sim. Criamos landing pages pensadas para apresentar ofertas, receber visitantes de campanhas e facilitar a captação de contatos."],
+  ["Já tenho um site. Vocês podem modernizá-lo?", "Sim. Podemos avaliar seu site atual e apresentar uma proposta de redesign de acordo com suas necessidades."],
+  ["Como faço para solicitar um orçamento?", "Basta preencher o formulário com seu nome, WhatsApp e o serviço desejado. Nossa equipe entrará em contato para entender melhor seu projeto."],
   ["Domínio e hospedagem estão incluídos?", "Esses serviços são definidos no orçamento. Se ainda não tiver domínio ou hospedagem, você recebe orientação para escolher e configurar."],
   ["Posso pedir alterações?", "Sim. A quantidade de rodadas de ajustes é registrada na proposta para que o processo seja organizado e previsível para os dois lados."],
   ["O pagamento é feito como?", "A condição padrão é 50% antes do início do projeto e 50% na conclusão, antes da publicação definitiva ou liberação dos acessos finais."],
@@ -243,6 +242,18 @@ export default function Home() {
   const openContactDialog = () => { setMenuOpen(false); contactDialogRef.current?.showModal(); };
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
+  const selectServiceAndScroll = (serviceMatch: string) => {
+    const select = document.querySelector<HTMLSelectElement>("#contact-lead-service");
+    if (select && serviceMatch) {
+      const option = Array.from(select.options).find((item) => item.text.toLowerCase().includes(serviceMatch.toLowerCase()));
+      if (option) {
+        select.value = option.value;
+        select.dispatchEvent(new Event("change", { bubbles: true }));
+      }
+    }
+    document.querySelector("#orcamento")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   const trackWhatsAppClick = (
     buttonLocation: "hero" | "header" | "portfolio" | "final_cta" | "floating_button",
     linkText: string,
@@ -300,15 +311,16 @@ export default function Home() {
         <div className="container hero-layout" id="conteudo">
           <div className="hero-copy">
             <p className="eyebrow enter"><span /> PRESENÇA DIGITAL PROFISSIONAL</p>
-            <h1 className="enter delay-1" aria-label="Sites profissionais para transformar sua presença digital em novas oportunidades">
+            <h1 className="enter delay-1" aria-label="Seu negócio merece mais do que estar na internet. Merece ser escolhido.">
               {heroTitleWords.map((word, wordIndex) => {
                 const characterOffset = heroTitleWords.slice(0, wordIndex).reduce((total, item) => total + item.text.length, 0);
                 return <span className={`hero-title-word${word.accent ? " is-accent" : ""}${wordIndex < heroTitleWords.length - 1 ? " has-space" : ""}`} key={word.text}>{Array.from(word.text).map((character, characterIndex) => <span className="hero-title-character" style={{ animationDelay: `${280 + (characterOffset + characterIndex) * 34}ms` }} key={`${word.text}-${characterIndex}`}>{character}</span>)}</span>;
               })}
             </h1>
-            <p className="hero-lead enter delay-2">A K7 Sites cria sites institucionais e landing pages personalizados para empresas e profissionais que desejam transmitir confiança, apresentar seus serviços e facilitar o contato com novos clientes.</p>
-            <div className="hero-actions enter delay-3"><a className="button button-primary" href="#orcamento">Solicitar um orçamento <Arrow /></a><a className="button button-ghost" href="#projetos">Conhecer projetos <Arrow diagonal /></a></div>
-            <ul className="hero-benefits enter delay-4"><li><Check /> Projeto personalizado</li><li><Check /> Atendimento próximo</li><li><Check /> Orçamento sem compromisso</li></ul>
+            <p className="hero-lead enter delay-2">Criamos sites profissionais e landing pages estratégicas para transformar visitantes em oportunidades reais de negócio. Tenha uma presença digital que transmite confiança, valoriza sua marca e facilita o contato de novos clientes.</p>
+            <p className="hero-price enter delay-2">Seu site profissional <strong>a partir de R$ 399.</strong></p>
+            <div className="hero-actions enter delay-3"><a className="button button-primary" href="#orcamento">Quero criar meu site <Arrow /></a><a className="button button-ghost" href="#projetos">Conhecer projetos <Arrow diagonal /></a></div>
+            <ul className="hero-benefits enter delay-4"><li><Check /> Design moderno e responsivo</li><li><Check /> Estrutura pensada para conversão</li><li><Check /> Atendimento personalizado</li></ul>
           </div>
           <div className="hero-device-stage enter delay-2" aria-label="Mockup ilustrativo de site responsivo em notebook e celular">
   <div className="hero-device-aura" aria-hidden="true" />
@@ -367,25 +379,26 @@ export default function Home() {
       </section>
 
       <section className="section problems" id="diagnostico"><div className="container">
-        <div className="section-heading reveal"><p className="eyebrow dark"><span /> BENEFÍCIOS DE UM SITE PROFISSIONAL</p><h2>Uma presença digital preparada para <em>transmitir confiança.</em></h2><p>Design personalizado, conteúdo claro e desenvolvimento cuidadoso para apresentar seus serviços e facilitar novas oportunidades de contato.</p></div>
+        <div className="section-heading reveal"><p className="eyebrow dark"><span /> SUA PRESENÇA DIGITAL IMPORTA</p><h2>Quantos clientes podem estar escolhendo a concorrência porque ainda não encontraram você?</h2><p>Hoje, antes de contratar um serviço, muitas pessoas pesquisam, comparam e procuram sinais de confiança. Se sua empresa não tem um site profissional, você pode estar perdendo oportunidades antes mesmo de conversar com o cliente.</p><p className="problem-highlight">Seu negócio é bom. Sua presença digital precisa mostrar isso.</p><p>Na K7 Sites, transformamos sua experiência, seus serviços e seus diferenciais em uma presença online profissional, preparada para receber novos contatos.</p><a className="text-link problem-cta" href="#orcamento">Quero melhorar minha presença digital <Arrow /></a></div>
+        <div className="section-heading centered reveal differentiators-heading"><p className="eyebrow dark"><span /> DIFERENCIAIS</p><h2>Não criamos apenas páginas bonitas. Criamos experiências pensadas para <em>gerar negócios.</em></h2><p>Um site precisa fazer mais do que impressionar visualmente. Ele precisa comunicar sua proposta, transmitir confiança e mostrar ao visitante qual é o próximo passo.</p></div>
         <div className="problem-grid">{deliveries.map((item) => <article className="problem-card reveal" key={item.title}><span className="problem-icon" aria-hidden="true">{item.icon}</span><b>{item.title}</b><p>{item.text}</p></article>)}</div>
       </div></section>
 
       <section className="impact-band"><div className="container impact-layout reveal"><p>UMA BOA PRESENÇA DIGITAL CONECTA</p><div><strong>CLAREZA</strong><span>para explicar</span></div><i>+</i><div><strong>DESIGN</strong><span>para valorizar</span></div><i>+</i><div><strong>ESTRATÉGIA</strong><span>para conduzir</span></div></div></section>
 
       <section className="section services" id="servicos"><div className="container">
-        <div className="section-heading split reveal"><div><p className="eyebrow"><span /> SERVIÇOS DE CRIAÇÃO DE SITES</p><h2>O formato certo para cada <em>objetivo.</em></h2></div><p>Landing pages, sites institucionais e páginas de vendas personalizados para comunicar com clareza e facilitar o contato com seu público.</p></div>
-        <div className="service-grid">{services.map((service) => <article className="service-card reveal" key={service.number}><div className="service-top"><div className="service-icon" aria-hidden="true"><span>🚀</span></div><span>{service.number}</span></div><h3>{service.title}</h3><p>{service.text}</p><small>{service.tag}</small></article>)}</div>
+        <div className="section-heading split reveal"><div><p className="eyebrow"><span /> NOSSAS SOLUÇÕES</p><h2>O site certo para o momento do <em>seu negócio.</em></h2></div><p>Da primeira presença digital à modernização da sua marca, desenvolvemos soluções para ajudar sua empresa a conquistar espaço e gerar novas oportunidades.</p></div>
+        <div className="service-grid">{services.map((service) => <article className="service-card reveal" key={service.number}><div className="service-top"><div className="service-icon" aria-hidden="true"><span>🚀</span></div><span>{service.number}</span></div><h3>{service.title}</h3><p>{service.text}</p>{service.benefits.length > 0 && <ul className="service-benefits">{service.benefits.map((benefit) => <li key={benefit}><Check />{benefit}</li>)}</ul>}<small>{service.tag}</small>{service.cta && <button type="button" className="service-card-cta" onClick={() => selectServiceAndScroll(service.serviceMatch)}>{service.cta} <Arrow /></button>}</article>)}</div>
       </div></section>
 
       <section className="section process" id="processo"><div className="container">
-        <div className="section-heading centered process-intro reveal"><p className="eyebrow"><span /> COMO FUNCIONA</p><h2>Um processo claro, do planejamento à <em>publicação.</em></h2><p>Você acompanha a criação do site e sabe o que acontece em cada etapa, desde o diagnóstico até a entrega.</p><a className="text-link" href="#orcamento">Falar sobre meu projeto <Arrow /></a></div>
-        <div className="timeline process-timeline">{[["01", "Diagnóstico", "Entendemos seu objetivo, público, oferta, referências e necessidades técnicas."], ["02", "Estratégia e conteúdo", "Organizamos a jornada da página e definimos a mensagem principal de cada seção."], ["03", "Design e desenvolvimento", "Criamos a identidade visual da página e construímos a experiência responsiva."], ["04", "Revisão e publicação", "Aplicamos os ajustes previstos, validamos a navegação e orientamos sobre a entrega."]].map(([number, title, text]) => <article className="timeline-item reveal" key={number}><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div><i><Check /></i></article>)}</div>
+        <div className="section-heading centered process-intro reveal"><p className="eyebrow"><span /> COMO FUNCIONA</p><h2>Seu novo site começa com uma <em>conversa simples.</em></h2><p>Você conta o que precisa. Nós ajudamos a transformar sua ideia em uma presença digital profissional.</p><a className="text-link" href="#orcamento">Quero começar meu projeto <Arrow /></a></div>
+        <div className="timeline process-timeline">{[["01", "Conte sobre seu projeto", "Preencha o formulário e compartilhe o que sua empresa precisa."], ["02", "Receba uma proposta personalizada", "Analisamos sua necessidade e apresentamos uma solução adequada aos seus objetivos."], ["03", "Desenvolvemos seu site", "Transformamos a proposta aprovada em um projeto com design profissional, navegação intuitiva e foco na experiência do usuário."], ["04", "Seu negócio ganha uma nova presença digital", "Após as etapas de revisão e aprovação, seu site estará pronto para apresentar sua empresa ao mundo."]].map(([number, title, text]) => <article className="timeline-item reveal" key={number}><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div><i><Check /></i></article>)}</div>
       </div></section>
 
       <HomeProjectsSection />
 
-      <section className="conversion-block"><div className="container"><div className="conversion-card reveal"><div className="conversion-grid" aria-hidden="true" /><div className="conversion-layout"><div><p className="eyebrow"><span /> APRESENTE MELHOR O SEU NEGÓCIO</p><h2>Seu site deve transmitir a qualidade do que você <em>entrega.</em></h2></div><div><p>Conte o que sua empresa precisa e receba uma orientação sobre o formato de projeto mais adequado.</p><a className="button button-light" href="#orcamento">Falar sobre meu projeto <Arrow /></a></div></div></div></div></section>
+      <section className="conversion-block"><div className="container"><div className="conversion-card reveal"><div className="conversion-grid" aria-hidden="true" /><div className="conversion-layout"><div><p className="eyebrow"><span /> PRÓXIMO PASSO</p><h2>Seu próximo cliente pode estar procurando exatamente o que você <em>oferece.</em></h2></div><div><p>A pergunta é: quando ele encontrar sua empresa, vai sentir confiança para entrar em contato? Tenha um site profissional, moderno e preparado para apresentar seu negócio da melhor forma.</p><strong className="conversion-price">Projetos a partir de R$ 399.</strong><p className="conversion-support">Conte para nós o que você precisa e receba uma proposta personalizada, sem compromisso.</p><a className="button button-light" href="#orcamento">Quero receber meu orçamento <Arrow /></a><small className="conversion-note">Leva menos de 1 minuto para enviar sua solicitação.</small></div></div></div></div></section>
 
       <section className="section about" id="sobre"><div className="container">
         <div className="section-heading centered reveal"><p className="eyebrow"><span /> SOBRE A K7 SITES</p><h2>Estratégia, design e desenvolvimento para <em>apresentar melhor o seu negócio.</em></h2><p>A K7 Sites cria sites e landing pages personalizados para empresas e profissionais que desejam comunicar seus serviços com clareza, confiança e identidade.</p></div>
@@ -434,16 +447,16 @@ export default function Home() {
       </div></section>
 
       <section className="section faq" id="faq"><div className="container">
-        <div className="section-heading centered reveal"><p className="eyebrow dark"><span /> DÚVIDAS FREQUENTES</p><h2>Ainda tem <em>dúvida?</em></h2><p>Veja as respostas mais importantes antes de começar. Se precisar, fale diretamente com a K7 Sites.</p></div>
-        <div className="accordion faq-accordion">{faqs.map(([question, answer], index) => <article className={openFaq === index ? "faq-item is-open" : "faq-item"} key={question}><button type="button" aria-expanded={openFaq === index} onClick={() => setOpenFaq(openFaq === index ? null : index)}><span>0{index + 1}</span>{question}<i>{openFaq === index ? "−" : "+"}</i></button><div className="faq-answer"><p>{answer}</p></div></article>)}</div>
+        <div className="section-heading centered reveal"><p className="eyebrow dark"><span /> DÚVIDAS FREQUENTES</p><h2>Ainda tem dúvidas? <em>A gente te ajuda.</em></h2><p>Veja as respostas mais importantes antes de começar. Se precisar, fale diretamente com a K7 Sites.</p></div>
+        <div className="accordion faq-accordion">{faqs.map(([question, answer], index) => <article className={openFaq === index ? "faq-item is-open" : "faq-item"} key={question}><button type="button" aria-expanded={openFaq === index} onClick={() => setOpenFaq(openFaq === index ? null : index)}><span>{String(index + 1).padStart(2, "0")}</span>{question}<i>{openFaq === index ? "−" : "+"}</i></button><div className="faq-answer"><p>{answer}</p></div></article>)}</div><a className="text-link faq-cta" href="#orcamento">Ainda tem dúvidas? Solicite seu orçamento <Arrow /></a>
       </div></section>
 
       <section className="section contact" id="orcamento"><div className="contact-glow" aria-hidden="true" /><div className="container">
-        <div className="section-heading centered contact-heading reveal"><p className="eyebrow"><span /> SOLICITE UM ORÇAMENTO</p><h2>Vamos criar a solução certa para <em>o seu negócio.</em></h2><p>Conte brevemente o que você precisa. A K7 analisa o projeto e orienta o formato mais adequado para seus objetivos.</p></div>
+        <div className="section-heading centered contact-heading reveal"><p className="eyebrow"><span /> SOLICITE UM ORÇAMENTO</p><h2>Vamos colocar seu projeto <em>no ar?</em></h2><p>Conte um pouco sobre o que você precisa. Vamos conversar sobre a melhor solução para seu negócio.</p></div>
         <div className="contact-layout contact-layout-single"><div className="form-shell reveal"><HeroLeadForm placement="contact" /></div></div>
       </div></section>
 
-      <section className="final-cta"><div className="container"><div className="final-cta-card reveal"><div className="final-orbit" aria-hidden="true" /><div className="final-cta-content"><div className="mini-logo"><Image src="/k7-logo.png" alt="K7 Sites" width={70} height={70} /></div><p>CRIAÇÃO DE SITES PROFISSIONAIS</p><h2>Apresente seu negócio com mais clareza, confiança e facilidade de contato.</h2><a className="button button-light" href="#orcamento">Solicitar um orçamento <Arrow /></a></div></div></div></section>
+      <section className="final-cta"><div className="container"><div className="final-cta-card reveal"><div className="final-orbit" aria-hidden="true" /><div className="final-cta-content"><div className="mini-logo"><Image src="/k7-logo.png" alt="K7 Sites" width={70} height={70} /></div><p>K7 SITES</p><h2>Sua empresa tem potencial. Vamos mostrar isso ao mundo?</h2><span className="final-cta-text">Dê o próximo passo para construir uma presença digital profissional, transmitir mais confiança e abrir novas oportunidades para seu negócio.</span><div className="final-cta-actions"><a className="button button-light" href="#orcamento">Quero tirar meu projeto do papel <Arrow /></a><a className="button final-cta-secondary" href={whatsappLink} target="_blank" rel="noreferrer" onClick={() => trackWhatsAppClick("final_cta", "Falar pelo WhatsApp")}>Falar pelo WhatsApp <Arrow diagonal /></a></div><small className="final-cta-note">K7 Sites — Sites profissionais e landing pages estratégicas para valorizar sua marca e gerar novas oportunidades.</small></div></div></div></section>
 
       <footer className="footer"><div className="container footer-main">
         <div><a className="brand footer-brand" href="#inicio"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={104} height={108} /></a><p>Sites e landing pages com estratégia, identidade e acabamento profissional.</p></div>
