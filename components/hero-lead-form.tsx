@@ -88,7 +88,19 @@ export function HeroLeadForm({ placement = "hero" }: { placement?: "hero" | "con
           <input id={placement + "-lead-name"} name="name" type="text" required minLength={2} maxLength={255} autoComplete="name" placeholder="Como podemos chamar você?" />
         </label>
         <label htmlFor={placement + "-lead-service"}>Serviço desejado
-          <select id={placement + "-lead-service"} name="service" required defaultValue="">
+          <select
+            id={placement + "-lead-service"}
+            name="service"
+            required
+            defaultValue=""
+            onChange={(event) => {
+              trackEvent("select_service", {
+                page_path: window.location.pathname,
+                service: event.currentTarget.value,
+                form_placement: placement,
+              });
+            }}
+          >
             <option value="" disabled>Selecione o serviço</option>
             {services.map(({value, label}) => <option key={value} value={value}>{label}</option>)}
           </select>
