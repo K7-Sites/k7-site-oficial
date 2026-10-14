@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { captureLeadAttribution, readLeadAttribution } from "@/lib/lead-attribution";
 
 function formatPhone(value: string): string {
   const digits = value.replace(/\D/g, "").replace(/^55(?=\d{10,11}$)/, "").slice(0, 11);
@@ -19,6 +20,7 @@ export function HeroLeadForm({ placement = "hero" }: { placement?: "hero" | "con
   const [services, setServices] = useState<ServiceOption[]>([]);
   const [servicesError, setServicesError] = useState(false);
   useEffect(() => {
+    captureLeadAttribution();
     let active = true;
     fetch("/api/services").then(async response => {
       if (!response.ok) throw new Error("Serviços indisponíveis");
@@ -54,6 +56,7 @@ export function HeroLeadForm({ placement = "hero" }: { placement?: "hero" | "con
           service_id: services.find(item => item.value === values.get("service"))?.service_id ?? null,
           website: values.get("website"),
           submission_id: submissionId.current,
+          ...readLeadAttribution(),
         }),
       });
       if (!response.ok) throw new Error("Falha no envio");
