@@ -331,8 +331,8 @@ export default function LandingPages() {
       <div className="lp2-wrap lp2-footer-grid">
         <div className="lp2-footer-logo"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={76} height={79}/></div>
         <div><strong>Links úteis</strong><a href="#portfolio">Projetos</a><a href="#beneficios">Benefícios</a><a href="#faq">FAQ</a><a href="#formulario">Orçamento</a></div>
-        <div><strong>Contato</strong><span>[NOME DA EMPRESA]</span><span>CNPJ: [CNPJ]</span><a href="mailto:[E-MAIL]">[E-MAIL]</a><span>[TELEFONE]</span><span>[CIDADE/UF]</span></div>
-        <div><strong>Redes sociais</strong><span>Instagram: [LINK]</span><span>WhatsApp: https://wa.me/[NÚMERO]</span></div>
+        <div><strong>Contato</strong><span>[NOME DA EMPRESA]</span><span>CNPJ: [CNPJ]</span><a href="mailto:[E-MAIL]">[E-MAIL]</a><a href={"https://wa.me/" + "[NÚMERO]"} target="_blank" rel="noreferrer">[TELEFONE]</a><span>[CIDADE/UF]</span></div>
+        <div><strong>Redes sociais</strong><a href={"[LINK]"} target="_blank" rel="noreferrer">Instagram</a></div>
         <small>© {new Date().getFullYear()} [NOME DA EMPRESA]. Todos os direitos reservados.</small>
       </div>
     </footer>
