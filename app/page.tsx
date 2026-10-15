@@ -327,67 +327,61 @@ export default function Home() {
         {Array.from({ length: 2 }).map((_, group) => <div className="ticker-group" key={group} aria-hidden={group === 1}><span>DESIGN ESTRATÉGICO</span><i /><span>EXPERIÊNCIA RESPONSIVA</span><i /><span>COPY QUE CONDUZ</span><i /><span>PROJETOS SOB MEDIDA</span><i /></div>)}
       </div></div>
 
-      <header className="site-header">
-        <a className="brand header-brand" href="#inicio" aria-label="K7 Sites — início"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={84} height={87} priority /></a>
+      <header className="site-header hero-style-header">
+        <a className="brand header-brand brand-lockup" href="#inicio" aria-label="K7 Sites — início">
+          <Image src="/k7-preloader-logo.png" alt="" width={84} height={87} priority />
+          <strong>SITES</strong>
+        </a>
         <nav className={menuOpen ? "nav is-open" : "nav"} aria-label="Navegação principal">
-          <a href="#servicos" onClick={() => setMenuOpen(false)}>Serviços</a><a href="#projetos" onClick={() => setMenuOpen(false)}>Projetos</a><a href="#processo" onClick={() => setMenuOpen(false)}>Processo</a><a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a><a href="#faq" onClick={() => setMenuOpen(false)}>Dúvidas</a><button type="button" className="nav-contact-link" onClick={openContactDialog}>Fale conosco</button><a className="nav-mobile-cta" href="#orcamento" onClick={() => setMenuOpen(false)}>Solicitar um orçamento</a>
+          <a href="#inicio" onClick={() => setMenuOpen(false)}>Início</a>
+          <a href="#servicos" onClick={() => setMenuOpen(false)}>Serviços</a>
+          <a href="#projetos" onClick={() => setMenuOpen(false)}>Portfólio</a>
+          <a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre</a>
+          <a href="#orcamento" onClick={() => setMenuOpen(false)}>Contato</a>
+          <a className="nav-mobile-cta" href="#orcamento" onClick={() => setMenuOpen(false)}>Quero criar meu site</a>
         </nav>
-        <a className="header-cta" href="#orcamento">Solicitar orçamento <Arrow /></a>
+        <a className="header-cta" href="#orcamento" onClick={() => trackCta("click_cta_hero", "header", "Quero criar meu site")}>Quero criar meu site <Arrow /></a>
         <button className="menu-button" type="button" aria-label={menuOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}><span /><span /></button>
       </header>
 
 
 
-      <section className="hero" id="inicio">
-        <div className="hero-grid" aria-hidden="true" /><div className="hero-glow" aria-hidden="true" />
-        <div className="container hero-layout" id="conteudo">
+      <section className="hero hero-art-layout" id="inicio">
+        <div className="hero-grid" aria-hidden="true" />
+        <div className="hero-glow" aria-hidden="true" />
+        <div className="container hero-layout hero-art-main" id="conteudo">
           <div className="hero-copy">
             <p className="eyebrow enter"><span /> PRESENÇA DIGITAL PROFISSIONAL</p>
             <h1 className="enter delay-1" aria-label="Seu negócio merece mais do que estar na internet. Merece ser escolhido.">
-              {heroTitleWords.map((word, wordIndex) => {
-                const characterOffset = heroTitleWords.slice(0, wordIndex).reduce((total, item) => total + item.text.length, 0);
-                return <span className={`hero-title-word${word.accent ? " is-accent" : ""}${wordIndex < heroTitleWords.length - 1 ? " has-space" : ""}`} key={word.text}>{Array.from(word.text).map((character, characterIndex) => <span className="hero-title-character" style={{ animationDelay: `${280 + (characterOffset + characterIndex) * 34}ms` }} key={`${word.text}-${characterIndex}`}>{character}</span>)}</span>;
-              })}
+              <span>Seu negócio merece mais do que estar na internet. </span><em>Merece ser escolhido.</em>
             </h1>
-            <p className="hero-lead enter delay-2">Criamos sites profissionais e landing pages estratégicas para transformar visitantes em oportunidades reais de negócio. Tenha uma presença digital que transmite confiança, valoriza sua marca e facilita o contato de novos clientes.</p>
-            <p className="hero-price enter delay-2">Seu site profissional <strong>a partir de R$ 399.</strong></p>
-            <div className="hero-actions enter delay-3"><a className="button button-primary" href="#orcamento" onClick={() => trackCta("click_cta_hero", "hero", "Quero criar meu site")}>Quero criar meu site <Arrow /></a><a className="button button-ghost" href="#projetos">Conhecer projetos <Arrow diagonal /></a></div>
-            <ul className="hero-benefits enter delay-4"><li><Check /> Design moderno e responsivo</li><li><Check /> Estrutura pensada para conversão</li><li><Check /> Atendimento personalizado</li></ul>
+            <p className="hero-lead enter delay-2">Criamos sites profissionais e landing pages estratégicas que atraem mais clientes, fortalecem sua marca e geram resultados reais.</p>
+            <div className="hero-commerce enter delay-3">
+              <div className="hero-price-block">
+                <small>A partir de</small>
+                <strong><span>R$</span> 399</strong>
+              </div>
+              <a className="button button-primary hero-main-cta" href="#orcamento" onClick={() => trackCta("click_cta_hero", "hero", "Quero criar meu site")}>Quero criar meu site <Arrow /></a>
+            </div>
           </div>
-          <div className="hero-mockup-art enter delay-2" aria-label="Mockup responsivo da K7 Sites em monitor, notebook e celular">
+          <div className="hero-mockup-art hero-device-art enter delay-2" aria-label="Mockup responsivo da K7 Sites em monitor, notebook e celular">
             <Image
-              src="/hero-k7-sites.png"
+              src="/hero-k7-sites-responsive.png"
               alt="Mockup responsivo da K7 Sites exibido em monitor, notebook e celular"
-              width={2048}
-              height={1536}
-              sizes="(max-width: 860px) 94vw, 720px"
+              width={1600}
+              height={1200}
+              sizes="(max-width: 860px) 96vw, 760px"
               priority
             />
-            <div className="hero-mockup-caption"><span className="hero-device-caption-dot" /> PROJETOS RESPONSIVOS <span>·</span> DESKTOP + MOBILE</div>
           </div>
         </div>
-        <div className="hero-footer container"><span>ROLE PARA DESCOBRIR</span><span className="scroll-line" /><p>Estratégia <i>•</i> Design <i>•</i> Tecnologia</p></div>
-      </section>
 
-      <section className="signal-strip" aria-label="Resultados e diferenciais da K7 Sites"><div className="container signal-grid">
-        <CounterStat value={200} suffix="+" label="Sites já criados" />
-        <CounterStat value={40} suffix="+" label="Nichos atendidos" />
-        <CounterStat value={48} suffix="h" label="Entrega ágil" />
-        <CounterStat value={100} suffix="%" label="Responsivo e rápido" />
-      </div></section>
-
-      <section className="home-performance-art" aria-label="Indicadores de desempenho de uma landing page">
-        <div className="container">
-          <div className="home-performance-art-scroll">
-            <Image
-              src="/landing-page-profissional-auto-desenpenho.webp"
-              alt="Arte com indicadores de uma landing page: desempenho 98, acessibilidade 96, práticas recomendadas 99, SEO 100 e navegação agêntica 2 de 2."
-              width={2048}
-              height={682}
-              sizes="(max-width: 620px) 900px, (max-width: 1228px) calc(100vw - 48px), 1180px"
-            />
-          </div>
-          <p className="home-performance-art-hint">Deslize para ver todos os indicadores.</p>
+        <div className="container hero-metrics enter delay-4" aria-label="Indicadores de qualidade da página">
+          <article className="hero-metric-card"><div className="metric-ring"><span>98</span></div><p>Desempenho</p></article>
+          <article className="hero-metric-card"><div className="metric-ring"><span>96</span></div><p>Acessibilidade</p></article>
+          <article className="hero-metric-card"><div className="metric-ring"><span>99</span></div><p>Práticas<br/>recomendadas</p></article>
+          <article className="hero-metric-card"><div className="metric-ring"><span>100</span></div><p>SEO</p></article>
+          <article className="hero-metric-card metric-agentic"><div className="metric-pill"><i />2/2</div><p>Navegação<br/>agêntica</p></article>
         </div>
       </section>
 
