@@ -31,9 +31,7 @@ function ProjectMockup({ project }: { project: (typeof projects)[number] }) {
 
 export function HomeProjectsSection({ id = "projetos" }: { id?: string }) {
   return <section className="section projects" id={id}><div className="container">
-    <div className="section-heading split reveal"><div><p className="eyebrow dark"><span /> PORTFÓLIO</p><h2>Seu próximo site pode ser o próximo destaque do <em>nosso portfólio.</em></h2></div><p>Cada negócio tem uma história, um público e um objetivo. Conheça alguns dos projetos e conceitos desenvolvidos pela K7 Sites e descubra como uma apresentação profissional pode valorizar uma marca.</p></div>
-    <a className="text-link project-section-cta" href="#projetos-galeria">Conhecer projetos →</a>
-    <div id="projetos-galeria"><ProjectGallery items={projects.map((project) => ({ key: project.title, type: project.type, title: project.title, note: project.note, preview: project.theme === "barber" ? <Image src={project.src} alt="Mockup completo da Barbearia Mestre" fill sizes="(max-width: 860px) 100vw, 50vw" /> : <ProjectMockup project={project} /> }))} /></div>
-    <p className="niche-caption project-disclaimer">Os conceitos demonstrativos são identificados como exemplos visuais; projetos reais são apresentados como tal.</p>
+    <div className="section-heading split reveal"><div><p className="eyebrow dark"><span /> PROJETOS E POSSIBILIDADES</p><h2>Cada site começa com um <em>objetivo específico.</em></h2></div><p>Conheça um projeto real e conceitos demonstrativos criados para diferentes segmentos, públicos e formas de apresentação.</p></div>
+    <ProjectGallery items={projects.map((project) => ({ key: project.title, type: project.type, title: project.title, note: project.note, preview: project.theme === "barber" ? <Image src={project.src} alt="Mockup completo da Barbearia Mestre" fill sizes="(max-width: 860px) 100vw, 50vw" /> : <ProjectMockup project={project} /> }))} />
   </div></section>;
 }
