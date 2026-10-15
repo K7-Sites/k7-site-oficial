@@ -29,12 +29,12 @@ const technologies = [
 ];
 
 const services = [
-  { number: "01", title: "Uma página. Um objetivo. Mais oportunidades.", text: "Páginas estratégicas para apresentar sua oferta, captar contatos e transformar o tráfego das suas campanhas em oportunidades comerciais.", tag: "Landing pages", benefits: ["Comunicação direta e persuasiva", "Estrutura otimizada para captação de leads", "Ideal para campanhas e divulgação de serviços"], cta: "Quero uma landing page", serviceMatch: "Landing" },
-  { number: "02", title: "Sua empresa com a credibilidade que merece.", text: "Apresente seus serviços, diferenciais e informações em um site moderno que fortalece sua marca e facilita o contato com potenciais clientes.", tag: "Sites institucionais", benefits: ["Apresentação profissional do negócio", "Experiência adaptada para dispositivos móveis", "Navegação organizada e intuitiva"], cta: "Quero um site profissional", serviceMatch: "Site" },
-  { number: "03", title: "Seu negócio evoluiu. Seu site também precisa evoluir.", text: "Modernizamos sites antigos para oferecer uma experiência mais profissional, rápida e adaptada aos dispositivos atuais.", tag: "Redesign de sites", benefits: ["Visual moderno e atualizado", "Melhor organização das informações", "Experiência de navegação aprimorada"], cta: "Quero modernizar meu site", serviceMatch: "Redesign" },
-  { number: "04", title: "Páginas de vendas", text: "Páginas estruturadas para explicar uma oferta, responder dúvidas e facilitar a decisão do visitante.", tag: "Produtos e serviços", benefits: [] as string[], cta: "", serviceMatch: "" },
-  { number: "05", title: "Sites para cursos", text: "Estrutura para divulgar cursos, organizar conteúdos, integrar checkout e deixar a jornada de compra mais simples.", tag: "Infoprodutos", benefits: [] as string[], cta: "", serviceMatch: "" },
-  { number: "06", title: "Suporte e evolução", text: "Ajustes, novas seções e melhorias contínuas para manter o projeto alinhado às próximas necessidades do negócio.", tag: "Crescimento contínuo", benefits: [] as string[], cta: "", serviceMatch: "" },
+  { number: "01", icon: "↗", title: "Uma página. Um objetivo. Mais oportunidades.", text: "Páginas estratégicas para apresentar sua oferta, captar contatos e transformar o tráfego das suas campanhas em oportunidades comerciais.", tag: "Landing pages", benefits: ["Comunicação direta e persuasiva", "Estrutura otimizada para captação de leads", "Ideal para campanhas e divulgação de serviços"], cta: "Quero uma landing page", serviceMatch: "Landing" },
+  { number: "02", icon: "◇", title: "Sua empresa com a credibilidade que merece.", text: "Apresente seus serviços, diferenciais e informações em um site moderno que fortalece sua marca e facilita o contato com potenciais clientes.", tag: "Sites institucionais", benefits: ["Apresentação profissional do negócio", "Experiência adaptada para dispositivos móveis", "Navegação organizada e intuitiva"], cta: "Quero um site profissional", serviceMatch: "Site" },
+  { number: "03", icon: "↻", title: "Seu negócio evoluiu. Seu site também precisa evoluir.", text: "Modernizamos sites antigos para oferecer uma experiência mais profissional, rápida e adaptada aos dispositivos atuais.", tag: "Redesign de sites", benefits: ["Visual moderno e atualizado", "Melhor organização das informações", "Experiência de navegação aprimorada"], cta: "Quero modernizar meu site", serviceMatch: "Redesign" },
+  { number: "04", icon: "◎", title: "Páginas de vendas", text: "Páginas estruturadas para explicar uma oferta, responder dúvidas e facilitar a decisão do visitante.", tag: "Produtos e serviços", benefits: [] as string[], cta: "", serviceMatch: "" },
+  { number: "05", icon: "▣", title: "Sites para cursos", text: "Estrutura para divulgar cursos, organizar conteúdos, integrar checkout e deixar a jornada de compra mais simples.", tag: "Infoprodutos", benefits: [] as string[], cta: "", serviceMatch: "" },
+  { number: "06", icon: "⚡", title: "Suporte e evolução", text: "Ajustes, novas seções e melhorias contínuas para manter o projeto alinhado às próximas necessidades do negócio.", tag: "Crescimento contínuo", benefits: [] as string[], cta: "", serviceMatch: "" },
 ];
 
 const deliveries = [
@@ -354,15 +354,42 @@ export default function Home() {
             <div className="hero-actions enter delay-3"><a className="button button-primary" href="#orcamento" onClick={() => trackCta("click_cta_hero", "hero", "Quero criar meu site")}>Quero criar meu site <Arrow /></a><a className="button button-ghost" href="#projetos">Conhecer projetos <Arrow diagonal /></a></div>
             <ul className="hero-benefits enter delay-4"><li><Check /> Design moderno e responsivo</li><li><Check /> Estrutura pensada para conversão</li><li><Check /> Atendimento personalizado</li></ul>
           </div>
-          <div className="hero-device-stage enter delay-2" aria-label="Mockup ilustrativo de site responsivo em notebook e celular">
-  <div className="hero-device-aura" aria-hidden="true" />
-  <div className="hero-laptop"><div className="hero-laptop-display">
-    <div className="hero-device-browser"><span/><span/><span/><small>k7sites.com.br</small></div>
-    <div className="hero-barber-preview"><Image src="/project-stream/barbearia.png" alt="Prévia do projeto de barbearia da galeria" fill sizes="(max-width: 860px) 95vw, 650px" className="hero-barber-preview-image" /></div>
-  </div><div className="hero-laptop-base"><div className="hero-laptop-notch"/></div></div>
-  <div className="hero-phone"><div className="hero-phone-camera"/><div className="hero-phone-screen hero-phone-barber-screen"><Image src="/project-stream/barbearia.png" alt="Prévia mobile do projeto de barbearia" fill sizes="180px" className="hero-barber-preview-image" /></div></div>
-  <div className="hero-device-caption"><span className="hero-device-caption-dot"/> DESIGN RESPONSIVO <span>·</span> DESKTOP + MOBILE</div>
-</div>
+          <div className="hero-mockup-showcase enter delay-2" aria-label="Mockups de sites profissionais em monitor, notebook e celular">
+            <div className="hero-mockup-aura" aria-hidden="true" />
+            <div className="hero-monitor">
+              <div className="hero-monitor-screen">
+                <Image src="/niche-premium/aesthetic.png" alt="Exemplo de site profissional para saúde e bem-estar" fill sizes="(max-width: 860px) 92vw, 620px" />
+                <div className="hero-screen-overlay">
+                  <small>SAÚDE & BEM-ESTAR</small>
+                  <strong>Presença digital que transmite confiança.</strong>
+                  <span>Estratégia, clareza e experiência responsiva.</span>
+                </div>
+              </div>
+              <div className="hero-monitor-neck" aria-hidden="true" />
+              <div className="hero-monitor-base" aria-hidden="true" />
+            </div>
+            <div className="hero-notebook">
+              <div className="hero-notebook-screen">
+                <Image src="/niche-premium/real-estate.png" alt="Exemplo de site profissional para mercado imobiliário" fill sizes="(max-width: 860px) 70vw, 390px" />
+                <div className="hero-screen-overlay compact">
+                  <small>IMOBILIÁRIO</small>
+                  <strong>Apresente melhor. Gere mais oportunidades.</strong>
+                </div>
+              </div>
+              <div className="hero-notebook-base" aria-hidden="true" />
+            </div>
+            <div className="hero-mobile-device">
+              <div className="hero-mobile-notch" aria-hidden="true" />
+              <div className="hero-mobile-screen">
+                <Image src="/niche-premium/law.png" alt="Exemplo de site responsivo para advocacia" fill sizes="150px" />
+                <div className="hero-screen-overlay mobile">
+                  <small>ADVOCACIA</small>
+                  <strong>Credibilidade em qualquer tela.</strong>
+                </div>
+              </div>
+            </div>
+            <div className="hero-mockup-caption"><span className="hero-device-caption-dot" /> PROJETOS RESPONSIVOS <span>·</span> DESKTOP + MOBILE</div>
+          </div>
         </div>
         <div className="hero-footer container"><span>ROLE PARA DESCOBRIR</span><span className="scroll-line" /><p>Estratégia <i>•</i> Design <i>•</i> Tecnologia</p></div>
       </section>
@@ -445,7 +472,7 @@ export default function Home() {
 
       <section className="section services" id="servicos"><div className="container">
         <div className="section-heading split reveal"><div><p className="eyebrow"><span /> NOSSAS SOLUÇÕES</p><h2>O site certo para o momento do <em>seu negócio.</em></h2></div><p>Da primeira presença digital à modernização da sua marca, desenvolvemos soluções para ajudar sua empresa a conquistar espaço e gerar novas oportunidades.</p></div>
-        <div className="service-grid">{services.map((service) => <article className="service-card reveal" key={service.number}><div className="service-top"><div className="service-icon" aria-hidden="true"><span>🚀</span></div><span>{service.number}</span></div><h3>{service.title}</h3><p>{service.text}</p>{service.benefits.length > 0 && <ul className="service-benefits">{service.benefits.map((benefit) => <li key={benefit}><Check />{benefit}</li>)}</ul>}<small>{service.tag}</small>{service.cta && <button type="button" className="service-card-cta" onClick={() => selectServiceAndScroll(service.serviceMatch, service.cta)}>{service.cta} <Arrow /></button>}</article>)}</div>
+        <div className="service-grid">{services.map((service) => <article className="service-card reveal" key={service.number}><div className="service-top"><div className="service-icon" aria-hidden="true"><span>{service.icon}</span></div><span>{service.number}</span></div><h3>{service.title}</h3><p>{service.text}</p>{service.benefits.length > 0 && <ul className="service-benefits">{service.benefits.map((benefit) => <li key={benefit}><Check />{benefit}</li>)}</ul>}<small>{service.tag}</small>{service.cta && <button type="button" className="service-card-cta" onClick={() => selectServiceAndScroll(service.serviceMatch, service.cta)}>{service.cta} <Arrow /></button>}</article>)}</div>
       </div></section>
 
       <section className="section process" id="processo"><div className="container">
@@ -496,10 +523,10 @@ export default function Home() {
       <section className="section pricing" id="investimento"><div className="pricing-rockets" aria-hidden="true">{Array.from({ length: 12 }).map((_, index) => <span key={index}>🚀</span>)}</div><div className="container">
         <div className="section-heading centered reveal"><p className="eyebrow"><span /> FORMATOS DE PROJETO</p><h2>Escolha a solução adequada para <em>o seu objetivo.</em></h2><p>Compare as opções existentes e escolha o ponto de partida mais alinhado ao momento do seu negócio.</p></div>
         <div className="pricing-grid">{[
-          { name: "Landing page", description: "Para divulgar uma oferta e gerar contatos", price: "R$ 399,00", detail: "a partir de", features: ["Página completa e estratégica", "Design responsivo", "Botões para WhatsApp", "Google SEO", "Copy organizada", "Entrega ágil"] },
-          { name: "Site institucional", description: "Para apresentar sua empresa com autoridade", price: "R$ 699,00", detail: "a partir de", features: ["Home e páginas internas", "Páginas de serviços", "Design profissional", "Google SEO", "WhatsApp e formulário", "Orientação após a entrega"] },
-          { name: "Projeto sob medida", description: "Para necessidades, integrações e estruturas especiais", price: "Sob avaliação", detail: "orçamento após análise", features: ["Escopo personalizado", "Funcionalidades específicas", "Integrações especiais", "Planejamento por etapas", "Prazo definido em proposta", "Acompanhamento próximo"] },
-        ].map((plan, index) => <article className={index === 1 ? "price-card featured reveal" : "price-card reveal"} key={plan.name}>{index === 1 && <span className="recommended">MAIS POPULAR</span>}<small>0{index + 1}</small><h3>{plan.name}</h3><p>{plan.description}</p><div className="price"><span>{plan.detail}</span>{plan.price}</div><ul>{plan.features.map((feature) => <li key={feature}><Check />{feature}</li>)}</ul><a className={index === 1 ? "button button-primary" : "button button-ghost"} href="#orcamento" onClick={() => trackCta("click_cta_service", "pricing", `Pedir orçamento — ${plan.name}`)}>Pedir orçamento <Arrow /></a></article>)}</div>
+          { icon: "↗", name: "Landing page", description: "Para divulgar uma oferta e gerar contatos", price: "R$ 399,00", detail: "a partir de", features: ["Página completa e estratégica", "Design responsivo", "Botões para WhatsApp", "Google SEO", "Copy organizada", "Entrega ágil"] },
+          { icon: "◇", name: "Site institucional", description: "Para apresentar sua empresa com autoridade", price: "R$ 699,00", detail: "a partir de", features: ["Home e páginas internas", "Páginas de serviços", "Design profissional", "Google SEO", "WhatsApp e formulário", "Orientação após a entrega"] },
+          { icon: "✦", name: "Projeto sob medida", description: "Para necessidades, integrações e estruturas especiais", price: "Sob avaliação", detail: "orçamento após análise", features: ["Escopo personalizado", "Funcionalidades específicas", "Integrações especiais", "Planejamento por etapas", "Prazo definido em proposta", "Acompanhamento próximo"] },
+        ].map((plan, index) => <article className={index === 1 ? "price-card featured reveal" : "price-card reveal"} key={plan.name}>{index === 1 && <span className="recommended">MAIS POPULAR</span>}<div className="price-card-icon" aria-hidden="true">{plan.icon}</div><small>0{index + 1}</small><h3>{plan.name}</h3><p>{plan.description}</p><div className="price"><span>{plan.detail}</span>{plan.price}</div><ul>{plan.features.map((feature) => <li key={feature}><Check />{feature}</li>)}</ul><a className={index === 1 ? "button button-primary" : "button button-ghost"} href="#orcamento" onClick={() => trackCta("click_cta_service", "pricing", `Pedir orçamento — ${plan.name}`)}>Pedir orçamento <Arrow /></a></article>)}</div>
         <p className="payment-note reveal"><Check /> Condição padrão sugerida: 50% antes do início e 50% na conclusão do projeto.</p>
       </div></section>
 
