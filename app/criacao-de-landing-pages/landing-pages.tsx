@@ -102,8 +102,11 @@ function Arrow() {
   return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>;
 }
 
-function Cta({ children, location, light = false }: { children: ReactNode; location: string; light?: boolean }) {
-  return <a className={"lp2-btn " + (light ? "lp2-btn-light" : "lp2-btn-primary")} href="#formulario" onClick={() => trackEvent("click_cta_service", { page_path: window.location.pathname, button_location: location, link_text: String(children) })}>{children}<Arrow /></a>;
+function Cta({ children, location, onOpen, light = false }: { children: ReactNode; location: string; onOpen: () => void; light?: boolean }) {
+  return <button type="button" className={"lp2-btn " + (light ? "lp2-btn-light" : "lp2-btn-primary")} onClick={() => {
+    trackEvent("click_cta_service", { page_path: window.location.pathname, button_location: location, link_text: String(children) });
+    onOpen();
+  }}>{children}<Arrow /></button>;
 }
 
 function SiteMockup({ project }: { project: typeof projects[number] }) {
@@ -206,7 +209,12 @@ function TestimonialsSlider() {
 export default function LandingPages() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const contactDialogRef = useRef<HTMLDialogElement>(null);
   const sentScroll = useRef({ half: false, almost: false });
+  const openContactDialog = () => {
+    setMenuOpen(false);
+    contactDialogRef.current?.showModal();
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => entries.forEach(entry => {
@@ -234,6 +242,12 @@ export default function LandingPages() {
   }, []);
 
   return <main className="lp2-page" id="inicio">
+    <dialog ref={contactDialogRef} className="lp2-contact-dialog" aria-label="Solicitar orçamento" onClick={(event) => { if (event.target === event.currentTarget) event.currentTarget.close(); }}>
+      <div className="lp2-contact-dialog-inner">
+        <button type="button" className="lp2-contact-dialog-close" aria-label="Fechar formulário" onClick={() => contactDialogRef.current?.close()}>×</button>
+        <HeroLeadForm placement="lp-modal" />
+      </div>
+    </dialog>
     <div className="lp2-progress" aria-hidden="true" />
     <header className="lp2-header">
       <Link href="/" className="lp2-brand" aria-label="K7 Sites — início"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={84} height={87} priority/></Link>
@@ -243,7 +257,7 @@ export default function LandingPages() {
         <a href="#processo" onClick={() => setMenuOpen(false)}>Processo</a>
         <a href="#faq" onClick={() => setMenuOpen(false)}>FAQ</a>
       </nav>
-      <Cta location="header">Quero minha página</Cta>
+      <Cta location="header" onOpen={openContactDialog}>Quero minha página</Cta>
       <button className="lp2-menu" type="button" aria-label="Abrir menu" aria-expanded={menuOpen} onClick={() => setMenuOpen(v => !v)}><span/><span/></button>
     </header>
 
@@ -255,7 +269,7 @@ export default function LandingPages() {
           <p className="lp2-eyebrow">LANDING PAGES QUE TRABALHAM PELO SEU NEGÓCIO</p>
           <h1>Transforme visitas em <em>oportunidades reais.</em></h1>
           <p>Criamos landing pages profissionais, rápidas e estratégicas para apresentar sua oferta com clareza e facilitar o próximo passo do cliente.</p>
-          <div className="lp2-hero-actions"><Cta location="hero">Quero vender melhor no digital</Cta><a className="lp2-text-link" href="#portfolio">Ver projetos <Arrow/></a></div>
+          <div className="lp2-hero-actions"><Cta location="hero" onOpen={openContactDialog}>Quero vender melhor no digital</Cta><a className="lp2-text-link" href="#portfolio">Ver projetos <Arrow/></a></div>
           <div className="lp2-proof"><span><b>R$ 399</b> a partir de</span><span><b>Mobile first</b> em qualquer tela</span><span><b>Contato direto</b> pelo WhatsApp</span></div>
         </div>
         <div className="lp2-hero-art lp2-reveal">
@@ -279,13 +293,13 @@ export default function LandingPages() {
       <div className="lp2-wrap">
         <div className="lp2-heading centered lp2-reveal"><p className="lp2-eyebrow">AUMENTE SUAS OPORTUNIDADES</p><h2>Garantimos tudo o que sua página <em>merece.</em></h2></div>
         <div className="lp2-benefit-grid">{benefits.map(([icon,title,text],index) => <article className="lp2-benefit-card lp2-reveal" style={{ transitionDelay: `${index * 55}ms` }} key={title}><span className="lp2-icon">{icon}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
-        <div className="lp2-center"><Cta location="benefits">Começar o desenvolvimento da minha página</Cta></div>
+        <div className="lp2-center"><Cta location="benefits" onOpen={openContactDialog}>Começar o desenvolvimento da minha página</Cta></div>
       </div>
     </section>
 
     <section className="lp2-section lp2-light lp2-difference">
       <div className="lp2-wrap lp2-two">
-        <div className="lp2-heading lp2-reveal"><p className="lp2-eyebrow dark">AUMENTE SUAS OPORTUNIDADES</p><h2>Seu projeto é único. <em>Sua página também deveria ser.</em></h2><p>Quando o mercado está cheio de ofertas parecidas, uma página genérica não resolve. Você precisa de uma experiência que deixe claro por que vale a pena escolher você.</p><Cta location="difference">Quero elevar a qualidade do meu projeto</Cta></div>
+        <div className="lp2-heading lp2-reveal"><p className="lp2-eyebrow dark">AUMENTE SUAS OPORTUNIDADES</p><h2>Seu projeto é único. <em>Sua página também deveria ser.</em></h2><p>Quando o mercado está cheio de ofertas parecidas, uma página genérica não resolve. Você precisa de uma experiência que deixe claro por que vale a pena escolher você.</p><Cta location="difference" onOpen={openContactDialog}>Quero elevar a qualidade do meu projeto</Cta></div>
         <article className="lp2-mobile-card lp2-reveal"><span className="lp2-icon">✧</span><div><small>EXPERIÊNCIA NO MOBILE</small><h3>Seu cliente chega pelo celular. Sua página precisa estar pronta.</h3><p>Leitura confortável, CTA visível e navegação direta para manter a experiência fluida até o contato.</p><strong>Mobile first</strong><span>Layout pensado para funcionar com clareza em telas menores sem perder a hierarquia da oferta.</span></div><div className="lp2-phone" aria-hidden="true"><div className="lp2-phone-notch"/><Image src="/project-stream/saude.jpg" alt="" fill sizes="180px"/></div></article>
       </div>
     </section>
@@ -317,7 +331,7 @@ export default function LandingPages() {
 
     <section className="lp2-final">
       <div className="lp2-marquee lp2-marquee-bg" aria-hidden="true">{[0,1].map(row => <div className={"lp2-marquee-row row-"+row} key={row}><div className="lp2-marquee-track">{[...marquee,...marquee].map((item,index) => <span className={(index+row)%2?"coral":"blue"} key={item+index}>{item}</span>)}</div></div>)}</div>
-      <div className="lp2-wrap"><div className="lp2-final-card lp2-reveal"><p className="lp2-eyebrow">PRÓXIMO PASSO</p><h2>Chegou o momento de colocar sua marca em um <em>patamar acima.</em></h2><p>DESTAQUE SEU PRODUTO OU SERVIÇO NO DIGITAL.</p><Cta location="final" light>Quero falar sobre meu projeto</Cta></div></div>
+      <div className="lp2-wrap"><div className="lp2-final-card lp2-reveal"><p className="lp2-eyebrow">PRÓXIMO PASSO</p><h2>Chegou o momento de colocar sua marca em um <em>patamar acima.</em></h2><p>DESTAQUE SEU PRODUTO OU SERVIÇO NO DIGITAL.</p><Cta location="final" onOpen={openContactDialog} light>Quero falar sobre meu projeto</Cta></div></div>
     </section>
 
     <section className="lp2-form-section" id="formulario">
@@ -331,13 +345,15 @@ export default function LandingPages() {
       <div className="lp2-wrap lp2-footer-grid">
         <div className="lp2-footer-logo"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={76} height={79}/></div>
         <div><strong>Links úteis</strong><a href="#portfolio">Projetos</a><a href="#beneficios">Benefícios</a><a href="#faq">FAQ</a><a href="#formulario">Orçamento</a></div>
-        <div><strong>Contato</strong><span>[NOME DA EMPRESA]</span><span>CNPJ: [CNPJ]</span><a href="mailto:[E-MAIL]">[E-MAIL]</a><a href={"https://wa.me/" + "[NÚMERO]"} target="_blank" rel="noreferrer">[TELEFONE]</a><span>[CIDADE/UF]</span></div>
-        <div><strong>Redes sociais</strong><a href={"[LINK]"} target="_blank" rel="noreferrer">Instagram</a></div>
-        <small>© {new Date().getFullYear()} [NOME DA EMPRESA]. Todos os direitos reservados.</small>
+        <div><strong>Contato</strong><span>K7 Sites</span><a href="mailto:k7sites@gmail.com">k7sites@gmail.com</a><a href={whatsapp} target="_blank" rel="noreferrer">WhatsApp: (11) 94921-4071</a></div>
+        <div><strong>Atendimento</strong><a href="#formulario">Solicitar orçamento</a><a href="/">Voltar ao site principal</a></div>
+        <small>© {new Date().getFullYear()} K7 Sites. Todos os direitos reservados.</small>
       </div>
     </footer>
 
-    <a className="lp2-whatsapp" href={whatsapp} target="_blank" rel="noreferrer" aria-label="Falar pelo WhatsApp" onClick={() => trackEvent("click_whatsapp", { button_location: "floating_button", page_path: window.location.pathname, link_text: "Falar pelo WhatsApp" })}><Image src="/whatsapp.svg" alt="" width={28} height={28}/></a>
-    <a className="lp2-mobile-cta" href="#formulario" onClick={() => trackEvent("click_cta_service", { page_path: window.location.pathname, button_location: "mobile_fixed", link_text: "Falar sobre meu projeto" })}>Falar sobre meu projeto <Arrow/></a>
+    <button type="button" className="lp2-mobile-cta" onClick={() => {
+      trackEvent("click_cta_service", { page_path: window.location.pathname, button_location: "mobile_fixed", link_text: "Falar sobre meu projeto" });
+      openContactDialog();
+    }}>Falar sobre meu projeto <Arrow/></button>
   </main>;
 }
