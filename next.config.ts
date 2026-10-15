@@ -21,6 +21,26 @@ const nextConfig: NextConfig = {
         destination: "/mensagem-recebida-com-sucesso",
         permanent: true,
       },
+      {
+        source: "/criaca-de-landing-pages",
+        destination: "/criacao-de-landing-pages",
+        permanent: true,
+      },
+      {
+        source: "/criacao-landing-pages",
+        destination: "/criacao-de-landing-pages",
+        permanent: true,
+      },
+      {
+        source: "/criacao-de-landing-page",
+        destination: "/criacao-de-landing-pages",
+        permanent: true,
+      },
+      {
+        source: "/criacao-de-landing-pages.html",
+        destination: "/criacao-de-landing-pages",
+        permanent: true,
+      },
     ];
   },
   async headers() {
