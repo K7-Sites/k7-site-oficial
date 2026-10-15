@@ -114,3 +114,256 @@
   .lp2-wrap{padding-inline:16px}.lp2-header{top:10px;height:66px;width:calc(100% - 20px)}.lp2-hero{padding-top:104px}.lp2-hero-copy h1{font-size:clamp(40px,12vw,54px)}.lp2-hero-actions{align-items:stretch}.lp2-hero-actions .lp2-btn{width:100%}.lp2-proof{grid-template-columns:1fr}.lp2-heading h2{font-size:clamp(36px,10vw,50px)}.lp2-portfolio-track{grid-auto-columns:90vw}.lp2-site-hero h3{font-size:28px}.lp2-benefit-card{min-height:0}.lp2-final-card>p:not(.lp2-eyebrow){letter-spacing:.16em;line-height:1.6}.lp2-marquee span{padding:8px 18px;font-size:9px}
 }
 @media(prefers-reduced-motion:reduce){.lp2-page *{scroll-behavior:auto!important;animation:none!important;transition-duration:.01ms!important}.lp2-reveal{opacity:1!important;transform:none!important}}
+
+
+/* ===== Ajustes de identidade e conversão — 2026-10-15 ===== */
+.lp2-page{
+  --lp2-secondary:#e8704f;
+  --lp2-secondary-dark:#b84f34;
+  --lp2-secondary-light:#ffb59a;
+}
+
+/* CTAs comerciais: contorno na cor secundária; preenchimento apenas no hover */
+.lp2-btn-primary,
+.lp2-btn-light{
+  background:transparent !important;
+  color:var(--lp2-secondary) !important;
+  border:1.5px solid var(--lp2-secondary) !important;
+  box-shadow:none !important;
+}
+.lp2-btn-primary:hover,
+.lp2-btn-light:hover{
+  background:var(--lp2-secondary) !important;
+  color:#fff8f5 !important;
+  border-color:var(--lp2-secondary) !important;
+  box-shadow:0 12px 28px rgba(232,112,79,.22) !important;
+}
+.lp2-dark .lp2-btn,
+.lp2-final-card .lp2-btn{
+  color:var(--lp2-secondary-light) !important;
+  border-color:var(--lp2-secondary-light) !important;
+}
+.lp2-dark .lp2-btn:hover,
+.lp2-final-card .lp2-btn:hover{
+  background:var(--lp2-secondary-light) !important;
+  color:#1e2a32 !important;
+  border-color:var(--lp2-secondary-light) !important;
+}
+
+/* Divisões em duas colunas: 50 / 50 reais no desktop */
+.lp2-hero-layout,
+.lp2-two,
+.lp2-faq-layout,
+.lp2-form-layout{
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+}
+.lp2-hero-layout > *,
+.lp2-two > *,
+.lp2-faq-layout > *,
+.lp2-form-layout > *{
+  min-width:0;
+}
+.lp2-heading h1,
+.lp2-heading h2,
+.lp2-hero-copy h1,
+.lp2-testimonial p{
+  overflow-wrap:break-word;
+}
+.lp2-heading h2,
+.lp2-hero-copy h1{
+  text-wrap:balance;
+}
+
+/* Contraste reforçado em seções escuras */
+.lp2-dark .lp2-eyebrow{
+  color:#ffd2c3 !important;
+  text-shadow:0 1px 12px rgba(0,0,0,.22);
+}
+.lp2-dark .lp2-heading h2{
+  color:#fff8f5 !important;
+  text-shadow:0 2px 18px rgba(0,0,0,.18);
+}
+.lp2-dark .lp2-heading h2 em{
+  color:#ff9d7d !important;
+  background:linear-gradient(90deg,#ffcfbe,#ff9d7d 55%,#ff8f6b) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+}
+.lp2-dark .lp2-step h3{
+  color:#fff8f5 !important;
+}
+.lp2-dark .lp2-step p{
+  color:#e6edf1 !important;
+}
+.lp2-light .lp2-heading h2,
+.lp2-proof-section .lp2-heading h2,
+.lp2-form-section .lp2-heading h2{
+  color:#1e2a32 !important;
+}
+.lp2-light .lp2-heading .lp2-eyebrow,
+.lp2-proof-section .lp2-heading .lp2-eyebrow,
+.lp2-form-section .lp2-heading .lp2-eyebrow{
+  color:#43515f !important;
+}
+
+/* Avaliações: duas colunas equivalentes no desktop, sem cortes */
+.lp2-review-track{
+  grid-auto-columns:calc((100% - 18px)/2) !important;
+  align-items:stretch;
+}
+.lp2-testimonial{
+  min-width:0;
+  height:auto !important;
+  min-height:330px;
+}
+.lp2-testimonial > p{
+  flex:1;
+}
+.lp2-testimonial footer{
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:end;
+}
+.lp2-testimonial footer > div,
+.lp2-testimonial footer b{
+  min-width:0;
+}
+.lp2-testimonial footer b{
+  white-space:normal;
+  text-align:right;
+}
+
+/* Formulário compacto, alinhado e sem zoom de seleção no iOS */
+.lp2-form-shell .k7-lead-form,
+.lp2-contact-dialog .k7-lead-form{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:14px !important;
+}
+.lp2-form-shell .k7-lead-form label,
+.lp2-contact-dialog .k7-lead-form label{
+  min-width:0;
+  margin:0 !important;
+}
+.lp2-form-shell .k7-lead-form input,
+.lp2-form-shell .k7-lead-form select,
+.lp2-contact-dialog .k7-lead-form input,
+.lp2-contact-dialog .k7-lead-form select{
+  width:100% !important;
+  min-height:50px !important;
+  height:50px !important;
+  font-size:16px !important;
+}
+.lp2-form-shell .k7-lead-submit,
+.lp2-form-shell .k7-lead-privacy,
+.lp2-form-shell .k7-lead-feedback,
+.lp2-contact-dialog .k7-lead-submit,
+.lp2-contact-dialog .k7-lead-privacy,
+.lp2-contact-dialog .k7-lead-feedback{
+  grid-column:1/-1;
+}
+.lp2-form-shell .k7-lead-submit,
+.lp2-contact-dialog .k7-lead-submit{
+  width:100%;
+  min-height:52px;
+}
+
+/* Modal único para todos os CTAs comerciais */
+.lp2-contact-dialog{
+  width:min(760px,calc(100% - 28px));
+  max-height:calc(100vh - 32px);
+  margin:auto;
+  padding:0;
+  overflow:visible;
+  border:0;
+  border-radius:24px;
+  background:transparent;
+  color:#1e2a32;
+}
+.lp2-contact-dialog::backdrop{
+  background:rgba(10,18,24,.72);
+  backdrop-filter:blur(8px);
+}
+.lp2-contact-dialog-inner{
+  position:relative;
+  max-height:calc(100vh - 32px);
+  overflow:auto;
+  padding:18px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:24px;
+  background:#fff8f5;
+  box-shadow:0 28px 90px rgba(7,15,22,.34);
+}
+.lp2-contact-dialog .k7-lead-card{
+  margin:0;
+  max-width:none;
+}
+.lp2-contact-dialog-close{
+  position:absolute;
+  z-index:5;
+  top:12px;
+  right:12px;
+  width:40px;
+  height:40px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(30,42,50,.12);
+  border-radius:50%;
+  background:rgba(255,255,255,.92);
+  color:#1e2a32;
+  font-size:24px;
+  line-height:1;
+  cursor:pointer;
+}
+.lp2-contact-dialog-close:hover{
+  background:#fff;
+}
+
+/* O WhatsApp flutuante não faz parte desta landing */
+.lp2-whatsapp{display:none !important;}
+
+/* CTA fixo mobile segue o mesmo padrão secundário e abre modal */
+.lp2-mobile-cta{
+  border:1.5px solid var(--lp2-secondary) !important;
+  background:#fff8f5 !important;
+  color:var(--lp2-secondary) !important;
+}
+.lp2-mobile-cta:hover{
+  background:var(--lp2-secondary) !important;
+  color:#fff8f5 !important;
+}
+
+@media(max-width:900px){
+  .lp2-hero-layout,
+  .lp2-two,
+  .lp2-faq-layout,
+  .lp2-form-layout{
+    grid-template-columns:1fr !important;
+  }
+}
+@media(max-width:720px){
+  .lp2-review-track{
+    grid-auto-columns:100% !important;
+  }
+  .lp2-form-shell .k7-lead-form,
+  .lp2-contact-dialog .k7-lead-form{
+    grid-template-columns:1fr !important;
+  }
+  .lp2-form-shell .k7-lead-submit,
+  .lp2-form-shell .k7-lead-privacy,
+  .lp2-form-shell .k7-lead-feedback,
+  .lp2-contact-dialog .k7-lead-submit,
+  .lp2-contact-dialog .k7-lead-privacy,
+  .lp2-contact-dialog .k7-lead-feedback{
+    grid-column:auto;
+  }
+  .lp2-contact-dialog{
+    width:calc(100% - 20px);
+    max-height:calc(100vh - 20px);
+  }
+  .lp2-contact-dialog-inner{
+    max-height:calc(100vh - 20px);
+    padding:12px;
+    border-radius:18px;
+  }
+}
