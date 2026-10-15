@@ -13,6 +13,13 @@ const marquee = ["PROFISSIONALISMO", "CONVERSÃO", "PERSONALIZAÇÃO", "PERFORMA
 
 const projects = [
   {
+    id: "smilo",
+    label: "Smilo CRM Odontológico",
+    url: "https://www.smilo.com.br/",
+    src: "/projetos-k7/smilo.png",
+    description: "Site institucional de software para clínicas odontológicas, com apresentação de módulos, agenda, prontuário, cobranças, planos e prova social.",
+  },
+  {
     id: "barbearia",
     label: "Barbearia",
     url: "https://kassio07.github.io/Barbearia/",
