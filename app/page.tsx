@@ -354,40 +354,15 @@ export default function Home() {
             <div className="hero-actions enter delay-3"><a className="button button-primary" href="#orcamento" onClick={() => trackCta("click_cta_hero", "hero", "Quero criar meu site")}>Quero criar meu site <Arrow /></a><a className="button button-ghost" href="#projetos">Conhecer projetos <Arrow diagonal /></a></div>
             <ul className="hero-benefits enter delay-4"><li><Check /> Design moderno e responsivo</li><li><Check /> Estrutura pensada para conversão</li><li><Check /> Atendimento personalizado</li></ul>
           </div>
-          <div className="hero-mockup-showcase enter delay-2" aria-label="Mockups de sites profissionais em monitor, notebook e celular">
-            <div className="hero-mockup-aura" aria-hidden="true" />
-            <div className="hero-monitor">
-              <div className="hero-monitor-screen">
-                <Image src="/niche-premium/aesthetic.png" alt="Exemplo de site profissional para saúde e bem-estar" fill sizes="(max-width: 860px) 92vw, 620px" />
-                <div className="hero-screen-overlay">
-                  <small>SAÚDE & BEM-ESTAR</small>
-                  <strong>Presença digital que transmite confiança.</strong>
-                  <span>Estratégia, clareza e experiência responsiva.</span>
-                </div>
-              </div>
-              <div className="hero-monitor-neck" aria-hidden="true" />
-              <div className="hero-monitor-base" aria-hidden="true" />
-            </div>
-            <div className="hero-notebook">
-              <div className="hero-notebook-screen">
-                <Image src="/niche-premium/real-estate.png" alt="Exemplo de site profissional para mercado imobiliário" fill sizes="(max-width: 860px) 70vw, 390px" />
-                <div className="hero-screen-overlay compact">
-                  <small>IMOBILIÁRIO</small>
-                  <strong>Apresente melhor. Gere mais oportunidades.</strong>
-                </div>
-              </div>
-              <div className="hero-notebook-base" aria-hidden="true" />
-            </div>
-            <div className="hero-mobile-device">
-              <div className="hero-mobile-notch" aria-hidden="true" />
-              <div className="hero-mobile-screen">
-                <Image src="/niche-premium/law.png" alt="Exemplo de site responsivo para advocacia" fill sizes="150px" />
-                <div className="hero-screen-overlay mobile">
-                  <small>ADVOCACIA</small>
-                  <strong>Credibilidade em qualquer tela.</strong>
-                </div>
-              </div>
-            </div>
+          <div className="hero-mockup-art enter delay-2" aria-label="Mockup responsivo da K7 Sites em monitor, notebook e celular">
+            <Image
+              src="/hero-k7-sites.png"
+              alt="Mockup responsivo da K7 Sites exibido em monitor, notebook e celular"
+              width={2048}
+              height={1536}
+              sizes="(max-width: 860px) 94vw, 720px"
+              priority
+            />
             <div className="hero-mockup-caption"><span className="hero-device-caption-dot" /> PROJETOS RESPONSIVOS <span>·</span> DESKTOP + MOBILE</div>
           </div>
         </div>
