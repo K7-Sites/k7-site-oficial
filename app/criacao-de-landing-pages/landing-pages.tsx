@@ -83,7 +83,7 @@ const testimonials = [
   { name: "Gabriel Rodrigues Da Luz", role: "Cliente K7 Sites • Google", result: "Sugestões aplicadas ao negócio", text: "Excelente trabalho, atendeu a demanda e me deu sugestões que foram eficazes no meu negócio." },
   { name: "Alexandre Do Nascimento Ribeiro Pizatto", role: "Cliente K7 Sites • Google", result: "Expectativas superadas", text: "Se pudesse dava nota 1000 pra vocês! Superaram minhas expectativas em todos sentidos, custei pra achar mas finalmente achei uma empresa séria!! Sucesso sempre." },
   { name: "Kaique Júnior Macedo", role: "Cliente K7 Sites • Google", result: "Site da lavanderia desenvolvido", text: "Excelente experiência, criaram o site da minha lavanderia. Ótimos profissionais, só tenho a agradecer, Deus abençoe vocês." },
-  { name: "Kaio Santos", role: "Cliente K7 Sites • Google", result: "Experiência acima da expectativa", text: "Excelente experiência com a K7 Sites! Desde o primeiro contato, demonstraram profissionalismo, atenção aos detalhes e muita dedicação para entregar um resultado de qualidade." },
+  { name: "Kaio Santos", role: "Cliente K7 Sites • Google", result: "Experiência acima da expectativa", text: "Excelente experiência com a K7 Sites! Desde o primeiro contato, demonstraram profissionalismo, atenção aos detalhes e muita dedicação para entregar um resultado de qualidade. O atendimento foi muito bom e o trabalho superou minhas expectativas. Dá para perceber o cuidado e o compromisso em cada etapa. Recomendo muito para quem procura um serviço profissional, confiável e de qualidade!" },
   { name: "Beatriz Araújo", role: "Cliente K7 Sites • Google", result: "Mais prospecção de clientes", text: "Atendimento excelente. Criou minha página voltada para odontologia e hoje prospecto ainda mais clientes através dela. Obrigada." },
   { name: "Breno Miguel", role: "Cliente K7 Sites • Google", result: "Expectativas superadas", text: "Superou as expectativas, muito bom o trabalho e muita dedicação, sucesso." },
   { name: "Daniele Pedrosa", role: "Cliente K7 Sites • Google", result: "Projeto entregue como solicitado", text: "Amei o site que criou pra mim! Exatamente da forma que solicitei. Excelente profissional!" },
@@ -116,7 +116,7 @@ function SiteMockup({ project }: { project: typeof projects[number] }) {
           <small>{project.eyebrow}</small>
           <h3>{project.title}</h3>
           <p>{project.text}</p>
-          <button type="button">{project.cta}</button>
+          <span className="lp2-site-cta">{project.cta}</span>
         </div>
         <div className="lp2-site-visual" aria-hidden="true"><span/><span/><span/></div>
       </div>
