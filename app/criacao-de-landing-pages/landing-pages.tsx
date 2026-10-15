@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 import { HeroLeadForm } from "@/components/hero-lead-form";
@@ -14,59 +13,53 @@ const marquee = ["PROFISSIONALISMO", "CONVERSÃO", "PERSONALIZAÇÃO", "PERFORMA
 
 const projects = [
   {
-    id: "dermato",
-    label: "Clínica de dermatologia estética",
-    url: "clinicadermato.com.br",
-    menu: ["Início", "Especialidades", "Sobre", "Indicações", "Diferenciais"],
-    eyebrow: "CUIDADO, CIÊNCIA E NATURALIDADE",
-    title: "Dermatologia estética com resultados naturais e seguros",
-    text: "Tratamentos personalizados para cuidar da pele, valorizar sua beleza e respeitar a individualidade de cada paciente.",
-    cta: "Saiba mais sobre nossas consultas",
-    benefits: ["Avaliação individual", "Tecnologia dermatológica", "Plano de tratamento personalizado"],
-  },
-  {
-    id: "mental",
-    label: "Clínica de saúde mental",
-    url: "saudementalintegrada.com.br",
-    menu: ["Início", "Especialidades", "Tratamentos", "Equipe", "Contato"],
-    eyebrow: "CUIDADO INTEGRAL EM SAÚDE MENTAL",
-    title: "Tratamento integrativo para ansiedade, depressão, TDAH e sofrimento mental",
-    text: "Acolhimento médico e terapêutico com escuta qualificada, avaliação cuidadosa e plano de cuidado individualizado.",
-    cta: "Agendar uma conversa",
-    benefits: ["Atendimento humanizado", "Avaliação multidisciplinar", "Acompanhamento contínuo"],
-  },
-  {
-    id: "naner",
-    label: "Naner • Rádios comunicadores",
-    url: "nanercomunicacao.com.br",
-    menu: ["Início", "Equipamentos", "Locação", "Aplicações", "Contato"],
-    eyebrow: "COMUNICAÇÃO PROFISSIONAL SEM RUÍDO",
-    title: "Aluguel de Rádios Comunicadores",
-    text: "Locação de rádios e acessórios para empresas, eventos, condomínios e operações que precisam de comunicação rápida e confiável.",
-    cta: "SOLICITE SEU ORÇAMENTO",
-    benefits: ["Equipamentos revisados", "Planos flexíveis", "Suporte para sua operação"],
+    id: "barbearia",
+    label: "Barbearia",
+    url: "https://kassio07.github.io/Barbearia/",
+    src: "/projetos-k7/barbearia.png",
+    description: "Landing page para barbearia com apresentação dos serviços, posicionamento premium e chamadas diretas para agendamento.",
   },
   {
     id: "advocacia",
-    label: "Escritório de advocacia",
-    url: "ribeirocampos.adv.br",
-    menu: ["Início", "Áreas de Atuação", "Equipe", "Conteúdos", "Contato"],
-    eyebrow: "ESTRATÉGIA JURÍDICA COM CLAREZA",
-    title: "Soluções jurídicas para pessoas e empresas",
-    text: "Atuação consultiva e contenciosa com análise cuidadosa, comunicação transparente e foco na proteção dos seus interesses.",
-    cta: "Agendar consulta",
-    benefits: ["Direito empresarial", "Contratos e consultivo", "Atendimento próximo"],
+    label: "Advocacia",
+    url: "https://kassio07.github.io/Advogado/",
+    src: "/projetos-k7/advocacia.png",
+    description: "Projeto institucional para advocacia com foco em autoridade, áreas de atuação, confiança e facilidade de contato.",
   },
   {
-    id: "lavanderia",
-    label: "Lavanderia local",
-    url: "lavanderiabairro.com.br",
-    menu: ["Início", "Serviços", "Planos", "Como funciona", "Contato"],
-    eyebrow: "ROUPAS LIMPAS, ROTINA MAIS LEVE",
-    title: "Lavagem profissional com coleta e entrega no seu bairro",
-    text: "Cuidado com suas peças, praticidade no dia a dia e atendimento rápido para residências e pequenos negócios.",
-    cta: "Pedir coleta pelo WhatsApp",
-    benefits: ["Coleta agendada", "Higienização profissional", "Entrega organizada"],
+    id: "cruzeiro",
+    label: "Cruzeiro Esporte Clube + CRM",
+    url: "https://cruzeiroesporteclube.com.br/",
+    src: "/projetos-k7/cruzeiro-crm.png",
+    description: "Site institucional integrado a CRM, estruturado para conteúdo, relacionamento e operação digital do clube.",
+  },
+  {
+    id: "agencia",
+    label: "Agência Diva",
+    url: "https://www.agenciadiva.com/mentoria-agencia-diva",
+    src: "/projetos-k7/agencia-diva.png",
+    description: "Landing page de mentoria com narrativa comercial, apresentação da oferta, prova e CTA orientado à conversão.",
+  },
+  {
+    id: "higienizacao",
+    label: "Quality Higienização",
+    url: "https://qualityhigienizacao.com.br/",
+    src: "/projetos-k7/quality-higienizacao.png",
+    description: "Página de serviços para higienização de estofados com comunicação objetiva, benefícios e solicitação de orçamento.",
+  },
+  {
+    id: "eletricista",
+    label: "LS Climatização",
+    url: "https://ls-climatizacao.vercel.app/",
+    src: "/projetos-k7/ls-climatizacao.png",
+    description: "Site de serviço local para climatização e elétrica, com oferta clara, confiança e contato rápido pelo WhatsApp.",
+  },
+  {
+    id: "odontologia",
+    label: "Laila Araújo Clinic",
+    url: "https://lailaaraujoclinic.vercel.app/",
+    src: "/projetos-k7/laila-araujo-clinic.png",
+    description: "Landing page odontológica com foco em posicionamento profissional, tratamentos e geração de novos contatos.",
   },
 ];
 
@@ -110,23 +103,17 @@ function Cta({ children, location, onOpen, light = false }: { children: ReactNod
 }
 
 function SiteMockup({ project }: { project: typeof projects[number] }) {
-  return <article className={"lp2-site-card theme-" + project.id}>
-    <div className="lp2-browser-bar"><div><i/><i/><i/></div><span>{project.url}</span></div>
-    <div className="lp2-site-canvas">
-      <header className="lp2-site-nav"><strong>{project.label}</strong><nav>{project.menu.map(item => <span key={item}>{item}</span>)}</nav><b>Contato</b></header>
-      <div className="lp2-site-hero">
-        <div>
-          <small>{project.eyebrow}</small>
-          <h3>{project.title}</h3>
-          <p>{project.text}</p>
-          <span className="lp2-site-cta">{project.cta}</span>
-        </div>
-        <div className="lp2-site-visual" aria-hidden="true"><span/><span/><span/></div>
+  return <article className="lp2-site-card">
+    <a className="lp2-project-link" href={project.url} target="_blank" rel="noreferrer" aria-label={"Ver projeto " + project.label}>
+      <div className="lp2-browser-bar"><div><i/><i/><i/></div><span>{project.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}</span></div>
+      <div className="lp2-real-project-shot">
+        <Image src={project.src} alt={"Prévia do projeto " + project.label} fill sizes="(max-width: 720px) 86vw, (max-width: 1200px) 52vw, 520px" />
       </div>
-      <div className="lp2-site-benefits">{project.benefits.map(item => <div key={item}><i>✓</i><span>{item}</span></div>)}</div>
-      {project.id === "naner" && <div className="lp2-site-extra"><strong>Vantagens da locação</strong><span>Flexibilidade para sua operação • Equipamentos revisados • Suporte especializado</span></div>}
-    </div>
-    <footer><strong>{project.label}</strong><span>Conceito visual K7 Sites</span></footer>
+      <footer className="lp2-project-meta">
+        <div><strong>{project.label}</strong><p>{project.description}</p></div>
+        <span>Ver projeto ↗</span>
+      </footer>
+    </a>
   </article>;
 }
 
@@ -242,7 +229,7 @@ export default function LandingPages() {
   }, []);
 
   return <main className="lp2-page" id="inicio">
-    <dialog ref={contactDialogRef} className="lp2-contact-dialog" aria-label="Solicitar orçamento" onClick={(event) => { if (event.target === event.currentTarget) event.currentTarget.close(); }}>
+    <dialog ref={contactDialogRef} className="lp2-contact-dialog" aria-label="Solicitar orçamento">
       <div className="lp2-contact-dialog-inner">
         <button type="button" className="lp2-contact-dialog-close" aria-label="Fechar formulário" onClick={() => contactDialogRef.current?.close()}>×</button>
         <HeroLeadForm placement="lp-modal" />
@@ -250,7 +237,7 @@ export default function LandingPages() {
     </dialog>
     <div className="lp2-progress" aria-hidden="true" />
     <header className="lp2-header">
-      <Link href="/" className="lp2-brand" aria-label="K7 Sites — início"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={84} height={87} priority/></Link>
+      <div className="lp2-brand" aria-label="K7 Sites"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={84} height={87} priority/></div>
       <nav className={menuOpen ? "lp2-nav is-open" : "lp2-nav"} aria-label="Navegação principal">
         <a href="#portfolio" onClick={() => setMenuOpen(false)}>Projetos</a>
         <a href="#beneficios" onClick={() => setMenuOpen(false)}>Benefícios</a>
@@ -341,14 +328,14 @@ export default function LandingPages() {
       </div>
     </section>
 
-    <footer className="lp2-footer">
-      <div className="lp2-wrap lp2-footer-grid">
-        <div className="lp2-footer-logo"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={76} height={79}/></div>
-        <div><strong>Links úteis</strong><a href="#portfolio">Projetos</a><a href="#beneficios">Benefícios</a><a href="#faq">FAQ</a><a href="#formulario">Orçamento</a></div>
-        <div><strong>Contato</strong><span>K7 Sites</span><a href="mailto:k7sites@gmail.com">k7sites@gmail.com</a><a href={whatsapp} target="_blank" rel="noreferrer">WhatsApp: (11) 94921-4071</a></div>
-        <div><strong>Atendimento</strong><a href="#formulario">Solicitar orçamento</a><a href="/">Voltar ao site principal</a></div>
-        <small>© {new Date().getFullYear()} K7 Sites. Todos os direitos reservados.</small>
+    <footer className="footer">
+      <div className="container footer-main">
+        <div><div className="brand footer-brand"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={104} height={108} /></div><p>Sites e landing pages com estratégia, identidade e acabamento profissional.</p></div>
+        <div><small>NAVEGAÇÃO</small><a href="#portfolio">Projetos</a><a href="#beneficios">Benefícios</a><a href="#processo">Processo</a><a href="#faq">Dúvidas</a></div>
+        <div><small>CONTATO</small><a href="mailto:k7sites@gmail.com">k7sites@gmail.com</a><a href={whatsapp} target="_blank" rel="noreferrer">WhatsApp: (11) 94921-4071</a></div>
+        <div><small>PRONTO PARA COMEÇAR?</small><button type="button" className="footer-cta lp2-footer-modal-cta" onClick={openContactDialog}>Pedir orçamento <Arrow /></button></div>
       </div>
+      <div className="container footer-bottom"><span>© {new Date().getFullYear()} K7 Sites. Todos os direitos reservados.</span><span>Design e desenvolvimento: K7 Sites</span><a href="#inicio">Voltar ao topo ↑</a></div>
     </footer>
 
     <button type="button" className="lp2-mobile-cta" onClick={() => {
