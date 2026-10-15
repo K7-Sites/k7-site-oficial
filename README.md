@@ -105,6 +105,7 @@ Antes de qualquer publicação, execute `pnpm check` e revise SEO, links, respon
 ## Documentação complementar
 
 - `ARQUITETURA.md` — arquitetura técnica atual
+- `IDENTIDADE-VISUAL.md` — identidade visual oficial e regras de manutenção da marca
 - `AGENTS.md` — regras obrigatórias para alterações
 - `INFORMACOES-COMPLETAS-DO-PROJETO.md` — documentação funcional e comercial
 - `GUIA-TECNOLOGIAS-E-HOSPEDAGEM.md` — execução e hospedagem
