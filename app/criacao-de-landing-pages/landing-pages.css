@@ -540,3 +540,118 @@
     height:220px;
   }
 }
+
+
+/* ===== Ajustes finais: header compacto, previews inteiros e 3 avaliações ===== */
+.lp2-header{
+  top:10px !important;
+  height:64px !important;
+  min-height:64px !important;
+  padding:6px clamp(12px,1.6vw,22px) !important;
+  border-radius:14px !important;
+}
+.lp2-brand{
+  width:72px !important;
+  height:66px !important;
+  flex-basis:72px !important;
+}
+.lp2-brand img{
+  width:72px !important;
+  height:66px !important;
+}
+
+/* Imagens dos projetos sempre inteiras, sem corte lateral */
+.lp2-real-project-shot{
+  height:clamp(220px,20vw,290px) !important;
+  padding:10px !important;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f4f6f8 !important;
+}
+.lp2-real-project-shot img{
+  object-fit:contain !important;
+  object-position:center !important;
+  transform:none !important;
+}
+.lp2-site-card:hover .lp2-real-project-shot img{
+  transform:scale(1.01) !important;
+  object-position:center !important;
+}
+
+/* Títulos das seções escuras seguem a linguagem colorida das demais */
+.lp2-dark .lp2-heading h2{
+  color:transparent !important;
+  background:linear-gradient(90deg,#ffb59a 0%,#ff8f6b 48%,#9ba8ff 100%) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+  text-shadow:none !important;
+}
+.lp2-dark .lp2-heading h2 em{
+  color:inherit !important;
+  background:inherit !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+}
+.lp2-dark .lp2-eyebrow{
+  color:#ffb59a !important;
+}
+.lp2-dark .lp2-step > span{
+  color:#fff8f5 !important;
+  background:linear-gradient(145deg,#ff8f6b,#7f8ff0) !important;
+}
+.lp2-dark .lp2-step h3{
+  color:#ffb59a !important;
+}
+.lp2-dark .lp2-step p{
+  color:#fff8f5 !important;
+}
+
+/* Avaliações: 3 cards por tela no desktop, altura natural ao conteúdo */
+.lp2-review-track{
+  grid-auto-columns:calc((100% - 36px)/3) !important;
+  align-items:start !important;
+}
+.lp2-testimonial{
+  height:auto !important;
+  min-height:0 !important;
+  align-self:start !important;
+}
+.lp2-testimonial > p{
+  flex:0 0 auto !important;
+}
+.lp2-testimonial footer{
+  margin-top:24px !important;
+}
+
+@media(max-width:1024px){
+  .lp2-review-track{
+    grid-auto-columns:calc((100% - 18px)/2) !important;
+  }
+}
+@media(max-width:720px){
+  .lp2-header{
+    top:8px !important;
+    height:60px !important;
+    min-height:60px !important;
+    padding:4px 10px !important;
+  }
+  .lp2-brand{
+    width:64px !important;
+    height:58px !important;
+    flex-basis:64px !important;
+  }
+  .lp2-brand img{
+    width:64px !important;
+    height:58px !important;
+  }
+  .lp2-real-project-shot{
+    height:230px !important;
+    padding:8px !important;
+  }
+  .lp2-review-track{
+    grid-auto-columns:88vw !important;
+  }
+}
