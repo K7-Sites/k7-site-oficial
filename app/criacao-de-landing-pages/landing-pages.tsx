@@ -2,336 +2,216 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import type { FormEvent, ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 import { HeroLeadForm } from "@/components/hero-lead-form";
-import { HomeProjectsSection } from "@/components/ui/home-projects-gallery";
 import { trackEvent } from "@/lib/analytics";
 
-const baseMessage = "Olá! Vim pela página de Landing Pages da K7 Sites e gostaria de solicitar um orçamento.";
-const whatsapp = `https://wa.me/5511949214071?text=${encodeURIComponent(baseMessage)}`;
+const whatsapp = "https://wa.me/5511949214071?text=" + encodeURIComponent("Olá! Vim pela página de Landing Pages da K7 Sites e gostaria de solicitar um orçamento.");
 const reviews = "https://share.google/pDIhvdTpTxOyWEIOe";
 
-const benefits = [
-  ["01", "design", "Design profissional", "Uma página alinhada à identidade e ao posicionamento da sua empresa."],
-  ["02", "target", "Foco em conversão", "Estrutura que conduz o visitante da descoberta até o contato."],
-  ["03", "devices", "Responsiva", "Experiência planejada para celular, tablet e computador."],
-  ["04", "speed", "Alta performance", "Desenvolvimento cuidadoso para carregamento rápido e boa experiência."],
-  ["05", "search", "SEO", "Estrutura técnica preparada para mecanismos de busca compreenderem sua oferta."],
-  ["06", "message", "WhatsApp", "Chamadas estratégicas que tornam o próximo passo simples e direto."],
-  ["07", "chart", "Analytics", "Estrutura preparada para acompanhar visitas e cliques quando a medição for contratada."],
-];
-
 const testimonials = [
-  { name: "Gabriel Rodrigues Da Luz", details: "0 avaliação • 0 foto", date: "Há 7 minutos", text: "Excelente trabalho, atendeu a demanda e me deu sugestões que foram eficazes no meu negócio" },
-  { name: "Alexandre Do Nascimento Ribeiro Pizatto", details: "2 avaliações • 0 foto", date: "Há 20 minutos", text: "Se pudesse dava nota 1000 pra vocês! superaram minhas expectativas em todos sentidos, custei pra achar mas finalmente achei uma empresa seria!! Sucesso sempre." },
-  { name: "Kaique Júnior macedo", details: "Local Guide • 2 avaliações • 40 fotos", date: "Há 33 minutos", text: "Excelente experiência, criaram o site da minha lavanderia . Ótimos profissionais, só tenho a agradecer, Deus abençoe vocês" },
-  { name: "Kaio Santos", details: "7 avaliações", date: "Uma hora atrás", text: "Excelente experiência com a K7 Sites! Desde o primeiro contato, demonstraram profissionalismo, atenção aos detalhes e muita dedicação para entregar um resultado de qualidade. O atendimento foi muito bom e o trabalho superou minhas expectativas. Dá para perceber o cuidado e o compromisso em cada etapa. Recomendo muito para quem procura um serviço profissional, confiável e de qualidade!" },
-  { name: "Beatriz Araújo", details: "3 avaliações • 0 foto", date: "Há 6 dias", text: "Atendimento excelente. Criou minha página voltada para odontologia e hoje prospecto ainda mais clientes através dela 😍🚀👏 Obrigada." },
-  { name: "Breno Miguel", details: "3 avaliações • 0 foto", date: "Há 6 dias", text: "Superou as expectativas, muito bom o trabalho e muita dedicação, sucesso. 🙌" },
-  { name: "Daniele Pedrosa", details: "Local Guide • 9 avaliações • 27 fotos", date: "Há 6 dias", text: "Amei o site que criou pra mim! Exatamente da forma que solicitei. Excelente profissional!" },
+  { name: "Gabriel Rodrigues Da Luz", text: "Excelente trabalho, atendeu a demanda e me deu sugestões que foram eficazes no meu negócio." },
+  { name: "Alexandre Do Nascimento Ribeiro Pizatto", text: "Superaram minhas expectativas em todos os sentidos. Finalmente achei uma empresa séria." },
+  { name: "Daniele Pedrosa", text: "Amei o site que criou pra mim! Exatamente da forma que solicitei. Excelente profissional!" },
 ];
 
-const technologies = [
-  { name: "Google", icon: "/technologies/google.svg" },
-  { name: "Vercel", icon: "/technologies/vercel.svg" },
-  { name: "Figma", icon: "/technologies/figma.svg" },
-  { name: "JavaScript", icon: "/technologies/javascript.svg" },
-  { name: "TypeScript", icon: "/technologies/typescript.svg" },
-  { name: "CSS", icon: "/technologies/css.svg" },
-  { name: "Node.js", icon: "/technologies/nodejs.svg" },
-  { name: "Visual Studio Code", icon: "/technologies/visual-studio-code.svg" },
-  { name: "Next.js", icon: "/technologies/nextjs.svg" },
-  { name: "PHP", icon: "/technologies/php.svg" },
+const portfolio = [
+  { src: "/project-stream/estetica.jpg", label: "Estética" },
+  { src: "/project-stream/advocacia.webp", label: "Advocacia" },
+  { src: "/project-stream/saude.jpg", label: "Saúde" },
+  { src: "/project-stream/gastronomia.jpg", label: "Gastronomia" },
+  { src: "/project-stream/higienizacao.jpg", label: "Serviços" },
 ];
 
-const included = ["Landing Page personalizada", "Design profissional", "Layout responsivo", "Integração com WhatsApp", "Formulário de contato", "SEO básico", "Estrutura preparada para Analytics", "Otimização de performance", "Orientação para publicação", "Ajustes finais previstos em proposta"];
+const marquee = ["PROFISSIONALISMO", "CONVERSÃO", "PERSONALIZAÇÃO", "PERFORMANCE", "DESIGN", "ESTRATÉGIA", "COPYWRITING"];
+
+const benefits = [
+  ["↗", "Estrutura pensada para converter", "Sua página é organizada para conduzir o visitante até a ação, com menos ruído e mais clareza."],
+  ["◉", "Jornada simples e intuitiva", "Cada seção tem um propósito claro para o usuário entender, confiar e avançar sem se perder."],
+  ["✦", "Técnicas de texto persuasivas", "Copy estratégica para explicar sua oferta rápido, gerar interesse e estimular o próximo passo."],
+  ["◎", "Personalização total (de verdade)", "Visual, tom e argumentos construídos para refletir seu negócio, seu público e seu posicionamento."],
+  ["✧", "Credibilidade instantânea", "Hierarquia visual, consistência e prova para elevar a percepção de valor antes da primeira conversa."],
+  ["△", "Apoio contínuo", "Ajustes e evolução com orientação próxima, de acordo com o escopo aprovado para o projeto."],
+];
 
 const faqs = [
-  ["O que é uma Landing Page?", "É uma página criada para apresentar uma oferta com clareza e conduzir o visitante a uma ação, como pedir um orçamento pelo WhatsApp."],
-  ["Qual a diferença entre site e Landing Page?", "A Landing Page concentra a comunicação em um objetivo. Um site institucional costuma reunir várias páginas e informações mais amplas sobre a empresa."],
-  ["Quanto custa uma Landing Page?", "Os projetos começam em R$ 399,00. O valor final depende do conteúdo, das funcionalidades e das integrações necessárias."],
-  ["Quanto tempo demora para ficar pronta?", "O prazo é definido conforme o escopo e começa após aprovação, pagamento inicial e envio dos materiais. Alguns projetos podem ficar prontos em até 48 horas ou antes do prazo previsto."],
-  ["Preciso ter domínio e hospedagem?", "Não para iniciar a conversa. Se você ainda não tiver, a K7 orienta a escolha e a configuração; custos e serviços são definidos no orçamento."],
-  ["A página funciona no celular?", "Sim. O layout é planejado para celular, tablet e computador, com atenção especial à leitura, velocidade e aos botões de contato."],
-  ["Posso solicitar alterações?", "Sim. A quantidade de rodadas de ajustes fica registrada na proposta para manter o processo claro e previsível."],
-  ["Vocês configuram o WhatsApp?", "Sim. A página pode ter botões estratégicos que abrem uma conversa no número definido para o atendimento."],
-  ["A página pode aparecer no Google?", "A estrutura é preparada para indexação e SEO básico. O posicionamento depende também de conteúdo, concorrência, autoridade e estratégia contínua."],
-  ["É possível instalar Google Analytics?", "Sim. A medição pode ser configurada conforme o escopo, sempre com o serviço e o tratamento de dados definidos previamente."],
-  ["Posso fazer anúncios para a página?", "Sim. Uma Landing Page pode receber tráfego de campanhas, desde que a oferta, a medição e os anúncios sejam planejados de forma consistente."],
+  ["Quanto custa uma Landing Page?", "Os projetos da K7 Sites começam em R$ 399. O valor final varia conforme escopo, conteúdo, integrações e nível de personalização."],
+  ["Em quanto tempo fica pronta?", "O prazo é definido na proposta após o briefing e o envio dos materiais. Projetos mais simples podem ter entrega rápida, sem promessa genérica para todo escopo."],
+  ["Domínio e hospedagem estão inclusos?", "A K7 pode orientar e configurar domínio e hospedagem. Custos de terceiros e serviços contratados ficam claros na proposta."],
+  ["A Landing Page funciona no celular?", "Sim. A experiência é planejada para celular, tablet e computador, com prioridade para leitura, velocidade e conversão."],
+  ["Posso anunciar no Google ou Meta Ads?", "Sim. A estrutura pode receber tráfego de campanhas, com CTA, mensuração e conteúdo preparados para trabalhar em conjunto com os anúncios."],
+  ["Consigo alterar a página depois?", "Sim. Ajustes e evoluções podem ser feitos conforme o escopo e a necessidade do projeto, sem prender sua operação a uma página engessada."],
 ];
 
-const Arrow = () => <svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M14 7l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>;
-const Check = () => <svg aria-hidden="true" viewBox="0 0 20 20" fill="none"><path d="m5 10 3 3 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>;
-const BenefitIcon = ({ type }: { type: string }) => {
-  const paths: Record<string, string> = {
-    design: "M5 19 19 5l4 4L9 23H5v-4ZM16 8l4 4M5 5h7M5 9h4",
-    target: "M14 24a10 10 0 1 0 0-20 10 10 0 0 0 20Zm0-5a5 5 0 1 0 0-10 5 5 0 0 0 10Zm0-5 8-8",
-    devices: "M3 6h17v12H3V6Zm21 4h3v14h-8v-3",
-    speed: "M5 21a10 10 0 1 1 18 0M14 17l5-6",
-    search: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm7-2 6 6M8 12h8M12 8v8",
-    message: "M4 5h20v15H11l-6 5v-5H4V5Z",
-    chart: "M5 23V12m7 11V5m7 18v-8m7 8H2",
-  };
-  return <svg className="lp-benefit-icon" aria-hidden="true" viewBox="0 0 28 28" fill="none"><path d={paths[type]} stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>;
-};
-
-function formatBrazilPhone(value: string) {
-  const digits = value.replace(/\D/g, "").slice(0, 11);
-
-  if (digits.length <= 2) return digits ? `(${digits}` : "";
-  if (digits.length <= 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
-  if (digits.length <= 10) return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
-
-  return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+function Arrow() {
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>;
 }
 
-function trackWhatsApp(location: string, text: string) {
-  trackEvent("click_whatsapp", { button_location: location, page_path: window.location.pathname, link_text: text });
-}
-
-function ContactButton({ children, light = false }: { children: ReactNode; light?: boolean }) {
-  return <a className={`lp-button ${light ? "lp-button-light" : "lp-button-primary"}`} href="#orcamento">{children}<Arrow /></a>;
-}
-
-function TestimonialsSlider() {
-  const viewportRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [pageCount, setPageCount] = useState(Math.max(1, testimonials.length - 2));
-
-  const getCards = () => Array.from(viewportRef.current?.querySelectorAll<HTMLElement>(".testimonial-card") ?? []);
-
-  const goTo = (index: number) => {
-    const viewport = viewportRef.current;
-    const cards = getCards();
-    if (!viewport || !cards.length) return;
-    const nextIndex = Math.max(0, Math.min(index, pageCount - 1));
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    viewport.scrollTo({ left: cards[nextIndex].offsetLeft - cards[0].offsetLeft, behavior: reducedMotion ? "auto" : "smooth" });
-    setActiveIndex(nextIndex);
-  };
-
-  useEffect(() => {
-    const viewport = viewportRef.current;
-    if (!viewport) return;
-    const updateLayout = () => {
-      const cards = getCards();
-      if (!cards.length) return;
-      const visibleCards = Math.max(1, Math.round(viewport.clientWidth / cards[0].offsetWidth));
-      const nextPageCount = Math.max(1, testimonials.length - visibleCards + 1);
-      setPageCount(nextPageCount);
-      setActiveIndex((current) => Math.min(current, nextPageCount - 1));
-    };
-    const initialFrame = requestAnimationFrame(updateLayout);
-    const observer = new ResizeObserver(updateLayout);
-    observer.observe(viewport);
-    return () => { cancelAnimationFrame(initialFrame); observer.disconnect(); };
-  }, []);
-
-  const handleScroll = () => {
-    const viewport = viewportRef.current;
-    const cards = getCards();
-    if (!viewport || cards.length < 2) return;
-    const step = cards[1].offsetLeft - cards[0].offsetLeft;
-    setActiveIndex(Math.min(pageCount - 1, Math.max(0, Math.round(viewport.scrollLeft / step))));
-  };
-
-  return <div className="testimonial-slider reveal" role="region" aria-roledescription="carrossel" aria-label="Avaliações de clientes da K7 Sites">
-    <div className="testimonial-slider-topbar"><p aria-live="polite">Exibindo grupo {activeIndex + 1} de {pageCount}</p><div className="testimonial-arrows"><button type="button" onClick={() => goTo(activeIndex - 1)} disabled={activeIndex === 0} aria-label="Ver avaliações anteriores">←</button><button type="button" onClick={() => goTo(activeIndex + 1)} disabled={activeIndex === pageCount - 1} aria-label="Ver próximas avaliações">→</button></div></div>
-    <div className="testimonial-viewport" ref={viewportRef} onScroll={handleScroll}><div className="testimonial-track">
-      {testimonials.map((testimonial, index) => <article className="testimonial-card" key={testimonial.name} aria-label={`Avaliação ${index + 1} de ${testimonials.length}`}><div className="testimonial-rating"><span aria-label="5 de 5 estrelas">★★★★★</span><div className="testimonial-google-score"><Image src="/technologies/google.svg" alt="Google" width={24} height={24} /><small>5.0</small></div></div><blockquote><p>{testimonial.text}</p></blockquote><footer><div><a href={reviews} target="_blank" rel="noopener noreferrer">{testimonial.name} ↗</a><span>{testimonial.details}</span></div><small>{testimonial.date}</small></footer></article>)}
-    </div></div>
-    <div className="testimonial-dots">{Array.from({ length: pageCount }).map((_, index) => <button type="button" key={index} className={index === activeIndex ? "is-active" : ""} onClick={() => goTo(index)} aria-label={`Ir para o grupo ${index + 1} de avaliações`} />)}</div>
-    <a className="testimonial-google-link" href={reviews} target="_blank" rel="noopener noreferrer">Ver avaliações no Google ↗</a>
-  </div>;
+function Cta({ children, location, light = false }: { children: React.ReactNode; location: string; light?: boolean }) {
+  return <a className={"lp2-btn " + (light ? "lp2-btn-light" : "lp2-btn-primary")} href="#formulario" onClick={() => trackEvent("click_cta_service", { page_path: window.location.pathname, button_location: location, link_text: String(children) })}>{children}<Arrow /></a>;
 }
 
 export default function LandingPages() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const contactDialogRef = useRef<HTMLDialogElement>(null);
-  const openContactDialog = () => { setMenuOpen(false); contactDialogRef.current?.showModal(); };
+  const sentScroll = useRef({ half: false, almost: false });
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+    const observer = new IntersectionObserver((entries) => entries.forEach(entry => {
       if (entry.isIntersecting) entry.target.classList.add("is-visible");
-    }), { threshold: 0.12 });
-    document.querySelectorAll(".lp-reveal, .reveal").forEach((node) => observer.observe(node));
-    const progress = () => {
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      document.documentElement.style.setProperty("--scroll", max > 0 ? String(window.scrollY / max) : "0");
+    }), { threshold: .12 });
+    document.querySelectorAll(".lp2-reveal").forEach(el => observer.observe(el));
+
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      const ratio = max > 0 ? scrollY / max : 0;
+      document.documentElement.style.setProperty("--scroll", String(ratio));
+      document.body.classList.toggle("lp2-scrolled", scrollY > 28);
+      if (!sentScroll.current.half && ratio >= .5) {
+        sentScroll.current.half = true;
+        trackEvent("scroll_50", { page_path: location.pathname });
+      }
+      if (!sentScroll.current.almost && ratio >= .9) {
+        sentScroll.current.almost = true;
+        trackEvent("scroll_90", { page_path: location.pathname });
+      }
     };
-    window.addEventListener("scroll", progress, { passive: true });
-    progress();
-    return () => { observer.disconnect(); window.removeEventListener("scroll", progress); };
+    addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => { observer.disconnect(); removeEventListener("scroll", onScroll); };
   }, []);
 
-  return <main className="lp-page" id="inicio">
-    <dialog ref={contactDialogRef} className="k7-contact-dialog" aria-label="Fale conosco" onClick={(event) => { if (event.target === event.currentTarget) event.currentTarget.close(); }}><div className="k7-contact-dialog-inner"><button type="button" className="k7-contact-dialog-close" aria-label="Fechar formulário" onClick={() => contactDialogRef.current?.close()}>×</button><HeroLeadForm placement="lp-modal" /></div></dialog>
-    <div className="scroll-progress" aria-hidden="true" />
-    <a className="skip-link" href="#conteudo">Ir para o conteúdo</a>
-    <header className="lp-header">
-      <Link className="lp-brand" href="/" aria-label="K7 Sites — página inicial"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={84} height={87} priority /></Link>
-      <nav className={menuOpen ? "lp-nav is-open" : "lp-nav"} aria-label="Navegação da página">
-        <a href="#beneficios" onClick={() => setMenuOpen(false)}>Benefícios</a><a href="#exemplos" onClick={() => setMenuOpen(false)}>Exemplos</a><a href="#processo" onClick={() => setMenuOpen(false)}>Processo</a><a href="#investimento" onClick={() => setMenuOpen(false)}>Investimento</a><a href="#faq" onClick={() => setMenuOpen(false)}>FAQ</a><button type="button" className="lp-nav-contact" onClick={openContactDialog}>Fale conosco</button>
+  return <main className="lp2-page" id="inicio">
+    <div className="lp2-progress" aria-hidden="true" />
+    <header className="lp2-header">
+      <Link href="/" className="lp2-brand" aria-label="K7 Sites — início"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={78} height={80} priority/><strong>SITES</strong></Link>
+      <nav className={menuOpen ? "lp2-nav is-open" : "lp2-nav"} aria-label="Navegação principal">
+        <a href="#portfolio" onClick={() => setMenuOpen(false)}>Projetos</a>
+        <a href="#beneficios" onClick={() => setMenuOpen(false)}>Benefícios</a>
+        <a href="#processo" onClick={() => setMenuOpen(false)}>Processo</a>
+        <a href="#faq" onClick={() => setMenuOpen(false)}>FAQ</a>
       </nav>
-      <button type="button" className="lp-button lp-button-primary lp-header-contact" onClick={openContactDialog}>Fale conosco <Arrow /></button>
-      <button className="lp-menu" type="button" aria-label="Abrir menu" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}><span /><span /></button>
+      <Cta location="header">Quero minha página</Cta>
+      <button className="lp2-menu" type="button" aria-label="Abrir menu" aria-expanded={menuOpen} onClick={() => setMenuOpen(v => !v)}><span/><span/></button>
     </header>
 
-    <a className="whatsapp-float" href={whatsapp} target="_blank" rel="noreferrer" aria-label="Falar com a K7 Sites pelo WhatsApp" onClick={() => trackWhatsApp("floating_button", "Falar pelo WhatsApp")}><Image src="/whatsapp.svg" alt="" width={38} height={38} aria-hidden="true" /></a>
-
-    <section className="lp-hero" id="conteudo"><div className="lp-grid" aria-hidden="true" /><div className="lp-orb" aria-hidden="true" />
-      <div className="lp-container lp-hero-layout">
-        <div className="lp-hero-copy">
-          <p className="lp-eyebrow">CRIAÇÃO DE LANDING PAGES PROFISSIONAIS</p>
-          <h1>Criação de Landing Page profissional a partir de <em>R$399,00</em></h1>
-          <p className="lp-lead">Criamos landing pages personalizadas para empresas, profissionais e prestadores de serviço que precisam apresentar uma oferta com clareza, fortalecer a confiança e transformar visitas em contatos pelo WhatsApp.</p>
-          <div className="lp-actions"><ContactButton>Quero minha Landing Page</ContactButton><a className="lp-button lp-button-ghost" href="#exemplos">Ver exemplos <Arrow /></a></div>
-          <ul className="lp-benefit-list">{["Design profissional", "Responsiva", "Estrutura preparada para SEO", "Foco em conversão"].map(item => <li key={item}><Check />{item}</li>)}</ul>
-        </div>
-        <div className="hero-device-stage enter delay-2" aria-label="Mockup ilustrativo de site responsivo em notebook e celular">
-  <div className="hero-device-aura" aria-hidden="true" />
-  <div className="hero-laptop"><div className="hero-laptop-display">
-    <div className="hero-device-browser"><span/><span/><span/><small>k7sites.com.br</small></div>
-    <div className="hero-barber-preview"><Image src="/project-stream/barbearia.png" alt="Prévia do projeto de barbearia da galeria" fill sizes="(max-width: 860px) 95vw, 650px" className="hero-barber-preview-image" /></div>
-  </div><div className="hero-laptop-base"><div className="hero-laptop-notch"/></div></div>
-  <div className="hero-phone"><div className="hero-phone-camera"/><div className="hero-phone-screen hero-phone-barber-screen"><Image src="/project-stream/barbearia.png" alt="Prévia mobile do projeto de barbearia" fill sizes="180px" className="hero-barber-preview-image" /></div></div>
-  <div className="hero-device-caption"><span className="hero-device-caption-dot"/> DESIGN RESPONSIVO <span>·</span> DESKTOP + MOBILE</div>
-</div>
-      </div>
-    </section>
-
-    <section className="lp-performance-art" aria-label="Indicadores de desempenho de uma landing page">
-      <div className="lp-container">
-        <div className="lp-performance-art-scroll">
-          <Image
-            src="/landing-page-profissional-auto-desenpenho.webp"
-            alt="Arte com indicadores de uma landing page: desempenho 98, acessibilidade 96, práticas recomendadas 99, SEO 100 e navegação agêntica 2 de 2."
-            width={2048}
-            height={682}
-            sizes="(max-width: 620px) 900px, (max-width: 1228px) calc(100vw - 48px), 1180px"
-          />
-        </div>
-        <p className="lp-performance-art-hint">Deslize para ver todos os indicadores.</p>
-      </div>
-    </section>
-
-    <section className="lp-section lp-devices"><div className="lp-container lp-two-col">
-      <div className="lp-heading lp-reveal"><p className="lp-eyebrow">EXPERIÊNCIA RESPONSIVA</p><h2>Sua empresa profissional em <em>qualquer tela.</em></h2><p>O conteúdo se adapta sem perder hierarquia, legibilidade ou acesso rápido ao contato.</p></div>
-      <div className="lp-device-demo lp-reveal"><div className="lp-demo-desktop"><Image src="/project-stream/higienizacao.jpg" alt="Landing Page demonstrativa exibida em desktop" fill sizes="460px" /></div><div className="lp-demo-tablet"><Image src="/project-stream/higienizacao.jpg" alt="Landing Page demonstrativa exibida em tablet" fill sizes="190px" /></div><div className="lp-demo-mobile"><Image src="/project-stream/higienizacao.jpg" alt="Landing Page demonstrativa exibida em smartphone" fill sizes="110px" /></div></div>
-    </div></section>
-
-    <section className="lp-section lp-problem"><div className="lp-container">
-      <div className="lp-heading lp-reveal"><p className="lp-eyebrow">PRESENÇA DIGITAL COM DIREÇÃO</p><h2>Seu cliente pesquisa sua empresa. <em>O que ele encontra?</em></h2><p>Quando as informações estão espalhadas, entender o valor do seu trabalho e dar o próximo passo se torna mais difícil.</p></div>
-      <div className="lp-before-after">
-        <article className="lp-compare-card lp-reveal"><small>ANTES</small><h3>Comunicação dispersa</h3><ul>{["Apenas redes sociais", "Informações soltas", "Serviços pouco claros", "Próximo passo indefinido"].map(i => <li key={i}>{i}</li>)}</ul></article>
-        <div className="lp-transition" aria-hidden="true"><Arrow /></div>
-        <article className="lp-compare-card is-after lp-reveal"><small>DEPOIS</small><h3>Uma jornada profissional</h3><ul>{["Oferta organizada", "Diferenciais visíveis", "Provas de confiança", "CTA direto para WhatsApp"].map(i => <li key={i}><Check />{i}</li>)}</ul></article>
-      </div>
-    </div></section>
-
-    <section className="lp-section lp-explainer"><div className="lp-container lp-two-col">
-      <div className="lp-heading lp-reveal"><p className="lp-eyebrow">CLAREZA QUE CONDUZ</p><h2>Uma página com um <em>objetivo específico.</em></h2><p>Uma Landing Page apresenta sua oferta de forma estratégica, responde às dúvidas essenciais e mostra ao visitante exatamente qual é o próximo passo.</p></div>
-      <ol className="lp-funnel lp-reveal">{["Visita sua página", "Conhece sua empresa", "Entende a oferta", "Entra em contato"].map((item, index) => <li key={item}><span>0{index + 1}</span><b>{item}</b></li>)}</ol>
-    </div></section>
-
-    <section className="lp-section lp-included" id="landing-page-profissional"><div className="lp-container lp-two-col">
-      <div className="lp-heading lp-reveal"><p className="lp-eyebrow">LANDING PAGE PARA EMPRESAS E PROFISSIONAIS</p><h2>Quando uma <em>Landing Page profissional</em> faz sentido?</h2><p>Ela é indicada quando você precisa concentrar a atenção em um serviço, campanha ou oferta e facilitar uma ação específica. Em vez de espalhar informações em vários canais, a página organiza proposta de valor, diferenciais, prova social, dúvidas frequentes e contato em uma única jornada.</p><p>Para negócios locais, profissionais liberais, prestadores de serviço, cursos e empresas que anunciam na internet, uma landing page pode funcionar como ponto central entre Google, anúncios, redes sociais e o atendimento comercial.</p></div>
-      <ul className="lp-included-list lp-reveal">{["Apresentar um serviço de forma clara", "Receber tráfego de Google e campanhas", "Direcionar contatos para o WhatsApp", "Explicar preço, processo e diferenciais", "Mostrar projetos e avaliações reais", "Criar uma URL própria para uma oferta"].map(i => <li key={i}><Check />{i}</li>)}</ul>
-    </div></section>
-
-    <section className="lp-section lp-perception"><div className="lp-container">
-      <div className="lp-heading lp-centered lp-reveal"><p className="lp-eyebrow">ESTRATÉGIA DE CONTEÚDO E SEO</p><h2>Uma página pensada para <em>pessoas e mecanismos de busca.</em></h2><p>SEO começa com conteúdo útil e estrutura técnica consistente. A K7 organiza títulos, textos, imagens, metadados e navegação para que o tema da página fique claro sem transformar a experiência em uma sequência artificial de palavras-chave.</p></div>
-      <div className="lp-perception-grid"><article className="lp-list-panel lp-reveal"><small>CONTEÚDO</small>{["Oferta explicada com clareza", "Dúvidas reais respondidas", "Hierarquia de títulos", "Texto legível e objetivo", "Links internos úteis"].map(i => <p key={i}>{i}</p>)}</article><article className="lp-list-panel featured lp-reveal"><small>ESTRUTURA TÉCNICA</small>{["URL canônica", "Metadados próprios", "Dados estruturados", "Sitemap e rastreamento", "Experiência responsiva", "Imagens otimizadas"].map(i => <p key={i}><Check />{i}</p>)}</article></div>
-      <div className="lp-actions" style={{ justifyContent: "center", marginTop: 32 }}><Link className="lp-button lp-button-ghost" href="/#servicos">Conhecer todos os serviços da K7 Sites <Arrow /></Link></div>
-    </div></section>
-
-    <HomeProjectsSection id="exemplos" />
-
-    <section className="lp-section lp-benefits" id="beneficios"><div className="lp-container">
-      <div className="lp-heading lp-reveal"><p className="lp-eyebrow">UMA ESTRUTURA COMPLETA</p><h2>Cada detalhe trabalha pela <em>percepção da sua empresa.</em></h2></div>
-      <div className="lp-benefit-grid">{benefits.map(([number, icon, title, text]) => <article className="lp-benefit-card lp-snake-card lp-reveal" key={number}><div><span>{number}</span><BenefitIcon type={icon} /></div><h3>{title}</h3><p>{text}</p></article>)}</div>
-    </div></section>
-
-    <section className="lp-section lp-perception"><div className="lp-container">
-      <div className="lp-heading lp-centered lp-reveal"><p className="lp-eyebrow">POSICIONAMENTO</p><h2>Não é apenas ter um site. É como sua empresa é <em>percebida.</em></h2></div>
-      <div className="lp-perception-grid"><article className="lp-list-panel lp-reveal"><small>SEM LANDING PAGE</small>{["Presença digital limitada", "Comunicação dispersa", "Pouca clareza", "Diferenciais escondidos", "Contato menos direcionado"].map(i => <p key={i}>{i}</p>)}</article><article className="lp-list-panel featured lp-reveal"><small>COM LANDING PAGE K7 SITES</small>{["Apresentação profissional", "Oferta clara", "Diferenciais estratégicos", "Provas de confiança", "CTA direto", "Experiência otimizada"].map(i => <p key={i}><Check />{i}</p>)}</article></div>
-    </div></section>
-
-    <section className="lp-section lp-included"><div className="lp-container lp-two-col">
-      <div className="lp-heading lp-reveal"><p className="lp-eyebrow">O QUE VOCÊ RECEBE</p><h2>Da estratégia à <em>entrega final.</em></h2><p>O escopo é confirmado em proposta para que você saiba exatamente o que faz parte do projeto.</p></div>
-      <ul className="lp-included-list lp-reveal">{included.map(i => <li key={i}><Check />{i}</li>)}</ul>
-    </div></section>
-
-    <section className="lp-section lp-explainer" aria-labelledby="seo-landing-title"><div className="lp-container lp-two-col">
-      <div className="lp-heading lp-reveal"><p className="lp-eyebrow">LANDING PAGE, VENDAS E MARKETING DIGITAL</p><h2 id="seo-landing-title">Criação de Landing Page para <em>captar leads e vender melhor.</em></h2><p>Uma Landing Page de vendas concentra a mensagem em uma única oferta e facilita a decisão de quem chegou por anúncios, Google, redes sociais ou outras ações de marketing digital.</p><p>Na criação de uma Landing Page profissional, trabalhamos o layout da Landing Page, a hierarquia do conteúdo, os argumentos de venda, as provas de confiança e os pontos de contato para transformar tráfego em novas oportunidades.</p></div>
-      <div className="lp-list-panel featured lp-reveal"><small>PARA QUEM ESTÁ PESQUISANDO</small><p><Check /> Landing Page para captar leads</p><p><Check /> Landing Page de vendas</p><p><Check /> Landing Page para marketing digital</p><p><Check /> Layout de Landing Page profissional</p><p><Check /> Landing Page rápida e responsiva</p><p><Check /> Exemplos de Landing Pages para empresas</p></div>
-    </div>
-    <div className="lp-container"><div className="lp-heading lp-centered lp-reveal" style={{ marginTop: 56, marginBottom: 0 }}><p>Se você também está comparando <strong>criação de site profissional</strong> e <strong>criação de sites profissionais</strong>, a principal diferença está no objetivo: a Landing Page trabalha uma campanha, serviço ou oferta específica; o site institucional apresenta a empresa de forma mais ampla. A K7 desenvolve os dois formatos e orienta qual estrutura faz mais sentido para o seu projeto.</p></div></div>
-    </section>
-
-    <section className="lp-section lp-process" id="processo"><div className="lp-container">
-      <div className="lp-heading lp-centered lp-reveal"><p className="lp-eyebrow">PROCESSO TRANSPARENTE</p><h2>Do briefing à página <em>publicada.</em></h2></div>
-      <div className="lp-process-grid">{[["01","Briefing","Entendemos sua empresa, público e objetivo."],["02","Estratégia","Organizamos estrutura, conteúdo e direcionamento."],["03","Desenvolvimento","Criamos a experiência visual e responsiva."],["04","Ajustes","Você avalia e fazemos os ajustes combinados."],["05","Publicação","Validamos e orientamos a entrada da página no ar."]].map(([n,t,d]) => <article className="lp-process-card lp-reveal" key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p></article>)}</div>
-    </div></section>
-
-    <section className="section specialist" aria-labelledby="specialist-title"><div className="container">
-      <div className="section-heading centered reveal"><h2 id="specialist-title">Quem irá cuidar da sua <em>Landing Page.</em></h2></div>
-      <div className="specialist-grid">
-        <article className="specialist-main-card reveal">
-          <div className="specialist-card-art" aria-hidden="true" />
-          <div className="specialist-profile">
-            <div className="specialist-avatar"><Image src="/kassio-kennedy/kassio-kennedy-perfil.jpg" alt="Retrato de Kassio Kennedy" fill sizes="128px" quality={90} /></div>
-            <div><h3>Kassio Kennedy</h3><p>Engenharia de software, estratégia e design unidos para desenvolver Landing Pages profissionais com foco em clareza, performance e conversão.</p></div>
+    <section className="lp2-hero">
+      <div className="lp2-grid" aria-hidden="true"/>
+      <div className="lp2-glow lp2-glow-a" aria-hidden="true"/>
+      <div className="lp2-wrap lp2-hero-layout">
+        <div className="lp2-hero-copy lp2-reveal">
+          <p className="lp2-eyebrow">LANDING PAGES QUE TRABALHAM PELO SEU NEGÓCIO</p>
+          <h1>Transforme visitas em <em>oportunidades reais.</em></h1>
+          <p>Criamos landing pages profissionais, rápidas e estratégicas para apresentar sua oferta com clareza e facilitar o próximo passo do cliente.</p>
+          <div className="lp2-hero-actions"><Cta location="hero">Quero vender melhor no digital</Cta><a className="lp2-text-link" href="#portfolio">Ver projetos <Arrow/></a></div>
+          <div className="lp2-proof">
+            <span><b>R$ 399</b> a partir de</span>
+            <span><b>Mobile first</b> em qualquer tela</span>
+            <span><b>Contato direto</b> pelo WhatsApp</span>
           </div>
-          <div className="specialist-technologies"><h3>Tecnologias que fazem parte de cada projeto</h3><ul>{technologies.map((technology) => <li key={technology.name} title={technology.name}><Image src={technology.icon} alt="" width={30} height={30} aria-hidden="true" /><span>{technology.name}</span></li>)}</ul></div>
+        </div>
+        <div className="lp2-hero-art lp2-reveal" aria-label="Mockup responsivo de projeto K7 Sites">
+          <div className="lp2-art-aura"/>
+          <Image src="/hero-k7-sites-responsive.png" alt="Landing page exibida em monitor, notebook e celular" width={1600} height={1200} priority sizes="(max-width: 900px) 95vw, 760px"/>
+        </div>
+      </div>
+    </section>
+
+    <section className="lp2-marquee" aria-label="Diferenciais">
+      {[0,1,2].map((row) => <div className={"lp2-marquee-row row-" + row} key={row}><div className="lp2-marquee-track">{[...marquee,...marquee].map((item,index) => <span className={(index + row) % 2 ? "coral" : "blue"} key={item+index}>{item}</span>)}</div></div>)}
+    </section>
+
+    <section className="lp2-section lp2-light" id="portfolio">
+      <div className="lp2-wrap">
+        <div className="lp2-heading lp2-reveal">
+          <p className="lp2-eyebrow dark">LANDING PAGE PODE AUMENTAR SUAS OPORTUNIDADES</p>
+          <h2>Alguns projetos que já <em>desenvolvemos.</em></h2>
+          <p>Design, mensagem e experiência trabalhando juntos para valorizar negócios de diferentes segmentos.</p>
+        </div>
+      </div>
+      <div className="lp2-portfolio-viewport lp2-reveal">
+        <div className="lp2-portfolio-track">
+          {[...portfolio,...portfolio].map((item,index) => <article className="lp2-project-card" key={item.label+index}><div className="lp2-browser-bar"><i/><i/><i/><span>k7sites.com.br</span></div><div className="lp2-project-image"><Image src={item.src} alt={"Projeto de landing page para " + item.label} fill sizes="560px"/></div><footer><strong>{item.label}</strong><span>Projeto K7 Sites</span></footer></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="lp2-section lp2-dark" id="beneficios">
+      <div className="lp2-glow lp2-glow-b" aria-hidden="true"/>
+      <div className="lp2-wrap">
+        <div className="lp2-heading centered lp2-reveal"><p className="lp2-eyebrow">AUMENTE SUAS OPORTUNIDADES</p><h2>Garantimos tudo o que sua página <em>merece.</em></h2></div>
+        <div className="lp2-benefit-grid">{benefits.map(([icon,title,text],index) => <article className="lp2-benefit-card lp2-reveal" style={{ transitionDelay: `${index * 55}ms` }} key={title}><span className="lp2-icon">{icon}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+        <div className="lp2-center"><Cta location="benefits">Começar o desenvolvimento da minha página</Cta></div>
+      </div>
+    </section>
+
+    <section className="lp2-section lp2-light lp2-difference">
+      <div className="lp2-wrap lp2-two">
+        <div className="lp2-heading lp2-reveal"><p className="lp2-eyebrow dark">AUMENTE SUAS OPORTUNIDADES</p><h2>Seu projeto é único. <em>Sua página também deveria ser.</em></h2><p>Quando o mercado está cheio de ofertas parecidas, uma página genérica não resolve. Você precisa de uma experiência que deixe claro por que vale a pena escolher você.</p><Cta location="difference">Quero elevar a qualidade do meu projeto</Cta></div>
+        <article className="lp2-mobile-card lp2-reveal">
+          <span className="lp2-icon">✧</span>
+          <div><small>EXPERIÊNCIA NO MOBILE</small><h3>Seu cliente chega pelo celular. Sua página precisa estar pronta.</h3><p>Leitura confortável, CTA visível e navegação direta para manter a experiência fluida até o contato.</p>{/* SUBSTITUIR o percentual por dado próprio quando disponível */}<strong data-counter="70">70%+</strong><span>dos acessos digitais acontecem em dispositivos móveis em muitos mercados</span></div>
+          <div className="lp2-phone" aria-hidden="true"><div className="lp2-phone-notch"/><Image src="/project-stream/saude.jpg" alt="" fill sizes="180px"/></div>
         </article>
-        <article className="specialist-photo-card reveal">
-          <Image src="/kassio-kennedy/kassio-kennedy-desenvolvimento.jpg" alt="Kassio Kennedy desenvolvendo um projeto web" fill sizes="(max-width: 860px) 100vw, 390px" quality={90} />
-          <div className="specialist-photo-copy"><h3>Desenvolvimento Web</h3><div><span aria-label="5 de 5 estrelas">★★★★★</span><small>+200 projetos</small></div></div>
-        </article>
       </div>
-      <div className="specialist-intro reveal">
-        <p>Sou Kassio Kennedy, formado em <em>Engenharia de Software</em> e atuo no desenvolvimento de soluções digitais completas. Na K7 Sites, cada projeto de criação de Landing Page é planejado para unir conteúdo, layout, velocidade e uma jornada clara até o contato.</p>
-        <p>O objetivo é entregar uma <em>Landing Page rápida, responsiva e preparada para SEO</em>, com acabamento profissional e estrutura adequada para campanhas, apresentação de serviços e captação de leads.</p>
+    </section>
+
+    <section className="lp2-section lp2-dark" id="processo">
+      <div className="lp2-wrap">
+        <div className="lp2-heading centered lp2-reveal"><p className="lp2-eyebrow">PROCESSO CLARO, SEM ENROLAÇÃO</p><h2>Do briefing à publicação em <em>quatro etapas.</em></h2></div>
+        <div className="lp2-process">
+          <div className="lp2-process-line" aria-hidden="true"/>
+          {[
+            ["01","Conversa e briefing","Entendemos oferta, público, objetivo e referências."],
+            ["02","Estratégia e copy","Organizamos mensagem, argumentos e sequência de conversão."],
+            ["03","Design e desenvolvimento","Transformamos a estratégia em uma página rápida, responsiva e profissional."],
+            ["04","Publicação e ajustes","Revisamos, publicamos e aplicamos os ajustes previstos no escopo."],
+          ].map(([n,t,d],i) => <article className="lp2-step lp2-reveal" style={{ transitionDelay: `${i * 70}ms` }} key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p></article>)}
+        </div>
       </div>
-    </div></section>
+    </section>
 
-    <section className="section proof" id="depoimentos"><div className="container">
-      <div className="section-heading centered reveal"><p className="eyebrow dark"><span /> AVALIAÇÕES NO GOOGLE</p><h2>A confiança cresce quando clientes reais <em>contam a experiência.</em></h2><p>Veja o que clientes da K7 Sites publicaram sobre seus projetos no Google.</p></div>
-      <TestimonialsSlider />
-    </div></section>
-
-    <section className="section pricing" id="investimento"><div className="pricing-rockets" aria-hidden="true">{Array.from({ length: 12 }).map((_, index) => <span key={index}>🚀</span>)}</div><div className="container">
-      <div className="section-heading centered reveal"><p className="eyebrow"><span /> FORMATOS DE PROJETO</p><h2>Escolha a solução adequada para <em>o seu objetivo.</em></h2><p>Compare uma Landing Page profissional com outras opções de presença digital antes de solicitar seu orçamento.</p></div>
-      <div className="pricing-grid">{[
-        { name: "Landing page", description: "Para divulgar uma oferta, captar leads e gerar contatos", price: "R$ 399,00", detail: "a partir de", features: ["Página completa e estratégica", "Layout de Landing Page responsivo", "Botões para WhatsApp", "SEO básico", "Copy organizada", "Entrega ágil"] },
-        { name: "Site institucional", description: "Para apresentar sua empresa com autoridade", price: "R$ 699,00", detail: "a partir de", features: ["Home e páginas internas", "Páginas de serviços", "Design profissional", "Google SEO", "WhatsApp e formulário", "Orientação após a entrega"] },
-        { name: "Projeto sob medida", description: "Para necessidades, integrações e estruturas especiais", price: "Sob avaliação", detail: "orçamento após análise", features: ["Escopo personalizado", "Funcionalidades específicas", "Integrações especiais", "Planejamento por etapas", "Prazo definido em proposta", "Acompanhamento próximo"] },
-      ].map((plan, index) => <article className={index === 0 ? "price-card featured reveal" : "price-card reveal"} key={plan.name}>{index === 0 && <span className="recommended">MAIS INDICADO</span>}<small>0{index + 1}</small><h3>{plan.name}</h3><p>{plan.description}</p><div className="price"><span>{plan.detail}</span>{plan.price}</div><ul>{plan.features.map((feature) => <li key={feature}><span className="check"><Check /></span>{feature}</li>)}</ul><a className={index === 0 ? "button button-primary" : "button button-ghost"} href="#orcamento">Pedir orçamento <Arrow /></a></article>)}</div>
-      <p className="payment-note reveal"><span className="check"><Check /></span> Condição padrão sugerida: 50% antes do início e 50% na conclusão do projeto.</p>
-    </div></section>
-
-    <section className="section contact" id="orcamento"><div className="contact-glow" aria-hidden="true" /><div className="container">
-      <div className="section-heading centered contact-heading reveal"><p className="eyebrow"><span /> SOLICITE UM ORÇAMENTO</p><h2>Vamos criar a solução certa para <em>o seu negócio.</em></h2><p>Conte brevemente o que você precisa. A K7 analisa o projeto e orienta o formato mais adequado para seus objetivos.</p></div>
-      <div className="contact-layout">
-        <aside className="contact-panel reveal">
-          <div className="contact-brand"><Image src="/k7-logo.png" alt="K7 Sites" width={70} height={70} /><div><b>K7 Sites</b><span>Sites que posicionam e convertem</span></div></div>
-          <p className="contact-kicker">ORÇAMENTO SIMPLES</p><h3>Seu próximo projeto começa com uma conversa clara.</h3><p>Preencha o briefing rápido. Assim conseguimos entender seu momento antes do primeiro contato.</p>
-          <div className="contact-direct"><small>PREFERE FALAR AGORA?</small><a className="whatsapp-direct" href={whatsapp} target="_blank" rel="noreferrer" onClick={() => trackWhatsApp("form_landing", "WhatsApp: (11) 94921-4071")}>WhatsApp: (11) 94921-4071 <Arrow /></a></div>
-        </aside>
-        <div className="form-shell reveal"><HeroLeadForm placement="lp-contact" /></div>
+    <section className="lp2-section lp2-light">
+      <div className="lp2-wrap">
+        <div className="lp2-heading centered lp2-reveal"><p className="lp2-eyebrow dark">FOCO EM CONVERSÃO</p><h2>Não é só ter uma página. É ter uma página com <em>direção.</em></h2></div>
+        <div className="lp2-compare">
+          <article className="lp2-compare-card before lp2-reveal"><small>SEM ESTRATÉGIA</small><h3>O visitante chega e precisa descobrir sozinho.</h3><ul><li>Mensagem dispersa</li><li>Oferta pouco clara</li><li>CTA escondido</li><li>Visual genérico</li></ul></article>
+          <article className="lp2-compare-card after lp2-reveal"><small>COM LANDING PAGE K7</small><h3>Cada seção ajuda a avançar uma decisão.</h3><ul><li>Proposta de valor clara</li><li>Benefícios priorizados</li><li>Próximo passo visível</li><li>Experiência alinhada à marca</li></ul></article>
+        </div>
       </div>
-    </div></section>
+    </section>
 
-    <section className="lp-section lp-faq" id="faq"><div className="lp-container">
-      <div className="lp-heading lp-centered lp-reveal"><p className="lp-eyebrow">DÚVIDAS FREQUENTES</p><h2>Respostas claras antes de <em>começar.</em></h2></div>
-      <div className="lp-accordion">{faqs.map(([q,a], index) => <article className={openFaq === index ? "lp-faq-item is-open" : "lp-faq-item"} key={q}><button type="button" aria-expanded={openFaq === index} onClick={() => setOpenFaq(openFaq === index ? null : index)}><span>{String(index + 1).padStart(2,"0")}</span>{q}<i>{openFaq === index ? "−" : "+"}</i></button><div><p>{a}</p></div></article>)}</div>
-    </div></section>
+    <section className="lp2-section lp2-proof-section">
+      <div className="lp2-wrap">
+        <div className="lp2-heading centered lp2-reveal"><p className="lp2-eyebrow">PROVA SOCIAL REAL</p><h2>Quem contrata precisa sentir que fez <em>a escolha certa.</em></h2></div>
+        <div className="lp2-testimonials">{testimonials.map((item,index) => <article className="lp2-testimonial lp2-reveal" key={item.name} style={{ transitionDelay: `${index * 65}ms` }}><div className="lp2-stars">★★★★★</div><p>“{item.text}”</p><footer><span className="lp2-avatar">{item.name.slice(0,1)}</span><div><strong>{item.name}</strong><a href={reviews} target="_blank" rel="noreferrer">Ver avaliação no Google ↗</a></div></footer></article>)}</div>
+      </div>
+    </section>
 
-    <section className="lp-final"><div className="lp-grid" aria-hidden="true" /><div className="lp-container lp-final-content lp-reveal"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={150} height={154} /><p>SUA PRÓXIMA OPORTUNIDADE PODE COMEÇAR AQUI</p><h2>Sua empresa já está pronta. Agora ela precisa de uma presença digital à altura.</h2><span>Vamos criar uma Landing Page profissional para apresentar seu negócio, gerar confiança e transformar visitantes em novas oportunidades.</span><ContactButton light>Quero minha Landing Page</ContactButton></div></section>
+    <section className="lp2-section lp2-light" id="faq">
+      <div className="lp2-wrap lp2-faq-layout">
+        <div className="lp2-heading lp2-reveal"><p className="lp2-eyebrow dark">SEM LETRAS MIÚDAS</p><h2>Dúvidas antes de começar? <em>Vamos direto ao ponto.</em></h2><p>As respostas que normalmente ajudam a decidir com mais segurança.</p></div>
+        <div className="lp2-faq-list">{faqs.map(([q,a],index) => <article className={openFaq === index ? "lp2-faq is-open" : "lp2-faq"} key={q}><button type="button" onClick={() => { const next = openFaq === index ? null : index; setOpenFaq(next); if (next !== null) trackEvent("faq_open", { page_path: window.location.pathname, question: q }); }} aria-expanded={openFaq === index}><span>{q}</span><i>{openFaq === index ? "−" : "+"}</i></button><div><p>{a}</p></div></article>)}</div>
+      </div>
+    </section>
 
-    <footer className="lp-footer"><div className="lp-container lp-footer-grid"><div><Link href="/" aria-label="K7 Sites — início"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={104} height={108} /></Link><p>Sites e landing pages com estratégia, identidade e acabamento profissional.</p></div><div><small>NAVEGAÇÃO</small><Link href="/">Página inicial</Link><Link href="/#servicos">Todos os serviços</Link><a href="#beneficios">Benefícios</a><a href="#exemplos">Exemplos</a><a href="#processo">Processo</a><a href="#faq">FAQ</a></div><div><small>CONTATO</small><a href="mailto:k7sites@gmail.com">k7sites@gmail.com</a><a href={whatsapp} target="_blank" rel="noreferrer" onClick={() => trackWhatsApp("footer", "WhatsApp: (11) 94921-4071")}>WhatsApp: (11) 94921-4071</a></div></div><div className="lp-container lp-footer-bottom"><span>© {new Date().getFullYear()} K7 Sites. Todos os direitos reservados.</span><a href="#inicio">Voltar ao topo ↑</a></div></footer>
+    <section className="lp2-final">
+      <div className="lp2-marquee lp2-marquee-bg" aria-hidden="true">{[0,1].map(row => <div className={"lp2-marquee-row row-"+row} key={row}><div className="lp2-marquee-track">{[...marquee,...marquee].map((item,index) => <span className={(index+row)%2?"coral":"blue"} key={item+index}>{item}</span>)}</div></div>)}</div>
+      <div className="lp2-wrap"><div className="lp2-final-card lp2-reveal"><p className="lp2-eyebrow">PRÓXIMO PASSO</p><h2>Chegou o momento de colocar sua marca em um <em>patamar acima.</em></h2><p>DESTAQUE SEU PRODUTO OU SERVIÇO NO DIGITAL.</p><Cta location="final" light>Quero falar sobre meu projeto</Cta></div></div>
+    </section>
+
+    <section className="lp2-form-section" id="formulario">
+      <div className="lp2-wrap lp2-form-layout">
+        <div className="lp2-heading lp2-reveal"><p className="lp2-eyebrow dark">ORÇAMENTO PERSONALIZADO</p><h2>Vamos transformar sua ideia em uma página que <em>vende melhor.</em></h2><p>O formulário abaixo é o mesmo integrado ao K7 Gestão. Sua solicitação continua chegando ao CRM com origem, serviço e rastreamento preservados.</p></div>
+        <div className="lp2-form-shell lp2-reveal"><HeroLeadForm placement="lp-contact" /></div>
+      </div>
+    </section>
+
+    <footer className="lp2-footer">
+      <div className="lp2-wrap"><Link href="/" className="lp2-footer-brand"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={70} height={72}/><strong>K7 SITES</strong></Link><p>Landing pages profissionais para transformar atenção em oportunidade.</p><nav><a href="#portfolio">Projetos</a><a href="#beneficios">Benefícios</a><a href="#faq">FAQ</a><a href="#formulario">Orçamento</a></nav><small>© {new Date().getFullYear()} K7 Sites.</small></div>
+    </footer>
+
+    <a className="lp2-whatsapp" href={whatsapp} target="_blank" rel="noreferrer" aria-label="Falar pelo WhatsApp" onClick={() => trackEvent("click_whatsapp", { button_location: "floating_button", page_path: window.location.pathname, link_text: "Falar pelo WhatsApp" })}><Image src="/whatsapp.svg" alt="" width={28} height={28}/></a>
+    <a className="lp2-mobile-cta" href="#formulario" onClick={() => trackEvent("click_cta_service", { page_path: window.location.pathname, button_location: "mobile_fixed", link_text: "Falar sobre meu projeto" })}>Falar sobre meu projeto <Arrow/></a>
   </main>;
 }
