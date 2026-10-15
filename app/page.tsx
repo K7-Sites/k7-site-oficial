@@ -57,7 +57,7 @@ const conversionBenefits = [
 const nicheProjects = [
   { src: "/project-stream/saude.jpg", label: "Saúde" },
   { src: "/project-stream/estetica.jpg", label: "Estética" },
-  { src: "/project-stream/advocacia.jpg", label: "Advocacia" },
+  { src: "/project-stream/advocacia.webp", label: "Advocacia" },
   { src: "/project-stream/higienizacao.jpg", label: "Higienização" },
   { src: "/project-stream/barbearia.png", label: "Barbearia" },
   { src: "/project-stream/cursos.jpg", label: "Cursos" },
