@@ -31,9 +31,9 @@ export default function MessageReceivedPage() {
         </div>
 
         <p className={styles.eyebrow}>MENSAGEM ENVIADA</p>
-        <h1>Recebemos seu contato <em>com sucesso.</em></h1>
+        <h1>Em minutos <em>entraremos em contato.</em></h1>
         <p className={styles.lead}>
-          Nossa equipe já recebeu seu contato e entrará em contato em breve pelo WhatsApp. Se preferir, você pode falar conosco agora mesmo pelo número (11) 94921-4071.
+          Se preferir, pode nos chamar pelo botão abaixo.
         </p>
 
         <div className={styles.actions}>

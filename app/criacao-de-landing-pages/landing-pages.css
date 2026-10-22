@@ -655,3 +655,13 @@
     grid-auto-columns:88vw !important;
   }
 }
+
+/* Evita o zoom automático do Safari iOS ao focar nos campos da landing page. */
+@media (max-width: 767px) {
+  .lp2-form-shell .k7-lead-form input:not([type="hidden"]),
+  .lp2-form-shell .k7-lead-form select,
+  .lp2-contact-dialog .k7-lead-form input:not([type="hidden"]),
+  .lp2-contact-dialog .k7-lead-form select {
+    font-size: 16px !important;
+  }
+}
