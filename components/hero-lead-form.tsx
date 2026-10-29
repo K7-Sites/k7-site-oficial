@@ -15,7 +15,24 @@ function formatPhone(value: string): string {
 
 type ServiceOption = { value: string; label: string; service_id: number | null };
 
-export function HeroLeadForm({ placement = "hero" }: { placement?: "hero" | "contact" | "modal" | "lp-contact" | "lp-modal" }) {
+type LeadFormCopy = {
+  kicker: string;
+  title: string;
+  description: string;
+  submitLabel: string;
+};
+
+const defaultCopy: LeadFormCopy = {
+  kicker: "ORÇAMENTO PERSONALIZADO",
+  title: "Vamos colocar seu projeto no ar?",
+  description: "Conte um pouco sobre o que você precisa. Vamos conversar sobre a melhor solução para seu negócio.",
+  submitLabel: "Quero meu orçamento",
+};
+
+export function HeroLeadForm({ placement = "hero", copy = defaultCopy }: {
+  placement?: "hero" | "contact" | "modal" | "lp-contact" | "lp-modal" | "lp-capture";
+  copy?: LeadFormCopy;
+}) {
   const [pending, setPending] = useState(false);
   const [services, setServices] = useState<ServiceOption[]>([]);
   const [servicesError, setServicesError] = useState(false);
@@ -56,6 +73,10 @@ export function HeroLeadForm({ placement = "hero" }: { placement?: "hero" | "con
           service_id: services.find(item => item.value === values.get("service"))?.service_id ?? null,
           website: values.get("website"),
           submission_id: submissionId.current,
+          ...(placement === "lp-capture" ? {
+            project_type: "Captação Instagram",
+            project_message: "Formulário da página Captação Instagram (/solicitar-orcamento).",
+          } : {}),
           ...readLeadAttribution(),
         }),
       });
@@ -79,9 +100,9 @@ export function HeroLeadForm({ placement = "hero" }: { placement?: "hero" | "con
   return (
     <div className="k7-lead-card">
       <div className="k7-lead-card-heading">
-        <span className="k7-lead-kicker"><span className="k7-lead-dot" /> ORÇAMENTO PERSONALIZADO</span>
-        <h2>Vamos colocar seu projeto no ar?</h2>
-        <p>Conte um pouco sobre o que você precisa. Vamos conversar sobre a melhor solução para seu negócio.</p>
+        <span className="k7-lead-kicker"><span className="k7-lead-dot" /> {copy.kicker}</span>
+        <h2>{copy.title}</h2>
+        <p>{copy.description}</p>
       </div>
       <form className="k7-lead-form" onSubmit={submit} aria-label={placement === "hero" ? "Orçamento rápido" : "Solicitar orçamento"}>
         <label htmlFor={placement + "-lead-name"}>Seu nome
@@ -110,7 +131,7 @@ export function HeroLeadForm({ placement = "hero" }: { placement?: "hero" | "con
           <input id={placement + "-lead-phone"} name="phone" type="tel" required inputMode="tel" autoComplete="tel" placeholder="(11) 99999-9999" pattern="[(][0-9]{2}[)] [0-9]{4,5}-[0-9]{4}" title="Informe seu WhatsApp com DDD" maxLength={15} onChange={(event) => { event.currentTarget.value = formatPhone(event.currentTarget.value); }} />
         </label>
         <div className="k7-lead-honeypot" aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
-        <button type="submit" className="k7-lead-submit" disabled={pending}>{pending ? "Enviando..." : "Quero meu orçamento"} <Image src="/whatsapp.svg" alt="" width={20} height={20} aria-hidden="true" className="k7-lead-whatsapp-icon" /></button>
+        <button type="submit" className="k7-lead-submit" disabled={pending}>{pending ? "Enviando..." : copy.submitLabel} <Image src="/whatsapp.svg" alt="" width={20} height={20} aria-hidden="true" className="k7-lead-whatsapp-icon" /></button>
         <p className="k7-lead-privacy">Seus dados serão utilizados para entrarmos em contato sobre sua solicitação.</p>
         <p className={success ? "k7-lead-feedback is-success" : "k7-lead-feedback"} role="status" aria-live="polite">{feedback}</p>
       </form>

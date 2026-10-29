@@ -84,6 +84,25 @@ export function ImageStream({
   children,
   className = "",
 }: ImageStreamProps) {
+  const streamRef = React.useRef<HTMLDivElement>(null);
+  React.useEffect(() => {
+    const stream = streamRef.current;
+    if (!stream) return;
+    let inView = false;
+    const updateAnimation = () => {
+      stream.dataset.animating = String(inView && !document.hidden);
+    };
+    const observer = new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+      updateAnimation();
+    });
+    observer.observe(stream);
+    document.addEventListener("visibilitychange", updateAnimation);
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", updateAnimation);
+    };
+  }, []);
   const id = React.useId().replace(/[^a-zA-Z0-9]/g, "");
   const rightAnimation = `k7-stream-right-${id}`;
   const leftAnimation = `k7-stream-left-${id}`;
@@ -93,14 +112,14 @@ export function ImageStream({
       `${createKeyframes(1, rightAnimation)}${createKeyframes(
         -1,
         leftAnimation,
-      )}@media(prefers-reduced-motion:reduce){.${cardClass}{animation-play-state:paused!important}}`,
+      )}.image-stream:not([data-animating="true"]) .${cardClass}{animation-play-state:paused!important;will-change:auto}@media(prefers-reduced-motion:reduce){.${cardClass}{animation-play-state:paused!important;will-change:auto}}`,
     [cardClass, leftAnimation, rightAnimation],
   );
 
   if (images.length === 0) return null;
 
   return (
-    <div className={`image-stream ${className}`.trim()}>
+    <div ref={streamRef} className={`image-stream ${className}`.trim()}>
       <style>{styles}</style>
       <div
         className="image-stream-perspective"
