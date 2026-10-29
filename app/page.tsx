@@ -240,6 +240,7 @@ function CounterStat({ value, suffix, label }: { value: number; suffix: string; 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const contactDialogRef = useRef<HTMLDialogElement>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
   const openContactDialog = () => { setMenuOpen(false); contactDialogRef.current?.showModal(); };
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
@@ -255,29 +256,57 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add("is-visible")), { threshold: 0.12 });
-    document.querySelectorAll(".reveal").forEach((node) => observer.observe(node));
-    const updateProgress = () => {
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      document.documentElement.style.setProperty("--scroll", max > 0 ? String(window.scrollY / max) : "0");
+    // Native dialogs already support Escape; this listener only dismisses backdrop clicks.
+    const dialog = contactDialogRef.current;
+    const dismissBackdrop = (event: MouseEvent) => {
+      if (event.target !== dialog || !dialog) return;
+      const bounds = dialog.getBoundingClientRect();
+      if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
     };
-    window.addEventListener("scroll", updateProgress, { passive: true });
+    dialog?.addEventListener("click", dismissBackdrop);
+    return () => dialog?.removeEventListener("click", dismissBackdrop);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    }), { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((node) => observer.observe(node));
+    let frame: number | null = null;
+    const updateProgress = () => {
+      frame = null;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const ratio = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      if (progressRef.current) progressRef.current.style.transform = `scaleX(${ratio})`;
+    };
+    const scheduleProgress = () => {
+      if (frame === null) frame = requestAnimationFrame(updateProgress);
+    };
+    window.addEventListener("scroll", scheduleProgress, { passive: true });
+    window.addEventListener("resize", scheduleProgress, { passive: true });
     updateProgress();
-    return () => { observer.disconnect(); window.removeEventListener("scroll", updateProgress); };
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", scheduleProgress);
+      window.removeEventListener("resize", scheduleProgress);
+      if (frame !== null) cancelAnimationFrame(frame);
+    };
   }, []);
 
 
   return (
     <>
       <SitePreloader />
-      <dialog ref={contactDialogRef} className="k7-contact-dialog" aria-label="Fale conosco" onClick={(event) => { if (event.target === event.currentTarget) event.currentTarget.close(); }}>
+      <dialog ref={contactDialogRef} className="k7-contact-dialog" aria-label="Fale conosco">
         <div className="k7-contact-dialog-inner">
           <button type="button" className="k7-contact-dialog-close" aria-label="Fechar formulário" onClick={() => contactDialogRef.current?.close()}>×</button>
           <HeroLeadForm placement="modal" />
         </div>
       </dialog>
       <main>
-      <div className="scroll-progress" aria-hidden="true" />
+      <div ref={progressRef} className="scroll-progress" aria-hidden="true" />
       <a className="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
       <div className="ticker" aria-label="Diferenciais K7 Sites"><div className="ticker-track">

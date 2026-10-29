@@ -1,0 +1,120 @@
+.page {
+  min-height: 100svh;
+  padding: 48px 24px 124px;
+  color: #f5f7fa;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(21, 101, 255, .22), transparent 60%),
+    #08090b;
+}
+
+.content {
+  width: min(100%, 600px);
+  margin-inline: auto;
+}
+
+.intro { margin-bottom: 28px; }
+
+.eyebrow {
+  margin: 0 0 16px;
+  color: #d9dde3;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
+.intro h1 {
+  margin: 0;
+  font-family: var(--font-sora), sans-serif;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -.045em;
+  text-wrap: balance;
+}
+
+.intro h1 span { color: #00a8ff; }
+
+.description {
+  max-width: 530px;
+  margin: 18px 0 0;
+  color: #d9dde3;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.form { scroll-margin-bottom: 110px; }
+.footer { margin: 22px auto 0; text-align: center; color: #9ca1a8; font-size: 12px; }
+.form :global(.k7-lead-card) { box-shadow: 0 24px 64px rgba(0, 0, 0, .24); }
+.form :global(.k7-lead-dot) { background: #1565ff; box-shadow: 0 0 0 4px rgba(21, 101, 255, .12); }
+.form :global(.k7-lead-form) { gap: 16px; }
+.form :global(.k7-lead-form input),
+.form :global(.k7-lead-form select) { font-size: 16px; scroll-margin-block: 24px 120px; }
+.form :global(.k7-lead-submit) { min-height: 56px; font-size: 15px; }
+.form :global(.k7-lead-privacy) { font-size: 12px; }
+
+.whatsapp {
+  position: fixed;
+  z-index: 50;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(600px, calc(100% - 48px));
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 16px 22px;
+  border: 1px solid #1565ff;
+  border-radius: 14px;
+  background: #07379b;
+  color: #fff;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .3);
+  font-size: 14px;
+  text-decoration: none;
+  transition: background .2s;
+}
+
+.whatsapp:hover { background: #1565ff; }
+.whatsapp img { flex-shrink: 0; }
+.whatsapp strong { font-weight: 800; }
+.page :focus-visible { outline: 3px solid #00a8ff; outline-offset: 4px; }
+
+.skipLink {
+  position: fixed;
+  z-index: 100;
+  top: 12px;
+  left: 12px;
+  padding: 12px 18px;
+  transform: translateY(-180%);
+  border-radius: 8px;
+  background: #fff;
+  color: #07379b;
+}
+.skipLink:focus { transform: none; }
+
+@media (max-width: 620px) {
+  .page { padding: 28px 16px calc(112px + env(safe-area-inset-bottom, 0px)); }
+  .intro { margin-bottom: 24px; }
+  .eyebrow { font-size: 10px; letter-spacing: .1em; }
+  .intro h1 { font-size: clamp(30px, 8.6vw, 44px); }
+  .description { margin-top: 14px; font-size: 15px; }
+  .form :global(.k7-lead-card) { padding: 24px 20px; }
+  .form :global(.k7-lead-submit) { font-size: 14px; }
+  .whatsapp {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: none;
+    width: 100%;
+    min-height: calc(68px + env(safe-area-inset-bottom, 0px));
+    padding: 14px 16px calc(14px + env(safe-area-inset-bottom, 0px));
+    border-radius: 0;
+    font-size: 13px;
+    gap: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp { transition: none; }
+}
