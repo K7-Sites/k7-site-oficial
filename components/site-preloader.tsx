@@ -16,11 +16,13 @@ export function SitePreloader() {
   const [complete, setComplete] = useState(false);
   const [exiting, setExiting] = useState(false);
   const restoreScrollRef = useRef<() => void>(() => undefined);
+  const notifyIntroFinished = () => window.dispatchEvent(new Event("k7:intro-finished"));
 
   useLayoutEffect(() => {
     try {
       if (sessionStorage.getItem(SESSION_KEY)) {
         document.documentElement.dataset.k7Intro = "complete";
+        notifyIntroFinished();
         return;
       }
     } catch {
@@ -67,6 +69,7 @@ export function SitePreloader() {
       const removeTimer = window.setTimeout(() => {
         restoreScrollRef.current();
         setVisible(false);
+        notifyIntroFinished();
       }, 280);
 
       return () => {
@@ -94,6 +97,7 @@ export function SitePreloader() {
       revealSite();
       restoreScrollRef.current();
       setVisible(false);
+      notifyIntroFinished();
     }, 3500);
 
     const animate = (now: number) => {
@@ -123,6 +127,7 @@ export function SitePreloader() {
             window.clearTimeout(fallbackTimer);
             restoreScrollRef.current();
             setVisible(false);
+            notifyIntroFinished();
           }, COMPLETE_HOLD + EXIT_TIME);
           return;
         }
