@@ -48,3 +48,10 @@
 .k7-cookie-actions button{min-height:42px;font-size:13px}
 .k7-service-retry{display:inline;border:0;background:none;padding:0;color:#70b6ff;text-decoration:underline;cursor:pointer;font:inherit}
 @media(max-width:640px){.k7-cookie-banner{padding:16px 18px}.k7-cookie-banner p{font-size:12px}}
+
+/* Keep privacy checkbox beside its text on every screen size. */
+@media (max-width: 640px) {
+  .k7-privacy-consent{flex-direction:row!important;align-items:flex-start!important;flex-wrap:nowrap!important;gap:10px!important}
+  .k7-privacy-consent-text{flex:1 1 0!important;width:auto!important;min-width:0!important}
+  .k7-privacy-consent input[type="checkbox"]{flex:0 0 18px!important;margin:2px 0 0!important}
+}
