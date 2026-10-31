@@ -605,3 +605,29 @@ em { color: var(--blue); font-style: normal; }
 .k7-section-cta-button:hover{background:rgba(21,101,255,.1)!important;box-shadow:0 0 22px rgba(21,101,255,.18);transform:translateY(-2px)}
 .k7-section-cta-button svg{width:17px;height:17px;flex-shrink:0}
 @media(max-width:640px){.k7-section-cta{padding:22px 16px 32px}.k7-section-cta-button{width:100%;max-width:340px;min-height:48px;font-size:14px}}
+
+/* Refined outlined CTA: subtle cyan stroke with a traveling light trace. */
+.k7-section-cta-button{
+ position:relative;isolation:isolate;overflow:hidden;
+ border:1px solid rgba(110,192,255,.52)!important;
+ border-radius:12px;
+ color:#8bcaff!important;
+ background:transparent!important;
+ box-shadow:inset 0 0 0 1px rgba(120,194,255,.04);
+}
+.k7-section-cta-button::before{
+ content:"";position:absolute;z-index:-2;inset:-150%;pointer-events:none;
+ background:conic-gradient(from 0deg,transparent 0deg,transparent 305deg,rgba(144,222,255,.16) 321deg,#a7e8ff 340deg,rgba(110,192,255,.2) 352deg,transparent 360deg);
+ animation:k7-cta-snake 3.6s linear infinite;
+}
+.k7-section-cta-button::after{
+ content:"";position:absolute;z-index:-1;inset:1px;border-radius:10px;
+ background:#101720;pointer-events:none;
+}
+.k7-section-cta-button:hover{
+ border-color:rgba(150,218,255,.75)!important;
+ color:#c7edff!important;
+ box-shadow:0 0 20px rgba(63,164,255,.13);
+}
+@keyframes k7-cta-snake{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.k7-section-cta-button::before{animation:none;background:transparent}.k7-section-cta-button{transition:none}}
