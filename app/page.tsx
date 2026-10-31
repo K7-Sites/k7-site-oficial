@@ -352,10 +352,17 @@ export default function Home() {
       </section>
 
       <section className="signal-strip" aria-label="Resultados e diferenciais da K7 Sites"><div className="container signal-grid">
-        <article className="stat-item"><strong>Design</strong><p>Sob medida</p></article>
-        <article className="stat-item"><strong>SEO</strong><p>Boas práticas</p></article>
-        <article className="stat-item"><strong>Contato</strong><p>WhatsApp integrado</p></article>
-        <article className="stat-item"><strong>Mobile</strong><p>Layout responsivo</p></article>
+        <CounterStat value={200} suffix="+" label="Sites criados" />
+        <CounterStat value={40} suffix="+" label="Nichos atendidos" />
+        <CounterStat value={48} suffix="h" label="Entrega ágil" />
+        <CounterStat value={100} suffix="%" label="Responsivo e rápido" />
+      </div></section>
+
+      <section className="k7-benefits-strip" aria-label="Diferenciais da K7 Sites"><div className="container k7-benefits-grid">
+        <article className="k7-benefit-item reveal"><strong>Design</strong><p>Sob medida</p></article>
+        <article className="k7-benefit-item reveal"><strong>SEO</strong><p>Boas práticas</p></article>
+        <article className="k7-benefit-item reveal"><strong>Contato</strong><p>WhatsApp integrado</p></article>
+        <article className="k7-benefit-item reveal"><strong>Mobile</strong><p>Layout responsivo</p></article>
       </div></section>
 
       <section className="home-performance-art" aria-label="Indicadores de desempenho de uma landing page">
