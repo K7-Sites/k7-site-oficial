@@ -3,6 +3,7 @@ import { CookieConsent } from "@/components/cookie-consent";
 import { LegalFooter } from "@/components/legal-footer";
 import { Manrope, Sora } from "next/font/google";
 import "./globals.css";
+import "./legal.css";
 import "./whatsapp-tooltip.css";
 
 const manrope = Manrope({
