@@ -1,14 +1,14 @@
 # Auditoria jurídica e técnica — 31/10/2026
 
 ## A confirmar antes da publicação
-- [RAZÃO SOCIAL OU NOME CIVIL] e [CNPJ OU IDENTIFICAÇÃO CADASTRAL APLICÁVEL].
-- [ENDEREÇO COMPLETO] de atendimento ao consumidor.
-- [NOME DO ENCARREGADO OU JUSTIFICATIVA DE DISPENSA] e contato de privacidade.
+- Confirmado: K7 Sites, responsável Kassio Kennedy; operação ainda sem CNPJ. Verificar enquadramento fiscal e identificação cadastral exigida. Não divulgar CPF pessoal sem avaliação jurídica e confirmação específica.
+- Atendimento 100% online; falta definir endereço físico de identificação do fornecedor ou solução juridicamente adequada ao comércio eletrônico.
+- Contato LGPD confirmado: Kassio Kennedy, via k7sites@gmail.com. Verificar exigência ou dispensa formal de encarregado.
 - [CONFIRMAR OPERADORES, TRANSFERÊNCIAS INTERNACIONAIS E LOCALIZAÇÃO DOS DADOS]: CRM K7 Gestão, hospedagem, Google Analytics e eventuais serviços externos.
-- [PRAZOS DE RETENÇÃO, EXCLUSÃO E MEDIDAS DE SEGURANÇA A CONFIRMAR].
-- [CONDIÇÕES DE PAGAMENTO E FATURAMENTO A CONFIRMAR].
+- Política declarada: excluir leads não convertidos após 6 meses. PENDENTE: implementar e verificar limpeza automática no backend K7 Gestão, além de controles de segurança e retenção de clientes.
+- Política declarada: 50% antes do início e 50% na entrega. Faturamento e eventuais exceções dependem da proposta.
 - [DEFINIR CESSÃO DE DIREITOS, ENTREGA DO CÓDIGO E LICENÇAS DO PROJETO].
-- [PRAZO DE RESPOSTA, PROCESSO DE ESTORNO E CANAL ALTERNATIVO A CONFIRMAR].
+- Reembolsos tratados diretamente com o cliente via e-mail, preservando CDC. PENDENTE: prazo operacional e fluxo de estorno.
 
 ## Rastreamento identificado no código
 - Google Analytics 4: G-2PK8GHK05G (gtag.js); agora condicionado a aceite.
