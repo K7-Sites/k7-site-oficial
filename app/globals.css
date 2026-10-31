@@ -588,3 +588,13 @@ em { color: var(--blue); font-style: normal; }
 .k7-benefit-item strong{display:block;font-family:var(--font-sora),sans-serif;font-size:clamp(18px,2.3vw,25px);letter-spacing:-.04em}
 .k7-benefit-item p{margin:8px 0 0;color:#9bb9dc;font-size:clamp(12px,1.3vw,15px)}
 @media(max-width:640px){.k7-benefits-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.k7-benefit-item{padding:22px 10px;border-bottom:1px solid rgba(255,255,255,.08)}.k7-benefit-item:nth-child(2n){border-right:0}}
+
+/* Prevent iOS Safari from automatically zooming when focusing small form controls.
+   Keep pinch-to-zoom available for accessibility. */
+@media (max-width: 768px) and (pointer: coarse) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
