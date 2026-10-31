@@ -455,7 +455,10 @@ export default function Home() {
       </div><div className="k7-section-cta"><button type="button" className="k7-section-cta-button" onClick={openContactDialog}>Solicitar orçamento <Arrow /></button></div></section>
       */}
 
-      <section className="section proof" id="depoimentos"><div className="container"><div className="section-heading centered reveal"><p className="eyebrow dark"><span /> AVALIAÇÕES EXTERNAS</p><h2>Veja avaliações na fonte.</h2><p>Consulte as avaliações disponíveis no Google.</p><a href={googleReviewsLink} target="_blank" rel="noopener noreferrer">Ver avaliações no Google ↗</a></div></div></section>
+      <section className="section proof" id="depoimentos"><div className="container">
+        <div className="section-heading centered reveal"><p className="eyebrow dark"><span /> CLIENTES REAIS</p><h2>Quem já contratou <em>conta como foi.</em></h2><p>Avaliações publicadas pelos próprios clientes no Google. <a href={googleReviewsLink} target="_blank" rel="noopener noreferrer">Ver avaliações na fonte ↗</a></p></div>
+        <TestimonialsSlider />
+      </div></section>
 
       <section className="section pricing" id="investimento"><div className="pricing-rockets" aria-hidden="true">{Array.from({ length: 12 }).map((_, index) => <span key={index}>🚀</span>)}</div><div className="container">
         <div className="section-heading centered reveal"><p className="eyebrow"><span /> INVESTIMENTO</p><h2>Escolha o projeto <em>que cabe no seu objetivo.</em></h2><p>Compare as opções e peça seu orçamento sem compromisso.</p></div>
