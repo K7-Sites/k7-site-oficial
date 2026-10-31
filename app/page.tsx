@@ -352,10 +352,10 @@ export default function Home() {
       </section>
 
       <section className="signal-strip" aria-label="Resultados e diferenciais da K7 Sites"><div className="container signal-grid">
-        <CounterStat value={200} suffix="+" label="Sites criados" />
-        <CounterStat value={40} suffix="+" label="Nichos atendidos" />
-        <CounterStat value={48} suffix="h" label="Entrega ágil" />
-        <CounterStat value={100} suffix="%" label="Responsivo e rápido" />
+        <article className="stat-item"><strong>Design</strong><p>Sob medida</p></article>
+        <article className="stat-item"><strong>SEO</strong><p>Boas práticas</p></article>
+        <article className="stat-item"><strong>Contato</strong><p>WhatsApp integrado</p></article>
+        <article className="stat-item"><strong>Mobile</strong><p>Layout responsivo</p></article>
       </div></section>
 
       <section className="home-performance-art" aria-label="Indicadores de desempenho de uma landing page">
@@ -448,10 +448,7 @@ export default function Home() {
       </div></section>
       */}
 
-      <section className="section proof" id="depoimentos"><div className="container">
-        <div className="section-heading centered reveal"><p className="eyebrow dark"><span /> CLIENTES REAIS</p><h2>Quem já contratou <em>conta como foi.</em></h2><p>Avaliações publicadas pelos próprios clientes no Google.</p></div>
-        <TestimonialsSlider />
-      </div></section>
+      <section className="section proof" id="depoimentos"><div className="container"><div className="section-heading centered reveal"><p className="eyebrow dark"><span /> AVALIAÇÕES EXTERNAS</p><h2>Veja avaliações na fonte.</h2><p>Consulte as avaliações disponíveis no Google.</p><a href={googleReviewsLink} target="_blank" rel="noopener noreferrer">Ver avaliações no Google ↗</a></div></div></section>
 
       <section className="section pricing" id="investimento"><div className="pricing-rockets" aria-hidden="true">{Array.from({ length: 12 }).map((_, index) => <span key={index}>🚀</span>)}</div><div className="container">
         <div className="section-heading centered reveal"><p className="eyebrow"><span /> INVESTIMENTO</p><h2>Escolha o projeto <em>que cabe no seu objetivo.</em></h2><p>Compare as opções e peça seu orçamento sem compromisso.</p></div>
