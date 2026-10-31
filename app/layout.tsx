@@ -118,16 +118,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-2PK8GHK05G"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-2PK8GHK05G');`}
-        </Script>
+        <LegalFooter />
+        <CookieConsent />
+
       </body>
     </html>
   );
