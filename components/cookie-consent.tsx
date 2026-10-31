@@ -8,7 +8,23 @@ export function CookieConsent() {
  const [open,setOpen]=useState(false);
  const [custom,setCustom]=useState(false);
  const [analytics,setAnalytics]=useState(false);
- useEffect(()=>{try{const raw=localStorage.getItem(key);if(raw){const saved=JSON.parse(raw);if(typeof saved.analytics==="boolean"){setChoice(saved);return;}}}catch{}setOpen(true);},[]);
+ useEffect(()=>{
+   let needsChoice=true;
+   try {
+     const raw=localStorage.getItem(key);
+     if(raw){const saved=JSON.parse(raw);if(typeof saved.analytics==="boolean"){setChoice(saved);needsChoice=false;}}
+   } catch {}
+   if(!needsChoice)return;
+   const show=()=>setOpen(true);
+   // The home page announces completion only after the exit animation ends.
+   window.addEventListener("k7:intro-finished",show);
+   const frame=requestAnimationFrame(()=>{
+     const intro=document.documentElement.dataset.k7Intro;
+     if(intro==="complete" && !document.querySelector(".site-preloader")) show();
+     else if(intro!=="loading" && !document.querySelector(".site-preloader")) show();
+   });
+   return()=>{cancelAnimationFrame(frame);window.removeEventListener("k7:intro-finished",show);};
+ },[]);
  useEffect(()=>{if(!choice?.analytics)return;const id="G-2PK8GHK05G";window.dataLayer=window.dataLayer||[];window.gtag=(...args:unknown[])=>{window.dataLayer?.push(args);};window.gtag("js",new Date());window.gtag("config",id,{anonymize_ip:true});const script=document.createElement("script");script.src="https://www.googletagmanager.com/gtag/js?id="+id;script.async=true;document.head.appendChild(script);return()=>{script.remove();};},[choice?.analytics]);
  function save(next:Choice){try{localStorage.setItem(key,JSON.stringify(next));}catch{}if(!next.analytics&&choice?.analytics){window.gtag?.("consent","update",{analytics_storage:"denied"});for(const name of ["_ga","_ga_2PK8GHK05G"])document.cookie=name+"=; Max-Age=0; Path=/; SameSite=Lax";window.gtag=undefined;window.dataLayer=[];}setChoice(next);setOpen(false);setCustom(false);}
  return <><button type="button" className="k7-cookie-settings" onClick={()=>{setAnalytics(Boolean(choice?.analytics));setCustom(true);setOpen(true);}}>Preferências de cookies</button>
