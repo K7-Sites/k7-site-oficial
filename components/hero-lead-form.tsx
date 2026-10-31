@@ -25,7 +25,7 @@ type LeadFormCopy = {
 const defaultCopy: LeadFormCopy = {
   kicker: "ORÇAMENTO PERSONALIZADO",
   title: "Vamos colocar seu projeto no ar?",
-  description: "Conte rapidamente o que você precisa. Respondemos com a melhor indicação de formato e um orçamento claro.",
+  description: "",
   submitLabel: "Quero meu orçamento",
 };
 
@@ -108,7 +108,7 @@ export function HeroLeadForm({ placement = "hero", copy = defaultCopy }: {
       <div className="k7-lead-card-heading">
         <span className="k7-lead-kicker"><span className="k7-lead-dot" /> {copy.kicker}</span>
         <h2>{copy.title}</h2>
-        <p>{copy.description}</p>
+        {copy.description && <p>{copy.description}</p>}
       </div>
       <form className="k7-lead-form" onSubmit={submit} aria-label={placement === "hero" ? "Orçamento rápido" : "Solicitar orçamento"}>
         <label htmlFor={placement + "-lead-name"}>Seu nome
