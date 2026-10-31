@@ -1,0 +1,7 @@
+import type { Metadata } from "next";
+export const metadata:Metadata={title:"Política de Reembolso | K7 Sites"};
+export default function Page(){return <main className="k7-legal-page"><a href="/">← Voltar</a><h1>Política de Reembolso e Arrependimento</h1><p>Atualizada em 31/10/2026.</p>
+<h2>Arrependimento em até 7 dias</h2><p>Nas contratações sujeitas ao Código de Defesa do Consumidor realizadas fora do estabelecimento comercial, inclusive pela internet, o consumidor pode desistir em até <strong>7 dias</strong> contados da assinatura do contrato ou do recebimento do produto/serviço, conforme art. 49 do CDC. Valores pagos durante o prazo legal devem ser restituídos conforme a legislação. O início de serviço personalizado não implica renúncia automática a esse direito.</p>
+<h2>Como solicitar</h2><p>Envie e-mail para <a href="mailto:k7sites@gmail.com?subject=Reembolso">k7sites@gmail.com</a> informando nome, projeto e data da contratação. [PRAZO DE RESPOSTA, PROCESSO DE ESTORNO E CANAL ALTERNATIVO A CONFIRMAR].</p>
+<h2>Outros cancelamentos e problemas</h2><p>Fora do prazo legal de arrependimento, pedidos serão analisados conforme contrato e legislação, considerando execução e direitos aplicáveis. Em caso de vício do serviço ou descumprimento de oferta, prevalecem as soluções legais do CDC, quando aplicável. Nenhuma cláusula afasta direitos irrenunciáveis.</p>
+<h2>Fornecedor</h2><p>[RAZÃO SOCIAL OU NOME CIVIL], [CNPJ OU IDENTIFICAÇÃO CADASTRAL APLICÁVEL], [ENDEREÇO COMPLETO]. Contato: <a href="mailto:k7sites@gmail.com">k7sites@gmail.com</a>.</p></main>;}

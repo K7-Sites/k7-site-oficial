@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import Script from "next/script";
+import { CookieConsent } from "@/components/cookie-consent";
+import { LegalFooter } from "@/components/legal-footer";
 import { Manrope, Sora } from "next/font/google";
 import "./globals.css";
+import "./legal.css";
 import "./whatsapp-tooltip.css";
 
 const manrope = Manrope({
@@ -17,7 +19,7 @@ const sora = Sora({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.k7sites.com.br"),
   title: "Criação de Sites e Landing Pages que Geram Clientes | K7 Sites",
-  description: "Sites e landing pages feitos para transformar visitas em orçamentos. Mais de 200 projetos entregues. A partir de R$ 399. Peça seu orçamento sem compromisso.",
+  description: "Sites e landing pages feitos para transformar visitas em orçamentos. A partir de R$ 399. Peça seu orçamento sem compromisso.",
   alternates: {
     canonical: "https://www.k7sites.com.br/",
   },
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Criação de Sites e Landing Pages | K7 Sites",
-    description: "Sites e landing pages feitos para transformar visitas em orçamentos. Mais de 200 projetos entregues. A partir de R$ 399. Peça seu orçamento sem compromisso.",
+    description: "Sites e landing pages feitos para transformar visitas em orçamentos. A partir de R$ 399. Peça seu orçamento sem compromisso.",
     url: "https://www.k7sites.com.br/",
     siteName: "K7 Sites",
     type: "website",
@@ -116,16 +118,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-2PK8GHK05G"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-2PK8GHK05G');`}
-        </Script>
+        <LegalFooter />
+        <CookieConsent />
+
       </body>
     </html>
   );

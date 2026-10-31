@@ -12,5 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    ...["politica-de-privacidade", "termos-de-servico", "politica-de-reembolso"].map(path => ({ url: "https://www.k7sites.com.br/" + path, changeFrequency: "yearly" as const, priority: 0.3 })),
   ];
 }
