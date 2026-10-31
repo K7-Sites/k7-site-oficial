@@ -349,21 +349,21 @@ export default function Home() {
 </div>
         </div>
         <div className="hero-footer container"><span>ROLE PARA DESCOBRIR</span><span className="scroll-line" /><p>Estratégia <i>•</i> Design <i>•</i> Tecnologia</p></div>
-      <div className="k7-section-cta"><button type="button" className="k7-section-cta-button" onClick={openContactDialog}>Solicitar orçamento <Arrow /></button></div></section>
+      </section>
 
       <section className="signal-strip" aria-label="Resultados e diferenciais da K7 Sites"><div className="container signal-grid">
         <CounterStat value={200} suffix="+" label="Sites criados" />
         <CounterStat value={40} suffix="+" label="Nichos atendidos" />
         <CounterStat value={48} suffix="h" label="Entrega ágil" />
         <CounterStat value={100} suffix="%" label="Responsivo e rápido" />
-      </div><div className="k7-section-cta"><button type="button" className="k7-section-cta-button" onClick={openContactDialog}>Solicitar orçamento <Arrow /></button></div></section>
+      </div></section>
 
       <section className="k7-benefits-strip" aria-label="Diferenciais da K7 Sites"><div className="container k7-benefits-grid">
         <article className="k7-benefit-item reveal"><strong>Design</strong><p>Sob medida</p></article>
         <article className="k7-benefit-item reveal"><strong>SEO</strong><p>Boas práticas</p></article>
         <article className="k7-benefit-item reveal"><strong>Contato</strong><p>WhatsApp integrado</p></article>
         <article className="k7-benefit-item reveal"><strong>Mobile</strong><p>Layout responsivo</p></article>
-      </div><div className="k7-section-cta"><button type="button" className="k7-section-cta-button" onClick={openContactDialog}>Solicitar orçamento <Arrow /></button></div></section>
+      </div></section>
 
       <section className="home-performance-art" aria-label="Indicadores de desempenho de uma landing page">
         <div className="container">
@@ -378,7 +378,7 @@ export default function Home() {
           </div>
           <p className="home-performance-art-hint">Deslize para ver todos os indicadores.</p>
         </div>
-      <div className="k7-section-cta"><button type="button" className="k7-section-cta-button" onClick={openContactDialog}>Solicitar orçamento <Arrow /></button></div></section>
+      </section>
 
       <section className="niche-showcase" aria-labelledby="niche-showcase-title">
         <div className="container">
@@ -406,7 +406,7 @@ export default function Home() {
         <div className="problem-grid">{deliveries.map((item) => <article className="problem-card reveal" key={item.title}><span className="problem-icon" aria-hidden="true">{item.icon}</span><b>{item.title}</b><p>{item.text}</p></article>)}</div>
       </div><div className="k7-section-cta"><button type="button" className="k7-section-cta-button" onClick={openContactDialog}>Solicitar orçamento <Arrow /></button></div></section>
 
-      <section className="impact-band"><div className="container impact-layout reveal"><p>CLAREZA, DESIGN E ESTRATÉGIA</p><div><strong>CLAREZA</strong><span>para explicar</span></div><i>+</i><div><strong>DESIGN</strong><span>para valorizar</span></div><i>+</i><div><strong>ESTRATÉGIA</strong><span>para converter</span></div></div><div className="k7-section-cta"><button type="button" className="k7-section-cta-button" onClick={openContactDialog}>Solicitar orçamento <Arrow /></button></div></section>
+      <section className="impact-band"><div className="container impact-layout reveal"><p>CLAREZA, DESIGN E ESTRATÉGIA</p><div><strong>CLAREZA</strong><span>para explicar</span></div><i>+</i><div><strong>DESIGN</strong><span>para valorizar</span></div><i>+</i><div><strong>ESTRATÉGIA</strong><span>para converter</span></div></div></section>
 
       <section className="section services" id="servicos"><div className="container">
         <div className="section-heading split reveal"><div><p className="eyebrow"><span /> O QUE CRIAMOS</p><h2>O formato certo para <em>o seu objetivo.</em></h2></div><p>Não sabe qual escolher? Conte o que você quer e indicamos a opção mais adequada, sem empurrar a mais cara.</p></div>
@@ -420,7 +420,7 @@ export default function Home() {
 
       <HomeProjectsSection />
 
-      <section className="conversion-block"><div className="container"><div className="conversion-card reveal"><div className="conversion-grid" aria-hidden="true" /><div className="conversion-layout"><div><p className="eyebrow"><span /> QUEM VÊ SEU SITE VÊ SEU NEGÓCIO</p><h2>Seu site deve mostrar a qualidade <em>do que você entrega.</em></h2></div><div><p>Conte o que sua empresa precisa e receba uma orientação clara sobre o melhor formato de projeto.</p><a className="button button-light" href="#orcamento">Falar sobre meu projeto <Arrow /></a></div></div></div></div><div className="k7-section-cta"><button type="button" className="k7-section-cta-button" onClick={openContactDialog}>Solicitar orçamento <Arrow /></button></div></section>
+      <section className="conversion-block"><div className="container"><div className="conversion-card reveal"><div className="conversion-grid" aria-hidden="true" /><div className="conversion-layout"><div><p className="eyebrow"><span /> QUEM VÊ SEU SITE VÊ SEU NEGÓCIO</p><h2>Seu site deve mostrar a qualidade <em>do que você entrega.</em></h2></div><div><p>Conte o que sua empresa precisa e receba uma orientação clara sobre o melhor formato de projeto.</p><a className="button button-light" href="#orcamento">Falar sobre meu projeto <Arrow /></a></div></div></div></div></section>
 
       <section className="section about" id="sobre"><div className="container">
         <div className="section-heading centered reveal"><p className="eyebrow"><span /> SOBRE A K7 SITES</p><h2>Estratégia, design e código <em>para o seu negócio aparecer melhor.</em></h2><p>A K7 Sites cria sites e landing pages personalizados para empresas e profissionais que querem passar confiança e receber mais contatos.</p></div>
@@ -455,7 +455,7 @@ export default function Home() {
       </div><div className="k7-section-cta"><button type="button" className="k7-section-cta-button" onClick={openContactDialog}>Solicitar orçamento <Arrow /></button></div></section>
       */}
 
-      <section className="section proof" id="depoimentos"><div className="container"><div className="section-heading centered reveal"><p className="eyebrow dark"><span /> AVALIAÇÕES EXTERNAS</p><h2>Veja avaliações na fonte.</h2><p>Consulte as avaliações disponíveis no Google.</p><a href={googleReviewsLink} target="_blank" rel="noopener noreferrer">Ver avaliações no Google ↗</a></div></div><div className="k7-section-cta"><button type="button" className="k7-section-cta-button" onClick={openContactDialog}>Solicitar orçamento <Arrow /></button></div></section>
+      <section className="section proof" id="depoimentos"><div className="container"><div className="section-heading centered reveal"><p className="eyebrow dark"><span /> AVALIAÇÕES EXTERNAS</p><h2>Veja avaliações na fonte.</h2><p>Consulte as avaliações disponíveis no Google.</p><a href={googleReviewsLink} target="_blank" rel="noopener noreferrer">Ver avaliações no Google ↗</a></div></div></section>
 
       <section className="section pricing" id="investimento"><div className="pricing-rockets" aria-hidden="true">{Array.from({ length: 12 }).map((_, index) => <span key={index}>🚀</span>)}</div><div className="container">
         <div className="section-heading centered reveal"><p className="eyebrow"><span /> INVESTIMENTO</p><h2>Escolha o projeto <em>que cabe no seu objetivo.</em></h2><p>Compare as opções e peça seu orçamento sem compromisso.</p></div>
