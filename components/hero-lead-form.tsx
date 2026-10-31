@@ -25,7 +25,7 @@ type LeadFormCopy = {
 const defaultCopy: LeadFormCopy = {
   kicker: "ORÇAMENTO PERSONALIZADO",
   title: "Vamos colocar seu projeto no ar?",
-  description: "Conte um pouco sobre o que você precisa. Vamos conversar sobre a melhor solução para seu negócio.",
+  description: "Conte rapidamente o que você precisa. Respondemos com a melhor indicação de formato e um orçamento claro.",
   submitLabel: "Quero meu orçamento",
 };
 
@@ -132,7 +132,7 @@ export function HeroLeadForm({ placement = "hero", copy = defaultCopy }: {
         </label>
         <div className="k7-lead-honeypot" aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
         <button type="submit" className="k7-lead-submit" disabled={pending}>{pending ? "Enviando..." : copy.submitLabel} <Image src="/whatsapp.svg" alt="" width={20} height={20} aria-hidden="true" className="k7-lead-whatsapp-icon" /></button>
-        <p className="k7-lead-privacy">Seus dados serão utilizados para entrarmos em contato sobre sua solicitação.</p>
+        <p className="k7-lead-privacy">Seus dados serão usados apenas para entrarmos em contato sobre o seu pedido.</p>
         <p className={success ? "k7-lead-feedback is-success" : "k7-lead-feedback"} role="status" aria-live="polite">{feedback}</p>
       </form>
     </div>
