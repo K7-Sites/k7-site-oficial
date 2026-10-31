@@ -579,3 +579,12 @@ em { color: var(--blue); font-style: normal; }
 .hero-barber-preview-image { object-fit:cover; object-position:center top; }
 .hero-phone-barber-screen { position:relative; padding:0; overflow:hidden; background:#0b0b0b; }
 .hero-phone-barber-screen .hero-barber-preview-image { object-fit:cover; object-position:center top; }
+
+/* Home benefits preserve the original K7 visual language alongside restored counters. */
+.k7-benefits-strip{background:#0c1018;border-bottom:1px solid rgba(255,255,255,.1);color:#fff}
+.k7-benefits-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.k7-benefit-item{padding:25px 12px;text-align:center;border-right:1px solid rgba(255,255,255,.09)}
+.k7-benefit-item:last-child{border-right:0}
+.k7-benefit-item strong{display:block;font-family:var(--font-sora),sans-serif;font-size:clamp(18px,2.3vw,25px);letter-spacing:-.04em}
+.k7-benefit-item p{margin:8px 0 0;color:#9bb9dc;font-size:clamp(12px,1.3vw,15px)}
+@media(max-width:640px){.k7-benefits-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.k7-benefit-item{padding:22px 10px;border-bottom:1px solid rgba(255,255,255,.08)}.k7-benefit-item:nth-child(2n){border-right:0}}
