@@ -1,0 +1,3 @@
+export function LegalFooter() { return <div className="k7-legal-footer">
+<nav aria-label="Informações legais"><a href="/politica-de-privacidade">Política de privacidade</a><a href="/termos-de-servico">Termos de serviço</a><a href="/politica-de-reembolso">Reembolso</a><a href="mailto:k7sites@gmail.com?subject=Direitos%20LGPD">Direitos LGPD</a></nav>
+<p>Responsável: [RAZÃO SOCIAL OU NOME CIVIL] · CNPJ: [CNPJ OU IDENTIFICAÇÃO CADASTRAL APLICÁVEL] · Endereço: [ENDEREÇO COMPLETO] · E-mail: <a href="mailto:k7sites@gmail.com">k7sites@gmail.com</a></p><p>Encarregado ou canal LGPD: [NOME DO ENCARREGADO OU JUSTIFICATIVA DE DISPENSA] · <a href="mailto:k7sites@gmail.com">k7sites@gmail.com</a></p></div>; }
