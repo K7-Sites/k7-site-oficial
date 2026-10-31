@@ -16,8 +16,8 @@ const sora = Sora({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.k7sites.com.br"),
-  title: "Criação de Sites e Landing Pages | K7 Sites",
-  description: "Criação de sites profissionais e landing pages estratégicas para valorizar sua marca e gerar oportunidades. Projetos a partir de R$ 399.",
+  title: "Criação de Sites e Landing Pages que Geram Clientes | K7 Sites",
+  description: "Sites e landing pages feitos para transformar visitas em orçamentos. Mais de 200 projetos entregues. A partir de R$ 399. Peça seu orçamento sem compromisso.",
   alternates: {
     canonical: "https://www.k7sites.com.br/",
   },
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Criação de Sites e Landing Pages | K7 Sites",
-    description: "Criação de sites profissionais e landing pages estratégicas para valorizar sua marca e gerar oportunidades. Projetos a partir de R$ 399.",
+    description: "Sites e landing pages feitos para transformar visitas em orçamentos. Mais de 200 projetos entregues. A partir de R$ 399. Peça seu orçamento sem compromisso.",
     url: "https://www.k7sites.com.br/",
     siteName: "K7 Sites",
     type: "website",
