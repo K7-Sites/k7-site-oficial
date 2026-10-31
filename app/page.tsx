@@ -421,6 +421,7 @@ export default function Home() {
         <div className="about-copy reveal"><p>Cada projeto une organização de conteúdo, direção visual e desenvolvimento responsivo, sem modelos genéricos que fazem todo mundo parecer igual.</p><div className="principles"><div><strong>01</strong><span><b>Clareza antes de efeito</b>Todo elemento precisa ajudar a mensagem.</span></div><div><strong>02</strong><span><b>Visual com personalidade</b>Identidade que combina com seu posicionamento.</span></div><div><strong>03</strong><span><b>Parceria próxima</b>Comunicação simples durante todo o projeto.</span></div></div></div></div>
       </div></section>
 
+      {/* Seção do profissional temporariamente desativada; código preservado para reativação.
       <section className="section specialist" aria-labelledby="specialist-title"><div className="container">
         <div className="section-heading centered reveal"><h2 id="specialist-title">Você fala direto com <em>quem cria o seu site.</em></h2></div>
         <div className="specialist-grid">
@@ -445,6 +446,7 @@ export default function Home() {
           <p>Cada projeto é pensado para unir <em>clareza, design e desempenho</em> ao objetivo do seu negócio.</p>
         </div>
       </div></section>
+      */}
 
       <section className="section proof" id="depoimentos"><div className="container">
         <div className="section-heading centered reveal"><p className="eyebrow dark"><span /> CLIENTES REAIS</p><h2>Quem já contratou <em>conta como foi.</em></h2><p>Avaliações publicadas pelos próprios clientes no Google.</p></div>
