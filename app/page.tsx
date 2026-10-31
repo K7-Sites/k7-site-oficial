@@ -353,8 +353,8 @@ export default function Home() {
 
       <section className="signal-strip" aria-label="Resultados e diferenciais da K7 Sites"><div className="container signal-grid">
         <CounterStat value={200} suffix="+" label="Sites criados" />
-        
-        
+        <CounterStat value={40} suffix="+" label="Nichos atendidos" />
+        <CounterStat value={48} suffix="h" label="Entrega ágil" />
         <CounterStat value={100} suffix="%" label="Responsivo e rápido" />
       </div></section>
 
