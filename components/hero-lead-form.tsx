@@ -36,16 +36,18 @@ export function HeroLeadForm({ placement = "hero", copy = defaultCopy }: {
   const [pending, setPending] = useState(false);
   const [services, setServices] = useState<ServiceOption[]>([]);
   const [servicesError, setServicesError] = useState(false);
+  const [retryServices, setRetryServices] = useState(0);
   useEffect(() => {
     captureLeadAttribution();
     let active = true;
     fetch("/api/services").then(async response => {
       if (!response.ok) throw new Error("Serviços indisponíveis");
       const data = await response.json();
-      if (active) setServices(data.services);
+      if (!Array.isArray(data.services) || data.services.length === 0) throw new Error("Catálogo vazio");
+      if (active) { setServices(data.services); setServicesError(false); }
     }).catch(() => { if (active) setServicesError(true); });
     return () => { active = false; };
-  }, []);
+  }, [retryServices]);
   const [feedback, setFeedback] = useState("");
   const [success, setSuccess] = useState(false);
   const sending = useRef(false);
@@ -60,7 +62,7 @@ export function HeroLeadForm({ placement = "hero", copy = defaultCopy }: {
     setPending(true);
     setSuccess(false);
     setFeedback("");
-    submissionId.current ??= crypto.randomUUID();
+    submissionId.current ??= (typeof crypto.randomUUID === "function" ? crypto.randomUUID() : "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, character => { const value = Math.floor(Math.random() * 16); return (character === "x" ? value : (value & 3) | 8).toString(16); }));
     const values = new FormData(form);
     if (values.get("privacy_acknowledgement") !== "yes") { sending.current = false; setPending(false); setFeedback("Confirme a ciência sobre o uso dos dados."); return; }
     try {
@@ -81,7 +83,10 @@ export function HeroLeadForm({ placement = "hero", copy = defaultCopy }: {
           ...readLeadAttribution(),
         }),
       });
-      if (!response.ok) throw new Error("Falha no envio");
+      if (!response.ok) {
+        const body = await response.json().catch(() => null);
+        throw new Error(typeof body?.message === "string" ? body.message : "Não foi possível enviar o contato. Tente novamente.");
+      }
       trackEvent("form_contato_enviado", {
         page_path: window.location.pathname,
         project_type: String(values.get("service") ?? ""),
@@ -90,8 +95,8 @@ export function HeroLeadForm({ placement = "hero", copy = defaultCopy }: {
       setSuccess(true);
       submissionId.current = null;
       window.location.assign("/mensagem-recebida-com-sucesso");
-    } catch {
-      setFeedback("Não foi possível enviar. Confira seus dados e tente novamente.");
+    } catch (error) {
+      setFeedback(error instanceof Error && error.message !== "Failed to fetch" ? error.message : "Falha de conexão. Verifique sua internet e tente novamente.");
     } finally {
       sending.current = false;
       setPending(false);
@@ -125,8 +130,9 @@ export function HeroLeadForm({ placement = "hero", copy = defaultCopy }: {
           >
             <option value="" disabled>Selecione o serviço</option>
             {services.map(({value, label}) => <option key={value} value={value}>{label}</option>)}
+            {servicesError && <option value="outros">Outro serviço / Quero um orçamento</option>}
           </select>
-          {servicesError && <span role="alert">Serviços indisponíveis no momento. Tente novamente mais tarde.</span>}
+          {servicesError && <span role="status">Não foi possível carregar todos os serviços. Você pode selecionar “Outro serviço” ou <button type="button" className="k7-service-retry" onClick={() => { setServicesError(false); setRetryServices(value => value + 1); }}>tentar novamente</button>.</span>}
         </label>
         <label htmlFor={placement + "-lead-phone"}>Seu WhatsApp
           <input id={placement + "-lead-phone"} name="phone" type="tel" required inputMode="tel" autoComplete="tel" placeholder="(11) 99999-9999" pattern="[(][0-9]{2}[)] [0-9]{4,5}-[0-9]{4}" title="Informe seu WhatsApp com DDD" maxLength={15} onChange={(event) => { event.currentTarget.value = formatPhone(event.currentTarget.value); }} />
