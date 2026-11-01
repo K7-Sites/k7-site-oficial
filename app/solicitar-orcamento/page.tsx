@@ -34,8 +34,8 @@ export default function RequestQuotePage() {
           <HeroLeadForm placement="lp-capture" copy={{
             kicker: "O PRÓXIMO PASSO É SIMPLES",
             title: "Vamos criar sua página?",
-            description: "Preencha abaixo. A K7 entra em contato pelo WhatsApp para entender seu projeto e preparar uma proposta.",
-            submitLabel: "Quero uma proposta para meu negócio",
+            description: "",
+            submitLabel: "Solicitar proposta",
           }} />
         </section>
       </main>
