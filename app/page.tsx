@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { HeroLeadForm } from "@/components/hero-lead-form";
-import {TestimonialsSlider,faqs} from "@/components/shared-social-proof";
+import {TestimonialsSlider} from "@/components/shared-social-proof";
+import {faqs} from "@/lib/faqs";
 import { useEffect, useRef, useState } from "react";
 import { ImageStream } from "@/components/ui/image-stream";
 import { HomeProjectsSection } from "@/components/ui/home-projects-gallery";
