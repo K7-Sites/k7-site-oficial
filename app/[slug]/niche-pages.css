@@ -111,3 +111,54 @@
   isolation:auto;
   max-width:none;
 }
+
+/* Padrão visual das páginas de psicologia, aplicado às demais páginas de nicho.
+   Os espaços de imagem permanecem vazios até o envio de mockups próprios. */
+.niche-page.niche-visual-template .niche-image-placeholder{
+  width:100%;aspect-ratio:10/8;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:10px;text-align:center;
+  border:1px dashed rgba(156,190,230,.48);border-radius:18px;
+  background:linear-gradient(140deg,rgba(255,255,255,.075),rgba(21,101,255,.06));
+  color:#e9f2ff;padding:24px;
+}
+.niche-page.niche-visual-template .niche-image-placeholder span{
+  font:700 clamp(17px,2vw,25px)/1.3 var(--font-sora),sans-serif;
+}
+.niche-page.niche-visual-template .niche-image-placeholder small{font-size:12px;color:#a7c1de}
+.niche-page.niche-visual-template .niche-image-placeholder-showcase{aspect-ratio:9/7}
+.niche-page.niche-visual-template .projects .reveal{opacity:1;transform:none}
+.niche-page.niche-visual-template .projects .niche-mockup{
+  height:calc(100% - 24px);min-height:0;display:block;padding:0;
+  overflow:hidden;background:#fff;isolation:auto;max-width:none;
+}
+.niche-page.niche-visual-template:not(.niche-care).niche-landing .niche-contact{background:#08090b}
+.niche-page.niche-visual-template:not(.niche-care) .niche-dialog{
+  background:transparent;border:0;box-shadow:none;overflow:visible;
+  max-height:none;width:min(510px,calc(100vw - 28px));
+}
+.niche-page.niche-visual-template:not(.niche-care) .niche-dialog-content{padding:0}
+.niche-page.niche-visual-template:not(.niche-care) .niche-dialog .k7-lead-card,
+.niche-page.niche-visual-template:not(.niche-care) .niche-contact .k7-lead-card{
+  background:#fff;color:#161c27;border:1px solid #e2e6ed;
+  box-shadow:0 18px 54px rgba(0,0,0,.18);
+}
+.niche-page.niche-visual-template:not(.niche-care) .niche-dialog .k7-lead-card{
+  border-radius:24px;padding:clamp(16px,2.5vh,24px);
+}
+.niche-page.niche-visual-template:not(.niche-care) .niche-dialog .k7-lead-card-heading{margin-bottom:12px}
+.niche-page.niche-visual-template:not(.niche-care) .niche-dialog .k7-lead-card-heading h2{
+  font-size:clamp(21px,2.5vw,26px);line-height:1.2;margin:8px 0;
+}
+.niche-page.niche-visual-template:not(.niche-care) .niche-dialog .k7-lead-form{gap:9px}
+.niche-page.niche-visual-template:not(.niche-care) .niche-dialog .k7-lead-form input,
+.niche-page.niche-visual-template:not(.niche-care) .niche-dialog .k7-lead-form select{
+  min-height:42px;padding:9px 12px;
+}
+.niche-page.niche-visual-template:not(.niche-care) .niche-dialog .niche-close{
+  top:8px;right:10px;color:#172033;
+}
+@media(max-height:700px){
+  .niche-page.niche-visual-template:not(.niche-care) .niche-dialog .k7-lead-card{padding:12px 18px}
+  .niche-page.niche-visual-template:not(.niche-care) .niche-dialog .k7-lead-form{gap:6px}
+  .niche-page.niche-visual-template:not(.niche-care) .niche-dialog .k7-lead-card-heading h2{font-size:20px}
+}
