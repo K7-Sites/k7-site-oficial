@@ -335,15 +335,7 @@ export default function LandingPages() {
       </div>
     </section>
 
-    <footer className="footer">
-      <div className="container footer-main">
-        <div><div className="brand footer-brand"><Image src="/k7-preloader-logo.png" alt="K7 Sites" width={104} height={108} /></div><p>Sites e landing pages com estratégia, identidade e acabamento profissional.</p></div>
-        <div><small>NAVEGAÇÃO</small><a href="#portfolio">Projetos</a><a href="#beneficios">Benefícios</a><a href="#processo">Processo</a><a href="#faq">Dúvidas</a></div>
-        <div><small>CONTATO</small><a href="mailto:k7sites@gmail.com">k7sites@gmail.com</a><a href={whatsapp} target="_blank" rel="noreferrer">WhatsApp: (11) 94921-4071</a></div>
-        <div><small>PRONTO PARA COMEÇAR?</small><button type="button" className="footer-cta lp2-footer-modal-cta" onClick={openContactDialog}>Pedir orçamento <Arrow /></button></div>
-      </div>
-      <div className="container footer-bottom"><span>© {new Date().getFullYear()} K7 Sites. Todos os direitos reservados.</span><span>Design e desenvolvimento: K7 Sites</span><a href="#inicio">Voltar ao topo ↑</a></div>
-    </footer>
+
 
     <button type="button" className="lp2-mobile-cta" onClick={() => {
       trackEvent("click_cta_service", { page_path: window.location.pathname, button_location: "mobile_fixed", link_text: "Falar sobre meu projeto" });
