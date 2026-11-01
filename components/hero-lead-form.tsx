@@ -29,9 +29,10 @@ const defaultCopy: LeadFormCopy = {
   submitLabel: "Quero meu orçamento",
 };
 
-export function HeroLeadForm({ placement = "hero", copy = defaultCopy }: {
+export function HeroLeadForm({ placement = "hero", copy = defaultCopy, leadContext }: {
   placement?: "hero" | "contact" | "modal" | "lp-contact" | "lp-modal" | "lp-capture";
   copy?: LeadFormCopy;
+  leadContext?: { slug: string; product: string; niche: string };
 }) {
   const [pending, setPending] = useState(false);
   const [services, setServices] = useState<ServiceOption[]>([]);
@@ -76,6 +77,7 @@ export function HeroLeadForm({ placement = "hero", copy = defaultCopy }: {
           service_id: services.find(item => item.value === values.get("service"))?.service_id ?? null,
           website: values.get("website"),
           submission_id: submissionId.current,
+          ...(leadContext ? { project_type: `${leadContext.product} para ${leadContext.niche}`, project_message: `Origem do lead: /${leadContext.slug} | Produto: ${leadContext.product} | Nicho: ${leadContext.niche}` } : {}),
           ...(placement === "lp-capture" ? {
             project_type: "Captação Instagram",
             project_message: "Formulário da página Captação Instagram (/solicitar-orcamento).",
@@ -119,7 +121,7 @@ export function HeroLeadForm({ placement = "hero", copy = defaultCopy }: {
             id={placement + "-lead-service"}
             name="service"
             required
-            defaultValue=""
+            defaultValue={leadContext ? "outros" : ""}
             onChange={(event) => {
               trackEvent("select_service", {
                 page_path: window.location.pathname,
@@ -129,6 +131,7 @@ export function HeroLeadForm({ placement = "hero", copy = defaultCopy }: {
             }}
           >
             <option value="" disabled>Selecione o serviço</option>
+            {leadContext && !services.some(item => item.value === "outros") && <option value="outros">{leadContext.product} para {leadContext.niche}</option>}
             {services.map(({value, label}) => <option key={value} value={value}>{label}</option>)}
             {servicesError && <option value="outros">Outro serviço / Quero um orçamento</option>}
           </select>
