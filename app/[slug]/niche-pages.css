@@ -76,3 +76,11 @@
 .niche-page .niche-faq-detail[open] summary i{transform:rotate(45deg)}
 .niche-page .niche-faq-detail .faq-answer{padding:0 42px 22px 56px}
 .niche-page .niche-faq-detail .faq-answer p{margin:0;line-height:1.75}
+
+/* Psicologia LP: formulário com o padrão neutro do site principal, sem fundo azul. */
+.niche-page.niche-care.niche-landing .niche-contact{background:#08090b}
+.niche-page.niche-care.niche-landing .niche-contact .k7-lead-card,
+.niche-page.niche-care.niche-landing .niche-dialog .k7-lead-card{background:#fff;color:#161c27;border:1px solid #e2e6ed;box-shadow:0 18px 54px rgba(0,0,0,.18)}
+.niche-page.niche-care.niche-landing .niche-dialog{background:#101216;border-color:#343941}
+/* Nas páginas de nicho não há observador de .reveal: manter as avaliações visíveis. */
+.niche-page .niche-shared-testimonials .testimonial-slider.reveal{opacity:1;transform:none}
