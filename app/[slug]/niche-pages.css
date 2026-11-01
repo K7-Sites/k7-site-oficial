@@ -49,3 +49,16 @@
 
 /* Imagens originais dos quatro conceitos de psicologia, sem recortes. */
 .niche-showcase-upload{display:block;width:100%;height:auto;object-fit:contain;border-radius:16px;filter:drop-shadow(0 20px 30px rgba(0,0,0,.22))}
+
+
+/* Mockup original da hero de site para psicólogos. */
+.niche-hero-upload{display:block;width:100%;height:auto;object-fit:contain;filter:drop-shadow(0 20px 36px rgba(0,0,0,.22))}
+.niche-device-stage{min-width:0}
+/* Dialog nativo centralizado com entrada suave e saída sem deslocamento. */
+.niche-dialog{position:fixed;inset:0;margin:auto;max-width:calc(100vw - 28px);max-height:min(90dvh,800px);overscroll-behavior:contain;opacity:0;transform:translateY(14px) scale(.975);transition:opacity .25s ease,transform .25s ease,overlay .25s ease allow-discrete,display .25s ease allow-discrete}
+.niche-dialog[open]{opacity:1;transform:translateY(0) scale(1)}
+@starting-style{.niche-dialog[open]{opacity:0;transform:translateY(14px) scale(.975)}}
+.niche-dialog::backdrop{background:rgba(1,7,20,0);transition:background .25s ease,overlay .25s ease allow-discrete,display .25s ease allow-discrete}
+.niche-dialog[open]::backdrop{background:rgba(1,7,20,.79)}
+@starting-style{.niche-dialog[open]::backdrop{background:rgba(1,7,20,0)}}
+@media(prefers-reduced-motion:reduce){.niche-dialog,.niche-dialog::backdrop{transition:none}.niche-dialog{transform:none}}
