@@ -46,3 +46,6 @@
 @media(max-width:950px){.niche-container{width:min(100% - 36px,1180px)}.niche-hero-grid,.niche-contact-grid{gap:32px}.niche-showcase-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
 @media(max-width:640px){.niche-container{width:calc(100% - 32px)}.niche-nav{min-height:70px}.niche-nav>.niche-cta{min-height:44px}.niche-hero-grid,.niche-showcase-row,.niche-contact-grid{grid-template-columns:minmax(0,1fr)}.niche-device-stage,.niche-showcase-image{min-width:0;max-width:100%}.niche-mockup{min-height:225px}.niche-mockup-0 .niche-laptop,.niche-mockup-1 .niche-laptop,.niche-mockup-2 .niche-laptop,.niche-mockup-3 .niche-laptop{transform:none}.niche-screen-copy strong{font-size:clamp(11px,3vw,15px)}.niche-screen-copy p{font-size:clamp(6px,1.6vw,9px)}.niche-hero-actions .niche-cta{width:100%}.niche-hero{padding:52px 0 64px}}
 @media(prefers-reduced-motion:reduce){.niche-laptop{transition:none}}
+
+/* Imagens originais dos quatro conceitos de psicologia, sem recortes. */
+.niche-showcase-upload{display:block;width:100%;height:auto;object-fit:contain;border-radius:16px;filter:drop-shadow(0 20px 30px rgba(0,0,0,.22))}
