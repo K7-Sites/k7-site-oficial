@@ -21,9 +21,7 @@ export function LegalFooter() {
         </nav>
         <div className="k7-legal-footer-info">
           <p>Responsável: Kassio Kennedy · Atendimento online.</p>
-          <p>Atendimento e solicitações LGPD: <a href="mailto:k7sites@gmail.com">k7sites@gmail.com</a></p>
           <a className="k7-footer-whatsapp" href="https://wa.me/5511949214071" target="_blank" rel="noopener noreferrer">WhatsApp: (11) 94921-4071</a>
-          <a className="k7-footer-cta" href="/solicitar-orcamento">Pedir orçamento</a>
         </div>
       </div>
       <div className="k7-footer-bottom"><span>© {new Date().getFullYear()} K7 Sites. Todos os direitos reservados.</span><span>Design e desenvolvimento: K7 Sites</span><a href="/">Voltar ao início ↑</a></div>
