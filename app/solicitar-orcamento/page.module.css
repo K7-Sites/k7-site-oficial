@@ -65,9 +65,9 @@
   justify-content: center;
   gap: 14px;
   padding: 16px 22px;
-  border: 1px solid #1565ff;
+  border: 1px solid #15803d;
   border-radius: 14px;
-  background: #07379b;
+  background: #168a43;
   color: #fff;
   box-shadow: 0 12px 40px rgba(0, 0, 0, .3);
   font-size: 14px;
@@ -75,7 +75,8 @@
   transition: background .2s;
 }
 
-.whatsapp:hover { background: #1565ff; }
+.whatsapp:hover { background: #117437; }
+.whatsapp[hidden] { display: none !important; }
 .whatsapp img { flex-shrink: 0; }
 .whatsapp strong { font-weight: 800; }
 .page :focus-visible { outline: 3px solid #00a8ff; outline-offset: 4px; }
