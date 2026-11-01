@@ -39,7 +39,6 @@ export default function RequestQuotePage() {
           }} />
         </section>
       </main>
-      <footer className={styles.footer}>K7 Sites · Seu negócio bem apresentado. · <a href="/politica-de-privacidade">Privacidade</a> · <a href="/termos-de-servico">Termos</a></footer>
       <WhatsAppContact className={styles.whatsapp} />
     </div>
   );
