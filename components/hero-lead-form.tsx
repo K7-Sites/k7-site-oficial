@@ -121,7 +121,7 @@ export function HeroLeadForm({ placement = "hero", copy = defaultCopy, leadConte
             id={placement + "-lead-service"}
             name="service"
             required
-            defaultValue={leadContext ? (leadContext.product === "Landing page" ? "landing-page" : "site") : ""}
+            defaultValue={leadContext ? "outros" : ""}
             onChange={(event) => {
               trackEvent("select_service", {
                 page_path: window.location.pathname,
@@ -131,7 +131,7 @@ export function HeroLeadForm({ placement = "hero", copy = defaultCopy, leadConte
             }}
           >
             <option value="" disabled>Selecione o serviço</option>
-            {leadContext && services.length === 0 && <option value={leadContext.product === "Landing page" ? "landing-page" : "site"}>{leadContext.product}</option>}
+            {leadContext && !services.some(item => item.value === "outros") && <option value="outros">{leadContext.product} para {leadContext.niche}</option>}
             {services.map(({value, label}) => <option key={value} value={value}>{label}</option>)}
             {servicesError && <option value="outros">Outro serviço / Quero um orçamento</option>}
           </select>
