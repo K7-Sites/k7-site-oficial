@@ -2,7 +2,8 @@
 import {useRef} from "react";
 import Image from "next/image";
 import {HeroLeadForm} from "@/components/hero-lead-form";
-import {TestimonialsSlider,faqs} from "@/components/shared-social-proof";
+import {TestimonialsSlider} from "@/components/shared-social-proof";
+import {faqs} from "@/lib/faqs";
 import type {Niche} from "@/lib/niche-pages";
 
 function WhatsIcon(){return <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.5 11.8a8.5 8.5 0 0 1-12.3 7.6L3 21l1.7-5.1a8.5 8.5 0 1 1 15.8-4.1Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/><path d="M8.3 8.4c.2-.5.4-.5.7-.5h.6l1.1 2.1-.8 1c.7 1.5 1.8 2.5 3.3 3.1l1-.8 2.1 1.1c.1.9-.7 1.6-1.5 1.7-3.5.2-7.2-3.4-7.1-6.4.1-.5.3-.9.6-1.3Z" fill="currentColor"/></svg>}

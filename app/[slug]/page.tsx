@@ -2,7 +2,7 @@ import type {Metadata} from "next";
 import {notFound} from "next/navigation";
 import {getNichePage,pages} from "@/lib/niche-pages";
 import {NichePageClient} from "@/components/niche-page-client";
-import {faqs} from "@/components/shared-social-proof";
+import {faqs} from "@/lib/faqs";
 import "./niche-pages.css";
 export function generateStaticParams(){return pages.map(([slug])=>({slug}));}
 export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{

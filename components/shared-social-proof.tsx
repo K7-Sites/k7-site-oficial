@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+export {faqs} from "@/lib/faqs";
 import {useEffect,useRef,useState} from "react";
 const googleReviewsLink = "https://share.google/pDIhvdTpTxOyWEIOe";
 export const testimonials = [
@@ -46,15 +47,7 @@ export const testimonials = [
     text: "Amei o site que criou pra mim! Exatamente da forma que solicitei. Excelente profissional!",
   },
 ];
-export const faqs = [
-  ["Em quanto tempo meu site fica pronto?", "O prazo é definido conforme o escopo e começa após a aprovação, o pagamento inicial e o envio de todos os materiais. O projeto pode ficar pronto antes do prazo previsto."],
-  ["A página funciona bem no celular?", "Sim. O layout é planejado para desktop, tablet e celular, com atenção especial à leitura, aos botões e aos formulários."],
-  ["Eu preciso enviar os textos e as imagens?", "Você pode enviar os materiais disponíveis. A K7 organiza o conteúdo e orienta sobre o que estiver faltando. Produções específicas podem ser incluídas no orçamento."],
-  ["Domínio e hospedagem estão incluídos?", "Esses serviços são definidos no orçamento. Se ainda não tiver domínio ou hospedagem, você recebe orientação para escolher e configurar."],
-  ["Posso pedir alterações?", "Sim. A quantidade de rodadas de ajustes é registrada na proposta para que o processo seja organizado e previsível para os dois lados."],
-  ["O pagamento é feito como?", "A condição padrão é 50% antes do início do projeto e 50% na conclusão, antes da publicação definitiva ou liberação dos acessos finais."],
-  ["Depois da entrega consigo editar?", "Isso depende da tecnologia escolhida. Em projetos com painel de gerenciamento, você recebe orientação básica para realizar atualizações simples."],
-];
+
 const Arrow = ({ diagonal = false }: { diagonal?: boolean }) => (
   <svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d={diagonal ? "M7 17 17 7M8 7h9v9" : "M5 12h14M14 7l5 5-5 5"} stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
 );
