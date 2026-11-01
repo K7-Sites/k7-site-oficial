@@ -76,12 +76,3 @@
 .niche-page .niche-faq-detail[open] summary i{transform:rotate(45deg)}
 .niche-page .niche-faq-detail .faq-answer{padding:0 42px 22px 56px}
 .niche-page .niche-faq-detail .faq-answer p{margin:0;line-height:1.75}
-.niche-page .niche-dialog{overflow:visible;max-height:none;background:#101216;border-color:#343941}
-.niche-page .niche-dialog-content{padding:clamp(12px,2vh,20px)}
-.niche-page .niche-dialog .k7-lead-card{padding:clamp(12px,2vh,22px)}
-.niche-page .niche-dialog .k7-lead-card-heading{margin-bottom:12px}
-.niche-page .niche-dialog .k7-lead-form{gap:9px}
-.niche-page .niche-dialog .k7-lead-form input,.niche-page .niche-dialog .k7-lead-form select{min-height:42px;padding:8px 12px}
-.niche-page .niche-dialog .k7-lead-submit{min-height:44px}
-.niche-page .niche-close{color:#f5f7fa}
-@media(max-height:730px){.niche-page .niche-dialog-content,.niche-page .niche-dialog .k7-lead-card{padding:10px 14px}.niche-page .niche-dialog .k7-lead-card-heading h2{font-size:21px;margin:5px 0}.niche-page .niche-dialog .k7-lead-form{gap:6px}.niche-page .niche-dialog .k7-lead-form input,.niche-page .niche-dialog .k7-lead-form select{min-height:36px;padding:6px 10px}}
