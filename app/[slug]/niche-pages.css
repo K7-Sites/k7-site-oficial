@@ -62,3 +62,26 @@
 .niche-dialog[open]::backdrop{background:rgba(1,7,20,.79)}
 @starting-style{.niche-dialog[open]::backdrop{background:rgba(1,7,20,0)}}
 @media(prefers-reduced-motion:reduce){.niche-dialog,.niche-dialog::backdrop{transition:none}.niche-dialog{transform:none}}
+
+
+/* Shared homepage review/FAQ components on all niche routes. */
+.niche-page .niche-shared-testimonials{background:#08090b;color:#f5f7fa}
+.niche-page .niche-shared-faq{background:#f5f7fa;color:#08090b}
+.niche-page .niche-shared-testimonials .container,.niche-page .niche-shared-faq .container{width:min(1180px,calc(100% - 40px));margin-inline:auto}
+.niche-page .niche-faq-detail{padding:0;border:0;border-bottom:1px solid #dce1e8;border-radius:0;background:transparent}
+.niche-page .niche-faq-detail summary{list-style:none;display:grid;grid-template-columns:44px 1fr 30px;align-items:center;gap:12px;min-height:82px;cursor:pointer;font:500 15px var(--font-sora),sans-serif}
+.niche-page .niche-faq-detail summary::-webkit-details-marker{display:none}
+.niche-page .niche-faq-detail summary span{color:#1565ff;font:800 9px var(--font-manrope),sans-serif}
+.niche-page .niche-faq-detail summary i{font-style:normal;font-size:23px}
+.niche-page .niche-faq-detail[open] summary i{transform:rotate(45deg)}
+.niche-page .niche-faq-detail .faq-answer{padding:0 42px 22px 56px}
+.niche-page .niche-faq-detail .faq-answer p{margin:0;line-height:1.75}
+.niche-page .niche-dialog{overflow:visible;max-height:none;background:#101216;border-color:#343941}
+.niche-page .niche-dialog-content{padding:clamp(12px,2vh,20px)}
+.niche-page .niche-dialog .k7-lead-card{padding:clamp(12px,2vh,22px)}
+.niche-page .niche-dialog .k7-lead-card-heading{margin-bottom:12px}
+.niche-page .niche-dialog .k7-lead-form{gap:9px}
+.niche-page .niche-dialog .k7-lead-form input,.niche-page .niche-dialog .k7-lead-form select{min-height:42px;padding:8px 12px}
+.niche-page .niche-dialog .k7-lead-submit{min-height:44px}
+.niche-page .niche-close{color:#f5f7fa}
+@media(max-height:730px){.niche-page .niche-dialog-content,.niche-page .niche-dialog .k7-lead-card{padding:10px 14px}.niche-page .niche-dialog .k7-lead-card-heading h2{font-size:21px;margin:5px 0}.niche-page .niche-dialog .k7-lead-form{gap:6px}.niche-page .niche-dialog .k7-lead-form input,.niche-page .niche-dialog .k7-lead-form select{min-height:36px;padding:6px 10px}}

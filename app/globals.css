@@ -631,3 +631,14 @@ em { color: var(--blue); font-style: normal; }
 }
 @keyframes k7-cta-snake{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.k7-section-cta-button::before{animation:none;background:transparent}.k7-section-cta-button{transition:none}}
+
+
+/* Formulários e modais: visual neutro, compactos, sem rolagem interna em telas usuais. */
+.k7-lead-card{background:#101216;border-color:#343941;box-shadow:0 20px 60px rgba(0,0,0,.22)}
+.k7-contact-dialog{overflow:visible;max-height:none;background:#101216;border-radius:20px}
+.k7-contact-dialog .k7-lead-card{padding:clamp(14px,2vh,24px)}
+.k7-contact-dialog .k7-lead-card-heading{margin-bottom:12px}
+.k7-contact-dialog .k7-lead-form{gap:9px}
+.k7-contact-dialog .k7-lead-form input,.k7-contact-dialog .k7-lead-form select{min-height:42px;padding:8px 12px}
+.k7-contact-dialog .k7-lead-submit{min-height:44px}
+@media(max-height:730px){.k7-contact-dialog .k7-lead-card{padding:12px 18px}.k7-contact-dialog .k7-lead-card-heading h2{font-size:21px;margin:5px 0}.k7-contact-dialog .k7-lead-form{gap:6px}.k7-contact-dialog .k7-lead-form input,.k7-contact-dialog .k7-lead-form select{min-height:36px;padding:6px 10px}}
