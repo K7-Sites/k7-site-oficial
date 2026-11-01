@@ -95,3 +95,6 @@
 .niche-page.niche-care .niche-dialog .k7-lead-form input,.niche-page.niche-care .niche-dialog .k7-lead-form select{min-height:42px;padding:9px 12px}
 .niche-page.niche-care .niche-dialog .niche-close{top:8px;right:10px;color:#172033}
 @media(max-height:700px){.niche-page.niche-care .niche-dialog .k7-lead-card{padding:12px 18px}.niche-page.niche-care .niche-dialog .k7-lead-form{gap:6px}.niche-page.niche-care .niche-dialog .k7-lead-card-heading h2{font-size:20px}}
+
+/* A seção de projetos da home usa .reveal; nas páginas de psicologia ela deve aparecer sem depender do observador da home. */
+.niche-page.niche-care .projects .reveal{opacity:1;transform:none}
