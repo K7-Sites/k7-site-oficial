@@ -358,12 +358,6 @@ export default function Home() {
         <CounterStat value={100} suffix="%" label="Responsivo e rápido" />
       </div></section>
 
-      <section className="k7-benefits-strip" aria-label="Diferenciais da K7 Sites"><div className="container k7-benefits-grid">
-        <article className="k7-benefit-item reveal"><strong>Design</strong><p>Sob medida</p></article>
-        <article className="k7-benefit-item reveal"><strong>SEO</strong><p>Boas práticas</p></article>
-        <article className="k7-benefit-item reveal"><strong>Contato</strong><p>WhatsApp integrado</p></article>
-        <article className="k7-benefit-item reveal"><strong>Mobile</strong><p>Layout responsivo</p></article>
-      </div></section>
 
       <section className="home-performance-art" aria-label="Indicadores de desempenho de uma landing page">
         <div className="container">
