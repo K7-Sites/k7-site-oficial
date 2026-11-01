@@ -2,6 +2,7 @@ import type {Metadata} from "next";
 import {notFound} from "next/navigation";
 import {getNichePage,pages} from "@/lib/niche-pages";
 import {NichePageClient} from "@/components/niche-page-client";
+import {faqs} from "@/components/shared-social-proof";
 import "./niche-pages.css";
 export function generateStaticParams(){return pages.map(([slug])=>({slug}));}
 export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{
@@ -15,7 +16,7 @@ export async function generateMetadata({params}:{params:Promise<{slug:string}>})
 export default async function Page({params}:{params:Promise<{slug:string}>}){
  const {slug}=await params;const config=getNichePage(slug);if(!config)notFound();
  const {niche,kind}=config;const product=kind==="site"?"criação de sites institucionais":"criação de landing pages";
- const faq=[{"@type":"Question",name:`O projeto para ${niche.name} é responsivo?`,acceptedAnswer:{"@type":"Answer",text:"Sim. O layout é desenvolvido para celulares, tablets e computadores."}},{"@type":"Question",name:`A ${kind==="site"?"criação do site":"landing page"} inclui SEO?`,acceptedAnswer:{"@type":"Answer",text:"O projeto inclui fundamentos de SEO técnico e conteúdo, sem garantia de posicionamento."}}];
+ const faq=faqs.map(([name,answer])=>({"@type":"Question",name,acceptedAnswer:{"@type":"Answer",text:answer}}));
  const structured={"@context":"https://schema.org","@graph":[{"@type":"Service",name:`${product} para ${niche.name}`,serviceType:product,provider:{"@type":"Organization",name:"K7 Sites",url:"https://www.k7sites.com.br"},areaServed:{"@type":"Country",name:"Brasil"},url:`https://www.k7sites.com.br/${slug}`,description:`Projeto de ${product} para ${niche.audience}, com SEO, design responsivo e WhatsApp.`},{"@type":"FAQPage",mainEntity:faq}]};
  return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structured).replace(/</g,"\\u003c")}}/><NichePageClient slug={slug} niche={niche} kind={kind}/></>;
 }
