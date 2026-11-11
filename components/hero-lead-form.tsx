@@ -89,11 +89,29 @@ export function HeroLeadForm({ placement = "hero", copy = defaultCopy, leadConte
         const body = await response.json().catch(() => null);
         throw new Error(typeof body?.message === "string" ? body.message : "Não foi possível enviar o contato. Tente novamente.");
       }
-      trackEvent("form_contato_enviado", {
-        page_path: window.location.pathname,
-        project_type: String(values.get("service") ?? ""),
-        form_placement: placement,
-      });
+      // Give GA4 a chance to dispatch the successful-lead event before navigation.
+      // Analytics is optional: never delay the CRM confirmation indefinitely or
+      // bypass the visitor's cookie choice.
+      const analyticsReady = typeof window.gtag === "function";
+      if (analyticsReady) {
+        await new Promise<void>((resolve) => {
+          let completed = false;
+          const finish = () => {
+            if (completed) return;
+            completed = true;
+            window.clearTimeout(timeout);
+            resolve();
+          };
+          const timeout = window.setTimeout(finish, 800);
+          window.gtag?.("event", "form_contato_enviado", {
+            page_path: window.location.pathname,
+            project_type: String(values.get("service") ?? ""),
+            form_placement: placement,
+            event_callback: finish,
+            event_timeout: 700,
+          });
+        });
+      }
       setSuccess(true);
       submissionId.current = null;
       window.location.assign("/mensagem-recebida-com-sucesso");
