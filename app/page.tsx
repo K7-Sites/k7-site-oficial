@@ -329,7 +329,7 @@ export default function Home() {
         <TestimonialsSlider />
       </div></section>
 
-      <section className="section pricing" id="investimento"><div className="pricing-rockets" aria-hidden="true">{Array.from({ length: 12 }).map((_, index) => <span key={index}>🚀</span>)}</div><div className="container">
+      <section className="section pricing" id="investimento" style={{ display: "none" }}><div className="pricing-rockets" aria-hidden="true">{Array.from({ length: 12 }).map((_, index) => <span key={index}>🚀</span>)}</div><div className="container">
         <div className="section-heading centered reveal"><p className="eyebrow"><span /> INVESTIMENTO</p><h2>Escolha o projeto <em>que cabe no seu objetivo.</em></h2><p>Compare as opções e peça seu orçamento sem compromisso.</p></div>
         <div className="pricing-grid">{[
           { name: "FLASH START", subtitle: "1 PÁGINA", price: "R$ 399,00", delivery: "APENAS 3 DIAS ÚTEIS", icon: "rocket", features: ["Landing page de alta conversão", "Design moderno e responsivo", "Hospedagem inclusa (1º ano)", "SEO local configurado", "Integração com WhatsApp", "Formulário de captação"] },
