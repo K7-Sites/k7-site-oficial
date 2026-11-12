@@ -209,7 +209,7 @@ export default function Home() {
                 return <span className={`hero-title-word${word.accent ? " is-accent" : ""}${wordIndex < heroTitleWords.length - 1 ? " has-space" : ""}`} key={word.text}>{Array.from(word.text).map((character, characterIndex) => <span className="hero-title-character" style={{ animationDelay: `${280 + (characterOffset + characterIndex) * 34}ms` }} key={`${word.text}-${characterIndex}`}>{character}</span>)}</span>;
               })}
             </h1>
-            <p className="hero-lead enter delay-2">Criamos sites e landing pages sob medida, com design profissional e textos que levam o visitante a pedir orçamento. Landing pages a partir de R$ 399.</p>
+            <p className="hero-lead enter delay-2">Criamos sites e landing pages sob medida, com design profissional e textos que levam o visitante a pedir orçamento. Solicite uma proposta personalizada para o seu negócio.</p>
             <div className="hero-actions enter delay-3"><a className="button button-primary" href="#orcamento">Quero meu orçamento <Arrow /></a><a className="button button-ghost" href="#projetos">Ver projetos <Arrow diagonal /></a></div>
             <ul className="hero-benefits enter delay-4"><li><Check /> Projeto feito para o seu negócio</li><li><Check /> Atendimento direto com quem cria</li><li><Check /> Orçamento sem compromisso</li></ul>
           </div>

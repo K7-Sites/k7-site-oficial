@@ -19,7 +19,7 @@ const sora = Sora({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.k7sites.com.br"),
   title: "Criação de Sites e Landing Pages que Geram Clientes | K7 Sites",
-  description: "Sites e landing pages feitos para transformar visitas em orçamentos. A partir de R$ 399. Peça seu orçamento sem compromisso.",
+  description: "Sites e landing pages profissionais feitos sob medida para sua empresa. Solicite um orçamento sem compromisso.",
   alternates: {
     canonical: "https://www.k7sites.com.br/",
   },
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Criação de Sites e Landing Pages | K7 Sites",
-    description: "Sites e landing pages feitos para transformar visitas em orçamentos. A partir de R$ 399. Peça seu orçamento sem compromisso.",
+    description: "Sites e landing pages profissionais feitos sob medida para sua empresa. Solicite um orçamento sem compromisso.",
     url: "https://www.k7sites.com.br/",
     siteName: "K7 Sites",
     type: "website",
@@ -85,7 +85,7 @@ const jsonLd = {
     {
       "@type": "FAQPage",
       mainEntity: [
-        ["Quanto custa criar um site profissional?", "Na K7 Sites, temos projetos a partir de R$ 399. O valor final depende do tipo de site, das funcionalidades e das necessidades do seu negócio."],
+        ["Como solicitar um orçamento para meu site?", "Entre em contato com a K7 Sites para receber uma proposta personalizada de acordo com o tipo de site, as funcionalidades e as necessidades do seu negócio."],
         ["Qual é o prazo para desenvolver o projeto?", "O prazo é definido conforme o escopo, a aprovação da proposta e o envio dos materiais necessários. A estimativa é apresentada antes do início do desenvolvimento."],
         ["Meu site vai funcionar no celular?", "Sim. Desenvolvemos sites responsivos, adaptados para diferentes tamanhos de tela."],
         ["O site é preparado para SEO?", "Sim. Aplicamos boas práticas técnicas para facilitar a indexação e a compreensão do conteúdo pelos buscadores. O posicionamento também depende de conteúdo, concorrência e autoridade do domínio."],
