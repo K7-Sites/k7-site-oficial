@@ -12,9 +12,6 @@ export const metadata: Metadata = {
   },
 };
 
-const whatsappLink =
-  "https://wa.me/5511949214071?text=Ol%C3%A1%21%20Acabei%20de%20enviar%20o%20formul%C3%A1rio%20no%20site%20da%20K7%20Sites.";
-
 export default function MessageReceivedPage() {
   return (
     <main className={styles.page}>
@@ -33,18 +30,15 @@ export default function MessageReceivedPage() {
         <p className={styles.eyebrow}>MENSAGEM ENVIADA</p>
         <h1>Em minutos <em>entraremos em contato.</em></h1>
         <p className={styles.lead}>
-          Se preferir, pode nos chamar pelo botão abaixo.
+          Recebemos sua mensagem. Nossa equipe retornará em breve.
         </p>
 
         <div className={styles.actions}>
           <Link className={styles.primary} href="/">Voltar para o site <span>→</span></Link>
-          <a className={styles.secondary} href={whatsappLink} target="_blank" rel="noreferrer">
-            <Image src="/whatsapp.svg" alt="" width={20} height={20} aria-hidden="true" /> Falar agora: (11) 94921-4071 <span>↗</span>
-          </a>
         </div>
 
         <p className={styles.note}>
-          Se precisar complementar alguma informação, fale com a K7 pelo WhatsApp ou envie um e-mail para <a href="mailto:k7sites@gmail.com">k7sites@gmail.com</a>.
+          Se precisar complementar alguma informação, envie um e-mail para <a href="mailto:k7sites@gmail.com">k7sites@gmail.com</a>.
         </p>
       </section>
     </main>
