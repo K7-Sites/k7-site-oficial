@@ -62,7 +62,7 @@ const jsonLd = {
       url: "https://www.k7sites.com.br/",
       logo: "https://www.k7sites.com.br/k7-logo.png",
       email: "k7sites@gmail.com",
-      telephone: "+5511949214071",
+      telephone: "+5511992108602",
     },
     {
       "@type": "Service",

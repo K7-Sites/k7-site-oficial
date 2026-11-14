@@ -10,7 +10,7 @@ import { HomeProjectsSection } from "@/components/ui/home-projects-gallery";
 import { SitePreloader } from "@/components/site-preloader";
 import { trackEvent } from "@/lib/analytics";
 
-const whatsappLink = "https://wa.me/5511949214071?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20K7%20Sites%20e%20gostaria%20de%20pedir%20um%20or%C3%A7amento.";
+const whatsappLink = "https://wa.me/5511992108602?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20K7%20Sites%20e%20gostaria%20de%20pedir%20um%20or%C3%A7amento.";
 const googleReviewsLink = "https://share.google/pDIhvdTpTxOyWEIOe";
 const heroTitleWords = [
   { text: "Seu" }, { text: "site" }, { text: "precisa" }, { text: "trazer" },

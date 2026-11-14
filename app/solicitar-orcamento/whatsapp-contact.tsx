@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 
-const whatsapp = "https://wa.me/5511949214071?text=" + encodeURIComponent("Olá! Vim pela página de orçamento da K7 Sites e quero conversar sobre uma landing page para meu negócio.");
+const whatsapp = "https://wa.me/5511992108602?text=" + encodeURIComponent("Olá! Vim pela página de orçamento da K7 Sites e quero conversar sobre uma landing page para meu negócio.");
 
 export function WhatsAppContact({ className }: { className: string }) {
   const [editing, setEditing] = useState(false);

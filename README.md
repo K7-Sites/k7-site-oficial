@@ -99,7 +99,7 @@ Antes de qualquer publicação, execute `pnpm check` e revise SEO, links, respon
 
 ## Contato comercial
 
-- WhatsApp: `(11) 94921-4071`
+- WhatsApp: `(11) 99210-8602`
 - E-mail: `k7sites@gmail.com`
 
 ## Documentação complementar

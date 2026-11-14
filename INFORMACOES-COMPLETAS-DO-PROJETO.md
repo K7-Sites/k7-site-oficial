@@ -12,7 +12,7 @@ Este projeto é o site comercial da K7 Sites, criado para apresentar serviços, 
 - Navegação da homepage: página principal com âncoras internas
 - Hospedagem oficial: Vercel
 - Domínio canônico: `https://www.k7sites.com.br`
-- WhatsApp comercial: (11) 94921-4071
+- WhatsApp comercial: (11) 99210-8602
 - E-mail: k7sites@gmail.com
 - Perfil de avaliações: https://share.google/pDIhvdTpTxOyWEIOe
 
@@ -172,7 +172,7 @@ Os mockups são demonstrativos. Exceto pela barbearia já existente, nomes, ende
 
 Todos os principais botões levam para:
 
-`https://wa.me/5511949214071`
+`https://wa.me/5511992108602`
 
 A mensagem identifica que o visitante chegou pelo site da K7 Sites. O botão flutuante, o header, os cards de preços, as chamadas para ação e o formulário utilizam esse canal.
 

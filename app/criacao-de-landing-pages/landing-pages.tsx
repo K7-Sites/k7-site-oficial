@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { HeroLeadForm } from "@/components/hero-lead-form";
 import { trackEvent } from "@/lib/analytics";
 
-const whatsapp = "https://wa.me/5511949214071?text=" + encodeURIComponent("Olá! Vim pela página de Landing Pages da K7 Sites e gostaria de solicitar um orçamento.");
+const whatsapp = "https://wa.me/5511992108602?text=" + encodeURIComponent("Olá! Vim pela página de Landing Pages da K7 Sites e gostaria de solicitar um orçamento.");
 const reviewsUrl = "https://share.google/pDIhvdTpTxOyWEIOe";
 
 const marquee = ["PROFISSIONALISMO", "CONVERSÃO", "PERSONALIZAÇÃO", "PERFORMANCE", "DESIGN", "ESTRATÉGIA", "COPYWRITING"];

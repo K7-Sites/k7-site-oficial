@@ -101,7 +101,7 @@ const jsonLd = {
         name: "K7 Sites",
         url: siteUrl,
         email: "k7sites@gmail.com",
-        telephone: "+5511949214071",
+        telephone: "+5511992108602",
       },
       offers: {
         "@type": "Offer",

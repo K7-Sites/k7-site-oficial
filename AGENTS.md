@@ -103,8 +103,8 @@ Este arquivo define as regras permanentes para qualquer agente de código que tr
 
 ## 6. Conteúdo e dados comerciais aprovados
 
-- WhatsApp: `(11) 94921-4071`.
-- Link base do WhatsApp: `https://wa.me/5511949214071`.
+- WhatsApp: `(11) 99210-8602`.
+- Link base do WhatsApp: `https://wa.me/5511992108602`.
 - E-mail: `k7sites@gmail.com`.
 - Avaliações do Google: `https://share.google/pDIhvdTpTxOyWEIOe`.
 - Landing page: a partir de `R$ 399,00`.
