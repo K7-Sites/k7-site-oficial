@@ -56,21 +56,15 @@
   height: auto;
 }
 
-.icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 20px;
-  display: grid;
-  place-items: center;
+.portrait {
+  width: 128px;
+  height: 128px;
+  margin: 0 auto 24px;
+  display: block;
+  object-fit: cover;
   border-radius: 50%;
-  color: #fff;
-  background: linear-gradient(145deg, #1565ff, #00a8ff);
+  border: 2px solid #1565ff;
   box-shadow: 0 0 0 10px rgba(21,101,255,.1), 0 18px 45px rgba(21,101,255,.3);
-}
-
-.icon svg {
-  width: 32px;
-  height: 32px;
 }
 
 .eyebrow {
@@ -98,7 +92,7 @@
 .lead {
   max-width: 650px;
   margin: 22px auto 0;
-  color: rgba(255,255,255,.6);
+  color: rgba(255,255,255,.8);
   font-size: 15px;
   line-height: 1.8;
 }
@@ -159,6 +153,14 @@
   flex-wrap: wrap;
 }
 
+.contactPrompt {
+  max-width: 650px;
+  margin: 16px auto 0;
+  color: rgba(255,255,255,.8);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
 .primary,
 .secondary {
   min-height: 52px;
@@ -168,6 +170,7 @@
   justify-content: center;
   gap: 16px;
   border: 1px solid transparent;
+  border-radius: 12px;
   font-family: var(--font-sora), sans-serif;
   font-size: 12px;
   font-weight: 650;
@@ -195,6 +198,17 @@
 
 .secondary:hover {
   border-color: rgba(255,255,255,.42);
+}
+
+.primary:focus-visible,
+.secondary:focus-visible {
+  outline: 2px solid #00a8ff;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primary, .secondary { transition: none; }
+  .primary:hover, .secondary:hover { transform: none; }
 }
 
 .note {

@@ -1,7 +1,12 @@
 "use client";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export function LegalFooter() {
+  const pathname = usePathname();
+
+  if (pathname?.replace(/\/$/, "") === "/mensagem-recebida-com-sucesso") return null;
+
   return (
     <footer className="k7-legal-footer" aria-label="Rodapé da K7 Sites">
       <div className="k7-legal-footer-inner">

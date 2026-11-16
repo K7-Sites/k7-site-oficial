@@ -21,25 +21,32 @@ export default function MessageReceivedPage() {
         <Link className={styles.logo} href="/" aria-label="Voltar para a K7 Sites">
           <Image src="/k7-preloader-logo.png" alt="K7 Sites" width={132} height={136} priority />
         </Link>
-        <div className={styles.icon} aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="m5 12.5 4.2 4.2L19 7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
+        <Image
+          className={styles.portrait}
+          src="/kassio-kennedy/kassio-kennedy-perfil.jpg"
+          alt="Kassio, do time K7 Sites"
+          width={128}
+          height={128}
+          priority
+        />
 
         <p className={styles.eyebrow}>MENSAGEM ENVIADA</p>
-        <h1>Em minutos <em>entraremos em contato.</em></h1>
+        <h1>Mensagem recebida <em>com sucesso!</em></h1>
         <p className={styles.lead}>
-          Recebemos sua mensagem. Nossa equipe retornará em breve.
+          Olá! Meu nome é Kassio e faço parte do time K7 Sites. Em alguns minutos,
+          entrarei em contato com você.
+        </p>
+        <p className={styles.contactPrompt}>
+          Caso prefira, você pode entrar em contato agora mesmo pelo número abaixo. 👇
         </p>
 
         <div className={styles.actions}>
-          <Link className={styles.primary} href="/">Voltar para o site <span>→</span></Link>
+          <a className={styles.primary} href="https://wa.me/5511992108602" target="_blank" rel="noopener noreferrer" aria-label="Conversar com Kassio no WhatsApp: (11) 99210-8602">
+            <Image src="/whatsapp.svg" alt="" width={22} height={22} />
+            (11) 99210-8602
+          </a>
+          <Link className={styles.secondary} href="/">Voltar para o site <span aria-hidden="true">→</span></Link>
         </div>
-
-        <p className={styles.note}>
-          Se precisar complementar alguma informação, envie um e-mail para <a href="mailto:k7sites@gmail.com">k7sites@gmail.com</a>.
-        </p>
       </section>
     </main>
   );
