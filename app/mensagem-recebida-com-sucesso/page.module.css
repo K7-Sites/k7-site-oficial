@@ -62,39 +62,38 @@
   margin: 0 auto 24px;
   display: block;
   object-fit: cover;
+  object-position: center 30%;
   border-radius: 50%;
   border: 2px solid #1565ff;
   box-shadow: 0 0 0 10px rgba(21,101,255,.1), 0 18px 45px rgba(21,101,255,.3);
 }
 
-.eyebrow {
-  margin: 0 0 14px;
-  color: #65bfff;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: .18em;
-}
-
 .card h1 {
   max-width: 690px;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
   font-family: var(--font-sora), sans-serif;
-  font-size: clamp(38px, 6vw, 64px);
-  line-height: 1.04;
+  font-size: clamp(26px, 4vw, 40px);
+  line-height: 1.2;
   letter-spacing: -.05em;
 }
 
-.card h1 em {
-  color: #1565ff;
-  font-style: normal;
+.check {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  color: #00a8ff;
 }
 
 .lead {
   max-width: 650px;
   margin: 22px auto 0;
   color: rgba(255,255,255,.8);
-  font-size: 15px;
-  line-height: 1.8;
+  font-size: clamp(18px, 2.5vw, 22px);
+  line-height: 1.65;
 }
 
 .nextSteps {

@@ -4,7 +4,7 @@ import Link from "next/link";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Mensagem recebida com sucesso | K7 Sites",
+  title: "Mensagem recebida | K7 Sites",
   description: "Confirmação de envio do formulário de contato da K7 Sites.",
   robots: {
     index: false,
@@ -23,15 +23,20 @@ export default function MessageReceivedPage() {
         </Link>
         <Image
           className={styles.portrait}
-          src="/kassio-kennedy/kassio-kennedy-perfil.jpg"
+          src="/kassio-kennedy/kassio-kennedy-desenvolvimento.jpg"
           alt="Kassio, do time K7 Sites"
           width={128}
           height={128}
           priority
         />
 
-        <p className={styles.eyebrow}>MENSAGEM ENVIADA</p>
-        <h1>Mensagem recebida <em>com sucesso!</em></h1>
+        <h1>
+          <span>Mensagem recebida</span>
+          <svg className={styles.check} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
+            <path d="m7.5 12 3 3 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </h1>
         <p className={styles.lead}>
           Olá! Meu nome é Kassio e faço parte do time K7 Sites. Em alguns minutos,
           entrarei em contato com você.
@@ -41,11 +46,11 @@ export default function MessageReceivedPage() {
         </p>
 
         <div className={styles.actions}>
-          <a className={styles.primary} href="https://wa.me/5511992108602" target="_blank" rel="noopener noreferrer" aria-label="Conversar com Kassio no WhatsApp: (11) 99210-8602">
+          <a className={styles.secondary} href="https://wa.me/5511992108602" target="_blank" rel="noopener noreferrer" aria-label="Conversar com Kassio no WhatsApp: (11) 99210-8602">
             <Image src="/whatsapp.svg" alt="" width={22} height={22} />
             (11) 99210-8602
           </a>
-          <Link className={styles.secondary} href="/">Voltar para o site <span aria-hidden="true">→</span></Link>
+          <Link className={styles.primary} href="/">Voltar para o site <span aria-hidden="true">→</span></Link>
         </div>
       </section>
     </main>
