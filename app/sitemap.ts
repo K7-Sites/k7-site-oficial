@@ -13,6 +13,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    {
+      url: "https://www.k7sites.com.br/criacao-de-sites-na-zona-norte/",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
     ...pages.map(([slug]) => ({ url: "https://www.k7sites.com.br/" + slug, changeFrequency: "monthly" as const, priority: 0.8 })),
     ...["politica-de-privacidade", "termos-de-servico", "politica-de-reembolso"].map(path => ({ url: "https://www.k7sites.com.br/" + path, changeFrequency: "yearly" as const, priority: 0.3 })),
   ];
