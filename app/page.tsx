@@ -2,21 +2,19 @@
 
 import Image from "next/image";
 import { HeroLeadForm } from "@/components/hero-lead-form";
-import {TestimonialsSlider, testimonials} from "@/components/shared-social-proof";
+import {TestimonialsSlider} from "@/components/shared-social-proof";
 import {faqs} from "@/lib/faqs";
 import { useEffect, useRef, useState } from "react";
 import { ImageStream } from "@/components/ui/image-stream";
 import { HomeProjectsSection } from "@/components/ui/home-projects-gallery";
 import { SitePreloader } from "@/components/site-preloader";
 import { trackEvent } from "@/lib/analytics";
-import "./home-hero.css";
 
 const whatsappLink = "https://wa.me/5511992108602?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20K7%20Sites%20e%20gostaria%20de%20pedir%20um%20or%C3%A7amento.";
 const googleReviewsLink = "https://share.google/pDIhvdTpTxOyWEIOe";
-const heroTitleLines = [
-  [{ text: "Sites" }, { text: "que" }],
-  [{ text: "transformam" }],
-  [{ text: "visitantes", accent: true }, { text: "em" }, { text: "clientes." }],
+const heroTitleWords = [
+  { text: "Seu" }, { text: "site" }, { text: "precisa" }, { text: "trazer" },
+  { text: "clientes." }, { text: "Não" }, { text: "só" }, { text: "existir.", accent: true },
 ];
 
 const technologies = [
@@ -200,81 +198,30 @@ export default function Home() {
 
 
 
-      <section className="hero hero--showcase" id="inicio">
+      <section className="hero" id="inicio">
         <div className="hero-grid" aria-hidden="true" /><div className="hero-glow" aria-hidden="true" />
         <div className="container hero-layout" id="conteudo">
           <div className="hero-copy">
-            <p className="hero-showcase-badge enter">
-              <span className="hero-showcase-status-dot" aria-hidden="true" />
-              <span>Agendamento de projetos para novembro <span aria-hidden="true">·</span> <strong>Restam 3 vagas de design grátis</strong></span>
-            </p>
-            <h1 className="enter delay-1" aria-label="Sites que transformam visitantes em clientes.">
-              {heroTitleLines.map((line, lineIndex) => (
-                <span className="hero-title-line" key={lineIndex}>
-                  {line.map((word, wordIndex) => {
-                    const previousLines = heroTitleLines.slice(0, lineIndex).flat();
-                    const characterOffset = [...previousLines, ...line.slice(0, wordIndex)].reduce((total, item) => total + item.text.length, 0);
-                    return <span className={`hero-title-word${"accent" in word && word.accent ? " is-accent" : ""}${wordIndex < line.length - 1 ? " has-space" : ""}`} key={word.text}>{Array.from(word.text).map((character, characterIndex) => <span className="hero-title-character" style={{ animationDelay: `${280 + (characterOffset + characterIndex) * 34}ms` }} key={`${word.text}-${characterIndex}`}>{character}</span>)}</span>;
-                  })}
-                </span>
-              ))}
+            <p className="eyebrow enter"><span /> PARA QUEM QUER MAIS CLIENTES PELA INTERNET</p>
+            <h1 className="enter delay-1" aria-label="Seu site precisa trazer clientes. Não só existir.">
+              {heroTitleWords.map((word, wordIndex) => {
+                const characterOffset = heroTitleWords.slice(0, wordIndex).reduce((total, item) => total + item.text.length, 0);
+                return <span className={`hero-title-word${word.accent ? " is-accent" : ""}${wordIndex < heroTitleWords.length - 1 ? " has-space" : ""}`} key={word.text}>{Array.from(word.text).map((character, characterIndex) => <span className="hero-title-character" style={{ animationDelay: `${280 + (characterOffset + characterIndex) * 34}ms` }} key={`${word.text}-${characterIndex}`}>{character}</span>)}</span>;
+              })}
             </h1>
-            <p className="hero-lead enter delay-2">Criamos sites e landing pages profissionais, rápidos e feitos sob medida para o seu negócio. <strong>Um site pensado para transformar visitas em oportunidades reais de contato.</strong></p>
-            <div className="hero-actions enter delay-3">
-              <a className="button button-primary" href="#orcamento">Solicitar meu orçamento <Arrow /></a>
-              <a className="button button-light hero-showcase-secondary" href={whatsappLink} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("hero", "Conversar no WhatsApp")}>
-                <Image src="/whatsapp.svg" alt="" width={20} height={20} aria-hidden="true" /> Conversar no WhatsApp
-              </a>
-            </div>
-            <a className="hero-showcase-social enter delay-4" href={googleReviewsLink} target="_blank" rel="noopener noreferrer" aria-label="Ver avaliações de clientes da K7 Sites no Google">
-              <span className="hero-showcase-avatars" aria-hidden="true">
-                {testimonials.slice(0, 5).map((review) => <span key={review.name}>{review.name.split(" ").filter(Boolean).slice(0, 2).map((part) => part.charAt(0)).join("").toUpperCase()}</span>)}
-              </span>
-              <span className="hero-showcase-review"><span className="hero-showcase-stars" aria-hidden="true">★★★★★</span><span><strong>5,0</strong> · Avaliações de clientes no Google</span></span>
-            </a>
-            <p className="hero-showcase-guarantee enter delay-4">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2 20 6v6c0 5-3.3 8.7-8 10-4.7-1.3-8-5-8-10V6l8-4Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/><path d="m8.4 12.2 2.3 2.3 4.9-5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              Orçamento sem compromisso <span aria-hidden="true">·</span> Atendimento direto
-            </p>
+            <p className="hero-lead enter delay-2">Criamos sites e landing pages sob medida, com design profissional e textos que levam o visitante a pedir orçamento. Solicite uma proposta personalizada para o seu negócio.</p>
+            <div className="hero-actions enter delay-3"><a className="button button-primary" href="#orcamento">Quero meu orçamento <Arrow /></a><a className="button button-ghost" href="#projetos">Ver projetos <Arrow diagonal /></a></div>
+            <ul className="hero-benefits enter delay-4"><li><Check /> Projeto feito para o seu negócio</li><li><Check /> Atendimento direto com quem cria</li><li><Check /> Orçamento sem compromisso</li></ul>
           </div>
-          <div className="hero-device-stage hero-showcase-stage enter delay-2" role="img" aria-label="Composição ilustrativa com espaços reservados para imagens de sites em notebook, celular e janelas sobrepostas">
-            <div className="hero-device-aura" aria-hidden="true" />
-            <div className="hero-showcase-window hero-showcase-window--top" aria-hidden="true">
-              <div className="hero-showcase-window-bar"><i /><i /><i /></div>
-              <div className="hero-showcase-window-content"><span className="hero-showcase-placeholder-line" /><span className="hero-showcase-placeholder-line is-short" /><div className="hero-showcase-placeholder-visual" /></div>
-            </div>
-            <div className="hero-showcase-window hero-showcase-window--bottom" aria-hidden="true">
-              <div className="hero-showcase-window-bar"><i /><i /><i /></div>
-              <div className="hero-showcase-window-content"><span className="hero-showcase-placeholder-line" /><div className="hero-showcase-placeholder-grid"><i /><i /><i /></div></div>
-            </div>
-            <div className="hero-laptop" aria-hidden="true">
-              <div className="hero-laptop-display">
-                <div className="hero-device-browser"><span /><span /><span /><small>Prévia do site</small></div>
-                <div className="hero-showcase-laptop-slot">
-                  <div className="hero-showcase-slot-nav"><b>K7</b><span /><span /><span /></div>
-                  <div className="hero-showcase-slot-body">
-                    <div className="hero-showcase-slot-copy"><i /><strong>Seu projeto aqui</strong><span /><span className="is-short" /><b /></div>
-                    <div className="hero-showcase-slot-image" />
-                  </div>
-                  <div className="hero-showcase-slot-tiles"><i /><i /><i /></div>
-                </div>
-              </div>
-              <div className="hero-laptop-base"><div className="hero-laptop-notch" /></div>
-            </div>
-            <div className="hero-phone" aria-hidden="true">
-              <div className="hero-phone-camera" />
-              <div className="hero-phone-screen hero-showcase-phone-slot">
-                <span className="hero-showcase-phone-brand">K7</span>
-                <div className="hero-showcase-phone-visual" />
-                <strong>Seu site no celular</strong>
-                <span className="hero-showcase-phone-line" /><span className="hero-showcase-phone-line is-short" />
-                <span className="hero-showcase-phone-button" />
-              </div>
-            </div>
-            <div className="hero-showcase-float hero-showcase-float--top" aria-hidden="true"><span className="hero-showcase-float-icon">▣</span><span><strong>Design sob medida</strong><small>Layout personalizado</small></span></div>
-            <div className="hero-showcase-float hero-showcase-float--right" aria-hidden="true"><span className="hero-showcase-float-icon">▤</span><span><strong>Site responsivo</strong><small>Desktop e celular</small></span></div>
-            <div className="hero-showcase-float hero-showcase-float--bottom" aria-hidden="true"><span className="hero-showcase-float-icon">↗</span><span><strong>Contato facilitado</strong><small>WhatsApp integrado</small></span></div>
-          </div>
+          <div className="hero-device-stage enter delay-2" aria-label="Mockup ilustrativo de site responsivo em notebook e celular">
+  <div className="hero-device-aura" aria-hidden="true" />
+  <div className="hero-laptop"><div className="hero-laptop-display">
+    <div className="hero-device-browser"><span/><span/><span/><small>k7sites.com.br</small></div>
+    <div className="hero-barber-preview"><Image src="/project-stream/barbearia.png" alt="Prévia do projeto de barbearia da galeria" fill sizes="(max-width: 860px) 95vw, 650px" className="hero-barber-preview-image" /></div>
+  </div><div className="hero-laptop-base"><div className="hero-laptop-notch"/></div></div>
+  <div className="hero-phone"><div className="hero-phone-camera"/><div className="hero-phone-screen hero-phone-barber-screen"><Image src="/project-stream/barbearia.png" alt="Prévia mobile do projeto de barbearia" fill sizes="180px" className="hero-barber-preview-image" /></div></div>
+  <div className="hero-device-caption"><span className="hero-device-caption-dot"/> DESIGN RESPONSIVO <span>·</span> DESKTOP + MOBILE</div>
+</div>
         </div>
         <div className="hero-footer container"><span>ROLE PARA DESCOBRIR</span><span className="scroll-line" /><p>Estratégia <i>•</i> Design <i>•</i> Tecnologia</p></div>
       </section>
