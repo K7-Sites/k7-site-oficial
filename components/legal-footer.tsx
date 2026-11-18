@@ -19,6 +19,7 @@ export function LegalFooter() {
           <a href="/#projetos">Projetos</a>
           <a href="/#processo">Processo</a>
           <a href="/#sobre">Sobre</a>
+          <a href="/criacao-de-sites-na-zona-norte/">Sites na Zona Norte de SP</a>
           <a href="/politica-de-privacidade">Política de Privacidade</a>
           <a href="/termos-de-servico">Termos de Serviço</a>
           <a href="/politica-de-reembolso">Reembolso e Cancelamento</a>
