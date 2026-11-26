@@ -1,0 +1,1107 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Esquina Mineira | Comida mineira na Asa Norte, Brasília</title>
+<meta name="description" content="Buffet de comida mineira na 704/705 Norte, em Brasília. Almoço de segunda a sábado a partir das 11h30. Veja o cardápio do dia e fale com a gente pelo WhatsApp.">
+<meta name="theme-color" content="#14100C">
+<!-- Protótipo hospedado no domínio da K7 Sites: não indexar. Remover esta linha quando o site for publicado no domínio do restaurante. -->
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="restaurant">
+<meta property="og:title" content="Esquina Mineira — comida mineira na Asa Norte">
+<meta property="og:description" content="Buffet mineiro de segunda a sábado na 704/705 Norte, Brasília.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1612366753600-df819204bc65?auto=format&fit=crop&w=1200&q=75">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Restaurante Esquina Mineira",
+  "servesCuisine": ["Comida mineira", "Buffet"],
+  "telephone": "+55 61 99902-7373",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "SCRN 704/705 Bloco D Loja 42",
+    "addressLocality": "Brasília",
+    "addressRegion": "DF",
+    "postalCode": "70730-640",
+    "addressCountry": "BR"
+  },
+  "geo": {"@type": "GeoCoordinates", "latitude": -15.775352, "longitude": -47.8905097},
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "11:30", "closes": "15:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "11:30", "closes": "16:00"}
+  ]
+}
+</script>
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* =========================================================
+   TOKENS
+   ========================================================= */
+:root{
+  --bg:#14100C;
+  --bg-2:#1D1712;
+  --bg-3:#262019;
+  --paper:#F3EADB;
+  --paper-2:#EADDC8;
+  --ink:#1A130D;
+  --gold:#C9A063;
+  --gold-2:#E3C48E;
+  --clay:#B85C38;
+  --clay-2:#9C4A2A;
+  --herb:#5E7A45;
+  --muted:#A89884;
+  --muted-ink:#6D5B49;
+  --line:rgba(243,234,219,.12);
+  --line-ink:rgba(26,19,13,.12);
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --ease-in-out:cubic-bezier(.65,0,.35,1);
+  --gutter:clamp(16px,4vw,48px);
+  --max:1280px;
+  --r:18px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{
+  font-family:var(--sans);background:var(--bg);color:var(--paper);
+  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.ic{width:1em;height:1em;flex:none;display:inline-block;vertical-align:-.125em}
+::selection{background:var(--gold);color:var(--ink)}
+
+/* tipografia */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor;opacity:.7}
+.display{
+  font-family:var(--serif);font-weight:500;line-height:.95;letter-spacing:-.02em;
+}
+.display em{font-style:italic;color:var(--gold-2)}
+.h2{font-family:var(--serif);font-weight:500;font-size:clamp(42px,6.2vw,92px);line-height:.95;letter-spacing:-.02em}
+.h2 em{font-style:italic;color:var(--gold)}
+.lead{font-size:clamp(16px,1.35vw,19px);color:var(--muted);max-width:560px}
+.badge-demo{
+  display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  padding:5px 10px;border-radius:999px;border:1px dashed currentColor;opacity:.75;
+}
+
+/* botões */
+.btn{
+  position:relative;display:inline-flex;align-items:center;gap:10px;
+  height:54px;padding:0 26px;border-radius:999px;font-weight:600;font-size:15px;letter-spacing:.01em;
+  overflow:hidden;isolation:isolate;transition:color .5s var(--ease);will-change:transform;
+}
+.btn .ic{font-size:20px}
+.btn::before{
+  content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;
+  transform:translateY(101%);transition:transform .55s var(--ease);
+}
+.btn:hover::before{transform:translateY(0)}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold::before{background:var(--paper)}
+.btn-line{box-shadow:inset 0 0 0 1px rgba(243,234,219,.35);color:var(--paper)}
+.btn-line::before{background:var(--paper)}
+.btn-line:hover{color:var(--ink)}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-ink::before{background:var(--clay)}
+.btn-zap{background:#1FAF5A;color:#fff}
+.btn-zap::before{background:#178F49}
+.btn .arrow{transition:transform .5s var(--ease)}
+.btn:hover .arrow{transform:translateX(4px)}
+
+/* =========================================================
+   LOADER
+   ========================================================= */
+.loader{display:none}
+.js .loader{
+  position:fixed;inset:0;z-index:200;background:var(--bg);display:grid;place-items:center;
+  transition:transform 1s var(--ease-in-out) .1s;
+}
+.loader.done{transform:translateY(-100%)}
+.loader-inner{display:grid;justify-items:center;gap:22px}
+.loader-mark{
+  font-family:var(--serif);font-style:italic;font-size:64px;color:var(--gold);line-height:1;
+  opacity:0;transform:translateY(20px);animation:rise .9s var(--ease) .1s forwards;
+}
+.loader-bar{width:160px;height:1px;background:var(--line);overflow:hidden}
+.loader-bar i{display:block;height:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;animation:bar 1.1s var(--ease-in-out) .2s forwards}
+.loader-txt{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);opacity:0;animation:rise .8s var(--ease) .35s forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes bar{to{transform:scaleX(1)}}
+
+/* =========================================================
+   DEMO BAR + HEADER
+   ========================================================= */
+.demo-bar{
+  background:var(--clay);color:#fff;font-size:12.5px;text-align:center;padding:8px var(--gutter);
+}
+.demo-bar b{font-weight:700}
+.header{
+  position:fixed;left:0;right:0;top:0;z-index:50;
+  transition:transform .6s var(--ease),background .4s,backdrop-filter .4s,border-color .4s;
+  border-bottom:1px solid transparent;
+}
+.header.solid{background:rgba(20,16,12,.78);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);border-color:var(--line)}
+.header.hide{transform:translateY(-100%)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:84px;gap:24px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand-mark{
+  width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
+  border:1px solid rgba(201,160,99,.55);font-family:var(--serif);font-style:italic;font-size:22px;color:var(--gold);
+}
+.brand-name{font-family:var(--serif);font-size:24px;font-weight:600;line-height:1;letter-spacing:.01em}
+.brand-name small{display:block;font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+.nav-links{display:flex;gap:34px;font-size:14px;font-weight:500}
+.nav-links a{position:relative;opacity:.82;transition:opacity .3s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+.nav-links a:hover{opacity:1}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav-right{display:flex;align-items:center;gap:14px}
+.status{
+  display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;
+  padding:8px 14px;border-radius:999px;background:rgba(243,234,219,.06);border:1px solid var(--line);white-space:nowrap
+}
+.status i{width:8px;height:8px;border-radius:50%;background:#8C8174}
+.status.open i{background:#3FCF74;box-shadow:0 0 0 0 rgba(63,207,116,.6);animation:ping 2s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(63,207,116,.55)}80%,100%{box-shadow:0 0 0 10px rgba(63,207,116,0)}}
+.nav .btn{height:46px;padding:0 20px;font-size:14px}
+.burger{display:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);place-items:center;font-size:22px}
+@media (max-width:1060px){.nav-links{display:none}.burger{display:grid}}
+@media (max-width:640px){.demo-bar{font-size:11px;padding:6px 12px}.nav .btn-zap,.nav .status{display:none}.nav{height:72px}.brand-mark{width:40px;height:40px;font-size:19px}.brand-name{font-size:21px}}
+
+/* menu mobile */
+.mnav{
+  position:fixed;inset:0;z-index:70;background:var(--bg);display:flex;flex-direction:column;justify-content:space-between;
+  padding:24px var(--gutter) 36px;clip-path:inset(0 0 100% 0);transition:clip-path .8s var(--ease-in-out);visibility:hidden
+}
+.mnav.open{clip-path:inset(0 0 0 0);visibility:visible}
+.mnav-top{display:flex;justify-content:space-between;align-items:center}
+.mnav ul{list-style:none;display:grid;gap:6px}
+.mnav li a{font-family:var(--serif);font-size:clamp(44px,11vw,64px);line-height:1.1;display:block}
+.mnav li{overflow:hidden}
+.mnav li a{transform:translateY(100%);transition:transform .8s var(--ease)}
+.mnav.open li a{transform:none}
+.mnav.open li:nth-child(2) a{transition-delay:.06s}.mnav.open li:nth-child(3) a{transition-delay:.12s}.mnav.open li:nth-child(4) a{transition-delay:.18s}.mnav.open li:nth-child(5) a{transition-delay:.24s}
+.mnav-foot{display:grid;gap:14px;color:var(--muted);font-size:14px}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;padding:170px 0 0}
+.hero-media{position:absolute;inset:-8% 0 0 0;z-index:-2;background:linear-gradient(135deg,#3a2414,#14100c)}
+.hero-media img{width:100%;height:100%;object-fit:cover;transform:scale(1.18);transition:transform 2.4s var(--ease)}
+.loaded .hero-media img{transform:scale(1.04)}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(120% 80% at 70% 20%,rgba(20,16,12,.15),rgba(20,16,12,.75) 60%,rgba(20,16,12,.95)),
+    linear-gradient(180deg,rgba(20,16,12,.55) 0%,rgba(20,16,12,0) 30%,rgba(20,16,12,.85) 85%,var(--bg) 100%);
+}
+.grain{
+  position:absolute;inset:0;z-index:-1;opacity:.13;pointer-events:none;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.hero-content{width:100%;padding-bottom:clamp(28px,5vh,56px)}
+.hero h1{font-size:clamp(54px,9.6vw,150px);margin:22px 0 28px}
+.line{display:block;overflow:hidden;padding-bottom:.06em}
+.line > span{display:inline-block}
+.js .line > span{transform:translateY(110%);transition:transform 1.3s var(--ease)}
+.loaded .line > span{transform:none}
+.loaded .line:nth-child(2) > span{transition-delay:.12s}
+.loaded .line:nth-child(3) > span{transition-delay:.24s}
+.hero-row{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.hero-row .lead{color:rgba(243,234,219,.78)}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.js .fade-in{opacity:0;transform:translateY(24px);transition:opacity 1.2s var(--ease) .55s,transform 1.2s var(--ease) .55s}
+.loaded .fade-in{opacity:1;transform:none}
+.hero-meta{
+  margin-top:clamp(36px,6vh,72px);border-top:1px solid var(--line);
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.hero-meta > div{padding:22px 24px 0 0;display:flex;gap:14px;align-items:flex-start;font-size:14px}
+.hero-meta .ic{font-size:22px;color:var(--gold);margin-top:2px}
+.hero-meta b{display:block;font-weight:600;font-size:15px}
+.hero-meta span{color:var(--muted)}
+.scroll-cue{display:flex;align-items:center;gap:12px;justify-content:flex-end;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.scroll-cue i{position:relative;width:1px;height:46px;background:var(--line);overflow:hidden}
+.scroll-cue i::after{content:"";position:absolute;left:0;top:-50%;width:100%;height:50%;background:var(--gold);animation:cue 2s var(--ease-in-out) infinite}
+@keyframes cue{to{top:100%}}
+@media (max-width:900px){
+  .hero-meta{grid-template-columns:1fr 1fr;row-gap:6px}
+  .scroll-cue{display:none}
+}
+@media (max-width:520px){
+  .hero-meta{grid-template-columns:1fr}
+  .hero-meta > div{padding-top:16px}
+  .hero-ctas .btn{flex:1 1 100%;justify-content:center}
+}
+
+/* =========================================================
+   MARQUEE
+   ========================================================= */
+.marquee{border-block:1px solid var(--line);overflow:hidden;padding:26px 0;background:var(--bg)}
+.marquee-track{display:flex;width:max-content;animation:marq 38s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-group{display:flex;align-items:center;gap:44px;padding-right:44px}
+.marquee-group span{font-family:var(--serif);font-size:clamp(32px,4.6vw,62px);font-style:italic;white-space:nowrap;color:var(--paper)}
+.marquee-group span:nth-child(4n+3){color:transparent;-webkit-text-stroke:1px rgba(243,234,219,.55)}
+.marquee-group .ic{font-size:26px;color:var(--gold)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* =========================================================
+   SOBRE (paper)
+   ========================================================= */
+.paper{background:var(--paper);color:var(--ink)}
+.paper .eyebrow{color:var(--clay)}
+.paper .lead{color:var(--muted-ink)}
+.paper .h2 em{color:var(--clay)}
+.sec{padding:clamp(96px,13vw,180px) 0}
+.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,7vw,110px);align-items:center}
+.about-text .h2{margin:22px 0 34px}
+.reveal-words{font-family:var(--serif);font-size:clamp(24px,2.5vw,34px);line-height:1.3;font-weight:500;color:var(--ink)}
+.reveal-words .w{opacity:.16;transition:opacity .25s linear}
+.reveal-words .w.on{opacity:1}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px;border-top:1px solid var(--line-ink);padding-top:28px}
+.pillar .ic{font-size:30px;color:var(--clay);margin-bottom:12px}
+.pillar b{display:block;font-size:15px;margin-bottom:4px}
+.pillar span{font-size:14px;color:var(--muted-ink)}
+.about-media{position:relative;height:clamp(460px,58vw,720px)}
+.ph{position:relative;overflow:hidden;border-radius:var(--r);background:linear-gradient(140deg,#7b4a2b,#2a1b11)}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.ph:hover img{transform:scale(1.06)}
+.about-media .ph-a{position:absolute;right:0;top:0;width:78%;height:78%}
+.about-media .ph-b{position:absolute;left:0;bottom:0;width:48%;height:46%;border:8px solid var(--paper)}
+.seal{
+  position:absolute;left:30%;top:6%;width:132px;height:132px;border-radius:50%;background:var(--ink);color:var(--paper);
+  display:grid;place-items:center;z-index:3;box-shadow:0 30px 60px -20px rgba(0,0,0,.5)
+}
+.seal svg.ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 22s linear infinite}
+.seal .ic{font-size:34px;color:var(--gold)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:960px){
+  .about-grid{grid-template-columns:1fr}
+  .about-media{height:520px}
+  .pillars{grid-template-columns:1fr;gap:20px}
+  .pillar{display:grid;grid-template-columns:44px 1fr;align-items:start}
+  .pillar .ic{margin:0}
+}
+@media (max-width:520px){.about-media{height:420px}.seal{width:104px;height:104px;left:4%}}
+
+/* clip reveal de imagens */
+.js [data-clip]{clip-path:inset(100% 0 0 0);transition:clip-path 1.4s var(--ease)}
+.js [data-clip].in{clip-path:inset(0 0 0 0)}
+.js [data-clip] img{transform:scale(1.25);transition:transform 1.8s var(--ease)}
+.js [data-clip].in img{transform:scale(1)}
+.js [data-clip].in:hover img{transform:scale(1.06)}
+
+/* fade-up genérico */
+.js [data-reveal]{opacity:0;transform:translateY(40px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+.js [data-reveal].in{opacity:1;transform:none}
+
+/* =========================================================
+   PRATOS (dark)
+   ========================================================= */
+.dishes-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:clamp(48px,6vw,80px)}
+.dishes-head .h2{margin-top:20px}
+.dish-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(16px,2vw,28px)}
+.dish{position:relative;display:flex;flex-direction:column;gap:18px}
+.dish .ph{aspect-ratio:4/5}
+.dish:nth-child(1){grid-column:span 7}
+.dish:nth-child(1) .ph{aspect-ratio:16/11}
+.dish:nth-child(2){grid-column:span 5;margin-top:clamp(40px,8vw,120px)}
+.dish:nth-child(3){grid-column:span 4}
+.dish:nth-child(4){grid-column:span 4;margin-top:clamp(30px,5vw,80px)}
+.dish:nth-child(5){grid-column:span 4}
+.dish-tag{
+  position:absolute;top:16px;left:16px;z-index:2;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  background:rgba(20,16,12,.65);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:7px 12px;border-radius:999px;color:var(--paper)
+}
+.dish-info{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+.dish h3{font-family:var(--serif);font-weight:500;font-size:clamp(28px,2.6vw,40px);line-height:1}
+.dish p{color:var(--muted);font-size:14.5px;margin-top:8px;max-width:420px}
+.dish-num{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:20px}
+.dish .ph::after{
+  content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(20,16,12,.5));pointer-events:none
+}
+@media (max-width:960px){
+  .dish-grid{grid-template-columns:1fr 1fr}
+  .dish:nth-child(n){grid-column:span 1;margin-top:0}
+  .dish:nth-child(1){grid-column:1/-1}
+  .dish:nth-child(4){margin-top:0}
+}
+@media (max-width:560px){.dish-grid{grid-template-columns:1fr}.dish .ph,.dish:nth-child(1) .ph{aspect-ratio:4/3.4}}
+
+/* =========================================================
+   CARDÁPIO DO DIA (paper)
+   ========================================================= */
+.today-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(40px,6vw,100px);align-items:start}
+.today-head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.today-day{font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--clay)}
+.menu-list{list-style:none;margin-top:30px;border-top:1px solid var(--line-ink)}
+.menu-item{
+  position:relative;display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:18px;
+  padding:26px 6px;border-bottom:1px solid var(--line-ink);cursor:default;transition:padding .5s var(--ease)
+}
+.menu-item::before{content:"";position:absolute;inset:0;background:var(--ink);transform:scaleY(0);transform-origin:bottom;transition:transform .5s var(--ease);z-index:0}
+.menu-item > *{position:relative;z-index:1;transition:color .4s}
+.menu-item:hover{padding-left:22px;padding-right:22px}
+.menu-item:hover::before{transform:scaleY(1)}
+.menu-item:hover > *{color:var(--paper)}
+.menu-item:hover .mi-cat{color:var(--gold);border-color:rgba(201,160,99,.5)}
+.mi-ic{font-size:30px;color:var(--clay)}
+.mi-name{font-family:var(--serif);font-size:clamp(26px,2.6vw,38px);line-height:1.05}
+.mi-name small{display:block;font-family:var(--sans);font-size:13.5px;color:var(--muted-ink);margin-top:6px;line-height:1.4}
+.menu-item:hover .mi-name small{color:rgba(243,234,219,.6)}
+.mi-cat{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-ink);border:1px solid var(--line-ink);padding:6px 12px;border-radius:999px;white-space:nowrap}
+.follow{
+  position:fixed;left:0;top:0;width:260px;height:320px;border-radius:14px;overflow:hidden;pointer-events:none;z-index:40;
+  opacity:0;transform:translate(-50%,-50%) scale(.6);transition:opacity .35s,transform .5s var(--ease);background:#3a2414;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.45)
+}
+.follow.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.follow img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .35s}
+.follow img.on{opacity:1}
+.today-card{
+  position:sticky;top:120px;background:var(--ink);color:var(--paper);border-radius:22px;padding:clamp(28px,3vw,40px);overflow:hidden
+}
+.today-card::after{content:"";position:absolute;right:-80px;top:-80px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(201,160,99,.35),transparent 70%)}
+.today-card .ic.big{font-size:40px;color:var(--gold);margin-bottom:18px}
+.today-card h3{font-family:var(--serif);font-weight:500;font-size:clamp(32px,3vw,44px);line-height:1;margin-bottom:14px}
+.today-card p{color:var(--muted);font-size:15px;margin-bottom:26px}
+.today-card ul{list-style:none;display:grid;gap:12px;margin-bottom:30px;font-size:14.5px}
+.today-card li{display:flex;gap:10px;align-items:flex-start}
+.today-card li .ic{color:var(--gold);font-size:18px;margin-top:3px}
+.today-card .btn{width:100%;justify-content:center}
+@media (max-width:960px){.today-grid{grid-template-columns:1fr}.today-card{position:relative;top:0}}
+@media (max-width:560px){.menu-item{grid-template-columns:36px 1fr;padding:22px 2px}.mi-cat{grid-column:2;justify-self:start}.mi-ic{font-size:24px}}
+
+/* =========================================================
+   GALERIA HORIZONTAL
+   ========================================================= */
+.hs{position:relative;background:var(--bg)}
+.hs-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding-top:80px;gap:clamp(28px,4vh,48px)}
+.hs-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.hs-progress{width:200px;height:1px;background:var(--line);overflow:hidden}
+.hs-progress i{display:block;height:100%;background:var(--gold);transform-origin:left;transform:scaleX(0)}
+.hs-track{display:flex;gap:clamp(16px,2vw,28px);padding:0 var(--gutter);will-change:transform;width:max-content}
+.panel{position:relative;flex:none;width:clamp(280px,34vw,520px);height:clamp(360px,58vh,620px);border-radius:var(--r);overflow:hidden;background:linear-gradient(140deg,#5a3520,#1d140d)}
+.panel.wide{width:clamp(320px,52vw,820px)}
+.panel img{width:100%;height:100%;object-fit:cover;transform:scale(1.12)}
+.panel figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:26px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;
+  background:linear-gradient(180deg,transparent,rgba(20,16,12,.85))
+}
+.panel figcaption b{font-family:var(--serif);font-weight:500;font-size:clamp(26px,2.4vw,36px);line-height:1}
+.panel figcaption span{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.hs.static .hs-sticky{position:relative;height:auto;padding:clamp(80px,10vw,120px) 0}
+.hs.static .hs-track{overflow-x:auto;width:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-width:none}
+.hs.static .hs-track::-webkit-scrollbar{display:none}
+.hs.static .panel{scroll-snap-align:start;height:440px}
+.hs.static .panel img{transform:none}
+.hs.static .hs-progress{display:none}
+.credit{font-size:12px;color:var(--muted)}
+
+/* =========================================================
+   NÚMEROS + AVALIAÇÕES
+   ========================================================= */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:clamp(36px,5vw,64px) clamp(16px,2vw,28px);border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(56px,7vw,104px);line-height:1;color:var(--paper)}
+.stat b sup{font-size:.4em;color:var(--gold);vertical-align:top;margin-left:4px}
+.stat span{display:block;color:var(--muted);font-size:14px;margin-top:12px;max-width:220px}
+@media (max-width:900px){.stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.reviews{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,5vw,80px);align-items:center;margin-top:clamp(80px,10vw,140px)}
+.g-card{
+  background:var(--bg-2);border:1px solid var(--line);border-radius:24px;padding:clamp(30px,3.5vw,48px);position:relative;overflow:hidden
+}
+.g-card .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px;color:var(--muted);font-size:13px}
+.g-card .top .ic{font-size:26px;color:var(--paper)}
+.g-score{display:flex;align-items:flex-end;gap:18px}
+.g-score b{font-family:var(--serif);font-size:clamp(88px,10vw,140px);line-height:.8;font-weight:500}
+.stars{display:flex;gap:3px;color:var(--gold);font-size:22px;margin-bottom:10px}
+.g-card p{color:var(--muted);font-size:14px;margin:18px 0 26px}
+.quote-slot{
+  border:1px dashed rgba(243,234,219,.22);border-radius:22px;padding:clamp(26px,3vw,40px);display:grid;gap:16px;
+  background:repeating-linear-gradient(-45deg,rgba(243,234,219,.02) 0 12px,transparent 12px 24px)
+}
+.quote-slot .ic{font-size:44px;color:var(--gold)}
+.quote-slot h3{font-family:var(--serif);font-weight:500;font-size:clamp(28px,3vw,42px);line-height:1.05}
+.quote-slot p{color:var(--muted);font-size:15px}
+@media (max-width:960px){.reviews{grid-template-columns:1fr}}
+
+/* =========================================================
+   LOCALIZAÇÃO (paper)
+   ========================================================= */
+.loc-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,4vw,64px);align-items:stretch}
+.loc-info .h2{margin:20px 0 36px}
+.loc-rows{display:grid;border-top:1px solid var(--line-ink)}
+.loc-row{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:22px 0;border-bottom:1px solid var(--line-ink)}
+.loc-row .ic{font-size:26px;color:var(--clay)}
+.loc-row small{display:block;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-ink);margin-bottom:4px}
+.loc-row p{font-size:16px}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:4px 24px}
+.hours .today{color:var(--clay);font-weight:700}
+.hours .off{color:var(--muted-ink)}
+.loc-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.paper .btn-line{box-shadow:inset 0 0 0 1px rgba(26,19,13,.3);color:var(--ink)}
+.paper .btn-line::before{background:var(--ink)}
+.paper .btn-line:hover{color:var(--paper)}
+.map{position:relative;border-radius:24px;overflow:hidden;min-height:520px;background:var(--paper-2)}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) sepia(.35) contrast(1.05) brightness(.98)}
+.map-pin{
+  position:absolute;left:16px;bottom:16px;right:16px;max-width:340px;background:var(--ink);color:var(--paper);border-radius:16px;padding:18px 20px;
+  display:flex;gap:14px;align-items:center;box-shadow:0 20px 40px -20px rgba(0,0,0,.5)
+}
+.map-pin .ic{font-size:28px;color:var(--gold)}
+.map-pin b{display:block;font-family:var(--serif);font-size:22px;font-weight:500;line-height:1.1}
+.map-pin span{font-size:13px;color:var(--muted)}
+@media (max-width:960px){.loc-grid{grid-template-columns:1fr}.map{min-height:400px}}
+
+/* =========================================================
+   CTA FINAL + FOOTER
+   ========================================================= */
+.cta{position:relative;overflow:hidden;padding:clamp(120px,16vw,220px) 0;text-align:center;isolation:isolate}
+.cta-media{position:absolute;inset:-15% 0;z-index:-2;background:linear-gradient(140deg,#6b3a1e,#14100c)}
+.cta-media img{width:100%;height:100%;object-fit:cover}
+.cta::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(80% 90% at 50% 50%,rgba(20,16,12,.55),rgba(20,16,12,.92))}
+.cta .display{font-size:clamp(64px,12vw,190px)}
+.cta p{color:rgba(243,234,219,.75);font-size:clamp(16px,1.4vw,19px);margin:24px auto 44px;max-width:520px}
+.magnetic{display:inline-block}
+.cta .btn{height:68px;padding:0 38px;font-size:17px}
+
+.footer{background:var(--bg);border-top:1px solid var(--line);padding:clamp(64px,8vw,110px) 0 36px}
+.footer-big{font-family:var(--serif);font-size:clamp(56px,13vw,220px);line-height:.85;letter-spacing:-.03em;color:var(--paper);white-space:nowrap}
+.footer-big em{color:var(--gold)}
+.footer-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin:clamp(48px,6vw,80px) 0;padding-top:36px;border-top:1px solid var(--line)}
+.footer-cols h4{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.footer-cols p,.footer-cols a{color:var(--muted);font-size:15px}
+.footer-cols a:hover{color:var(--paper)}
+.footer-base{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+.footer-base a{color:var(--gold)}
+@media (max-width:760px){.footer-cols{grid-template-columns:1fr}}
+
+/* whatsapp flutuante */
+.fab{
+  position:fixed;right:clamp(14px,2vw,26px);bottom:clamp(14px,2vw,26px);z-index:45;width:62px;height:62px;border-radius:50%;
+  background:#1FAF5A;color:#fff;display:grid;place-items:center;font-size:30px;box-shadow:0 18px 30px -10px rgba(0,0,0,.5);
+  transform:scale(0);transition:transform .6s var(--ease)
+}
+.fab.show{transform:scale(1)}
+.fab::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #1FAF5A;animation:halo 2.4s var(--ease) infinite}
+@keyframes halo{from{transform:scale(1);opacity:.8}to{transform:scale(1.7);opacity:0}}
+.fab-tip{
+  position:absolute;right:76px;white-space:nowrap;background:var(--paper);color:var(--ink);font-size:13px;font-weight:600;
+  padding:9px 14px;border-radius:10px;opacity:0;transform:translateX(8px);transition:.4s var(--ease);pointer-events:none
+}
+.fab:hover .fab-tip{opacity:1;transform:none}
+
+/* cursor */
+.cursor,.cursor-dot{display:none}
+@media (hover:hover) and (pointer:fine){
+  .js .cursor{
+    display:block;position:fixed;left:0;top:0;width:38px;height:38px;border-radius:50%;border:1px solid rgba(201,160,99,.7);
+    pointer-events:none;z-index:300;opacity:0;transform:translate(-50%,-50%);transition:width .35s var(--ease),height .35s var(--ease),background .35s,border-color .35s;mix-blend-mode:difference
+  }
+  .js .moved .cursor,.js .moved .cursor-dot,.moved .cursor,.moved .cursor-dot{opacity:1}
+  .js .cursor.hov{width:72px;height:72px;background:rgba(243,234,219,.9);border-color:transparent}
+  .js .cursor-dot{display:block;position:fixed;left:0;top:0;opacity:0;width:5px;height:5px;border-radius:50%;background:var(--gold);pointer-events:none;z-index:301;transform:translate(-50%,-50%)}
+}
+
+/* acessibilidade: movimento reduzido */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js [data-reveal],.js [data-clip],.js .fade-in,.js .line > span{opacity:1!important;transform:none!important;clip-path:none!important}
+  .js [data-clip] img{transform:none!important}
+  .reveal-words .w{opacity:1}
+  .cursor,.cursor-dot,.follow{display:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <div class="loader-mark">Esquina Mineira</div>
+    <div class="loader-bar"><i></i></div>
+    <div class="loader-txt">Comida mineira · Asa Norte</div>
+  </div>
+</div>
+
+<div class="cursor" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="demo-bar">Protótipo exclusivo criado pela <b>K7 Sites</b> para o Restaurante Esquina Mineira · fotos ilustrativas e textos marcados como <b>exemplo</b> serão substituídos pelo conteúdo real</div>
+  <div class="wrap nav">
+    <a href="#inicio" class="brand" aria-label="Esquina Mineira, início">
+      <span class="brand-mark">EM</span>
+      <span class="brand-name">Esquina Mineira<small>Comida mineira · Brasília</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#casa">A casa</a>
+      <a href="#pratos">Pratos</a>
+      <a href="#hoje">Cardápio do dia</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#visite">Como chegar</a>
+    </nav>
+    <div class="nav-right">
+      <span class="status" data-status><i></i><span>Seg. a sáb. · almoço</span></span>
+      <a class="btn btn-zap" href="https://wa.me/5561999027373?text=Ol%C3%A1!%20Vi%20o%20site%20e%20queria%20saber%20o%20card%C3%A1pio%20de%20hoje." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M186.68,146.63l-32-16a6,6,0,0,0-6,.38L133,141.46A42.49,42.49,0,0,1,114.54,123L125,107.33a6,6,0,0,0,.38-6l-16-32A6,6,0,0,0,104,66a38,38,0,0,0-38,38,86.1,86.1,0,0,0,86,86,38,38,0,0,0,38-38A6,6,0,0,0,186.68,146.63ZM152,178a74.09,74.09,0,0,1-74-74,26,26,0,0,1,22.42-25.75l12.66,25.32-10.39,15.58a6,6,0,0,0-.54,5.63,54.43,54.43,0,0,0,29.07,29.07,6,6,0,0,0,5.63-.54l15.58-10.39,25.32,12.66A26,26,0,0,1,152,178ZM128,26A102,102,0,0,0,38.35,176.69L26.73,211.56a14,14,0,0,0,17.71,17.71l34.87-11.62A102,102,0,1,0,128,26Zm0,192a90,90,0,0,1-45.06-12.08,6.09,6.09,0,0,0-3-.81,6.2,6.2,0,0,0-1.9.31L40.65,217.88a2,2,0,0,1-2.53-2.53L50.58,178a6,6,0,0,0-.5-4.91A90,90,0,1,1,128,218Z"/></svg>WhatsApp</a>
+      <button class="burger" aria-label="Abrir menu" data-open-menu><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M222,128a6,6,0,0,1-6,6H40a6,6,0,0,1,0-12H216A6,6,0,0,1,222,128ZM40,70H216a6,6,0,0,0,0-12H40a6,6,0,0,0,0,12ZM216,186H40a6,6,0,0,0,0,12H216a6,6,0,0,0,0-12Z"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- Menu mobile -->
+<div class="mnav" id="mnav" aria-hidden="true">
+  <div class="mnav-top">
+    <span class="brand"><span class="brand-mark">EM</span><span class="brand-name">Esquina Mineira</span></span>
+    <button class="burger" style="display:grid" aria-label="Fechar menu" data-close-menu><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M204.24,195.76a6,6,0,1,1-8.48,8.48L128,136.49,60.24,204.24a6,6,0,0,1-8.48-8.48L119.51,128,51.76,60.24a6,6,0,0,1,8.48-8.48L128,119.51l67.76-67.75a6,6,0,0,1,8.48,8.48L136.49,128Z"/></svg></button>
+  </div>
+  <ul>
+    <li><a href="#casa" data-close-menu>A casa</a></li>
+    <li><a href="#pratos" data-close-menu>Pratos</a></li>
+    <li><a href="#hoje" data-close-menu>Cardápio do dia</a></li>
+    <li><a href="#avaliacoes" data-close-menu>Avaliações</a></li>
+    <li><a href="#visite" data-close-menu>Como chegar</a></li>
+  </ul>
+  <div class="mnav-foot">
+    <span>SCRN 704/705, Bloco D, Loja 42 · Asa Norte</span>
+    <a class="btn btn-zap" href="https://wa.me/5561999027373" target="_blank" rel="noopener" style="justify-content:center"><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M186.68,146.63l-32-16a6,6,0,0,0-6,.38L133,141.46A42.49,42.49,0,0,1,114.54,123L125,107.33a6,6,0,0,0,.38-6l-16-32A6,6,0,0,0,104,66a38,38,0,0,0-38,38,86.1,86.1,0,0,0,86,86,38,38,0,0,0,38-38A6,6,0,0,0,186.68,146.63ZM152,178a74.09,74.09,0,0,1-74-74,26,26,0,0,1,22.42-25.75l12.66,25.32-10.39,15.58a6,6,0,0,0-.54,5.63,54.43,54.43,0,0,0,29.07,29.07,6,6,0,0,0,5.63-.54l15.58-10.39,25.32,12.66A26,26,0,0,1,152,178ZM128,26A102,102,0,0,0,38.35,176.69L26.73,211.56a14,14,0,0,0,17.71,17.71l34.87-11.62A102,102,0,1,0,128,26Zm0,192a90,90,0,0,1-45.06-12.08,6.09,6.09,0,0,0-3-.81,6.2,6.2,0,0,0-1.9.31L40.65,217.88a2,2,0,0,1-2.53-2.53L50.58,178a6,6,0,0,0-.5-4.91A90,90,0,1,1,128,218Z"/></svg>Falar no WhatsApp</a>
+  </div>
+</div>
+
+<main id="inicio">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-media" data-parallax="0.25">
+      <img src="https://images.unsplash.com/photo-1612366753600-df819204bc65?auto=format&fit=crop&w=2200&q=75" alt="Panela de barro sobre fogão" fetchpriority="high">
+    </div>
+    <div class="grain"></div>
+    <div class="wrap hero-content">
+      <span class="eyebrow fade-in">704/705 Norte · Brasília</span>
+      <h1 class="display">
+        <span class="line"><span>A cozinha</span></span>
+        <span class="line"><span>de <em>Minas Gerais</em>,</span></span>
+        <span class="line"><span>na Asa Norte.</span></span>
+      </h1>
+      <div class="hero-row">
+        <div class="fade-in">
+          <p class="lead">Buffet de comida mineira de verdade, servido de segunda a sábado no coração do Plano Piloto. Tempero de casa, mesa farta e aquele cafezinho no final.</p>
+          <div class="hero-ctas">
+            <a href="#hoje" class="btn btn-gold">Ver o cardápio de hoje <span class="arrow"><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z"/></svg></span></a>
+            <a href="https://wa.me/5561999027373?text=Ol%C3%A1!%20Vi%20o%20site%20e%20queria%20saber%20o%20card%C3%A1pio%20de%20hoje." target="_blank" rel="noopener" class="btn btn-line"><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M186.68,146.63l-32-16a6,6,0,0,0-6,.38L133,141.46A42.49,42.49,0,0,1,114.54,123L125,107.33a6,6,0,0,0,.38-6l-16-32A6,6,0,0,0,104,66a38,38,0,0,0-38,38,86.1,86.1,0,0,0,86,86,38,38,0,0,0,38-38A6,6,0,0,0,186.68,146.63ZM152,178a74.09,74.09,0,0,1-74-74,26,26,0,0,1,22.42-25.75l12.66,25.32-10.39,15.58a6,6,0,0,0-.54,5.63,54.43,54.43,0,0,0,29.07,29.07,6,6,0,0,0,5.63-.54l15.58-10.39,25.32,12.66A26,26,0,0,1,152,178ZM128,26A102,102,0,0,0,38.35,176.69L26.73,211.56a14,14,0,0,0,17.71,17.71l34.87-11.62A102,102,0,1,0,128,26Zm0,192a90,90,0,0,1-45.06-12.08,6.09,6.09,0,0,0-3-.81,6.2,6.2,0,0,0-1.9.31L40.65,217.88a2,2,0,0,1-2.53-2.53L50.58,178a6,6,0,0,0-.5-4.91A90,90,0,1,1,128,218Z"/></svg>Chamar no WhatsApp</a>
+          </div>
+        </div>
+        <div class="scroll-cue fade-in"><span>Role</span><i></i></div>
+      </div>
+      <div class="hero-meta fade-in">
+        <div><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,26A102,102,0,1,0,230,128,102.12,102.12,0,0,0,128,26Zm0,192a90,90,0,1,1,90-90A90.1,90.1,0,0,1,128,218Zm62-90a6,6,0,0,1-6,6H128a6,6,0,0,1-6-6V72a6,6,0,0,1,12,0v50h50A6,6,0,0,1,190,128Z"/></svg><p><b>Almoço</b><span>Seg–sex 11h30–15h · Sáb até 16h</span></p></div>
+        <div><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,66a38,38,0,1,0,38,38A38,38,0,0,0,128,66Zm0,64a26,26,0,1,1,26-26A26,26,0,0,1,128,130Zm0-112a86.1,86.1,0,0,0-86,86c0,30.91,14.34,63.74,41.47,94.94a252.32,252.32,0,0,0,41.09,38,6,6,0,0,0,6.88,0,252.32,252.32,0,0,0,41.09-38c27.13-31.2,41.47-64,41.47-94.94A86.1,86.1,0,0,0,128,18Zm0,206.51C113,212.93,54,163.62,54,104a74,74,0,0,1,148,0C202,163.62,143,212.93,128,224.51Z"/></svg><p><b>704/705 Norte</b><span>Bloco D, Loja 42 · Asa Norte</span></p></div>
+        <div><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><p><b>4,7 no Google</b><span>855 avaliações de clientes</span></p></div>
+        <div><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M186.68,146.63l-32-16a6,6,0,0,0-6,.38L133,141.46A42.49,42.49,0,0,1,114.54,123L125,107.33a6,6,0,0,0,.38-6l-16-32A6,6,0,0,0,104,66a38,38,0,0,0-38,38,86.1,86.1,0,0,0,86,86,38,38,0,0,0,38-38A6,6,0,0,0,186.68,146.63ZM152,178a74.09,74.09,0,0,1-74-74,26,26,0,0,1,22.42-25.75l12.66,25.32-10.39,15.58a6,6,0,0,0-.54,5.63,54.43,54.43,0,0,0,29.07,29.07,6,6,0,0,0,5.63-.54l15.58-10.39,25.32,12.66A26,26,0,0,1,152,178ZM128,26A102,102,0,0,0,38.35,176.69L26.73,211.56a14,14,0,0,0,17.71,17.71l34.87-11.62A102,102,0,1,0,128,26Zm0,192a90,90,0,0,1-45.06-12.08,6.09,6.09,0,0,0-3-.81,6.2,6.2,0,0,0-1.9.31L40.65,217.88a2,2,0,0,1-2.53-2.53L50.58,178a6,6,0,0,0-.5-4.91A90,90,0,1,1,128,218Z"/></svg><p><b>(61) 99902-7373</b><span>Fale com a gente</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-group">
+        <span>Feijão tropeiro</span><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><span>Tutu de feijão</span><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><span>Pão de queijo</span><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><span>Frango com quiabo</span><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><span>Torresmo</span><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><span>Doce de leite</span><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><span>Café coado</span><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><span>Couve na manteiga</span><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg>
+      </div>
+      <div class="marquee-group">
+        <span>Feijão tropeiro</span><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><span>Tutu de feijão</span><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><span>Pão de queijo</span><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><span>Frango com quiabo</span><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><span>Torresmo</span><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><span>Doce de leite</span><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><span>Café coado</span><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><span>Couve na manteiga</span><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- A CASA -->
+  <section class="paper sec" id="casa">
+    <div class="wrap about-grid">
+      <div class="about-text">
+        <span class="eyebrow" data-reveal>A casa</span>
+        <h2 class="h2" data-reveal>Um pedaço de <em>Minas</em> no Plano Piloto.</h2>
+        <p class="reveal-words" data-words>Comida mineira do jeito que tem que ser: panela no fogo, tempero sem pressa e mesa farta. Aqui o almoço tem cheiro de casa de vó e sabor de domingo, de segunda a sábado.</p>
+        <div class="pillars">
+          <div class="pillar" data-reveal><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M90,48V16a6,6,0,0,1,12,0V48a6,6,0,0,1-12,0Zm38,6a6,6,0,0,0,6-6V16a6,6,0,0,0-12,0V48A6,6,0,0,0,128,54Zm32,0a6,6,0,0,0,6-6V16a6,6,0,0,0-12,0V48A6,6,0,0,0,160,54Zm91.6,46.8L222,123v61a30,30,0,0,1-30,30H64a30,30,0,0,1-30-30V123L4.4,100.8a6,6,0,0,1,7.2-9.6L34,108V80a6,6,0,0,1,6-6H216a6,6,0,0,1,6,6v28l22.4-16.8a6,6,0,0,1,7.2,9.6ZM210,86H46v98a18,18,0,0,0,18,18H192a18,18,0,0,0,18-18Z"/></svg><div><b>Buffet variado</b><span>Clássicos mineiros, saladas e sobremesas todos os dias.</span></div></div>
+          <div class="pillar" data-reveal><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M240,154H197.28a70.91,70.91,0,0,0,.72-10,70,70,0,0,0-140,0,70.91,70.91,0,0,0,.72,10H16a6,6,0,0,0,0,12H240a6,6,0,0,0,0-12ZM70,144a58,58,0,1,1,115.13,10H70.87A58.63,58.63,0,0,1,70,144Zm144,56a6,6,0,0,1-6,6H48a6,6,0,0,1,0-12H208A6,6,0,0,1,214,200ZM74.63,42.69a6,6,0,0,1,10.74-5.37l8,16a6,6,0,0,1-10.74,5.36Zm-56,50.63a6,6,0,0,1,8.05-2.69l16,8a6,6,0,0,1-5.36,10.74l-16-8A6,6,0,0,1,18.63,93.32Zm192,13.36a6,6,0,0,1,2.69-8.05l16-8a6,6,0,1,1,5.36,10.74l-16,8a6,6,0,0,1-8.05-2.69Zm-48-53.36,8-16a6,6,0,0,1,10.74,5.37l-8,16a6,6,0,1,1-10.74-5.36Z"/></svg><div><b>Seg. a sábado</b><span>Almoço a partir das 11h30, sem precisar reservar.</span></div></div>
+          <div class="pillar" data-reveal><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,66a38,38,0,1,0,38,38A38,38,0,0,0,128,66Zm0,64a26,26,0,1,1,26-26A26,26,0,0,1,128,130Zm0-112a86.1,86.1,0,0,0-86,86c0,30.91,14.34,63.74,41.47,94.94a252.32,252.32,0,0,0,41.09,38,6,6,0,0,0,6.88,0,252.32,252.32,0,0,0,41.09-38c27.13-31.2,41.47-64,41.47-94.94A86.1,86.1,0,0,0,128,18Zm0,206.51C113,212.93,54,163.62,54,104a74,74,0,0,1,148,0C202,163.62,143,212.93,128,224.51Z"/></svg><div><b>Asa Norte</b><span>Na comercial da 704/705, fácil de chegar.</span></div></div>
+        </div>
+        <p style="margin-top:28px"><span class="badge-demo" style="color:var(--muted-ink)">Texto de exemplo</span></p>
+      </div>
+      <div class="about-media">
+        <figure class="ph ph-a" data-clip data-parallax="-0.06">
+          <img src="https://images.unsplash.com/photo-1670819917685-f1040e76b9b7?auto=format&fit=crop&w=1200&q=75" alt="Salão de restaurante com madeira" loading="lazy">
+        </figure>
+        <figure class="ph ph-b" data-clip data-parallax="0.08">
+          <img src="https://images.unsplash.com/photo-1784217066854-f2d84aa49532?auto=format&fit=crop&w=800&q=75" alt="Pão de queijo quentinho" loading="lazy">
+        </figure>
+        <div class="seal" aria-hidden="true">
+          <svg class="ring" viewBox="0 0 132 132"><defs><path id="circ" d="M66,66 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0"/></defs><text font-family="Manrope, sans-serif" font-size="10.5" font-weight="700" letter-spacing="3.2" fill="#C9A063"><textPath href="#circ">COMIDA MINEIRA · ASA NORTE · BRASÍLIA ·</textPath></text></svg>
+          <svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M90,48V16a6,6,0,0,1,12,0V48a6,6,0,0,1-12,0Zm38,6a6,6,0,0,0,6-6V16a6,6,0,0,0-12,0V48A6,6,0,0,0,128,54Zm32,0a6,6,0,0,0,6-6V16a6,6,0,0,0-12,0V48A6,6,0,0,0,160,54Zm91.6,46.8L222,123v61a30,30,0,0,1-30,30H64a30,30,0,0,1-30-30V123L4.4,100.8a6,6,0,0,1,7.2-9.6L34,108V80a6,6,0,0,1,6-6H216a6,6,0,0,1,6,6v28l22.4-16.8a6,6,0,0,1,7.2,9.6ZM210,86H46v98a18,18,0,0,0,18,18H192a18,18,0,0,0,18-18Z"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRATOS -->
+  <section class="sec" id="pratos">
+    <div class="wrap">
+      <div class="dishes-head">
+        <div>
+          <span class="eyebrow" data-reveal>Clássicos do buffet</span>
+          <h2 class="h2" data-reveal>Sabores que <em>atravessam</em><br>a serra.</h2>
+        </div>
+        <div data-reveal>
+          <p class="lead">Uma seleção do que costuma aparecer no nosso buffet. Pratos que mineiro reconhece de longe, e quem não é passa a reconhecer.</p>
+          <p style="margin-top:16px"><span class="badge-demo" style="color:var(--gold)">Pratos e fotos de exemplo</span></p>
+        </div>
+      </div>
+
+      <div class="dish-grid">
+        <article class="dish" data-reveal>
+          <figure class="ph" data-clip>
+            <span class="dish-tag">O mais pedido</span>
+            <img src="https://images.unsplash.com/photo-1698917467449-08bcd1d9014b?auto=format&fit=crop&w=1600&q=75" alt="Feijão com carnes" loading="lazy">
+          </figure>
+          <div class="dish-info"><div><h3>Feijão tropeiro</h3><p>Feijão com farinha de mandioca, linguiça, torresmo, ovo e couve. O símbolo da cozinha mineira.</p></div><span class="dish-num">01</span></div>
+        </article>
+        <article class="dish" data-reveal>
+          <figure class="ph" data-clip>
+            <img src="https://images.unsplash.com/photo-1694579740719-0e601c5d2437?auto=format&fit=crop&w=1000&q=75" alt="Frango ensopado na panela" loading="lazy">
+          </figure>
+          <div class="dish-info"><div><h3>Frango com quiabo</h3><p>Ensopado devagar, servido com angu cremoso.</p></div><span class="dish-num">02</span></div>
+        </article>
+        <article class="dish" data-reveal>
+          <figure class="ph" data-clip>
+            <img src="https://images.unsplash.com/photo-1602873520153-ec56ca3c205b?auto=format&fit=crop&w=900&q=75" alt="Panela com comida caseira" loading="lazy">
+          </figure>
+          <div class="dish-info"><div><h3>Tutu de feijão</h3><p>Cremoso, com bacon e cheiro-verde.</p></div><span class="dish-num">03</span></div>
+        </article>
+        <article class="dish" data-reveal>
+          <figure class="ph" data-clip>
+            <img src="https://images.unsplash.com/photo-1784217066854-f2d84aa49532?auto=format&fit=crop&w=900&q=75" alt="Pão de queijo" loading="lazy">
+          </figure>
+          <div class="dish-info"><div><h3>Pão de queijo</h3><p>Casquinha crocante, miolo puxando.</p></div><span class="dish-num">04</span></div>
+        </article>
+        <article class="dish" data-reveal>
+          <figure class="ph" data-clip>
+            <img src="https://images.unsplash.com/photo-1787788629783-3505851503b3?auto=format&fit=crop&w=900&q=75" alt="Doces caseiros com goiabada" loading="lazy">
+          </figure>
+          <div class="dish-info"><div><h3>Doces de Minas</h3><p>Doce de leite, goiabada com queijo e companhia.</p></div><span class="dish-num">05</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARDÁPIO DO DIA -->
+  <section class="paper sec" id="hoje">
+    <div class="wrap today-grid">
+      <div>
+        <div class="today-head">
+          <span class="eyebrow" data-reveal>Cardápio do dia</span>
+          <span class="badge-demo" style="color:var(--muted-ink)">Exemplo</span>
+        </div>
+        <h2 class="h2" data-reveal>Hoje no <em>buffet</em>.</h2>
+        <p class="today-day" style="margin-top:18px" data-today data-reveal>Hoje</p>
+        <ul class="menu-list">
+          <li class="menu-item" data-img="https://images.unsplash.com/photo-1705088293214-7494366cce01?auto=format&fit=crop&w=600&q=70" data-reveal>
+            <span class="mi-ic"><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M90,48V16a6,6,0,0,1,12,0V48a6,6,0,0,1-12,0Zm38,6a6,6,0,0,0,6-6V16a6,6,0,0,0-12,0V48A6,6,0,0,0,128,54Zm32,0a6,6,0,0,0,6-6V16a6,6,0,0,0-12,0V48A6,6,0,0,0,160,54Zm91.6,46.8L222,123v61a30,30,0,0,1-30,30H64a30,30,0,0,1-30-30V123L4.4,100.8a6,6,0,0,1,7.2-9.6L34,108V80a6,6,0,0,1,6-6H216a6,6,0,0,1,6,6v28l22.4-16.8a6,6,0,0,1,7.2,9.6ZM210,86H46v98a18,18,0,0,0,18,18H192a18,18,0,0,0,18-18Z"/></svg></span>
+            <span class="mi-name">Costelinha com mandioca<small>Assada lentamente, mandioca cozida na manteiga</small></span>
+            <span class="mi-cat">Prato quente</span>
+          </li>
+          <li class="menu-item" data-img="https://images.unsplash.com/photo-1602873520153-ec56ca3c205b?auto=format&fit=crop&w=600&q=70" data-reveal>
+            <span class="mi-ic"><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,106H213.77a86,86,0,0,0-171.54,0H32a6,6,0,0,0-6,6,102.35,102.35,0,0,0,56,91.06V208a14,14,0,0,0,14,14h64a14,14,0,0,0,14-14v-4.94A102.35,102.35,0,0,0,230,112,6,6,0,0,0,224,106ZM174.24,54.29a74.15,74.15,0,0,1,8.15,7.6A85.89,85.89,0,0,0,130.84,106H97.34A74.24,74.24,0,0,1,168,54C170.08,54,172.17,54.11,174.24,54.29ZM190.3,72.14A73.49,73.49,0,0,1,201.74,106H144.48A73.89,73.89,0,0,1,190.3,72.14ZM128,38a73.68,73.68,0,0,1,26.8,5,86.32,86.32,0,0,0-69.94,63H54.26A74.09,74.09,0,0,1,128,38Zm37.5,155.84a6,6,0,0,0-3.5,5.46V208a2,2,0,0,1-2,2H96a2,2,0,0,1-2-2v-8.7a6,6,0,0,0-3.5-5.46A90.35,90.35,0,0,1,38.2,118H217.8A90.35,90.35,0,0,1,165.5,193.84Z"/></svg></span>
+            <span class="mi-name">Tutu de feijão<small>Com linguiça, ovo cozido e couve</small></span>
+            <span class="mi-cat">Prato quente</span>
+          </li>
+          <li class="menu-item" data-img="https://images.unsplash.com/photo-1694579740719-0e601c5d2437?auto=format&fit=crop&w=600&q=70" data-reveal>
+            <span class="mi-ic"><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M181.92,153A55.58,55.58,0,0,1,137,197.92a7,7,0,0,1-1,.08,6,6,0,0,1-1-11.92c17.38-2.92,32.13-17.68,35.08-35.08a6,6,0,1,1,11.84,2ZM214,144a86,86,0,0,1-172,0c0-27.47,10.85-55.61,32.25-83.64a6,6,0,0,1,9-.67l26.34,25.56,23.09-63.31a6,6,0,0,1,9.47-2.56C163.72,37.33,214,85.4,214,144Zm-12,0c0-48.4-38.65-89.84-61.07-109.8L117.64,98.06a6,6,0,0,1-9.82,2.25l-28-27.22C62.67,97.13,54,121,54,144a74,74,0,0,0,148,0Z"/></svg></span>
+            <span class="mi-name">Frango com quiabo<small>Acompanha angu</small></span>
+            <span class="mi-cat">Prato quente</span>
+          </li>
+          <li class="menu-item" data-img="https://images.unsplash.com/photo-1742171046278-343caa08ecb2?auto=format&fit=crop&w=600&q=70" data-reveal>
+            <span class="mi-ic"><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M245.63,48A6,6,0,0,0,240,42.37c-51-3-91.88,12.42-109.35,41.26-11.63,19.21-11.38,42.68.53,65a69.42,69.42,0,0,0-15.48,30.59L95.9,159.41c8.15-16.1,8.1-32.95-.32-46.85C82.77,91.41,53,80.07,15.9,82.27a6,6,0,0,0-5.63,5.64C8.09,125,19.41,154.77,40.56,167.58A43.75,43.75,0,0,0,63.44,174a53.17,53.17,0,0,0,24-6L114,194.48V224a6,6,0,0,0,12,0V194.51A57.55,57.55,0,0,1,139.76,157c11.21,5.93,22.72,8.91,33.82,8.91a58.9,58.9,0,0,0,30.79-8.57C233.21,139.89,248.63,99,245.63,48ZM46.78,157.31C30.47,147.44,21.39,124,22,94c30-.65,53.41,8.44,63.28,24.75,5.68,9.37,6.16,20.38,1.54,31.59L60.24,123.75a6,6,0,0,0-8.49,8.49l26.62,26.61C67.16,163.47,56.15,163,46.78,157.31Zm151.38-10.22c-14.74,8.92-32.14,9.18-49.67.9l55.76-55.75a6,6,0,0,0-8.49-8.49L140,139.51c-8.28-17.53-8-34.93.9-49.66,14.52-24,49.06-37.18,93-35.75C235.33,98,222.14,132.56,198.16,147.09Z"/></svg></span>
+            <span class="mi-name">Saladas da estação<small>Folhas, legumes e vinagrete</small></span>
+            <span class="mi-cat">Frios</span>
+          </li>
+          <li class="menu-item" data-img="https://images.unsplash.com/photo-1787788629783-3505851503b3?auto=format&fit=crop&w=600&q=70" data-reveal>
+            <span class="mi-ic"><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M229.12,142.65a22.43,22.43,0,0,0-19.55-3.88l-4.32,1C227,119.55,238,99.51,238,80c0-25.36-20.39-46-45.46-46A45.51,45.51,0,0,0,156,52a45.51,45.51,0,0,0-36.54-18C94.39,34,74,54.64,74,80c0,11.38,3.63,22.49,11.29,34.36a29.73,29.73,0,0,0-16.56,8.43L45.52,146H16A14,14,0,0,0,2,160v40a14,14,0,0,0,14,14H120a6,6,0,0,0,1.46-.18l64-16a7.16,7.16,0,0,0,.89-.3L225.17,181l.33-.15a22.6,22.6,0,0,0,3.62-38.18ZM119.46,46a33.16,33.16,0,0,1,31,20.28,6,6,0,0,0,11.1,0,33.16,33.16,0,0,1,31-20.28C210.68,46,226,61.57,226,80c0,20.24-16.18,43-46.8,65.75l-14.87,3.42A26,26,0,0,0,140,114H99.67C90.36,101.67,86,90.81,86,80,86,61.57,101.32,46,119.46,46ZM14,200V160a2,2,0,0,1,2-2H42v44H16A2,2,0,0,1,14,200Zm206.28-30-38.2,16.27L119.26,202H54V154.49l23.21-23.22A17.88,17.88,0,0,1,89.94,126H140a14,14,0,0,1,0,28H112a6,6,0,0,0,0,12h32a6,6,0,0,0,1.34-.15l67-15.41.24-.06A10.6,10.6,0,0,1,220.28,170Z"/></svg></span>
+            <span class="mi-name">Doce de leite com queijo<small>A sobremesa da casa</small></span>
+            <span class="mi-cat">Sobremesa</span>
+          </li>
+        </ul>
+      </div>
+      <aside class="today-card" data-reveal>
+        <svg class="ic big" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,34H182V24a6,6,0,0,0-12,0V34H86V24a6,6,0,0,0-12,0V34H48A14,14,0,0,0,34,48V208a14,14,0,0,0,14,14H208a14,14,0,0,0,14-14V48A14,14,0,0,0,208,34ZM48,46H74V56a6,6,0,0,0,12,0V46h84V56a6,6,0,0,0,12,0V46h26a2,2,0,0,1,2,2V82H46V48A2,2,0,0,1,48,46ZM208,210H48a2,2,0,0,1-2-2V94H210V208A2,2,0,0,1,208,210Zm-39.76-86.24a6,6,0,0,1,0,8.48l-48,48a6,6,0,0,1-8.48,0l-24-24a6,6,0,0,1,8.48-8.48L116,167.51l43.76-43.75A6,6,0,0,1,168.24,123.76Z"/></svg>
+        <h3>Saiba o que tem antes de sair.</h3>
+        <p>O cardápio do dia fica aqui no site e aparece no Google. Você decide o almoço no caminho.</p>
+        <ul>
+          <li><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,26A102,102,0,1,0,230,128,102.12,102.12,0,0,0,128,26Zm0,192a90,90,0,1,1,90-90A90.1,90.1,0,0,1,128,218Zm62-90a6,6,0,0,1-6,6H128a6,6,0,0,1-6-6V72a6,6,0,0,1,12,0v50h50A6,6,0,0,1,190,128Z"/></svg><span>Atualizado toda manhã pelo próprio restaurante</span></li>
+          <li><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M186.68,146.63l-32-16a6,6,0,0,0-6,.38L133,141.46A42.49,42.49,0,0,1,114.54,123L125,107.33a6,6,0,0,0,.38-6l-16-32A6,6,0,0,0,104,66a38,38,0,0,0-38,38,86.1,86.1,0,0,0,86,86,38,38,0,0,0,38-38A6,6,0,0,0,186.68,146.63ZM152,178a74.09,74.09,0,0,1-74-74,26,26,0,0,1,22.42-25.75l12.66,25.32-10.39,15.58a6,6,0,0,0-.54,5.63,54.43,54.43,0,0,0,29.07,29.07,6,6,0,0,0,5.63-.54l15.58-10.39,25.32,12.66A26,26,0,0,1,152,178ZM128,26A102,102,0,0,0,38.35,176.69L26.73,211.56a14,14,0,0,0,17.71,17.71l34.87-11.62A102,102,0,1,0,128,26Zm0,192a90,90,0,0,1-45.06-12.08,6.09,6.09,0,0,0-3-.81,6.2,6.2,0,0,0-1.9.31L40.65,217.88a2,2,0,0,1-2.53-2.53L50.58,178a6,6,0,0,0-.5-4.91A90,90,0,1,1,128,218Z"/></svg><span>Dúvidas? A mensagem já sai pronta no WhatsApp</span></li>
+          <li><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M236.65,108.1,60.72,42.83l-.13,0A14,14,0,0,0,42.78,60.59s0,.09,0,.13L108.1,236.65A13.77,13.77,0,0,0,121.28,246h.26a13.8,13.8,0,0,0,13.14-9.88l0-.15,22.14-79.1L236,134.73l.15,0a14,14,0,0,0,.53-26.58Zm-4,15.1-82.26,23a6,6,0,0,0-4.16,4.16l-23,82.26a1.85,1.85,0,0,1-1.86,1.36,1.82,1.82,0,0,1-1.92-1.35.61.61,0,0,0,0-.12L54.11,56.62a2,2,0,0,1,2.51-2.51l175.91,65.26.12,0a2,2,0,0,1,0,3.79Z"/></svg><span>Rota até a 704/705 Norte com um toque</span></li>
+        </ul>
+        <a class="btn btn-gold" href="https://wa.me/5561999027373?text=Ol%C3%A1!%20Qual%20o%20card%C3%A1pio%20de%20hoje%3F" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M186.68,146.63l-32-16a6,6,0,0,0-6,.38L133,141.46A42.49,42.49,0,0,1,114.54,123L125,107.33a6,6,0,0,0,.38-6l-16-32A6,6,0,0,0,104,66a38,38,0,0,0-38,38,86.1,86.1,0,0,0,86,86,38,38,0,0,0,38-38A6,6,0,0,0,186.68,146.63ZM152,178a74.09,74.09,0,0,1-74-74,26,26,0,0,1,22.42-25.75l12.66,25.32-10.39,15.58a6,6,0,0,0-.54,5.63,54.43,54.43,0,0,0,29.07,29.07,6,6,0,0,0,5.63-.54l15.58-10.39,25.32,12.66A26,26,0,0,1,152,178ZM128,26A102,102,0,0,0,38.35,176.69L26.73,211.56a14,14,0,0,0,17.71,17.71l34.87-11.62A102,102,0,1,0,128,26Zm0,192a90,90,0,0,1-45.06-12.08,6.09,6.09,0,0,0-3-.81,6.2,6.2,0,0,0-1.9.31L40.65,217.88a2,2,0,0,1-2.53-2.53L50.58,178a6,6,0,0,0-.5-4.91A90,90,0,1,1,128,218Z"/></svg>Perguntar o cardápio</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- GALERIA HORIZONTAL -->
+  <section class="hs" id="galeria">
+    <div class="hs-sticky">
+      <div class="wrap hs-head">
+        <div>
+          <span class="eyebrow">Galeria</span>
+          <h2 class="h2" style="margin-top:18px">Da panela <em>pra mesa</em>.</h2>
+        </div>
+        <div style="display:grid;gap:12px;justify-items:end">
+          <div class="hs-progress"><i></i></div>
+          <span class="credit">Fotos ilustrativas · Unsplash</span>
+        </div>
+      </div>
+      <div class="hs-track">
+        <figure class="panel wide"><img src="https://images.unsplash.com/photo-1742171046278-343caa08ecb2?auto=format&fit=crop&w=1600&q=72" alt="Buffet com variedade de pratos" loading="lazy"><figcaption><b>O buffet</b><span>Todo dia</span></figcaption></figure>
+        <figure class="panel"><img src="https://images.unsplash.com/photo-1762999001283-3148b4bfc0ab?auto=format&fit=crop&w=1000&q=72" alt="Panela no fogo" loading="lazy"><figcaption><b>No fogo</b><span>Sem pressa</span></figcaption></figure>
+        <figure class="panel"><img src="https://images.unsplash.com/photo-1705088293214-7494366cce01?auto=format&fit=crop&w=1000&q=72" alt="Prato com carne, arroz e feijão" loading="lazy"><figcaption><b>Prato cheio</b><span>Almoço</span></figcaption></figure>
+        <figure class="panel wide"><img src="https://images.unsplash.com/photo-1685719730785-256ba3187893?auto=format&fit=crop&w=1600&q=72" alt="Salão com paredes de tijolo e cadeiras de madeira" loading="lazy"><figcaption><b>O salão</b><span>704/705 Norte</span></figcaption></figure>
+        <figure class="panel"><img src="https://images.unsplash.com/photo-1578000222189-177ae0d103e6?auto=format&fit=crop&w=1000&q=72" alt="Café sendo servido" loading="lazy"><figcaption><b>Cafezinho</b><span>Pra fechar</span></figcaption></figure>
+        <figure class="panel"><img src="https://images.unsplash.com/photo-1559141680-d0bd7bc5af84?auto=format&fit=crop&w=1000&q=72" alt="Pães de queijo no prato" loading="lazy"><figcaption><b>Pão de queijo</b><span>Quentinho</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- NÚMEROS + AVALIAÇÕES -->
+  <section class="sec" id="avaliacoes" style="padding-top:clamp(40px,6vw,80px)">
+    <div class="wrap">
+      <div class="stats" data-reveal>
+        <div class="stat"><b><span data-count="4.7" data-dec="1">0</span><sup>★</sup></b><span>Nota média no Google</span></div>
+        <div class="stat"><b><span data-count="855">0</span>+</b><span>Avaliações de clientes no Google</span></div>
+        <div class="stat"><b><span data-count="6">0</span></b><span>Dias por semana servindo almoço</span></div>
+        <div class="stat"><b>11h<span data-count="30" data-pad="2">00</span></b><span>Abrimos para o almoço, de segunda a sábado</span></div>
+      </div>
+
+      <div class="reviews">
+        <div class="g-card" data-reveal>
+          <div class="top"><span>Avaliações no Google</span><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M222,128a94,94,0,1,1-21.49-59.82,6,6,0,1,1-9.25,7.64A82,82,0,1,0,209.78,134H128a6,6,0,0,1,0-12h88A6,6,0,0,1,222,128Z"/></svg></div>
+          <div class="g-score">
+            <b>4,7</b>
+            <div><div class="stars"><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg></div><span style="color:var(--muted);font-size:14px">855 avaliações</span></div>
+          </div>
+          <p>Dados públicos do Google, consultados em 26/11/2026.</p>
+          <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&query=Restaurante%20Esquina%20Mineira%20704%20Norte%20Bras%C3%ADlia" target="_blank" rel="noopener">Ler avaliações <span class="arrow"><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M198,64V168a6,6,0,0,1-12,0V78.48L68.24,196.24a6,6,0,0,1-8.48-8.48L177.52,70H88a6,6,0,0,1,0-12H192A6,6,0,0,1,198,64Z"/></svg></span></a>
+        </div>
+        <div data-reveal>
+          <span class="eyebrow">Quem almoça, volta</span>
+          <h2 class="h2" style="margin:18px 0 30px">A melhor propaganda é o <em>cliente</em>.</h2>
+          <div class="quote-slot">
+            <svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M116,72v88a48.05,48.05,0,0,1-48,48,8,8,0,0,1,0-16,32,32,0,0,0,32-32v-8H40a16,16,0,0,1-16-16V72A16,16,0,0,1,40,56h60A16,16,0,0,1,116,72ZM216,56H156a16,16,0,0,0-16,16v64a16,16,0,0,0,16,16h60v8a32,32,0,0,1-32,32,8,8,0,0,0,0,16,48.05,48.05,0,0,0,48-48V72A16,16,0,0,0,216,56Z"/></svg>
+            <h3>Espaço para depoimentos reais</h3>
+            <p>Aqui entram 3 avaliações escolhidas pelo restaurante, com autorização do cliente, ou as avaliações do Google exibidas automaticamente no site.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISITE -->
+  <section class="paper sec" id="visite">
+    <div class="wrap loc-grid">
+      <div class="loc-info">
+        <span class="eyebrow" data-reveal>Visite</span>
+        <h2 class="h2" data-reveal>A gente te <em>espera</em> na esquina.</h2>
+        <div class="loc-rows">
+          <div class="loc-row" data-reveal><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,66a38,38,0,1,0,38,38A38,38,0,0,0,128,66Zm0,64a26,26,0,1,1,26-26A26,26,0,0,1,128,130Zm0-112a86.1,86.1,0,0,0-86,86c0,30.91,14.34,63.74,41.47,94.94a252.32,252.32,0,0,0,41.09,38,6,6,0,0,0,6.88,0,252.32,252.32,0,0,0,41.09-38c27.13-31.2,41.47-64,41.47-94.94A86.1,86.1,0,0,0,128,18Zm0,206.51C113,212.93,54,163.62,54,104a74,74,0,0,1,148,0C202,163.62,143,212.93,128,224.51Z"/></svg><div><small>Endereço</small><p>SCRN 704/705, Bloco D, Loja 42<br>Asa Norte, Brasília - DF · 70730-640</p></div></div>
+          <div class="loc-row" data-reveal><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,26A102,102,0,1,0,230,128,102.12,102.12,0,0,0,128,26Zm0,192a90,90,0,1,1,90-90A90.1,90.1,0,0,1,128,218Zm62-90a6,6,0,0,1-6,6H128a6,6,0,0,1-6-6V72a6,6,0,0,1,12,0v50h50A6,6,0,0,1,190,128Z"/></svg><div><small>Horário do almoço</small>
+            <p class="hours" data-hours>
+              <span data-d="1-5">Segunda a sexta</span><span data-d="1-5">11h30 às 15h</span>
+              <span data-d="6">Sábado</span><span data-d="6">11h30 às 16h</span>
+              <span data-d="0" class="off">Domingo</span><span data-d="0" class="off">Fechado</span>
+            </p></div></div>
+          <div class="loc-row" data-reveal><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M221.59,160.3l-47.24-21.17a14,14,0,0,0-13.28,1.22,4.81,4.81,0,0,0-.56.42l-24.69,21a1.88,1.88,0,0,1-1.68.06c-15.87-7.66-32.31-24-40-39.65a1.91,1.91,0,0,1,0-1.68l21.07-25a6.13,6.13,0,0,0,.42-.58,14,14,0,0,0,1.12-13.27L95.73,34.49a14,14,0,0,0-14.56-8.38A54.24,54.24,0,0,0,34,80c0,78.3,63.7,142,142,142a54.25,54.25,0,0,0,53.89-47.17A14,14,0,0,0,221.59,160.3ZM176,210C104.32,210,46,151.68,46,80A42.23,42.23,0,0,1,82.67,38h.23a2,2,0,0,1,1.84,1.31l21.1,47.11a2,2,0,0,1,0,1.67L84.73,113.15a4.73,4.73,0,0,0-.43.57,14,14,0,0,0-.91,13.73c8.87,18.16,27.17,36.32,45.53,45.19a14,14,0,0,0,13.77-1c.19-.13.38-.27.56-.42l24.68-21a1.92,1.92,0,0,1,1.6-.1l47.25,21.17a2,2,0,0,1,1.21,2A42.24,42.24,0,0,1,176,210Z"/></svg><div><small>Contato</small><p>(61) 99902-7373</p></div></div>
+        </div>
+        <div class="loc-ctas" data-reveal>
+          <a class="btn btn-ink" href="https://www.google.com/maps/dir/?api=1&destination=-15.775352,-47.8905097" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M236.65,108.1,60.72,42.83l-.13,0A14,14,0,0,0,42.78,60.59s0,.09,0,.13L108.1,236.65A13.77,13.77,0,0,0,121.28,246h.26a13.8,13.8,0,0,0,13.14-9.88l0-.15,22.14-79.1L236,134.73l.15,0a14,14,0,0,0,.53-26.58Zm-4,15.1-82.26,23a6,6,0,0,0-4.16,4.16l-23,82.26a1.85,1.85,0,0,1-1.86,1.36,1.82,1.82,0,0,1-1.92-1.35.61.61,0,0,0,0-.12L54.11,56.62a2,2,0,0,1,2.51-2.51l175.91,65.26.12,0a2,2,0,0,1,0,3.79Z"/></svg>Traçar rota</a>
+          <a class="btn btn-line" href="https://wa.me/5561999027373" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M186.68,146.63l-32-16a6,6,0,0,0-6,.38L133,141.46A42.49,42.49,0,0,1,114.54,123L125,107.33a6,6,0,0,0,.38-6l-16-32A6,6,0,0,0,104,66a38,38,0,0,0-38,38,86.1,86.1,0,0,0,86,86,38,38,0,0,0,38-38A6,6,0,0,0,186.68,146.63ZM152,178a74.09,74.09,0,0,1-74-74,26,26,0,0,1,22.42-25.75l12.66,25.32-10.39,15.58a6,6,0,0,0-.54,5.63,54.43,54.43,0,0,0,29.07,29.07,6,6,0,0,0,5.63-.54l15.58-10.39,25.32,12.66A26,26,0,0,1,152,178ZM128,26A102,102,0,0,0,38.35,176.69L26.73,211.56a14,14,0,0,0,17.71,17.71l34.87-11.62A102,102,0,1,0,128,26Zm0,192a90,90,0,0,1-45.06-12.08,6.09,6.09,0,0,0-3-.81,6.2,6.2,0,0,0-1.9.31L40.65,217.88a2,2,0,0,1-2.53-2.53L50.58,178a6,6,0,0,0-.5-4.91A90,90,0,1,1,128,218Z"/></svg>WhatsApp</a>
+        </div>
+      </div>
+      <div class="map" data-clip>
+        <iframe title="Mapa do Restaurante Esquina Mineira" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=-15.775352,-47.8905097&z=17&output=embed"></iframe>
+        <div class="map-pin"><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,16a88.1,88.1,0,0,0-88,88c0,75.3,80,132.17,83.41,134.55a8,8,0,0,0,9.18,0C136,236.17,216,179.3,216,104A88.1,88.1,0,0,0,128,16Zm0,56a32,32,0,1,1-32,32A32,32,0,0,1,128,72Z"/></svg><div><b>Esquina Mineira</b><span>704/705 Norte · Bloco D</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-media" data-parallax="0.2">
+      <img src="https://images.unsplash.com/photo-1762999001283-3148b4bfc0ab?auto=format&fit=crop&w=2000&q=70" alt="" loading="lazy">
+    </div>
+    <div class="wrap">
+      <span class="eyebrow" data-reveal>Bateu a fome?</span>
+      <h2 class="display" data-reveal style="margin-top:22px">Bora <em>almoçar</em>.</h2>
+      <p data-reveal>Chama no WhatsApp pra saber o que tem hoje, ou simplesmente aparece. A panela já está no fogo.</p>
+      <div class="magnetic" data-magnetic data-reveal>
+        <a class="btn btn-gold" href="https://wa.me/5561999027373?text=Ol%C3%A1!%20Vi%20o%20site%20e%20queria%20saber%20o%20card%C3%A1pio%20de%20hoje." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M186.68,146.63l-32-16a6,6,0,0,0-6,.38L133,141.46A42.49,42.49,0,0,1,114.54,123L125,107.33a6,6,0,0,0,.38-6l-16-32A6,6,0,0,0,104,66a38,38,0,0,0-38,38,86.1,86.1,0,0,0,86,86,38,38,0,0,0,38-38A6,6,0,0,0,186.68,146.63ZM152,178a74.09,74.09,0,0,1-74-74,26,26,0,0,1,22.42-25.75l12.66,25.32-10.39,15.58a6,6,0,0,0-.54,5.63,54.43,54.43,0,0,0,29.07,29.07,6,6,0,0,0,5.63-.54l15.58-10.39,25.32,12.66A26,26,0,0,1,152,178ZM128,26A102,102,0,0,0,38.35,176.69L26.73,211.56a14,14,0,0,0,17.71,17.71l34.87-11.62A102,102,0,1,0,128,26Zm0,192a90,90,0,0,1-45.06-12.08,6.09,6.09,0,0,0-3-.81,6.2,6.2,0,0,0-1.9.31L40.65,217.88a2,2,0,0,1-2.53-2.53L50.58,178a6,6,0,0,0-.5-4.91A90,90,0,1,1,128,218Z"/></svg>Chamar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-big" data-reveal>Esquina <em>Mineira</em></div>
+    <div class="footer-cols">
+      <div><h4>Endereço</h4><p>SCRN 704/705, Bloco D, Loja 42<br>Asa Norte · Brasília - DF</p></div>
+      <div><h4>Almoço</h4><p>Seg. a sex. · 11h30 às 15h<br>Sábado · 11h30 às 16h</p></div>
+      <div><h4>Contato</h4><p><a href="https://wa.me/5561999027373" target="_blank" rel="noopener">WhatsApp (61) 99902-7373</a></p></div>
+    </div>
+    <div class="footer-base">
+      <span>© 2026 Restaurante Esquina Mineira</span>
+      <span>Fotos ilustrativas: Unsplash · Protótipo por <a href="https://www.k7sites.com.br/" target="_blank" rel="noreferrer">K7 Sites</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/5561999027373?text=Ol%C3%A1!%20Vi%20o%20site%20e%20queria%20saber%20o%20card%C3%A1pio%20de%20hoje." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg class="ic" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M152.58,145.23l23,11.48A24,24,0,0,1,152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155ZM232,128A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-40,24a8,8,0,0,0-4.42-7.16l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88A40,40,0,0,0,192,152Z"/></svg><span class="fab-tip">Qual o cardápio de hoje?</span>
+</a>
+
+<div class="follow" aria-hidden="true"></div>
+
+<script>/*! lenis 1.1.13 | MIT */
+!function(t,i){"object"==typeof exports&&"undefined"!=typeof module?module.exports=i():"function"==typeof define&&define.amd?define(i):(t="undefined"!=typeof globalThis?globalThis:t||self).Lenis=i()}(this,(function(){"use strict";function clamp(t,i,e){return Math.max(t,Math.min(i,e))}class Animate{constructor(){this.isRunning=!1,this.value=0,this.from=0,this.to=0,this.currentTime=0}advance(t){var i;if(!this.isRunning)return;let e=!1;if(this.duration&&this.easing){this.currentTime+=t;const i=clamp(0,this.currentTime/this.duration,1);e=i>=1;const s=e?1:this.easing(i);this.value=this.from+(this.to-this.from)*s}else this.lerp?(this.value=function damp(t,i,e,s){return function lerp(t,i,e){return(1-e)*t+e*i}(t,i,1-Math.exp(-e*s))}(this.value,this.to,60*this.lerp,t),Math.round(this.value)===this.to&&(this.value=this.to,e=!0)):(this.value=this.to,e=!0);e&&this.stop(),null===(i=this.onUpdate)||void 0===i||i.call(this,this.value,e)}stop(){this.isRunning=!1}fromTo(t,i,{lerp:e,duration:s,easing:o,onStart:n,onUpdate:l}){this.from=this.value=t,this.to=i,this.lerp=e,this.duration=s,this.easing=o,this.currentTime=0,this.isRunning=!0,null==n||n(),this.onUpdate=l}}class Dimensions{constructor(t,i,{autoResize:e=!0,debounce:s=250}={}){this.wrapper=t,this.content=i,this.width=0,this.height=0,this.scrollHeight=0,this.scrollWidth=0,this.resize=()=>{this.onWrapperResize(),this.onContentResize()},this.onWrapperResize=()=>{this.wrapper instanceof Window?(this.width=window.innerWidth,this.height=window.innerHeight):(this.width=this.wrapper.clientWidth,this.height=this.wrapper.clientHeight)},this.onContentResize=()=>{this.wrapper instanceof Window?(this.scrollHeight=this.content.scrollHeight,this.scrollWidth=this.content.scrollWidth):(this.scrollHeight=this.wrapper.scrollHeight,this.scrollWidth=this.wrapper.scrollWidth)},e&&(this.debouncedResize=function debounce(t,i){let e;return function(...s){let o=this;clearTimeout(e),e=setTimeout((()=>{e=void 0,t.apply(o,s)}),i)}}(this.resize,s),this.wrapper instanceof Window?window.addEventListener("resize",this.debouncedResize,!1):(this.wrapperResizeObserver=new ResizeObserver(this.debouncedResize),this.wrapperResizeObserver.observe(this.wrapper)),this.contentResizeObserver=new ResizeObserver(this.debouncedResize),this.contentResizeObserver.observe(this.content)),this.resize()}destroy(){var t,i;null===(t=this.wrapperResizeObserver)||void 0===t||t.disconnect(),null===(i=this.contentResizeObserver)||void 0===i||i.disconnect(),this.wrapper===window&&this.debouncedResize&&window.removeEventListener("resize",this.debouncedResize,!1)}get limit(){return{x:this.scrollWidth-this.width,y:this.scrollHeight-this.height}}}class Emitter{constructor(){this.events={}}emit(t,...i){var e;let s=this.events[t]||[];for(let t=0,o=s.length;t<o;t++)null===(e=s[t])||void 0===e||e.call(s,...i)}on(t,i){var e;return(null===(e=this.events[t])||void 0===e?void 0:e.push(i))||(this.events[t]=[i]),()=>{var e;this.events[t]=null===(e=this.events[t])||void 0===e?void 0:e.filter((t=>i!==t))}}off(t,i){var e;this.events[t]=null===(e=this.events[t])||void 0===e?void 0:e.filter((t=>i!==t))}destroy(){this.events={}}}const t=100/6,i={passive:!1};class VirtualScroll{constructor(e,s={wheelMultiplier:1,touchMultiplier:1}){this.element=e,this.options=s,this.touchStart={x:0,y:0},this.lastDelta={x:0,y:0},this.window={width:0,height:0},this.emitter=new Emitter,this.onTouchStart=t=>{const{clientX:i,clientY:e}=t.targetTouches?t.targetTouches[0]:t;this.touchStart.x=i,this.touchStart.y=e,this.lastDelta={x:0,y:0},this.emitter.emit("scroll",{deltaX:0,deltaY:0,event:t})},this.onTouchMove=t=>{const{clientX:i,clientY:e}=t.targetTouches?t.targetTouches[0]:t,s=-(i-this.touchStart.x)*this.options.touchMultiplier,o=-(e-this.touchStart.y)*this.options.touchMultiplier;this.touchStart.x=i,this.touchStart.y=e,this.lastDelta={x:s,y:o},this.emitter.emit("scroll",{deltaX:s,deltaY:o,event:t})},this.onTouchEnd=t=>{this.emitter.emit("scroll",{deltaX:this.lastDelta.x,deltaY:this.lastDelta.y,event:t})},this.onWheel=i=>{let{deltaX:e,deltaY:s,deltaMode:o}=i;e*=1===o?t:2===o?this.window.width:1,s*=1===o?t:2===o?this.window.height:1,e*=this.options.wheelMultiplier,s*=this.options.wheelMultiplier,this.emitter.emit("scroll",{deltaX:e,deltaY:s,event:i})},this.onWindowResize=()=>{this.window={width:window.innerWidth,height:window.innerHeight}},window.addEventListener("resize",this.onWindowResize,!1),this.onWindowResize(),this.element.addEventListener("wheel",this.onWheel,i),this.element.addEventListener("touchstart",this.onTouchStart,i),this.element.addEventListener("touchmove",this.onTouchMove,i),this.element.addEventListener("touchend",this.onTouchEnd,i)}on(t,i){return this.emitter.on(t,i)}destroy(){this.emitter.destroy(),window.removeEventListener("resize",this.onWindowResize,!1),this.element.removeEventListener("wheel",this.onWheel,i),this.element.removeEventListener("touchstart",this.onTouchStart,i),this.element.removeEventListener("touchmove",this.onTouchMove,i),this.element.removeEventListener("touchend",this.onTouchEnd,i)}}return class Lenis{constructor({wrapper:t=window,content:i=document.documentElement,eventsTarget:e=t,smoothWheel:s=!0,syncTouch:o=!1,syncTouchLerp:n=.075,touchInertiaMultiplier:l=35,duration:r,easing:h=(t=>Math.min(1,1.001-Math.pow(2,-10*t))),lerp:a=.1,infinite:c=!1,orientation:u="vertical",gestureOrientation:d="vertical",touchMultiplier:p=1,wheelMultiplier:m=1,autoResize:v=!0,prevent:g,virtualScroll:S,__experimental__naiveDimensions:w=!1}={}){this._isScrolling=!1,this._isStopped=!1,this._isLocked=!1,this._preventNextNativeScrollEvent=!1,this._resetVelocityTimeout=null,this.time=0,this.userData={},this.lastVelocity=0,this.velocity=0,this.direction=0,this.animate=new Animate,this.emitter=new Emitter,this.onPointerDown=t=>{1===t.button&&this.reset()},this.onVirtualScroll=t=>{if("function"==typeof this.options.virtualScroll&&!1===this.options.virtualScroll(t))return;const{deltaX:i,deltaY:e,event:s}=t;if(this.emitter.emit("virtual-scroll",{deltaX:i,deltaY:e,event:s}),s.ctrlKey)return;const o=s.type.includes("touch"),n=s.type.includes("wheel");this.isTouching="touchstart"===s.type||"touchmove"===s.type;if(this.options.syncTouch&&o&&"touchstart"===s.type&&!this.isStopped&&!this.isLocked)return void this.reset();const l=0===i&&0===e,r="vertical"===this.options.gestureOrientation&&0===e||"horizontal"===this.options.gestureOrientation&&0===i;if(l||r)return;let h=s.composedPath();h=h.slice(0,h.indexOf(this.rootElement));const a=this.options.prevent;if(h.find((t=>{var i,e,s,l,r;return t instanceof HTMLElement&&("function"==typeof a&&(null==a?void 0:a(t))||(null===(i=t.hasAttribute)||void 0===i?void 0:i.call(t,"data-lenis-prevent"))||o&&(null===(e=t.hasAttribute)||void 0===e?void 0:e.call(t,"data-lenis-prevent-touch"))||n&&(null===(s=t.hasAttribute)||void 0===s?void 0:s.call(t,"data-lenis-prevent-wheel"))||(null===(l=t.classList)||void 0===l?void 0:l.contains("lenis"))&&!(null===(r=t.classList)||void 0===r?void 0:r.contains("lenis-stopped")))})))return;if(this.isStopped||this.isLocked)return void s.preventDefault();if(!(this.options.syncTouch&&o||this.options.smoothWheel&&n))return this.isScrolling="native",void this.animate.stop();s.preventDefault();let c=e;"both"===this.options.gestureOrientation?c=Math.abs(e)>Math.abs(i)?e:i:"horizontal"===this.options.gestureOrientation&&(c=i);const u=o&&this.options.syncTouch,d=o&&"touchend"===s.type&&Math.abs(c)>5;d&&(c=this.velocity*this.options.touchInertiaMultiplier),this.scrollTo(this.targetScroll+c,Object.assign({programmatic:!1},u?{lerp:d?this.options.syncTouchLerp:1}:{lerp:this.options.lerp,duration:this.options.duration,easing:this.options.easing}))},this.onNativeScroll=()=>{if(null!==this._resetVelocityTimeout&&(clearTimeout(this._resetVelocityTimeout),this._resetVelocityTimeout=null),this._preventNextNativeScrollEvent)this._preventNextNativeScrollEvent=!1;else if(!1===this.isScrolling||"native"===this.isScrolling){const t=this.animatedScroll;this.animatedScroll=this.targetScroll=this.actualScroll,this.lastVelocity=this.velocity,this.velocity=this.animatedScroll-t,this.direction=Math.sign(this.animatedScroll-t),this.isScrolling="native",this.emit(),0!==this.velocity&&(this._resetVelocityTimeout=setTimeout((()=>{this.lastVelocity=this.velocity,this.velocity=0,this.isScrolling=!1,this.emit()}),400))}},window.lenisVersion="1.1.13",t&&t!==document.documentElement&&t!==document.body||(t=window),this.options={wrapper:t,content:i,eventsTarget:e,smoothWheel:s,syncTouch:o,syncTouchLerp:n,touchInertiaMultiplier:l,duration:r,easing:h,lerp:a,infinite:c,gestureOrientation:d,orientation:u,touchMultiplier:p,wheelMultiplier:m,autoResize:v,prevent:g,virtualScroll:S,__experimental__naiveDimensions:w},this.dimensions=new Dimensions(t,i,{autoResize:v}),this.updateClassName(),this.targetScroll=this.animatedScroll=this.actualScroll,this.options.wrapper.addEventListener("scroll",this.onNativeScroll,!1),this.options.wrapper.addEventListener("pointerdown",this.onPointerDown,!1),this.virtualScroll=new VirtualScroll(e,{touchMultiplier:p,wheelMultiplier:m}),this.virtualScroll.on("scroll",this.onVirtualScroll)}destroy(){this.emitter.destroy(),this.options.wrapper.removeEventListener("scroll",this.onNativeScroll,!1),this.options.wrapper.removeEventListener("pointerdown",this.onPointerDown,!1),this.virtualScroll.destroy(),this.dimensions.destroy(),this.cleanUpClassName()}on(t,i){return this.emitter.on(t,i)}off(t,i){return this.emitter.off(t,i)}setScroll(t){this.isHorizontal?this.rootElement.scrollLeft=t:this.rootElement.scrollTop=t}resize(){this.dimensions.resize(),this.animatedScroll=this.targetScroll=this.actualScroll,this.emit()}emit(){this.emitter.emit("scroll",this)}reset(){this.isLocked=!1,this.isScrolling=!1,this.animatedScroll=this.targetScroll=this.actualScroll,this.lastVelocity=this.velocity=0,this.animate.stop()}start(){this.isStopped&&(this.isStopped=!1,this.reset())}stop(){this.isStopped||(this.isStopped=!0,this.animate.stop(),this.reset())}raf(t){const i=t-(this.time||t);this.time=t,this.animate.advance(.001*i)}scrollTo(t,{offset:i=0,immediate:e=!1,lock:s=!1,duration:o=this.options.duration,easing:n=this.options.easing,lerp:l=this.options.lerp,onStart:r,onComplete:h,force:a=!1,programmatic:c=!0,userData:u}={}){if(!this.isStopped&&!this.isLocked||a){if("string"==typeof t&&["top","left","start"].includes(t))t=0;else if("string"==typeof t&&["bottom","right","end"].includes(t))t=this.limit;else{let e;if("string"==typeof t?e=document.querySelector(t):t instanceof HTMLElement&&(null==t?void 0:t.nodeType)&&(e=t),e){if(this.options.wrapper!==window){const t=this.rootElement.getBoundingClientRect();i-=this.isHorizontal?t.left:t.top}const s=e.getBoundingClientRect();t=(this.isHorizontal?s.left:s.top)+this.animatedScroll}}if("number"==typeof t){if(t+=i,t=Math.round(t),this.options.infinite?c&&(this.targetScroll=this.animatedScroll=this.scroll):t=clamp(0,t,this.limit),t===this.targetScroll)return null==r||r(this),void(null==h||h(this));if(this.userData=null!=u?u:{},e)return this.animatedScroll=this.targetScroll=t,this.setScroll(this.scroll),this.reset(),this.preventNextNativeScrollEvent(),this.emit(),null==h||h(this),void(this.userData={});c||(this.targetScroll=t),this.animate.fromTo(this.animatedScroll,t,{duration:o,easing:n,lerp:l,onStart:()=>{s&&(this.isLocked=!0),this.isScrolling="smooth",null==r||r(this)},onUpdate:(t,i)=>{this.isScrolling="smooth",this.lastVelocity=this.velocity,this.velocity=t-this.animatedScroll,this.direction=Math.sign(this.velocity),this.animatedScroll=t,this.setScroll(this.scroll),c&&(this.targetScroll=t),i||this.emit(),i&&(this.reset(),this.emit(),null==h||h(this),this.userData={},this.preventNextNativeScrollEvent())}})}}}preventNextNativeScrollEvent(){this._preventNextNativeScrollEvent=!0,requestAnimationFrame((()=>{this._preventNextNativeScrollEvent=!1}))}get rootElement(){return this.options.wrapper===window?document.documentElement:this.options.wrapper}get limit(){return this.options.__experimental__naiveDimensions?this.isHorizontal?this.rootElement.scrollWidth-this.rootElement.clientWidth:this.rootElement.scrollHeight-this.rootElement.clientHeight:this.dimensions.limit[this.isHorizontal?"x":"y"]}get isHorizontal(){return"horizontal"===this.options.orientation}get actualScroll(){return this.isHorizontal?this.rootElement.scrollLeft:this.rootElement.scrollTop}get scroll(){return this.options.infinite?function modulo(t,i){return(t%i+i)%i}(this.animatedScroll,this.limit):this.animatedScroll}get progress(){return 0===this.limit?1:this.scroll/this.limit}get isScrolling(){return this._isScrolling}set isScrolling(t){this._isScrolling!==t&&(this._isScrolling=t,this.updateClassName())}get isStopped(){return this._isStopped}set isStopped(t){this._isStopped!==t&&(this._isStopped=t,this.updateClassName())}get isLocked(){return this._isLocked}set isLocked(t){this._isLocked!==t&&(this._isLocked=t,this.updateClassName())}get isSmooth(){return"smooth"===this.isScrolling}get className(){let t="lenis";return this.isStopped&&(t+=" lenis-stopped"),this.isLocked&&(t+=" lenis-locked"),this.isScrolling&&(t+=" lenis-scrolling"),"smooth"===this.isScrolling&&(t+=" lenis-smooth"),t}updateClassName(){this.cleanUpClassName(),this.rootElement.className=`${this.rootElement.className} ${this.className}`.trim()}cleanUpClassName(){this.rootElement.className=this.rootElement.className.replace(/lenis(-\w+)?/g,"").trim()}}}));</script>
+<script>
+(function(){
+  'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var root = document.documentElement;
+
+  /* ---------- fallback de imagem: mantém o gradiente se a foto falhar ---------- */
+  document.querySelectorAll('img').forEach(function(img){
+    img.addEventListener('error', function(){ img.style.opacity = 0; });
+  });
+
+  /* ---------- loader ---------- */
+  var loader = document.querySelector('.loader');
+  var started = performance.now();
+  function finishLoad(){
+    var wait = Math.max(0, 1300 - (performance.now() - started));
+    setTimeout(function(){
+      if(loader) loader.classList.add('done');
+      root.classList.add('loaded');
+      setTimeout(function(){ if(loader) loader.remove(); }, 1200);
+    }, reduce ? 0 : wait);
+  }
+  if(document.readyState === 'complete') finishLoad(); else window.addEventListener('load', finishLoad);
+  setTimeout(function(){ if(!root.classList.contains('loaded')) finishLoad(); }, 3500);
+
+  /* ---------- smooth scroll ---------- */
+  var lenis = null;
+  if(!reduce && window.Lenis){
+    lenis = new Lenis({ lerp: .09, smoothWheel: true });
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href');
+      if(id.length < 2) return;
+      var t = document.querySelector(id);
+      if(!t) return;
+      e.preventDefault();
+      closeMenu();
+      if(lenis) lenis.scrollTo(t, { offset: -70, duration: 1.4 });
+      else t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+    });
+  });
+
+  /* ---------- menu mobile ---------- */
+  var mnav = document.getElementById('mnav');
+  function openMenu(){ mnav.classList.add('open'); mnav.setAttribute('aria-hidden','false'); if(lenis) lenis.stop(); }
+  function closeMenu(){ if(!mnav.classList.contains('open')) return; mnav.classList.remove('open'); mnav.setAttribute('aria-hidden','true'); if(lenis) lenis.start(); }
+  document.querySelectorAll('[data-open-menu]').forEach(function(b){ b.addEventListener('click', openMenu); });
+  document.querySelectorAll('[data-close-menu]').forEach(function(b){ b.addEventListener('click', closeMenu); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
+
+  /* ---------- status aberto/fechado (horário de Brasília) ---------- */
+  var now = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' }));
+  var day = now.getDay(), mins = now.getHours() * 60 + now.getMinutes();
+  var close = day === 6 ? 960 : 900;
+  var isOpen = day >= 1 && day <= 6 && mins >= 690 && mins < close;
+  var dias = ['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado'];
+  document.querySelectorAll('[data-status]').forEach(function(s){
+    if(isOpen){ s.classList.add('open'); s.lastElementChild.textContent = 'Aberto agora · até ' + (day === 6 ? '16h' : '15h'); }
+    else { s.lastElementChild.textContent = (day === 0 || (day === 6 && mins >= close)) ? 'Abre segunda, 11h30' : (mins < 690 ? 'Abre hoje às 11h30' : 'Abre amanhã, 11h30'); }
+  });
+  var td = document.querySelector('[data-today]');
+  if(td) td.textContent = dias[day] + ' · ' + now.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long' });
+  document.querySelectorAll('[data-hours] [data-d]').forEach(function(el){
+    var d = el.getAttribute('data-d');
+    var hit = d === '1-5' ? (day >= 1 && day <= 5) : (+d === day);
+    if(hit && d !== '0') el.classList.add('today');
+  });
+
+  /* ---------- revelações on-scroll ---------- */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: .14, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('[data-reveal],[data-clip]').forEach(function(el, i){
+    var sib = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
+    if(el.hasAttribute('data-reveal')) el.style.transitionDelay = Math.min(sib, 5) * 0.07 + 's';
+    io.observe(el);
+  });
+
+  /* ---------- contadores ---------- */
+  var cio = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(!en.isIntersecting) return;
+      var el = en.target, end = parseFloat(el.dataset.count), dec = +(el.dataset.dec || 0), t0 = null, dur = 1800;
+      function step(t){
+        if(!t0) t0 = t;
+        var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 4);
+        var v = (end * e).toFixed(dec);
+        var r = Math.round(end * e);
+        el.textContent = dec ? v.replace('.', ',') : (el.dataset.pad ? String(r).padStart(+el.dataset.pad, '0') : r.toLocaleString('pt-BR'));
+        if(p < 1) requestAnimationFrame(step);
+      }
+      if(reduce){ el.textContent = dec ? String(end).replace('.', ',') : el.dataset.count; }
+      else requestAnimationFrame(step);
+      cio.unobserve(el);
+    });
+  }, { threshold: .6 });
+  document.querySelectorAll('[data-count]').forEach(function(el){ cio.observe(el); });
+
+  /* ---------- texto que acende com o scroll ---------- */
+  var wordsEl = document.querySelector('[data-words]');
+  var words = [];
+  if(wordsEl){
+    wordsEl.innerHTML = wordsEl.textContent.trim().split(/\s+/).map(function(w){ return '<span class="w">' + w + '</span>'; }).join(' ');
+    words = wordsEl.querySelectorAll('.w');
+  }
+
+  /* ---------- galeria horizontal ---------- */
+  var hs = document.querySelector('.hs'), track = hs && hs.querySelector('.hs-track'), bar = hs && hs.querySelector('.hs-progress i');
+  var hsOn = false, hsImgs = track ? Array.prototype.slice.call(track.querySelectorAll('img')) : [];
+  function setupHS(){
+    if(!hs) return;
+    hsOn = !reduce && window.innerWidth > 900;
+    hs.classList.toggle('static', !hsOn);
+    if(hsOn){
+      var dist = track.scrollWidth - window.innerWidth;
+      hs.style.height = (dist + window.innerHeight) + 'px';
+      hs.dataset.dist = dist;
+    } else { hs.style.height = ''; track.style.transform = ''; }
+  }
+  setupHS();
+  window.addEventListener('resize', setupHS);
+  window.addEventListener('load', setupHS);
+
+  /* ---------- header + fab ---------- */
+  var header = document.getElementById('header'), fab = document.querySelector('.fab'), lastY = 0;
+
+  /* ---------- parallax ---------- */
+  var px = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
+
+  function onScroll(){
+    var y = window.scrollY, vh = window.innerHeight;
+    header.classList.toggle('solid', y > 40);
+    header.classList.toggle('hide', y > 400 && y > lastY && !mnav.classList.contains('open'));
+    fab.classList.toggle('show', y > vh * .6);
+    lastY = y;
+
+    if(reduce) return;
+    px.forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if(r.bottom < -200 || r.top > vh + 200) return;
+      var c = (r.top + r.height / 2 - vh / 2);
+      el.style.transform = 'translate3d(0,' + (c * parseFloat(el.dataset.parallax) * -1).toFixed(1) + 'px,0)';
+    });
+
+    if(words.length){
+      var wr = wordsEl.getBoundingClientRect();
+      var prog = Math.min(1, Math.max(0, (vh * .85 - wr.top) / (wr.height + vh * .35)));
+      var n = Math.round(prog * words.length);
+      for(var i = 0; i < words.length; i++) words[i].classList.toggle('on', i < n);
+    }
+
+    if(hsOn){
+      var hr = hs.getBoundingClientRect(), dist = +hs.dataset.dist;
+      var p = Math.min(1, Math.max(0, -hr.top / dist));
+      track.style.transform = 'translate3d(' + (-p * dist).toFixed(1) + 'px,0,0)';
+      bar.style.transform = 'scaleX(' + p + ')';
+      hsImgs.forEach(function(img, i){
+        img.style.transform = 'scale(1.12) translate3d(' + ((p - i / 6) * 40).toFixed(1) + 'px,0,0)';
+      });
+    }
+  }
+
+  /* ---------- cursor, imagem que segue e botão magnético ---------- */
+  var mx = innerWidth / 2, my = innerHeight / 2, cx = mx, cy = my, fx = mx, fy = my;
+  var cursor = document.querySelector('.cursor'), dot = document.querySelector('.cursor-dot');
+  var follow = document.querySelector('.follow');
+  if(fine && !reduce){
+    window.addEventListener('mousemove', function(e){ document.body.classList.add('moved'); mx = e.clientX; my = e.clientY; dot.style.transform = 'translate(' + mx + 'px,' + my + 'px) translate(-50%,-50%)'; });
+    document.querySelectorAll('a,button,.menu-item,.dish').forEach(function(el){
+      el.addEventListener('mouseenter', function(){ cursor.classList.add('hov'); });
+      el.addEventListener('mouseleave', function(){ cursor.classList.remove('hov'); });
+    });
+    var imgs = {};
+    document.querySelectorAll('.menu-item[data-img]').forEach(function(li){
+      var src = li.dataset.img;
+      if(!imgs[src]){ var im = new Image(); im.onerror = function(){ this.style.display = 'none'; }; im.src = src; im.alt = ''; follow.appendChild(im); imgs[src] = im; }
+      li.addEventListener('mouseenter', function(){
+        follow.classList.add('on');
+        Object.keys(imgs).forEach(function(k){ imgs[k].classList.toggle('on', k === src); });
+      });
+      li.addEventListener('mouseleave', function(){ follow.classList.remove('on'); });
+    });
+    document.querySelectorAll('[data-magnetic]').forEach(function(m){
+      m.addEventListener('mousemove', function(e){
+        var r = m.getBoundingClientRect();
+        var x = (e.clientX - r.left - r.width / 2) * .35, y = (e.clientY - r.top - r.height / 2) * .45;
+        m.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+      });
+      m.addEventListener('mouseleave', function(){ m.style.transition = 'transform .7s cubic-bezier(.22,1,.36,1)'; m.style.transform = ''; setTimeout(function(){ m.style.transition = ''; }, 700); });
+    });
+  }
+
+  function loop(t){
+    if(lenis) lenis.raf(t);
+    if(fine && !reduce){
+      cx += (mx - cx) * .16; cy += (my - cy) * .16;
+      cursor.style.transform = 'translate(' + cx + 'px,' + cy + 'px) translate(-50%,-50%)';
+      fx += (mx - fx) * .1; fy += (my - fy) * .1;
+      var rot = Math.max(-12, Math.min(12, (mx - fx) * .08));
+      follow.style.left = fx + 'px'; follow.style.top = fy + 'px';
+      follow.style.rotate = rot + 'deg';
+    }
+    onScroll();
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
